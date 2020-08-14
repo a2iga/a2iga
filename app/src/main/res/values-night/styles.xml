@@ -3,7 +3,7 @@
 
 	<style 
 		name="AppTheme" 
-		parent="@android:style/Theme.DeviceDefault"/>
+		parent="@android:style/Theme.DeviceDefault.Dialog"/>
 
 </resources>
 
