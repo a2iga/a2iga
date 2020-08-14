@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	
+	<string name="apply_changes">Применить</string>
+	<string name="run_assistant_app">Запустить</string>
+	<string name="app_info">О программе</string>
+	<string name="app_settings">Настройки</string>
+	
+	<string name="settings_input_package_name_hint">Имя пакета</string>
+	<string name="settings_input_package_name_desc">Введите имя пакета приложения, которое будет запускаться жестом вызова ассистента:</string>
 	
 </resources>
