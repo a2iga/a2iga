@@ -42,6 +42,10 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
 			case R.id.applyChanges:
 				saveAssistantPackageName();
 				break;
+				
+			case R.id.runAssistantApp:
+				runAssistantApp();
+				break;
 			
 			default: break;
 			
@@ -55,8 +59,6 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
 		sharedPrefsEditor.putString(PREF_ASSISTANT_PACKAGE_NAME, inputAssistantPackageName.getText().toString());
 		sharedPrefsEditor.commit();
 		
-		Toast.makeText(this, "Text saved", Toast.LENGTH_SHORT).show();
-		
 	}
 	
 	private void loadAssistantPackageName() {
@@ -65,14 +67,19 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
 		
 		inputAssistantPackageName.setText(assistantPackageName);
 		
-		Toast.makeText(this, "Text saved" + assistantPackageName, Toast.LENGTH_SHORT).show();
+	}
+	
+	private void runAssistantApp() {
+		
+		//
 		
 	}
 
-    @Override
+    /*@Override
     protected void onDestroy() {
         super.onDestroy();
         saveAssistantPackageName();
-    }
+		Toast.makeText(this, "A2IGA: Changes saved!", Toast.LENGTH_LONG).show();
+    }*/
 	
 }

@@ -1,25 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="fill_parent"
-	android:layout_height="fill_parent"
 	android:orientation="vertical"
-	android:gravity="center"
-	android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
-	android:paddingStart="?android:attr/listPreferredItemPaddingStart">
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content">
 
-	<EditText
-		android:layout_width="match_parent"
-		android:ems="10"
+	<LinearLayout
+		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
-		android:id="@+id/inputAssistantPackageName"/>
+		android:orientation="vertical"
+		android:gravity="left|center"
+		android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
+		android:paddingStart="?android:attr/listPreferredItemPaddingStart"
+		android:layout_marginBottom="10dp">
 
-	<Button
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="@string/settings_input_package_name_desc"/>
+
+		<EditText
+			android:layout_width="match_parent"
+			android:ems="10"
+			android:layout_height="wrap_content"
+			android:id="@+id/inputAssistantPackageName"
+			android:layout_marginTop="10dp"
+			android:layout_marginBottom="10dp"
+			android:hint="@string/settings_input_package_name_hint"/>
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			style="?android:attr/buttonBarStyle"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal">
+
+			<Button
+				android:layout_width="wrap_content"
+				style="?android:attr/buttonBarButtonStyle"
+				android:layout_height="wrap_content"
+				android:text="@string/apply_changes"
+				android:id="@+id/applyChanges"
+				android:layout_weight="1.0"/>
+
+			<Button
+				android:layout_width="wrap_content"
+				style="?android:attr/buttonBarButtonStyle"
+				android:layout_height="wrap_content"
+				android:text="@string/run_assistant_app"
+				android:id="@+id/runAssistantApp"
+				android:layout_weight="1.0"/>
+
+		</LinearLayout>
+
+	</LinearLayout>
+
+	<FrameLayout
+		android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
+		android:paddingStart="?android:attr/listPreferredItemPaddingStart"
 		android:layout_width="match_parent"
-		style="?android:attr/buttonBarButtonStyle"
 		android:layout_height="wrap_content"
-		android:text="Bar Button"
-		android:id="@+id/applyChanges"/>
+		android:background="#ff1a73e8"
+		android:paddingTop="14dp"
+		android:paddingBottom="14dp">
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/app_info"
+			android:textAppearance="?android:attr/textAppearanceSmall"
+			android:textColor="#FFFFFFFF"
+			android:layout_gravity="left|center"
+			android:gravity="left|center"/>
+
+		<ImageView
+			android:src="@drawable/ic_info"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="right|center"/>
+
+	</FrameLayout>
 
 </LinearLayout>
 
