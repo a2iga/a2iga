@@ -20,5 +20,6 @@ android {
 }
 
 dependencies {
+	implementation 'android.arch.core:runtime:1.1.1'
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 }
