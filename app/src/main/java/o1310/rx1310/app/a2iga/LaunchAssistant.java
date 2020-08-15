@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.widget.Toast;
 
 public class LaunchAssistant extends Activity {
 
@@ -22,20 +23,31 @@ public class LaunchAssistant extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
 		sharedPrefs = getSharedPreferences("a2iga_settings", MODE_PRIVATE);
+		
 		String assistantPackageName = sharedPrefs.getString(PREF_ASSISTANT_PACKAGE_NAME, "");
-		startNewActivity(assistantPackageName);
+		
+		startAssistantApp(assistantPackageName);
+		
+		this.finish();
+		
 	}
 	
-	public void startNewActivity(String packageName) {
-		Intent intent = getPackageManager().getLaunchIntentForPackage(packageName);
-		if (intent == null) {
-			// Bring user to the market or let them choose an app?
-			intent = new Intent(Intent.ACTION_VIEW);
-			intent.setData(Uri.parse("market://details?id=" + packageName));
+	public void startAssistantApp(String packageName) {
+		
+		Intent i = getPackageManager().getLaunchIntentForPackage(packageName);
+
+		if (i == null) {
+			i = new Intent(Intent.ACTION_VIEW);
+			Toast.makeText(this, R.string.message_app_not_found, Toast.LENGTH_LONG).show();
+			i.setData(Uri.parse("market://details?id=" + packageName));
 		}
-		intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-		startActivity(intent);
+
+		i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+		startActivity(i);
+		
 	}
 	
 }

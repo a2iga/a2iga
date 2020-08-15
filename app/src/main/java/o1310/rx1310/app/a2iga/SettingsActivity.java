@@ -17,7 +17,7 @@ import android.widget.EditText;
 public class SettingsActivity extends Activity implements View.OnClickListener {
 	
 	EditText inputAssistantPackageName;
-	Button applyChanges, setAssistApp, runAssistantApp;
+	Button applyChanges, setAssistantApp, runAssistantApp;
 	SharedPreferences sharedPrefs;
 	SharedPreferences.Editor sharedPrefsEditor;
 	
@@ -36,8 +36,8 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
 		applyChanges = findViewById(R.id.applyChanges);
 		applyChanges.setOnClickListener(this);
 		
-		setAssistApp = findViewById(R.id.setAssistApp);
-		setAssistApp.setOnClickListener(this);
+		setAssistantApp = findViewById(R.id.setAssistantApp);
+		setAssistantApp.setOnClickListener(this);
 		
 		runAssistantApp = findViewById(R.id.runAssistantApp);
 		runAssistantApp.setOnClickListener(this);
@@ -59,7 +59,7 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
 				startActivity(new Intent(Intent.ACTION_ASSIST).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
 				break;
 				
-			case R.id.setAssistApp:
+			case R.id.setAssistantApp:
 				startActivity(new Intent(android.provider.Settings.ACTION_VOICE_INPUT_SETTINGS));
 				break;
 			

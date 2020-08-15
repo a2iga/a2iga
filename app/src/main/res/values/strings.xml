@@ -6,9 +6,11 @@
 	<string name="app_info">О программе</string>
 	<string name="app_settings">Настройки</string>
 	
+	<string name="message_app_not_found">Приложение не найдено! Поиск в магазине приложений...</string>
+	
 	<string name="settings_input_package_name_hint">Имя пакета</string>
 	<string name="settings_input_package_name_desc">Введите имя пакета приложения, которое будет запускаться жестом вызова ассистента:</string>
-	<string name="settings_set_assist_app">Перейти в настройки</string>
-	<string name="settings_set_assist_app_desc">Чтобы A2IGA запускал выбранное вами приложение вместо Google Assistant нужно выбрать A2IGA в качестве помощника!</string>
+	<string name="settings_set_assistant_app">Перейти в настройки</string>
+	<string name="settings_set_assistant_app_desc">Чтобы A2IGA запускал выбранное вами приложение вместо Google Assistant нужно выбрать A2IGA в качестве помощника!</string>
 	
 </resources>
