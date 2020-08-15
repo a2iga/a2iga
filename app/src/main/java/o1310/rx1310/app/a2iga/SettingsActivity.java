@@ -1,3 +1,9 @@
+/*
+ * @author      rx1310 <rx1310@inbox.ru>
+ * @copyright   Copyright (c) o1310, 2020
+ * @license     MIT License
+ */
+
 package o1310.rx1310.app.a2iga;
 
 import android.app.Activity;
@@ -11,7 +17,7 @@ import android.widget.EditText;
 public class SettingsActivity extends Activity implements View.OnClickListener {
 	
 	EditText inputAssistantPackageName;
-	Button applyChanges, setAssistApp;
+	Button applyChanges, setAssistApp, runAssistantApp;
 	SharedPreferences sharedPrefs;
 	SharedPreferences.Editor sharedPrefsEditor;
 	
@@ -33,6 +39,9 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
 		setAssistApp = findViewById(R.id.setAssistApp);
 		setAssistApp.setOnClickListener(this);
 		
+		runAssistantApp = findViewById(R.id.runAssistantApp);
+		runAssistantApp.setOnClickListener(this);
+		
 		loadAssistantPackageName();
 		
 	}
@@ -47,7 +56,7 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
 				break;
 				
 			case R.id.runAssistantApp:
-				runAssistantApp();
+				startActivity(new Intent(Intent.ACTION_ASSIST).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
 				break;
 				
 			case R.id.setAssistApp:
@@ -76,12 +85,6 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
 		
 	}
 	
-	private void runAssistantApp() {
-		
-		//
-		
-	}
-
     /*@Override
     protected void onDestroy() {
         super.onDestroy();
