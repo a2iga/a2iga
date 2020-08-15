@@ -25,20 +25,27 @@
 		<activity
 			android:name=".SettingsActivity">
 			<intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN"/>
+				<!--action android:name="android.service.quicksettings.action.QS_TILE_PREFERENCES"/-->
+				<action android:name="android.intent.action.APPLICATION_PREFERENCES"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+				<category android:name="android.intent.category.PREFERENCE"/>
             </intent-filter>
 		</activity>
 		
 		<activity
+			android:noHistory="true" 
+			android:excludeFromRecents="true" 
+			android:finishOnCloseSystemDialogs="true" 
+			android:launchMode="singleInstance" 
 			android:name=".LaunchAssistant">
             <intent-filter>
-                <action android:name = "android.intent.action.ASSIST" />
-                <category android:name = "android.intent.category.DEFAULT" />
+                <action android:name="android.intent.action.ASSIST"/>
+                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
             <intent-filter>
-                <action android:name = "android.intent.action.SEARCH" />
-                <category android:name = "android.intent.category.DEFAULT" />
+                <action android:name="android.intent.action.SEARCH"/>
+                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
 		</activity>
 
