@@ -96,7 +96,7 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
 		
 	}
 	
-	// from RebootManager (https://github.com/o1310/RebootManager)
+	// from RebootManager.java (RebootManager) | git:https://github.com/o1310/RebootManager
 	public static String thisAppVersion(Context c) {
 
 		String s, a;
