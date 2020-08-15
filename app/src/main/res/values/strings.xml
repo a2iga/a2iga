@@ -3,8 +3,8 @@
 	
 	<string name="apply_changes">Применить</string>
 	<string name="run_assistant_app">Запустить</string>
-	<string name="app_info">О программе</string>
-	<string name="app_settings">Настройки</string>
+	<string name="app_settings">Настройки A2IGA</string>
+	<string name="app_version">Версия A2IGA:</string>
 	
 	<string name="message_app_not_found">Приложение не найдено! Поиск в магазине приложений...</string>
 	<string name="message_changes_saved">Настройки сохранены!</string>

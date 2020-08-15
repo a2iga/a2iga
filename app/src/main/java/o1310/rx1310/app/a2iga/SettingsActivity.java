@@ -7,18 +7,24 @@
 package o1310.rx1310.app.a2iga;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class SettingsActivity extends Activity implements View.OnClickListener {
 	
 	EditText inputAssistantPackageName;
 	Button applyChanges, setAssistantApp, runAssistantApp;
+	TextView appVersion;
 	SharedPreferences sharedPrefs;
 	SharedPreferences.Editor sharedPrefsEditor;
 	
@@ -29,6 +35,7 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
         super.onCreate(sIS);
 		
         setContentView(R.layout.activity_settings);
+		setTitle(R.string.app_settings);
 		
 		sharedPrefs = getSharedPreferences("a2iga_settings", MODE_PRIVATE);
 		
@@ -45,6 +52,10 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
 		
 		runAssistantApp = findViewById(R.id.runAssistantApp);
 		runAssistantApp.setOnClickListener(this);
+		
+		appVersion = findViewById(R.id.appVersion);
+		appVersion.setOnClickListener(this);
+		appVersion.setText(getString(R.string.app_version) + " " + thisAppVersion(this));
 		
 	}
 	
@@ -64,6 +75,10 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
 			case R.id.setAssistantApp:
 				startActivity(new Intent(android.provider.Settings.ACTION_VOICE_INPUT_SETTINGS));
 				break;
+				
+			case R.id.appVersion:
+				startActivity(new Intent (Intent.ACTION_VIEW, Uri.parse("https://o1310.github.io")));
+				break;
 			
 			default: break;
 			
@@ -79,6 +94,34 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
 		
 		Toast.makeText(this, R.string.message_changes_saved, Toast.LENGTH_LONG).show();
 		
+	}
+	
+	// from RebootManager (https://github.com/o1310/RebootManager)
+	public static String thisAppVersion(Context c) {
+
+		String s, a;
+		int v;
+
+		PackageManager m = c.getPackageManager();
+
+		try {
+			
+			PackageInfo i = m.getPackageInfo(c.getPackageName(), 0);
+			
+			s = i.versionName; // Получаем название версии
+			v = i.versionCode; // Получаем код версии
+			a = s + "." + v;   // Объединяем название и код версии для "вида"
+			
+		} catch(PackageManager.NameNotFoundException e) {
+			
+			// в случае ошибки вернем "error(String.appVersion)"
+			e.printStackTrace();
+			a = "error(String.appVersion)";
+			
+		}
+
+		return a; // вернем версию в формате НАЗВАНИЕ.КОД (напр.: 1.200915)
+
 	}
 	
     /*@Override
