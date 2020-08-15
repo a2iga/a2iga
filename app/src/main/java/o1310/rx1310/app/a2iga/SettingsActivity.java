@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class SettingsActivity extends Activity implements View.OnClickListener {
 	
@@ -74,6 +75,8 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
 		sharedPrefsEditor = sharedPrefs.edit();
 		sharedPrefsEditor.putString(PREF_ASSISTANT_PACKAGE_NAME, inputAssistantPackageName.getText().toString());
 		sharedPrefsEditor.commit();
+		
+		Toast.makeText(this, R.string.message_changes_saved, Toast.LENGTH_LONG).show();
 		
 	}
 	
