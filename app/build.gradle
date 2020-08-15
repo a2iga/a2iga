@@ -6,14 +6,14 @@ android {
 
     defaultConfig {
         applicationId "o1310.rx1310.app.a2iga"
-        minSdkVersion 14
+        minSdkVersion 23
         targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
+        versionCode 200815
+        versionName "1"
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
