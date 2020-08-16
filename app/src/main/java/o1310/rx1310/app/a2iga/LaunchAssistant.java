@@ -29,24 +29,32 @@ public class LaunchAssistant extends Activity {
 		
 		String assistantPackageName = sharedPrefs.getString(PREF_ASSISTANT_PACKAGE_NAME, "");
 		
+		// Запускаем ассистент
 		startAssistantApp(assistantPackageName);
 		
+		// Убиваем активность после запуска ассистента
 		this.finish();
 		
 	}
 	
+	// Функция запуска ассистента
 	public void startAssistantApp(String packageName) {
 		
 		if (TextUtils.isEmpty(packageName)) {
 			
+			/* Если packageName пустой, то отобразим
+			 * toast-сообщение, которое уведомляет об этом */
 			Toast.makeText(this, R.string.message_package_name_not_specified, Toast.LENGTH_LONG).show();
 			
 		} else {
 			
+			// Если в packageName есть данные, то запускаем приложение
 			Intent i = getPackageManager().getLaunchIntentForPackage(packageName);
 
 			if (i == null) {
 				
+				/* Если package name указан, но приложение
+				 * не установлено — ищем в Play Store это приложение */
 				i = new Intent(Intent.ACTION_VIEW);
 				Toast.makeText(this, R.string.message_app_not_found, Toast.LENGTH_LONG).show();
 				i.setData(Uri.parse("market://details?id=" + packageName));

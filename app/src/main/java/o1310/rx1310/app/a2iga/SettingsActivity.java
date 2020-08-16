@@ -64,14 +64,17 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
 		
 		switch (v.getId()) {
 			
+			// Сохраняем данные из поля ввода
 			case R.id.applyChanges:
 				saveAssistantPackageName();
 				break;
 				
+			// Запуск ассистента (для теста)
 			case R.id.runAssistantApp:
 				startActivity(new Intent(Intent.ACTION_ASSIST).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
 				break;
 				
+			// Переход в настройки ассистентов
 			case R.id.setAssistantApp:
 				startActivity(new Intent(android.provider.Settings.ACTION_VOICE_INPUT_SETTINGS));
 				break;
@@ -86,12 +89,14 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
 		
 	}
 	
+	// Функция сохранения данных из поля ввода
 	private void saveAssistantPackageName() {
 		
 		sharedPrefsEditor = sharedPrefs.edit();
 		sharedPrefsEditor.putString(PREF_ASSISTANT_PACKAGE_NAME, inputAssistantPackageName.getText().toString());
 		sharedPrefsEditor.commit();
 		
+		// Уведомляем пользователя
 		Toast.makeText(this, R.string.message_changes_saved, Toast.LENGTH_LONG).show();
 		
 	}
