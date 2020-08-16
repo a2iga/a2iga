@@ -12,6 +12,7 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.widget.Toast;
+import android.text.TextUtils;
 
 public class LaunchAssistant extends Activity {
 
@@ -36,17 +37,27 @@ public class LaunchAssistant extends Activity {
 	
 	public void startAssistantApp(String packageName) {
 		
-		Intent i = getPackageManager().getLaunchIntentForPackage(packageName);
+		if (TextUtils.isEmpty(packageName)) {
+			
+			Toast.makeText(this, R.string.message_package_name_not_specified, Toast.LENGTH_LONG).show();
+			
+		} else {
+			
+			Intent i = getPackageManager().getLaunchIntentForPackage(packageName);
 
-		if (i == null) {
-			i = new Intent(Intent.ACTION_VIEW);
-			Toast.makeText(this, R.string.message_app_not_found, Toast.LENGTH_LONG).show();
-			i.setData(Uri.parse("market://details?id=" + packageName));
+			if (i == null) {
+				
+				i = new Intent(Intent.ACTION_VIEW);
+				Toast.makeText(this, R.string.message_app_not_found, Toast.LENGTH_LONG).show();
+				i.setData(Uri.parse("market://details?id=" + packageName));
+				
+			}
+
+			i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+			startActivity(i);
+			
 		}
-
-		i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-
-		startActivity(i);
 		
 	}
 	
