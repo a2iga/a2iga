@@ -52,7 +52,7 @@ public class PackagesListActivity extends Activity {
 				ClipData mClipData = ClipData.newPlainText(null, appsList.get(i).mAppPackageName);
 				mClipboardMng.setPrimaryClip(mClipData);
 				
-				Toast.makeText(PackagesListActivity.this, getString(R.string.message_copied), Toast.LENGTH_SHORT).show();
+				Toast.makeText(PackagesListActivity.this, getString(R.string.message_package_name_copied), Toast.LENGTH_SHORT).show();
 				
 			}
 		});

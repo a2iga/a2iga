@@ -10,7 +10,7 @@
 	<string name="message_app_not_found">Приложение не найдено! Поиск в магазине приложений...</string>
 	<string name="message_changes_saved">Настройки сохранены!</string>
 	<string name="message_package_name_not_specified">A2IGA: Вы не указали Package Name приложения для запуска!</string>
-	<string name="message_copied">Скопировано!</string>
+	<string name="message_package_name_copied">Скопировано! Теперь вставьте скопированный текст в поле ввода.</string>
 	<string name="message_wait">Подождите...</string>
 	
 	<string name="settings_input_package_name_hint">Имя пакета</string>
