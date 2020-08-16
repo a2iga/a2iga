@@ -7,20 +7,27 @@
 package o1310.rx1310.app.a2iga.activity;
 
 import android.app.Activity;
+
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
+
 import android.graphics.drawable.Drawable;
+
 import android.os.Bundle;
+
 import android.view.View;
+
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import java.util.ArrayList;
 import java.util.List;
+
 import o1310.rx1310.app.a2iga.AppList;
 import o1310.rx1310.app.a2iga.R;
 import o1310.rx1310.app.a2iga.adapter.AppsListAdapter;

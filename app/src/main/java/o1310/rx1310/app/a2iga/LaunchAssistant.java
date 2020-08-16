@@ -7,11 +7,16 @@
 package o1310.rx1310.app.a2iga;
 
 import android.app.Activity;
+
 import android.content.Intent;
 import android.content.SharedPreferences;
+
 import android.net.Uri;
+
 import android.os.Bundle;
+
 import android.widget.Toast;
+
 import android.text.TextUtils;
 
 public class LaunchAssistant extends Activity {
