@@ -4,7 +4,7 @@
  * @license     MIT License
  */
 
-package o1310.rx1310.app.a2iga;
+package o1310.rx1310.app.a2iga.activity;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -21,11 +21,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import o1310.rx1310.app.a2iga.R;
 
 public class SettingsActivity extends Activity implements View.OnClickListener {
 	
 	EditText inputAssistantPackageName;
-	Button applyChanges, setAssistantApp, runAssistantApp;
+	Button applyChanges, setAssistantApp, runAssistantApp, showPackagesList;
 	TextView appVersion;
 	SharedPreferences sharedPrefs;
 	SharedPreferences.Editor sharedPrefsEditor;
@@ -56,6 +57,9 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
 		
 		runAssistantApp = findViewById(R.id.runAssistantApp);
 		runAssistantApp.setOnClickListener(this);
+		
+		showPackagesList = findViewById(R.id.showPackagesList);
+		showPackagesList.setOnClickListener(this);
 		
 		appVersion = findViewById(R.id.appVersion);
 		appVersion.setOnClickListener(this);
@@ -94,6 +98,12 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
 			// Переход в настройки ассистентов
 			case R.id.setAssistantApp:
 				startActivity(new Intent(android.provider.Settings.ACTION_VOICE_INPUT_SETTINGS));
+				break;
+				
+			// Переход к списку Package Name
+			case R.id.showPackagesList:
+				Toast.makeText(this, R.string.message_wait, Toast.LENGTH_SHORT).show();
+				startActivity(new Intent (this, PackagesListActivity.class));
 				break;
 				
 			case R.id.appVersion:
@@ -151,6 +161,7 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
 		b.setNeutralButton(R.string.intro_dialog_action_source_code, new DialogInterface.OnClickListener() { // обработка нажатия кнопки "Да"
 				public void onClick(DialogInterface d, int i) {
 					startActivity(new Intent (Intent.ACTION_VIEW, Uri.parse("https://github.com/o1310/a2iga")));
+					savePrefs(PREF_APP_FIRST_RUN, "false");
 				}
 			});
 		

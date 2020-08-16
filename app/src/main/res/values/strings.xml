@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	
+	<string name="show_packages_list">Показать список</string>
 	<string name="apply_changes">Применить</string>
 	<string name="run_assistant_app">Запустить</string>
 	<string name="app_settings">Настройки A2IGA</string>
@@ -9,6 +10,8 @@
 	<string name="message_app_not_found">Приложение не найдено! Поиск в магазине приложений...</string>
 	<string name="message_changes_saved">Настройки сохранены!</string>
 	<string name="message_package_name_not_specified">A2IGA: Вы не указали Package Name приложения для запуска!</string>
+	<string name="message_copied">Скопировано!</string>
+	<string name="message_wait">Подождите...</string>
 	
 	<string name="settings_input_package_name_hint">Имя пакета</string>
 	<string name="settings_input_package_name_desc">Введите имя пакета приложения, которое будет запускаться жестом вызова ассистента:</string>
@@ -18,5 +21,9 @@
 	<string name="intro_dialog_title">Привет!</string>
 	<string name="intro_dialog_action_source_code">Исходный код</string>
 	<string name="intro_message">A2IGA — это маленькая утилита, которая поможет заменить Google Assistant, вызываемый зажатием кнопки Home / жестом нижних краёв экрана (Android Q), на любое приложение, нужное вам.\n\nA2IGA является проектом с открытым исходным кодом и бесплатно распространяется по лицензии MIT.\n\nРазработано участником команды разработчиков «o1310» — rx1310.</string>
+	
+	<string name="packages_list">Список приложений</string>
+	<string name="packages_list_apps_count">Количество приложений:</string>
+	<string name="packages_list_desc">Нажмите на необходимое приложение, чтобы скопировать Package Name!</string>
 	
 </resources>

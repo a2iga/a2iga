@@ -7,5 +7,9 @@
 		name="AppTheme" 
 		parent="@android:style/Theme.DeviceDefault.Light.Dialog"/>
 		
+	<style 
+		name="AppTheme.PackagesList" 
+		parent="@android:style/Theme.DeviceDefault.Light"/>
+	
 </resources>
 
