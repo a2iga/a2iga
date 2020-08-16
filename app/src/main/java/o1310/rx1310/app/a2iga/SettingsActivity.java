@@ -142,6 +142,7 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
 		b.setTitle(R.string.intro_dialog_title);
 		b.setIcon(R.drawable.ic_logo);
 		b.setMessage(R.string.intro_message);
+		b.setCancelable(false);
 		b.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() { // обработка нажатия кнопки "Да"
 				public void onClick(DialogInterface d, int i) {
 					savePrefs(PREF_APP_FIRST_RUN, "false");
