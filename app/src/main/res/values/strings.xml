@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	
-	<string name="show_packages_list">Показать список</string>
-	<string name="apply_changes">Применить</string>
-	<string name="run_assistant_app">Запустить</string>
-	<string name="app_settings">Настройки A2IGA</string>
-	<string name="app_version">Версия A2IGA:</string>
+	<string name="show_packages_list">Show apps list</string>
+	<string name="apply_changes">Apply</string>
+	<string name="run_assistant_app">Run</string>
+	<string name="app_settings">A2IGA settings</string>
+	<string name="app_version">A2IGA version:</string>
 	
-	<string name="message_app_not_found">Приложение не найдено! Поиск в магазине приложений...</string>
-	<string name="message_changes_saved">Настройки сохранены!</string>
-	<string name="message_package_name_not_specified">A2IGA: Вы не указали Package Name приложения для запуска!</string>
-	<string name="message_package_name_copied">Скопировано! Теперь вставьте скопированный текст в поле ввода.</string>
-	<string name="message_wait">Подождите...</string>
+	<string name="message_app_not_found">The application is not found! Search in App Store ...</string>
+	<string name="message_changes_saved">Settings are saved!</string>
+	<string name="message_package_name_not_specified">A2IGA: Package Name is empty!</string>
+	<string name="message_package_name_copied">Copied! Now insert the copied text in the input field.</string>
+	<string name="message_wait">Wait...</string>
 	
-	<string name="settings_input_package_name_hint">Имя пакета</string>
-	<string name="settings_input_package_name_desc">Введите имя пакета приложения, которое будет запускаться жестом вызова ассистента:</string>
-	<string name="settings_set_assistant_app">Перейти в настройки</string>
-	<string name="settings_set_assistant_app_desc">Чтобы A2IGA запускал выбранное вами приложение вместо Google Assistant нужно выбрать A2IGA в качестве помощника!</string>
+	<string name="settings_input_package_name_hint">Package name</string>
+	<string name="settings_input_package_name_desc">Enter the name of the application package that will be launched:</string>
+	<string name="settings_set_assistant_app">Go to the settings</string>
+	<string name="settings_set_assistant_app_desc">You need to choose A2IGA as an assistant!</string>
 	
-	<string name="intro_dialog_title">Привет!</string>
-	<string name="intro_dialog_action_source_code">Исходный код</string>
-	<string name="intro_message">A2IGA — это маленькая утилита, которая поможет заменить Google Assistant, вызываемый зажатием кнопки Home / жестом нижних краёв экрана (Android Q), на любое приложение, нужное вам.\n\nA2IGA является проектом с открытым исходным кодом и бесплатно распространяется по лицензии MIT.\n\nРазработано участником команды разработчиков «o1310» — rx1310.</string>
+	<string name="intro_dialog_title">Hi, user!</string>
+	<string name="intro_dialog_action_source_code">Source code</string>
+	<string name="intro_message">A2IGA is an open source project and is distributed free of charge under MIT license.\n\nDeveloped by a member of the team of developers «o1310» - rx1310.</string>
 	
-	<string name="packages_list">Список приложений</string>
-	<string name="packages_list_apps_count">Количество приложений:</string>
-	<string name="packages_list_desc">Нажмите на необходимое приложение, чтобы скопировать Package Name!</string>
+	<string name="packages_list">Application list</string>
+	<string name="packages_list_apps_count">Apps count:</string>
+	<string name="packages_list_desc">Click on the required application to copy Package Name!</string>
 	
 </resources>
