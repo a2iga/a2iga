@@ -7,7 +7,9 @@
 package o1310.rx1310.app.a2iga;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
@@ -29,6 +31,7 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
 	SharedPreferences.Editor sharedPrefsEditor;
 	
 	final String PREF_ASSISTANT_PACKAGE_NAME = "assistantPackageName";
+	final String PREF_APP_FIRST_RUN = "appFirstRun";
 	
 	@Override
     protected void onCreate(Bundle sIS) {
@@ -40,6 +43,7 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
 		sharedPrefs = getSharedPreferences("a2iga_settings", MODE_PRIVATE);
 		
 		String assistantPackageName = sharedPrefs.getString(PREF_ASSISTANT_PACKAGE_NAME, "");
+		String appFirstRun = sharedPrefs.getString(PREF_APP_FIRST_RUN, "true");
 		
 		inputAssistantPackageName = findViewById(R.id.inputAssistantPackageName);
 		inputAssistantPackageName.setText(assistantPackageName);
@@ -57,6 +61,18 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
 		appVersion.setOnClickListener(this);
 		appVersion.setText(getString(R.string.app_version) + " " + thisAppVersion(this));
 		
+		if (appFirstRun == "true") {
+			introDialog();
+		}
+		
+	}
+	
+	void savePrefs(String prefName, String prefData) {
+		
+		sharedPrefsEditor = sharedPrefs.edit();
+		sharedPrefsEditor.putString(prefName, prefData);
+		sharedPrefsEditor.commit();
+		
 	}
 	
 	@Override
@@ -66,7 +82,8 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
 			
 			// Сохраняем данные из поля ввода
 			case R.id.applyChanges:
-				saveAssistantPackageName();
+				savePrefs(PREF_ASSISTANT_PACKAGE_NAME, inputAssistantPackageName.getText().toString());
+				Toast.makeText(this, R.string.message_changes_saved, Toast.LENGTH_LONG).show();
 				break;
 				
 			// Запуск ассистента (для теста)
@@ -86,18 +103,6 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
 			default: break;
 			
 		}
-		
-	}
-	
-	// Функция сохранения данных из поля ввода
-	private void saveAssistantPackageName() {
-		
-		sharedPrefsEditor = sharedPrefs.edit();
-		sharedPrefsEditor.putString(PREF_ASSISTANT_PACKAGE_NAME, inputAssistantPackageName.getText().toString());
-		sharedPrefsEditor.commit();
-		
-		// Уведомляем пользователя
-		Toast.makeText(this, R.string.message_changes_saved, Toast.LENGTH_LONG).show();
 		
 	}
 	
@@ -126,6 +131,31 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
 		}
 
 		return a; // вернем версию в формате НАЗВАНИЕ.КОД (напр.: 1.200915)
+
+	}
+	
+	void introDialog(){
+
+		// создаем диалог
+		AlertDialog.Builder b = new AlertDialog.Builder(this);
+
+		b.setTitle(R.string.intro_dialog_title);
+		b.setIcon(R.drawable.ic_logo);
+		b.setMessage(R.string.intro_message);
+		b.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() { // обработка нажатия кнопки "Да"
+				public void onClick(DialogInterface d, int i) {
+					savePrefs(PREF_APP_FIRST_RUN, "false");
+				}
+			});
+		b.setNeutralButton(R.string.intro_dialog_action_source_code, new DialogInterface.OnClickListener() { // обработка нажатия кнопки "Да"
+				public void onClick(DialogInterface d, int i) {
+					startActivity(new Intent (Intent.ACTION_VIEW, Uri.parse("https://github.com/o1310/a2iga")));
+				}
+			});
+		
+		AlertDialog a = b.create(); // создаем диалог
+
+		a.show(); // отображаем диалог
 
 	}
 	
