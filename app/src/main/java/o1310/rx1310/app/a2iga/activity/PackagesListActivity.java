@@ -55,6 +55,7 @@ public class PackagesListActivity extends Activity {
 				AlertDialog.Builder b = new AlertDialog.Builder(PackagesListActivity.this);
 				
 				b.setTitle(appsList.get(i).mAppName);
+				b.setIcon(appsList.get(i).mAppIcon);
 				b.setItems(R.array.package_list_action, new DialogInterface.OnClickListener() {
 					
 					public void onClick(DialogInterface di, int i) {

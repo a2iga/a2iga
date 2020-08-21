@@ -27,8 +27,8 @@
 	<string name="packages_list_desc">Click on the required application to copy Package Name!</string>
 	
 	<string-array name="package_list_action">
-        <item>Copy package name</item>
-		<item>Select app</item>
+        <item>Use as an assistant</item>
+		<item>Copy package name</item>
     </string-array>
 	
 </resources>
