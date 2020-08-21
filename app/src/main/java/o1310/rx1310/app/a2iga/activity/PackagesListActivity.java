@@ -7,27 +7,24 @@
 package o1310.rx1310.app.a2iga.activity;
 
 import android.app.Activity;
-
+import android.app.AlertDialog;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
-
 import android.graphics.drawable.Drawable;
-
+import android.net.Uri;
 import android.os.Bundle;
-
 import android.view.View;
-
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import o1310.rx1310.app.a2iga.AppList;
 import o1310.rx1310.app.a2iga.R;
 import o1310.rx1310.app.a2iga.adapter.AppsListAdapter;
@@ -55,11 +52,31 @@ public class PackagesListActivity extends Activity {
 			@Override
 			public void onItemClick(AdapterView<?> av, View v, final int i, long l) {
 				
-				ClipboardManager mClipboardMng = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-				ClipData mClipData = ClipData.newPlainText(null, appsList.get(i).mAppPackageName);
-				mClipboardMng.setPrimaryClip(mClipData);
+				AlertDialog.Builder b = new AlertDialog.Builder(PackagesListActivity.this);
 				
-				Toast.makeText(PackagesListActivity.this, getString(R.string.message_package_name_copied), Toast.LENGTH_SHORT).show();
+				b.setTitle(appsList.get(i).mAppName);
+				b.setItems(R.array.package_list_action, new DialogInterface.OnClickListener() {
+					
+					public void onClick(DialogInterface di, int i) {
+						
+						if (i == 0) {
+							
+						}
+						
+						if (i == 1) {
+							
+							ClipboardManager mClipboardMng = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+							ClipData mClipData = ClipData.newPlainText(null, appsList.get(i).mAppPackageName);
+							mClipboardMng.setPrimaryClip(mClipData);
+
+							Toast.makeText(PackagesListActivity.this, getString(R.string.message_package_name_copied), Toast.LENGTH_SHORT).show();
+							
+						}
+						
+					}
+				});
+				
+				b.show();
 				
 			}
 		});

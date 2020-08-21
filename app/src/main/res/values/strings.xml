@@ -26,4 +26,9 @@
 	<string name="packages_list_apps_count">Apps count:</string>
 	<string name="packages_list_desc">Click on the required application to copy Package Name!</string>
 	
+	<string-array name="package_list_action">
+        <item>Copy package name</item>
+		<item>Select app</item>
+    </string-array>
+	
 </resources>
