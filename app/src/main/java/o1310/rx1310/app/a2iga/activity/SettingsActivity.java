@@ -36,10 +36,11 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
 	TextView appVersion;
 	SharedPreferences sharedPrefs;
 	SharedPreferences.Editor sharedPrefsEditor;
-
-	public static final String PREF_ASSISTANT_PACKAGE_NAME = "assistantPackageName";
+	
 	final String PREF_APP_FIRST_RUN = "appFirstRun";
 
+	public static final String PREF_ASSISTANT_PACKAGE_NAME = "assistantPackageName";
+	
 	@Override
     protected void onCreate(Bundle sIS) {
         super.onCreate(sIS);

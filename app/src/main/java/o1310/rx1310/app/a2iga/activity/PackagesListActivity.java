@@ -43,6 +43,8 @@ public class PackagesListActivity extends Activity {
 		
 		setContentView(R.layout.activity_packageslist);
 		
+		sharedPrefs = getSharedPreferences("a2iga_settings", MODE_PRIVATE);
+		
 		appsList = getAppsList();
 
 		appsListAdapter = new AppsListAdapter(PackagesListActivity.this, appsList);
@@ -59,19 +61,19 @@ public class PackagesListActivity extends Activity {
 				b.setIcon(appsList.get(i).mAppIcon);
 				b.setItems(R.array.package_list_action, new DialogInterface.OnClickListener() {
 					
-					public void onClick(DialogInterface d, int i) {
+					public void onClick(DialogInterface d, int itemPos) {
 						
-						if (i == 0) {
-							
-							sharedPrefs = getSharedPreferences("a2iga_settings", MODE_PRIVATE);
+						if (itemPos == 0) {
 							
 							sharedPrefsEditor = sharedPrefs.edit();
 							sharedPrefsEditor.putString(SettingsActivity.PREF_ASSISTANT_PACKAGE_NAME, appsList.get(i).mAppPackageName);
 							sharedPrefsEditor.commit();
 							
+							Toast.makeText(PackagesListActivity.this, getString(R.string.message_app_selected_as_assistant), Toast.LENGTH_SHORT).show();
+							
 						}
 						
-						if (i == 1) {
+						if (itemPos == 1) {
 							
 							ClipboardManager mClipboardMng = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
 							ClipData mClipData = ClipData.newPlainText(null, appsList.get(i).mAppPackageName);

@@ -12,6 +12,7 @@
 	<string name="message_package_name_not_specified">A2IGA: Package Name is empty!</string>
 	<string name="message_package_name_copied">Copied! Now insert the copied text in the input field.</string>
 	<string name="message_wait">Wait...</string>
+	<string name="message_app_selected_as_assistant">App selected as an assistant!</string>
 	
 	<string name="settings_input_package_name_hint">Package name</string>
 	<string name="settings_input_package_name_desc">Enter the name of the application package that will be launched:</string>
