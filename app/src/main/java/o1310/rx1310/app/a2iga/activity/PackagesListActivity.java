@@ -12,11 +12,10 @@ import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -35,7 +34,9 @@ public class PackagesListActivity extends Activity {
 	ListView packagesList;
     AppsListAdapter appsListAdapter;
 	TextView appsCount;
-
+	SharedPreferences sharedPrefs;
+	SharedPreferences.Editor sharedPrefsEditor;
+	
 	@Override
 	protected void onCreate(Bundle sIS) {
 		super.onCreate(sIS);
@@ -58,9 +59,15 @@ public class PackagesListActivity extends Activity {
 				b.setIcon(appsList.get(i).mAppIcon);
 				b.setItems(R.array.package_list_action, new DialogInterface.OnClickListener() {
 					
-					public void onClick(DialogInterface di, int i) {
+					public void onClick(DialogInterface d, int i) {
 						
 						if (i == 0) {
+							
+							sharedPrefs = getSharedPreferences("a2iga_settings", MODE_PRIVATE);
+							
+							sharedPrefsEditor = sharedPrefs.edit();
+							sharedPrefsEditor.putString(SettingsActivity.PREF_ASSISTANT_PACKAGE_NAME, appsList.get(i).mAppPackageName);
+							sharedPrefsEditor.commit();
 							
 						}
 						
@@ -74,6 +81,11 @@ public class PackagesListActivity extends Activity {
 							
 						}
 						
+					}
+				});
+				b.setPositiveButton(android.R.string.cancel, new DialogInterface.OnClickListener() { // обработка нажатия кнопки "Да"
+					public void onClick(DialogInterface d, int i) {
+						d.cancel();
 					}
 				});
 				

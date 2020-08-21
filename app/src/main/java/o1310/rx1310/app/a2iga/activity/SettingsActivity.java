@@ -30,98 +30,98 @@ import android.widget.Toast;
 import o1310.rx1310.app.a2iga.R;
 
 public class SettingsActivity extends Activity implements View.OnClickListener {
-	
+
 	EditText inputAssistantPackageName;
 	Button applyChanges, setAssistantApp, runAssistantApp, showPackagesList;
 	TextView appVersion;
 	SharedPreferences sharedPrefs;
 	SharedPreferences.Editor sharedPrefsEditor;
-	
-	final String PREF_ASSISTANT_PACKAGE_NAME = "assistantPackageName";
+
+	public static final String PREF_ASSISTANT_PACKAGE_NAME = "assistantPackageName";
 	final String PREF_APP_FIRST_RUN = "appFirstRun";
-	
+
 	@Override
     protected void onCreate(Bundle sIS) {
         super.onCreate(sIS);
-		
+
         setContentView(R.layout.activity_settings);
 		setTitle(R.string.app_settings);
-		
+
 		sharedPrefs = getSharedPreferences("a2iga_settings", MODE_PRIVATE);
-		
+
 		String assistantPackageName = sharedPrefs.getString(PREF_ASSISTANT_PACKAGE_NAME, "");
 		String appFirstRun = sharedPrefs.getString(PREF_APP_FIRST_RUN, "true");
-		
+
 		inputAssistantPackageName = findViewById(R.id.inputAssistantPackageName);
 		inputAssistantPackageName.setText(assistantPackageName);
-		
+
 		applyChanges = findViewById(R.id.applyChanges);
 		applyChanges.setOnClickListener(this);
-		
+
 		setAssistantApp = findViewById(R.id.setAssistantApp);
 		setAssistantApp.setOnClickListener(this);
-		
+
 		runAssistantApp = findViewById(R.id.runAssistantApp);
 		runAssistantApp.setOnClickListener(this);
-		
+
 		showPackagesList = findViewById(R.id.showPackagesList);
 		showPackagesList.setOnClickListener(this);
-		
+
 		appVersion = findViewById(R.id.appVersion);
 		appVersion.setOnClickListener(this);
 		appVersion.setText(getString(R.string.app_version) + " " + thisAppVersion(this));
-		
+
 		if (appFirstRun == "true") {
 			introDialog();
 		}
-		
+
 	}
-	
-	void savePrefs(String prefName, String prefData) {
-		
+
+	void savePrefs(String key, String value) {
+
 		sharedPrefsEditor = sharedPrefs.edit();
-		sharedPrefsEditor.putString(prefName, prefData);
+		sharedPrefsEditor.putString(key, value);
 		sharedPrefsEditor.commit();
-		
+
 	}
-	
+
 	@Override
 	public void onClick(View v) {
-		
+
 		switch (v.getId()) {
-			
-			// Сохраняем данные из поля ввода
+
+				// Сохраняем данные из поля ввода
 			case R.id.applyChanges:
 				savePrefs(PREF_ASSISTANT_PACKAGE_NAME, inputAssistantPackageName.getText().toString());
 				Toast.makeText(this, R.string.message_changes_saved, Toast.LENGTH_LONG).show();
 				break;
-				
-			// Запуск ассистента (для теста)
+
+				// Запуск ассистента (для теста)
 			case R.id.runAssistantApp:
 				startActivity(new Intent(Intent.ACTION_ASSIST).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
 				break;
-				
-			// Переход в настройки ассистентов
+
+				// Переход в настройки ассистентов
 			case R.id.setAssistantApp:
 				startActivity(new Intent(android.provider.Settings.ACTION_VOICE_INPUT_SETTINGS));
 				break;
-				
-			// Переход к списку Package Name
+
+				// Переход к списку Package Name
 			case R.id.showPackagesList:
 				Toast.makeText(this, R.string.message_wait, Toast.LENGTH_SHORT).show();
 				startActivity(new Intent (this, PackagesListActivity.class));
 				break;
-				
+
 			case R.id.appVersion:
 				startActivity(new Intent (Intent.ACTION_VIEW, Uri.parse("https://o1310.github.io")));
 				break;
-			
+
 			default: break;
-			
+
 		}
-		
+
 	}
-	
+
 	// from RebootManager.java (RebootManager) | git:https://github.com/o1310/RebootManager
 	public static String thisAppVersion(Context c) {
 
@@ -131,25 +131,25 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
 		PackageManager m = c.getPackageManager();
 
 		try {
-			
+
 			PackageInfo i = m.getPackageInfo(c.getPackageName(), 0);
-			
+
 			s = i.versionName; // Получаем название версии
 			v = i.versionCode; // Получаем код версии
 			a = s + "." + v;   // Объединяем название и код версии для "вида"
-			
+
 		} catch(PackageManager.NameNotFoundException e) {
-			
+
 			// в случае ошибки вернем "error(String.appVersion)"
 			e.printStackTrace();
 			a = "error(String.appVersion)";
-			
+
 		}
 
 		return a; // вернем версию в формате НАЗВАНИЕ.КОД (напр.: 1.200915)
 
 	}
-	
+
 	void introDialog(){
 
 		// создаем диалог
@@ -170,18 +170,19 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
 					savePrefs(PREF_APP_FIRST_RUN, "false");
 				}
 			});
-		
+
 		AlertDialog a = b.create(); // создаем диалог
 
 		a.show(); // отображаем диалог
 
 	}
-	
+
     /*@Override
-    protected void onDestroy() {
-        super.onDestroy();
-        saveAssistantPackageName();
-		Toast.makeText(this, "A2IGA: Changes saved!", Toast.LENGTH_LONG).show();
-    }*/
-	
+	 protected void onDestroy() {
+	 super.onDestroy();
+	 saveAssistantPackageName();
+	 Toast.makeText(this, "A2IGA: Changes saved!", Toast.LENGTH_LONG).show();
+	 }*/
+
 }
+ 
