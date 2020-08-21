@@ -12,7 +12,8 @@
 	<string name="message_package_name_not_specified">A2IGA: Вы не указали Package Name приложения для запуска!</string>
 	<string name="message_package_name_copied">Скопировано! Теперь вставьте скопированный текст в поле ввода.</string>
 	<string name="message_wait">Подождите...</string>
-
+	<string name="message_app_selected_as_assistant">Приложение установлено в качестве ассистента!</string>
+	
 	<string name="settings_input_package_name_hint">Имя пакета</string>
 	<string name="settings_input_package_name_desc">Введите имя пакета приложения, которое будет запускаться жестом вызова ассистента:</string>
 	<string name="settings_set_assistant_app">Перейти в настройки</string>
@@ -26,4 +27,9 @@
 	<string name="packages_list_apps_count">Количество приложений:</string>
 	<string name="packages_list_desc">Нажмите на необходимое приложение, чтобы скопировать Package Name!</string>
 
+	<string-array name="package_list_action">
+        <item>Установить в качестве ассистента</item>
+		<item>Скопировать имя пакета</item>
+    </string-array>
+	
 </resources>
