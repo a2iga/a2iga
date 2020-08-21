@@ -50,11 +50,8 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
 
 		sharedPrefs = getSharedPreferences("a2iga_settings", MODE_PRIVATE);
 
-		String assistantPackageName = sharedPrefs.getString(PREF_ASSISTANT_PACKAGE_NAME, "");
-		String appFirstRun = sharedPrefs.getString(PREF_APP_FIRST_RUN, "true");
-
 		inputAssistantPackageName = findViewById(R.id.inputAssistantPackageName);
-		inputAssistantPackageName.setText(assistantPackageName);
+		inputAssistantPackageName.setText(sharedPrefs.getString(PREF_ASSISTANT_PACKAGE_NAME, ""));
 
 		applyChanges = findViewById(R.id.applyChanges);
 		applyChanges.setOnClickListener(this);
@@ -72,10 +69,20 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
 		appVersion.setOnClickListener(this);
 		appVersion.setText(getString(R.string.app_version) + " " + thisAppVersion(this));
 
+		String appFirstRun = sharedPrefs.getString(PREF_APP_FIRST_RUN, "true");
+		
 		if (appFirstRun == "true") {
 			introDialog();
 		}
 
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		
+		inputAssistantPackageName.setText(sharedPrefs.getString(PREF_ASSISTANT_PACKAGE_NAME, ""));
+		
 	}
 
 	void savePrefs(String key, String value) {
