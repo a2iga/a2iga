@@ -8,7 +8,7 @@ android {
         applicationId "o1310.rx1310.app.a2iga"
         minSdkVersion 23
         targetSdkVersion 29
-        versionCode 200819
+        versionCode 200822
         versionName "4"
     }
     buildTypes {
