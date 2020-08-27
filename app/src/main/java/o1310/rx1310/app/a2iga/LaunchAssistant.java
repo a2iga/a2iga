@@ -18,21 +18,17 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import android.text.TextUtils;
+import o1310.rx1310.app.a2iga.utils.SettingsUtils;
 
 public class LaunchAssistant extends Activity {
 
-	SharedPreferences sharedPrefs;
-	SharedPreferences.Editor sharedPrefsEditor;
-	
 	final String PREF_ASSISTANT_PACKAGE_NAME = "assistantPackageName";
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
-		sharedPrefs = getSharedPreferences("a2iga_settings", MODE_PRIVATE);
-		
-		String assistantPackageName = sharedPrefs.getString(PREF_ASSISTANT_PACKAGE_NAME, "");
+		String assistantPackageName = SettingsUtils.get(this, PREF_ASSISTANT_PACKAGE_NAME);
 		
 		// Запускаем ассистент
 		startAssistantApp(assistantPackageName);
