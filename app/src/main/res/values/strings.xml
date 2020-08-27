@@ -19,9 +19,9 @@
 	<string name="settings_set_assistant_app">Go to the settings</string>
 	<string name="settings_set_assistant_app_desc">You need to choose A2IGA as an assistant!</string>
 	
-	<string name="intro_dialog_title">Hi, user!</string>
-	<string name="intro_dialog_action_source_code">Source code</string>
-	<string name="intro_message">A2IGA is an open source project and is distributed free of charge under MIT license.\n\nDeveloped by a member of the team of developers «o1310» - rx1310.</string>
+	<string name="about_dialog_title">Hi, user!</string>
+	<string name="about_dialog_action_source_code">Source code</string>
+	<string name="about_message">A2IGA is an open source project and is distributed free of charge under MIT license.\n\nDeveloped by a member of the team of developers «o1310» - rx1310.</string>
 	
 	<string name="packages_list">Application list</string>
 	<string name="packages_list_apps_count">Apps count:</string>

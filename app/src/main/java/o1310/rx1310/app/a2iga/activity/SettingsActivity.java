@@ -102,7 +102,7 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
 				break;
 
 			case R.id.appVersion:
-				introDialog();
+				aboutDialog();
 				//startActivity(new Intent (Intent.ACTION_VIEW, Uri.parse("https://o1310.github.io")));
 				break;
 
