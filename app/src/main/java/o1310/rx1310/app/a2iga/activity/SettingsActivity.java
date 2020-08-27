@@ -153,15 +153,14 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
 					d.cancel();
 				}
 			});
-		b.setNegativeButton("Telegram", new DialogInterface.OnClickListener() { // обработка нажатия кнопки "Да"
+		b.setNegativeButton("Telegram", new DialogInterface.OnClickListener() { // обработка нажатия кнопки "Telegram"
 				public void onClick(DialogInterface d, int i) {
-					
+					startActivity(new Intent (Intent.ACTION_VIEW, Uri.parse("https://t.me/o1310")));
 				}
 			});
 		b.setNeutralButton(R.string.about_dialog_action_source_code, new DialogInterface.OnClickListener() { // обработка нажатия кнопки "Да"
 				public void onClick(DialogInterface d, int i) {
 					startActivity(new Intent (Intent.ACTION_VIEW, Uri.parse("https://github.com/o1310/a2iga")));
-					
 				}
 			});
 
