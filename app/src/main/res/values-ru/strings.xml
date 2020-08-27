@@ -19,9 +19,9 @@
 	<string name="settings_set_assistant_app">Перейти в настройки</string>
 	<string name="settings_set_assistant_app_desc">Чтобы A2IGA запускал выбранное вами приложение вместо Google Assistant нужно выбрать A2IGA в качестве помощника!</string>
 
-	<string name="intro_dialog_title">Привет!</string>
-	<string name="intro_dialog_action_source_code">Исходный код</string>
-	<string name="intro_message">A2IGA — это маленькая утилита, которая поможет заменить Google Assistant, вызываемый зажатием кнопки Home / жестом нижних краёв экрана (Android Q), на любое приложение, нужное вам.\n\nA2IGA является проектом с открытым исходным кодом и бесплатно распространяется по лицензии MIT.\n\nРазработано участником команды разработчиков «o1310» — rx1310.</string>
+	<string name="about_dialog_title">Привет!</string>
+	<string name="about_dialog_action_source_code">Исходный код</string>
+	<string name="about_message">A2IGA — это маленькая утилита, которая поможет заменить Google Assistant, вызываемый зажатием кнопки Home / жестом нижних краёв экрана (Android Q), на любое приложение, нужное вам.\n\nA2IGA является проектом с открытым исходным кодом и бесплатно распространяется по лицензии MIT.\n\nРазработано участником команды разработчиков «o1310» — rx1310.</string>
 
 	<string name="packages_list">Список приложений</string>
 	<string name="packages_list_apps_count">Количество приложений:</string>
