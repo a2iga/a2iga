@@ -28,14 +28,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import o1310.rx1310.app.a2iga.R;
+import o1310.rx1310.app.a2iga.utils.SettingsUtils;
 
 public class SettingsActivity extends Activity implements View.OnClickListener {
 
 	EditText inputAssistantPackageName;
 	Button applyChanges, setAssistantApp, runAssistantApp, showPackagesList;
 	TextView appVersion;
-	SharedPreferences sharedPrefs;
-	SharedPreferences.Editor sharedPrefsEditor;
 	
 	final String PREF_APP_FIRST_RUN = "appFirstRun";
 
@@ -48,10 +47,8 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
         setContentView(R.layout.activity_settings);
 		setTitle(R.string.app_settings);
 
-		sharedPrefs = getSharedPreferences("a2iga_settings", MODE_PRIVATE);
-
 		inputAssistantPackageName = findViewById(R.id.inputAssistantPackageName);
-		inputAssistantPackageName.setText(sharedPrefs.getString(PREF_ASSISTANT_PACKAGE_NAME, ""));
+		inputAssistantPackageName.setText(SettingsUtils.get(this, PREF_ASSISTANT_PACKAGE_NAME));
 
 		applyChanges = findViewById(R.id.applyChanges);
 		applyChanges.setOnClickListener(this);
@@ -69,7 +66,7 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
 		appVersion.setOnClickListener(this);
 		appVersion.setText(getString(R.string.app_version) + " " + thisAppVersion(this));
 
-		String appFirstRun = sharedPrefs.getString(PREF_APP_FIRST_RUN, "true");
+		String appFirstRun = SettingsUtils.get(this, PREF_APP_FIRST_RUN);
 		
 		if (appFirstRun == "true") {
 			introDialog();
@@ -81,16 +78,8 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
 	protected void onResume() {
 		super.onResume();
 		
-		inputAssistantPackageName.setText(sharedPrefs.getString(PREF_ASSISTANT_PACKAGE_NAME, ""));
+		inputAssistantPackageName.setText(SettingsUtils.get(this, PREF_ASSISTANT_PACKAGE_NAME));
 		
-	}
-
-	void savePrefs(String key, String value) {
-
-		sharedPrefsEditor = sharedPrefs.edit();
-		sharedPrefsEditor.putString(key, value);
-		sharedPrefsEditor.commit();
-
 	}
 
 	@Override
@@ -100,7 +89,7 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
 
 				// Сохраняем данные из поля ввода
 			case R.id.applyChanges:
-				savePrefs(PREF_ASSISTANT_PACKAGE_NAME, inputAssistantPackageName.getText().toString());
+				SettingsUtils.put(this, PREF_ASSISTANT_PACKAGE_NAME, inputAssistantPackageName.getText().toString());
 				Toast.makeText(this, R.string.message_changes_saved, Toast.LENGTH_LONG).show();
 				break;
 
@@ -169,13 +158,13 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
 		b.setCancelable(false);
 		b.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() { // обработка нажатия кнопки "Да"
 				public void onClick(DialogInterface d, int i) {
-					savePrefs(PREF_APP_FIRST_RUN, "false");
+					SettingsUtils.put(SettingsActivity.this, PREF_APP_FIRST_RUN, "false");
 				}
 			});
 		b.setNeutralButton(R.string.intro_dialog_action_source_code, new DialogInterface.OnClickListener() { // обработка нажатия кнопки "Да"
 				public void onClick(DialogInterface d, int i) {
 					startActivity(new Intent (Intent.ACTION_VIEW, Uri.parse("https://github.com/o1310/a2iga")));
-					savePrefs(PREF_APP_FIRST_RUN, "false");
+					SettingsUtils.put(SettingsActivity.this, PREF_APP_FIRST_RUN, "false");
 				}
 			});
 

@@ -33,7 +33,7 @@
 ```
 MIT License
 
-Copyright (c) 2020 o1310<br>
+Copyright (c) 2020 o1310
 Copyright (c) 2019 — 2020 rx1310
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

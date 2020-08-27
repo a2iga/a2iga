@@ -27,6 +27,7 @@ import java.util.List;
 import o1310.rx1310.app.a2iga.AppList;
 import o1310.rx1310.app.a2iga.R;
 import o1310.rx1310.app.a2iga.adapter.AppsListAdapter;
+import o1310.rx1310.app.a2iga.utils.SettingsUtils;
 
 public class PackagesListActivity extends Activity {
 
@@ -34,16 +35,12 @@ public class PackagesListActivity extends Activity {
 	ListView packagesList;
     AppsListAdapter appsListAdapter;
 	TextView appsCount;
-	SharedPreferences sharedPrefs;
-	SharedPreferences.Editor sharedPrefsEditor;
 	
 	@Override
 	protected void onCreate(Bundle sIS) {
 		super.onCreate(sIS);
 		
 		setContentView(R.layout.activity_packageslist);
-		
-		sharedPrefs = getSharedPreferences("a2iga_settings", MODE_PRIVATE);
 		
 		appsList = getAppsList();
 
@@ -65,10 +62,7 @@ public class PackagesListActivity extends Activity {
 						
 						if (itemPos == 0) {
 							
-							sharedPrefsEditor = sharedPrefs.edit();
-							sharedPrefsEditor.putString(SettingsActivity.PREF_ASSISTANT_PACKAGE_NAME, appsList.get(i).mAppPackageName);
-							sharedPrefsEditor.commit();
-							
+							SettingsUtils.put(PackagesListActivity.this, SettingsActivity.PREF_ASSISTANT_PACKAGE_NAME, appsList.get(i).mAppPackageName);
 							Toast.makeText(PackagesListActivity.this, getString(R.string.message_app_selected_as_assistant), Toast.LENGTH_SHORT).show();
 							
 						}
