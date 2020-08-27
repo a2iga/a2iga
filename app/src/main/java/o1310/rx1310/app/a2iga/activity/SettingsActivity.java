@@ -36,8 +36,6 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
 	Button applyChanges, setAssistantApp, runAssistantApp, showPackagesList;
 	TextView appVersion;
 	
-	final String PREF_APP_FIRST_RUN = "appFirstRun";
-
 	public static final String PREF_ASSISTANT_PACKAGE_NAME = "assistantPackageName";
 	
 	@Override
@@ -65,12 +63,6 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
 		appVersion = findViewById(R.id.appVersion);
 		appVersion.setOnClickListener(this);
 		appVersion.setText(getString(R.string.app_version) + " " + thisAppVersion(this));
-
-		String appFirstRun = SettingsUtils.get(this, PREF_APP_FIRST_RUN);
-		
-		if (appFirstRun == "true") {
-			introDialog();
-		}
 
 	}
 
@@ -110,7 +102,8 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
 				break;
 
 			case R.id.appVersion:
-				startActivity(new Intent (Intent.ACTION_VIEW, Uri.parse("https://o1310.github.io")));
+				introDialog();
+				//startActivity(new Intent (Intent.ACTION_VIEW, Uri.parse("https://o1310.github.io")));
 				break;
 
 			default: break;
@@ -147,24 +140,28 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
 
 	}
 
-	void introDialog(){
+	void aboutDialog(){
 
 		// создаем диалог
 		AlertDialog.Builder b = new AlertDialog.Builder(this);
 
-		b.setTitle(R.string.intro_dialog_title);
+		b.setTitle(R.string.about_dialog_title);
 		b.setIcon(R.drawable.ic_logo);
-		b.setMessage(R.string.intro_message);
-		b.setCancelable(false);
-		b.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() { // обработка нажатия кнопки "Да"
+		b.setMessage(R.string.about_message);
+		b.setPositiveButton(android.R.string.cancel, new DialogInterface.OnClickListener() { // обработка нажатия кнопки "Да"
 				public void onClick(DialogInterface d, int i) {
-					SettingsUtils.put(SettingsActivity.this, PREF_APP_FIRST_RUN, "false");
+					d.cancel();
 				}
 			});
-		b.setNeutralButton(R.string.intro_dialog_action_source_code, new DialogInterface.OnClickListener() { // обработка нажатия кнопки "Да"
+		b.setNegativeButton("Telegram", new DialogInterface.OnClickListener() { // обработка нажатия кнопки "Да"
+				public void onClick(DialogInterface d, int i) {
+					
+				}
+			});
+		b.setNeutralButton(R.string.about_dialog_action_source_code, new DialogInterface.OnClickListener() { // обработка нажатия кнопки "Да"
 				public void onClick(DialogInterface d, int i) {
 					startActivity(new Intent (Intent.ACTION_VIEW, Uri.parse("https://github.com/o1310/a2iga")));
-					SettingsUtils.put(SettingsActivity.this, PREF_APP_FIRST_RUN, "false");
+					
 				}
 			});
 
