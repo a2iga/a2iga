@@ -181,6 +181,15 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
 
 	}
 	
+	/* Отображаем AlertDialog при получении данных.
+	 * Код передачи данных из приложения в A2IGA:
+	 * ---
+	 * 1. Intent sendPackageName = new Intent();
+	 * 2. sendPackageName.setAction(Intent.ACTION_SEND);
+	 * 3. sendPackageName.putExtra(Intent.EXTRA_TEXT, "com.android.settings"); // "com.android.settings" - имя пакета, которое принимает A2IGA
+	 * 4. sendPackageName.setType("text/plain");
+	 * 5. startActivity(Intent.createChooser(sendPackageName, "Select «A2IGA»!"));
+	 * --- */
 	void setGottenPackageNameDialog(Intent i){
 
 		final String gottenPackageName = i.getStringExtra(Intent.EXTRA_TEXT);
