@@ -29,6 +29,7 @@ import android.widget.Toast;
 
 import o1310.rx1310.app.a2iga.R;
 import o1310.rx1310.app.a2iga.utils.SettingsUtils;
+import android.text.Html;
 
 public class SettingsActivity extends Activity implements View.OnClickListener {
 
@@ -45,6 +46,10 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
         setContentView(R.layout.activity_settings);
 		setTitle(R.string.app_settings);
 
+		Intent intent = getIntent();
+		String intentAction = intent.getAction();
+		String intentType = intent.getType();
+		
 		inputAssistantPackageName = findViewById(R.id.inputAssistantPackageName);
 		inputAssistantPackageName.setText(SettingsUtils.get(this, PREF_ASSISTANT_PACKAGE_NAME));
 
@@ -63,8 +68,14 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
 		appVersion = findViewById(R.id.appVersion);
 		appVersion.setOnClickListener(this);
 		appVersion.setText(getString(R.string.app_version) + " " + thisAppVersion(this));
+		
+		if (Intent.ACTION_SEND.equals(intentAction) && intentType != null || "text/plain".equals(intentType)) {
+			setGottenPackageNameDialog(intent);
+		}
 
 	}
+	
+	
 
 	@Override
 	protected void onResume() {
@@ -149,24 +160,51 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
 		b.setIcon(R.drawable.ic_logo);
 		b.setMessage(R.string.about_message);
 		b.setPositiveButton(android.R.string.cancel, new DialogInterface.OnClickListener() { // обработка нажатия кнопки "Да"
-				public void onClick(DialogInterface d, int i) {
-					d.cancel();
-				}
-			});
+			public void onClick(DialogInterface d, int i) {
+				d.cancel();
+			}
+		});
 		b.setNegativeButton("Telegram", new DialogInterface.OnClickListener() { // обработка нажатия кнопки "Telegram"
-				public void onClick(DialogInterface d, int i) {
-					startActivity(new Intent (Intent.ACTION_VIEW, Uri.parse("https://t.me/o1310")));
-				}
-			});
+			public void onClick(DialogInterface d, int i) {
+				startActivity(new Intent (Intent.ACTION_VIEW, Uri.parse("https://t.me/o1310")));
+			}
+		});
 		b.setNeutralButton(R.string.about_dialog_action_source_code, new DialogInterface.OnClickListener() { // обработка нажатия кнопки "Да"
-				public void onClick(DialogInterface d, int i) {
-					startActivity(new Intent (Intent.ACTION_VIEW, Uri.parse("https://github.com/o1310/a2iga")));
-				}
-			});
+			public void onClick(DialogInterface d, int i) {
+				startActivity(new Intent (Intent.ACTION_VIEW, Uri.parse("https://github.com/o1310/a2iga")));
+			}
+		});
 
 		AlertDialog a = b.create(); // создаем диалог
 
 		a.show(); // отображаем диалог
+
+	}
+	
+	void setGottenPackageNameDialog(Intent i){
+
+		final String gottenPackageName = i.getStringExtra(Intent.EXTRA_TEXT);
+		
+		AlertDialog.Builder b = new AlertDialog.Builder(this);
+
+		b.setTitle("A2IGA: " + getString(R.string.gotten_package_name_dialog_title));
+		b.setIcon(R.mipmap.ic_launcher_round);
+		b.setMessage(Html.fromHtml(String.format(getString(R.string.gotten_package_name_dialog_message), gottenPackageName)));
+		b.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface d, int i) {
+				SettingsUtils.put(SettingsActivity.this, PREF_ASSISTANT_PACKAGE_NAME, gottenPackageName);
+				inputAssistantPackageName.setText(gottenPackageName);
+			}
+		});
+		b.setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() { 
+			public void onClick(DialogInterface d, int i) {
+				d.dismiss();
+			}
+		});
+
+		AlertDialog a = b.create();
+
+		a.show();
 
 	}
 

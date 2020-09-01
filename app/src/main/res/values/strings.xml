@@ -23,6 +23,9 @@
 	<string name="about_dialog_action_source_code">Source code</string>
 	<string name="about_message">A2IGA is an open source project and is distributed free of charge under MIT license.\n\nDeveloped by a member of the team of developers «o1310» - rx1310.</string>
 	
+	<string name="gotten_package_name_dialog_title">Installation request</string>
+	<string name="gotten_package_name_dialog_message" formatted="false">Are you sure you want to set «&lt;b&gt;%1$s&lt;/b&gt;» as the package name of the assistant app?</string>
+	
 	<string name="packages_list">Application list</string>
 	<string name="packages_list_apps_count">Apps count:</string>
 	<string name="packages_list_desc">Click on the required application to copy Package Name!</string>
