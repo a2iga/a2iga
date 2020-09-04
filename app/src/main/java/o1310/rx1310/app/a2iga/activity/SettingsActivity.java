@@ -203,6 +203,7 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
 			public void onClick(DialogInterface d, int i) {
 				SettingsUtils.put(SettingsActivity.this, PREF_ASSISTANT_PACKAGE_NAME, gottenPackageName);
 				inputAssistantPackageName.setText(gottenPackageName);
+				Toast.makeText(SettingsActivity.this, R.string.message_changes_saved, Toast.LENGTH_LONG).show();
 			}
 		});
 		b.setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() { 
