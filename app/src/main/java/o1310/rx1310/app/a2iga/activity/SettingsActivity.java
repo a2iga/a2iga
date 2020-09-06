@@ -75,8 +75,6 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
 
 	}
 	
-	
-
 	@Override
 	protected void onResume() {
 		super.onResume();
@@ -90,23 +88,23 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
 
 		switch (v.getId()) {
 
-				// Сохраняем данные из поля ввода
+			// Сохраняем данные из поля ввода
 			case R.id.applyChanges:
 				SettingsUtils.put(this, PREF_ASSISTANT_PACKAGE_NAME, inputAssistantPackageName.getText().toString());
 				Toast.makeText(this, R.string.message_changes_saved, Toast.LENGTH_LONG).show();
 				break;
 
-				// Запуск ассистента (для теста)
+			// Запуск ассистента (для теста)
 			case R.id.runAssistantApp:
 				startActivity(new Intent(Intent.ACTION_ASSIST).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
 				break;
 
-				// Переход в настройки ассистентов
+			// Переход в настройки ассистентов
 			case R.id.setAssistantApp:
 				startActivity(new Intent(android.provider.Settings.ACTION_VOICE_INPUT_SETTINGS));
 				break;
 
-				// Переход к списку Package Name
+			// Переход к списку Package Name
 			case R.id.showPackagesList:
 				Toast.makeText(this, R.string.message_wait, Toast.LENGTH_SHORT).show();
 				startActivity(new Intent (this, PackagesListActivity.class));
