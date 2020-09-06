@@ -66,6 +66,13 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
 			
 		setAssistantApp = findViewById(R.id.setAssistantApp);
 		setAssistantApp.setOnClickListener(this);
+		setAssistantApp.setOnLongClickListener(new View.OnLongClickListener() {
+			@Override
+			public boolean onLongClick(View v) {
+				startActivity(new Intent(SettingsActivity.this, DebugSettingsActivity.class));
+				return true;
+			}
+		});
 		
 		showPackagesList = findViewById(R.id.showPackagesList);
 		showPackagesList.setOnClickListener(this);

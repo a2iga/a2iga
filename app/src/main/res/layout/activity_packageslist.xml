@@ -18,16 +18,6 @@
 		android:layout_height="wrap_content"
 		android:textColor="#FFFFFFFF"/>
 
-	<Switch
-		android:background="@color/colorAccent"
-		android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
-		android:paddingStart="?android:attr/listPreferredItemPaddingStart"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:text="Show system apps"
-		android:paddingBottom="14dp"
-		android:id="@+id/packagesList_showSystemApps"/>
-
 	<ListView
 		android:fastScrollAlwaysVisible="true"
 		android:fastScrollEnabled="true"
