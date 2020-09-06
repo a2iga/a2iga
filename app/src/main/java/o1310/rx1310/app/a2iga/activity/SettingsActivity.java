@@ -39,7 +39,7 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
 	TextView appVersion;
 	
 	public static final String PREF_ASSISTANT_PACKAGE_NAME = "assistantPackageName";
-
+	
 	@Override
     protected void onCreate(Bundle sIS) {
         super.onCreate(sIS);
@@ -53,7 +53,7 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
 		
 		inputAssistantPackageName = findViewById(R.id.inputAssistantPackageName);
 		inputAssistantPackageName.setText(SettingsUtils.get(this, PREF_ASSISTANT_PACKAGE_NAME));
-
+		
 		applyChanges = findViewById(R.id.applyChanges);
 		applyChanges.setOnClickListener(this);
 		applyChanges.setOnLongClickListener(new View.OnLongClickListener() {

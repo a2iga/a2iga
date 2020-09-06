@@ -130,7 +130,7 @@ public class PackagesListActivity extends Activity {
 	}
 
     private boolean showSystemPackages(PackageInfo pkgInfo) {
-        return (pkgInfo.applicationInfo.flags & ApplicationInfo.FLAG_INSTALLED) != 0;
+		return (pkgInfo.applicationInfo.flags & ApplicationInfo.FLAG_INSTALLED) != 0;
     }
 	
 }

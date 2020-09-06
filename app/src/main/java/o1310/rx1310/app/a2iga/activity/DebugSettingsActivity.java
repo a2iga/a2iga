@@ -14,11 +14,9 @@ import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.preference.PreferenceCategory;
+import android.widget.Toast;
 
 public class DebugSettingsActivity extends PreferenceActivity {
-	
-	SwitchPreference showSystemApps;
-	PreferenceCategory ctg_packagesList;
 	
 	protected void onCreate(Bundle sIS) {
 		super.onCreate(sIS);
@@ -29,24 +27,15 @@ public class DebugSettingsActivity extends PreferenceActivity {
 		
 		setPreferenceScreen(p);
 		
-		ctg_packagesList = new PreferenceCategory(this);
-		ctg_packagesList.setTitle("Apps list");
-		
-		showSystemApps = new SwitchPreference(this);
-		showSystemApps.setKey("dbg_showSystemApps");
-		showSystemApps.setTitle("Show system apps");
-
-		p.addPreference(ctg_packagesList);
-		p.addPreference(showSystemApps);
-
+		// p.addPreference();
 	}
 
 	public boolean onPreferenceTreeClick(PreferenceScreen s, Preference p) {
 
 		switch (p.getKey()) {
 
-			case "dbg_showSystemApps": 
-				//
+			case "": 
+				
 				break;
 
 		}
