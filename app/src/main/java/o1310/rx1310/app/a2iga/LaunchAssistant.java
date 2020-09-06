@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import android.text.TextUtils;
 import o1310.rx1310.app.a2iga.utils.SettingsUtils;
+import o1310.rx1310.app.a2iga.activity.SettingsActivity;
 
 public class LaunchAssistant extends Activity {
 
@@ -46,6 +47,9 @@ public class LaunchAssistant extends Activity {
 			/* Если packageName пустой, то отобразим
 			 * toast-сообщение, которое уведомляет об этом */
 			Toast.makeText(this, R.string.message_package_name_not_specified, Toast.LENGTH_LONG).show();
+			
+			// Также запустим окно настроек
+			startActivity(new Intent(this, SettingsActivity.class));
 			
 		} else {
 			
