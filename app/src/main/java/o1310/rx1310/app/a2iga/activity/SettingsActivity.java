@@ -29,16 +29,17 @@ import android.widget.Toast;
 
 import o1310.rx1310.app.a2iga.R;
 import o1310.rx1310.app.a2iga.utils.SettingsUtils;
+
 import android.text.Html;
 
 public class SettingsActivity extends Activity implements View.OnClickListener {
 
 	EditText inputAssistantPackageName;
-	Button applyChanges, setAssistantApp, runAssistantApp, showPackagesList;
+	Button applyChanges, setAssistantApp, showPackagesList;
 	TextView appVersion;
 	
 	public static final String PREF_ASSISTANT_PACKAGE_NAME = "assistantPackageName";
-	
+
 	@Override
     protected void onCreate(Bundle sIS) {
         super.onCreate(sIS);
@@ -55,13 +56,17 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
 
 		applyChanges = findViewById(R.id.applyChanges);
 		applyChanges.setOnClickListener(this);
-
+		applyChanges.setOnLongClickListener(new View.OnLongClickListener() {
+			@Override
+			public boolean onLongClick(View v) {
+				startActivity(new Intent(Intent.ACTION_ASSIST).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+				return true;
+			}
+		});
+			
 		setAssistantApp = findViewById(R.id.setAssistantApp);
 		setAssistantApp.setOnClickListener(this);
-
-		runAssistantApp = findViewById(R.id.runAssistantApp);
-		runAssistantApp.setOnClickListener(this);
-
+		
 		showPackagesList = findViewById(R.id.showPackagesList);
 		showPackagesList.setOnClickListener(this);
 
@@ -92,11 +97,6 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
 			case R.id.applyChanges:
 				SettingsUtils.put(this, PREF_ASSISTANT_PACKAGE_NAME, inputAssistantPackageName.getText().toString());
 				Toast.makeText(this, R.string.message_changes_saved, Toast.LENGTH_LONG).show();
-				break;
-
-			// Запуск ассистента (для теста)
-			case R.id.runAssistantApp:
-				startActivity(new Intent(Intent.ACTION_ASSIST).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
 				break;
 
 			// Переход в настройки ассистентов

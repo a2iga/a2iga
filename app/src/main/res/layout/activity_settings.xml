@@ -36,12 +36,7 @@
 			android:hint="@string/settings_input_package_name_hint"
 			android:inputType="text"/>
 
-		<Button
-			android:layout_width="match_parent"
-			style="?android:attr/buttonBarButtonStyle"
-			android:layout_height="wrap_content"
-			android:text="@string/show_packages_list"
-			android:id="@+id/showPackagesList"/>
+		
 
 		<LinearLayout
 			android:layout_width="match_parent"
@@ -61,8 +56,8 @@
 				android:layout_width="wrap_content"
 				style="?android:attr/buttonBarButtonStyle"
 				android:layout_height="wrap_content"
-				android:text="@string/run_assistant_app"
-				android:id="@+id/runAssistantApp"
+				android:text="@string/show_packages_list"
+				android:id="@+id/showPackagesList"
 				android:layout_weight="1.0"/>
 
 		</LinearLayout>
