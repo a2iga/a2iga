@@ -87,4 +87,6 @@ public class AppsListAdapter extends BaseAdapter {
 		
 	}
 	
+	
+	
 }

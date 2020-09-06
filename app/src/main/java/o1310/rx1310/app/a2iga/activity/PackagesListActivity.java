@@ -37,6 +37,8 @@ import o1310.rx1310.app.a2iga.AppList;
 import o1310.rx1310.app.a2iga.R;
 import o1310.rx1310.app.a2iga.adapter.AppsListAdapter;
 import o1310.rx1310.app.a2iga.utils.SettingsUtils;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class PackagesListActivity extends Activity {
 
@@ -124,6 +126,13 @@ public class PackagesListActivity extends Activity {
             }
 			
         }
+		
+		Collections.sort(appsList, new Comparator<AppList>() {
+			public int compare(final AppList p1, final AppList p2) {
+				return p1.getAppName().compareTo(p2.getAppName());
+			}
+		});
+		
 		
         return appsList;
 		
