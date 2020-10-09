@@ -68,9 +68,6 @@
 			android:theme="@style/AppTheme.PackagesList"
 			android:label="@string/packages_list" />
 		
-		<activity
-			android:name=".activity.DebugSettingsActivity" />
-		
 	</application>
 	
 </manifest>
