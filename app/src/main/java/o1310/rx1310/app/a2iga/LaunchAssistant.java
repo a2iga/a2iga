@@ -18,16 +18,19 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import android.text.TextUtils;
+
 import o1310.rx1310.app.a2iga.utils.SettingsUtils;
 import o1310.rx1310.app.a2iga.activity.SettingsActivity;
 
 public class LaunchAssistant extends Activity {
 	
+	String assistantPackageName;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
-		String assistantPackageName = SettingsUtils.get(this, SettingsActivity.PREF_ASSISTANT_PACKAGE_NAME);
+		assistantPackageName = SettingsUtils.get(this, SettingsActivity.PREF_ASSISTANT_PACKAGE_NAME);
 		
 		// Запускаем ассистент
 		startAssistantApp(assistantPackageName);

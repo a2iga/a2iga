@@ -13,10 +13,10 @@ import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 
 import android.os.Bundle;
@@ -27,18 +27,16 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.Switch;
-import android.widget.CompoundButton;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import o1310.rx1310.app.a2iga.AppList;
 import o1310.rx1310.app.a2iga.R;
 import o1310.rx1310.app.a2iga.adapter.AppsListAdapter;
 import o1310.rx1310.app.a2iga.utils.SettingsUtils;
-import java.util.Collections;
-import java.util.Comparator;
 
 public class PackagesListActivity extends Activity {
 
@@ -103,6 +101,7 @@ public class PackagesListActivity extends Activity {
 		
         appsCount = findViewById(R.id.packagesList_countApps);
 		appsCount.setText(getString(R.string.packages_list_apps_count) + " " + packagesList.getCount() + "\n" + getString(R.string.packages_list_desc));
+		appsCount.setBackgroundColor(SettingsActivity.getSystemAccentColor(this));
 		
 	}
 		

@@ -82,9 +82,9 @@
 		android:paddingStart="?android:attr/listPreferredItemPaddingStart"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:background="@color/colorAccent"
 		android:paddingTop="14dp"
-		android:paddingBottom="14dp">
+		android:paddingBottom="14dp"
+		android:id="@+id/settingsFooter">
 
 		<LinearLayout
 			android:orientation="vertical"

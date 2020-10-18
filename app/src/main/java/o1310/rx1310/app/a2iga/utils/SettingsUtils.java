@@ -7,9 +7,12 @@
 package o1310.rx1310.app.a2iga.utils;
 
 import android.annotation.SuppressLint;
+
 import android.content.Context;
 import android.content.SharedPreferences;
+
 import android.preference.PreferenceManager;
+
 import android.util.Log;
 
 public class SettingsUtils {

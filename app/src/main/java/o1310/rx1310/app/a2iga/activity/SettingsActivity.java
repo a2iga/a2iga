@@ -12,13 +12,19 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.res.TypedArray;
+
+import android.graphics.Color;
 
 import android.net.Uri;
 
 import android.os.Bundle;
+
+import android.support.annotation.ColorInt;
+
+import android.text.Html;
 
 import android.view.View;
 
@@ -26,17 +32,17 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.FrameLayout;
 
 import o1310.rx1310.app.a2iga.R;
 import o1310.rx1310.app.a2iga.utils.SettingsUtils;
-
-import android.text.Html;
 
 public class SettingsActivity extends Activity implements View.OnClickListener {
 
 	EditText inputAssistantPackageName;
 	Button applyChanges, setAssistantApp, showPackagesList;
 	TextView appVersion;
+	FrameLayout settingsFooter;
 	
 	public static final String PREF_ASSISTANT_PACKAGE_NAME = "assistantPackageName";
 	
@@ -46,7 +52,7 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
 
         setContentView(R.layout.activity_settings);
 		setTitle(R.string.app_settings);
-
+		
 		Intent intent = getIntent();
 		String intentAction = intent.getAction();
 		String intentType = intent.getType();
@@ -63,7 +69,7 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
 				return true;
 			}
 		});
-			
+		
 		setAssistantApp = findViewById(R.id.setAssistantApp);
 		setAssistantApp.setOnClickListener(this);
 		
@@ -71,8 +77,11 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
 		showPackagesList.setOnClickListener(this);
 
 		appVersion = findViewById(R.id.appVersion);
-		appVersion.setOnClickListener(this);
 		appVersion.setText(getString(R.string.app_version) + " " + thisAppVersion(this));
+		
+		settingsFooter = findViewById(R.id.settingsFooter);
+		settingsFooter.setBackgroundColor(getSystemAccentColor(this));
+		settingsFooter.setOnClickListener(this);
 		
 		if (Intent.ACTION_SEND.equals(intentAction) && intentType != null || "text/plain".equals(intentType)) {
 			setGottenPackageNameDialog(intent);
@@ -110,7 +119,7 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
 				startActivity(new Intent (this, PackagesListActivity.class));
 				break;
 
-			case R.id.appVersion:
+			case R.id.settingsFooter:
 				aboutDialog();
 				//startActivity(new Intent (Intent.ACTION_VIEW, Uri.parse("https://o1310.github.io")));
 				break;
@@ -148,7 +157,22 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
 		return a; // вернем версию в формате НАЗВАНИЕ.КОД (напр.: 1.200915)
 
 	}
-
+	
+	// получаем системный цвет акцента
+	@ColorInt
+	public static int getSystemAccentColor(Context c) {
+		
+		int[] attr = { android.R.attr.colorAccent };
+		
+		TypedArray arr = c.obtainStyledAttributes(android.R.style.Theme_DeviceDefault, attr);
+		
+		int clr = arr.getColor(0, Color.BLACK);
+		arr.recycle();
+		
+		return clr;
+		
+	}
+	
 	void aboutDialog(){
 
 		// создаем диалог
