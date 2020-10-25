@@ -22,7 +22,8 @@
 		android:fastScrollEnabled="true"
 		android:id="@+id/packagesList"
 		android:layout_width="match_parent"
-		android:layout_height="wrap_content"/>
+		android:layout_height="match_parent"
+		android:dividerHeight="1dp"/>
 
 </LinearLayout>
 
