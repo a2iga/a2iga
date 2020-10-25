@@ -15,8 +15,7 @@
 	
 	<string name="settings_input_package_name_hint">Package name</string>
 	<string name="settings_input_package_name_desc">Enter the name of the application package that will be launched:</string>
-	<string name="settings_set_assistant_app">Go to the settings</string>
-	<string name="settings_set_assistant_app_desc">You need to choose A2IGA as an assistant!</string>
+	<string name="settings_set_assistant_app">Go to the assistant settings</string>
 	
 	<string name="about_dialog_title">Hi, user!</string>
 	<string name="about_dialog_action_source_code">Source code</string>

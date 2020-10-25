@@ -60,14 +60,6 @@
 
 		</LinearLayout>
 
-		<TextView
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:text="@string/settings_set_assistant_app_desc"
-			android:layout_marginTop="10dp"
-			android:layout_marginBottom="10dp"
-			android:textColor="#FFFF6969"/>
-
 		<Button
 			android:layout_width="match_parent"
 			style="?android:attr/buttonBarButtonStyle"
