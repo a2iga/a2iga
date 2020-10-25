@@ -33,6 +33,4 @@ public class AppList {
 		return mAppIcon;
 	}
 	
-	
-	
 }

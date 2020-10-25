@@ -24,6 +24,7 @@
 		android:supportsRtl="true">
 		
 		<activity
+			android:fitsSystemWindows="true"
 			android:name=".activity.SettingsActivity">
 			
 			<intent-filter>
