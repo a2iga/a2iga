@@ -36,6 +36,7 @@ import android.widget.FrameLayout;
 
 import o1310.rx1310.app.a2iga.R;
 import o1310.rx1310.app.a2iga.utils.SettingsUtils;
+import android.text.TextUtils;
 
 public class SettingsActivity extends Activity implements View.OnClickListener {
 
@@ -104,8 +105,7 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
 
 			// Сохраняем данные из поля ввода
 			case R.id.applyChanges:
-				SettingsUtils.put(this, PREF_ASSISTANT_PACKAGE_NAME, inputAssistantPackageName.getText().toString());
-				Toast.makeText(this, R.string.message_changes_saved, Toast.LENGTH_LONG).show();
+				applyNewChanges();
 				break;
 
 			// Переход в настройки ассистентов
@@ -156,6 +156,17 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
 
 		return a; // вернем версию в формате НАЗВАНИЕ.КОД (напр.: 1.200915)
 
+	}
+	
+	void applyNewChanges() {
+		
+		if (TextUtils.isEmpty(inputAssistantPackageName.getText().toString())) {
+			inputAssistantPackageName.setError(getString(R.string.message_package_name_not_specified));
+		} else {
+			SettingsUtils.put(this, PREF_ASSISTANT_PACKAGE_NAME, inputAssistantPackageName.getText().toString());
+			Toast.makeText(this, R.string.message_changes_saved, Toast.LENGTH_LONG).show();
+		}
+		
 	}
 	
 	// получаем системный цвет акцента

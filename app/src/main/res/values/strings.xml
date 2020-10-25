@@ -8,7 +8,7 @@
 	
 	<string name="message_app_not_found">The application is not found! Search in App Store ...</string>
 	<string name="message_changes_saved">Settings are saved!</string>
-	<string name="message_package_name_not_specified">A2IGA: Package Name is empty!</string>
+	<string name="message_package_name_not_specified">Package Name is empty!</string>
 	<string name="message_package_name_copied">Copied! Now insert the copied text in the input field.</string>
 	<string name="message_wait">Wait...</string>
 	<string name="message_app_selected_as_assistant">App selected as an assistant!</string>
