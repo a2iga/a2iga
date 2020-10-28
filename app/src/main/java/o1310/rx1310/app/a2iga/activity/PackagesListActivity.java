@@ -72,6 +72,7 @@ public class PackagesListActivity extends Activity {
 						if (itemPos == 0) {
 							
 							SettingsUtils.put(PackagesListActivity.this, SettingsActivity.PREF_ASSISTANT_PACKAGE_NAME, appsList.get(i).mAppPackageName);
+							finish();
 							Toast.makeText(PackagesListActivity.this, getString(R.string.message_app_selected_as_assistant), Toast.LENGTH_SHORT).show();
 							
 						}

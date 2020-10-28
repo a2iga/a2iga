@@ -5,21 +5,31 @@ android {
     compileSdkVersion 29
     
     defaultConfig {
+		
         applicationId "o1310.rx1310.app.a2iga"
         minSdkVersion 23
         targetSdkVersion 29
+		
         versionCode 201028
         versionName "A-6"
+		
     }
+	
     buildTypes {
+		
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+		
     }
+	
 }
 
 dependencies {
+	
 	implementation 'android.arch.core:runtime:1.1.1'
+	
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+	
 }
