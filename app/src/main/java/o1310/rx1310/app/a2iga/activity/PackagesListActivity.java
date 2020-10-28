@@ -114,7 +114,7 @@ public class PackagesListActivity extends Activity {
 			
             PackageInfo p = pkgInfo.get(i);
 			
-            if ((showSystemPackages(p))) {
+            if ((p.applicationInfo.flags & ApplicationInfo.FLAG_INSTALLED) != 0) {
 				
                 String appName = p.applicationInfo.loadLabel(getPackageManager()).toString();
                 Drawable appIcon = p.applicationInfo.loadIcon(getPackageManager());
@@ -137,8 +137,4 @@ public class PackagesListActivity extends Activity {
 		
 	}
 
-    private boolean showSystemPackages(PackageInfo pkgInfo) {
-		return (pkgInfo.applicationInfo.flags & ApplicationInfo.FLAG_INSTALLED) != 0;
-    }
-	
 }
