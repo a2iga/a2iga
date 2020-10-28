@@ -32,7 +32,6 @@ public class SettingsUtils {
 		
 	}
 	
-	@SuppressLint("CommitPrefEdits")
 	public static void put(Context context, String key, String value) {
 		
 		SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
