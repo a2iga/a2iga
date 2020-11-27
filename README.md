@@ -1,12 +1,12 @@
 <p align="center">
-  <a href="https://o1310.github.io">
+  <a href="https://rx1310.github.io">
     <img src="https://raw.githubusercontent.com/rx1310/a2iga/master/app-logo.png" alt="Project logo" width="50%">
   </a>
 </p>
 <br>
 <p align="center">Маленькая утилита, которая поможет заменить Google Assistant, вызываемый зажатием кнопки Home / жестом нижних краёв экрана (Android Q), на любое приложение, нужное вам.
   <br><br>
-  <a href="https://github.com/rx1310/a2iga/releases">Github Releases</a> • <a href="https://t.me/o1310">Telegram channel</a>
+  <a href="https://github.com/rx1310/a2iga/releases">Github Releases</a> • <a href="https://t.me/rx1310">Telegram channel</a>
 </p>
 
 ---
@@ -33,7 +33,6 @@
 ```
 MIT License
 
-Copyright (c) 2020 o1310
 Copyright (c) 2019 — 2020 rx1310
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

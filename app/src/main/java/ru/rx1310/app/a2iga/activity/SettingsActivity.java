@@ -4,7 +4,7 @@
  * @license     MIT License
  */
 
-package o1310.rx1310.app.a2iga.activity;
+package ru.rx1310.app.a2iga.activity;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -34,8 +34,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.FrameLayout;
 
-import o1310.rx1310.app.a2iga.R;
-import o1310.rx1310.app.a2iga.utils.SettingsUtils;
+import ru.rx1310.app.a2iga.R;
+import ru.rx1310.app.a2iga.utils.SettingsUtils;
 import android.text.TextUtils;
 
 public class SettingsActivity extends Activity implements View.OnClickListener {
@@ -199,12 +199,12 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
 		});
 		b.setNegativeButton("Telegram", new DialogInterface.OnClickListener() { // обработка нажатия кнопки "Telegram"
 			public void onClick(DialogInterface d, int i) {
-				startActivity(new Intent (Intent.ACTION_VIEW, Uri.parse("https://t.me/o1310")));
+				startActivity(new Intent (Intent.ACTION_VIEW, Uri.parse("https://t.me/rx1310")));
 			}
 		});
 		b.setNeutralButton(R.string.about_dialog_action_source_code, new DialogInterface.OnClickListener() { // обработка нажатия кнопки "Да"
 			public void onClick(DialogInterface d, int i) {
-				startActivity(new Intent (Intent.ACTION_VIEW, Uri.parse("https://github.com/o1310/a2iga")));
+				startActivity(new Intent (Intent.ACTION_VIEW, Uri.parse("https://github.com/rx1310/a2iga")));
 			}
 		});
 

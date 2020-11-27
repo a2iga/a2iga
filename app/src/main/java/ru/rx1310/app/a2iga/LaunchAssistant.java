@@ -4,7 +4,7 @@
  * @license     MIT License
  */
 
-package o1310.rx1310.app.a2iga;
+package ru.rx1310.app.a2iga;
 
 import android.app.Activity;
 
@@ -19,8 +19,8 @@ import android.widget.Toast;
 
 import android.text.TextUtils;
 
-import o1310.rx1310.app.a2iga.utils.SettingsUtils;
-import o1310.rx1310.app.a2iga.activity.SettingsActivity;
+import ru.rx1310.app.a2iga.utils.SettingsUtils;
+import ru.rx1310.app.a2iga.activity.SettingsActivity;
 
 public class LaunchAssistant extends Activity {
 	

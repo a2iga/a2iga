@@ -4,7 +4,7 @@
  * @license     MIT License
  */
 
-package o1310.rx1310.app.a2iga.adapter;
+package ru.rx1310.app.a2iga.adapter;
 
 import android.content.Context;
 
@@ -18,8 +18,8 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import o1310.rx1310.app.a2iga.AppList;
-import o1310.rx1310.app.a2iga.R;
+import ru.rx1310.app.a2iga.AppList;
+import ru.rx1310.app.a2iga.R;
 
 public class AppsListAdapter extends BaseAdapter {
 

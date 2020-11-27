@@ -6,7 +6,7 @@ android {
     
     defaultConfig {
 		
-        applicationId "o1310.rx1310.app.a2iga"
+        applicationId "ru.rx1310.app.a2iga"
         minSdkVersion 23
         targetSdkVersion 29
 		

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest
 	xmlns:android="http://schemas.android.com/apk/res/android"
-    package="o1310.rx1310.app.a2iga" >
+    package="ru.rx1310.app.a2iga" >
    
-	<original-package android:name="o1310.rx1310.app.quickaccess" />
+	<original-package android:name="ru.rx1310.app.quickaccess" />
 
 	<supports-screens 
 		android:anyDensity="true" 

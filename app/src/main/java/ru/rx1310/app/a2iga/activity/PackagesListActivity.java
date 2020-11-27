@@ -4,7 +4,7 @@
  * @license     MIT License
  */
 
-package o1310.rx1310.app.a2iga.activity;
+package ru.rx1310.app.a2iga.activity;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -33,10 +33,10 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import o1310.rx1310.app.a2iga.AppList;
-import o1310.rx1310.app.a2iga.R;
-import o1310.rx1310.app.a2iga.adapter.AppsListAdapter;
-import o1310.rx1310.app.a2iga.utils.SettingsUtils;
+import ru.rx1310.app.a2iga.AppList;
+import ru.rx1310.app.a2iga.R;
+import ru.rx1310.app.a2iga.adapter.AppsListAdapter;
+import ru.rx1310.app.a2iga.utils.SettingsUtils;
 
 public class PackagesListActivity extends Activity {
 

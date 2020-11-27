@@ -4,7 +4,7 @@
  * @license     MIT License
  */
 
-package o1310.rx1310.app.a2iga;
+package ru.rx1310.app.a2iga;
 
 import android.graphics.drawable.Drawable;
 
