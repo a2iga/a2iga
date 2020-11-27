@@ -10,8 +10,8 @@ android {
         minSdkVersion 23
         targetSdkVersion 29
 		
-        versionCode 201028
-        versionName "A-6"
+        versionCode 201127
+        versionName "7"
 		
     }
 	

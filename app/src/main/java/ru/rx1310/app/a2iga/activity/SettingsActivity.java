@@ -1,8 +1,4 @@
-/*
- * @author      rx1310 <rx1310@inbox.ru>
- * @copyright   Copyright (c) o1310, 2020
- * @license     MIT License
- */
+// ! rx1310 <rx1310@inbox.ru> | Copyright (c) o1310, 2020 | MIT License
 
 package ru.rx1310.app.a2iga.activity;
 
@@ -130,7 +126,7 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
 
 	}
 
-	// from RebootManager.java (RebootManager) | git:https://github.com/o1310/RebootManager
+	// from RebootManager.java (RebootManager) | git:https://github.com/rx1310/RebootManager
 	public static String thisAppVersion(Context c) {
 
 		String s, a;
