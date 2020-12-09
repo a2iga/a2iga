@@ -8,9 +8,9 @@
 	
 	<string name="message_app_not_found">The application is not found! Search in App Store ...</string>
 	<string name="message_changes_saved">Settings are saved!</string>
-	<string name="message_package_name_not_specified">Package Name is empty!</string>
+	<string name="message_package_name_not_specified">Package name is empty!</string>
 	<string name="message_package_name_copied">Copied! Now insert the copied text in the input field.</string>
-	<string name="message_wait">Wait...</string>
+	<string name="message_wait">Please wait...</string>
 	<string name="message_app_selected_as_assistant">App selected as an assistant!</string>
 	
 	<string name="settings_input_package_name_hint">Package name</string>
@@ -27,7 +27,7 @@
 	
 	<string name="packages_list">Application list</string>
 	<string name="packages_list_apps_count">Apps count:</string>
-	<string name="packages_list_desc">Click on the required application to copy Package Name!</string>
+	<string name="packages_list_desc">Click on the required application to copy package name!</string>
 	
 	<string-array name="package_list_action">
         <item>Use as an assistant</item>

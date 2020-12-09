@@ -188,17 +188,17 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
 		b.setTitle(R.string.about_dialog_title);
 		b.setIcon(R.drawable.ic_logo);
 		b.setMessage(R.string.about_message);
-		b.setPositiveButton(android.R.string.cancel, new DialogInterface.OnClickListener() { // обработка нажатия кнопки "Да"
+		b.setPositiveButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
 			public void onClick(DialogInterface d, int i) {
 				d.cancel();
 			}
 		});
-		b.setNegativeButton("Telegram", new DialogInterface.OnClickListener() { // обработка нажатия кнопки "Telegram"
+		b.setNegativeButton("Telegram", new DialogInterface.OnClickListener() {
 			public void onClick(DialogInterface d, int i) {
 				startActivity(new Intent (Intent.ACTION_VIEW, Uri.parse("https://t.me/rx1310_dev")));
 			}
 		});
-		b.setNeutralButton(R.string.about_dialog_action_source_code, new DialogInterface.OnClickListener() { // обработка нажатия кнопки "Да"
+		b.setNeutralButton(R.string.about_dialog_action_source_code, new DialogInterface.OnClickListener() {
 			public void onClick(DialogInterface d, int i) {
 				startActivity(new Intent (Intent.ACTION_VIEW, Uri.parse("https://github.com/rx1310/a2iga")));
 			}
@@ -255,4 +255,3 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
 	 }*/
 
 }
- 

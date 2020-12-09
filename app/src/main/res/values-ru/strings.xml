@@ -8,7 +8,7 @@
 
 	<string name="message_app_not_found">Приложение не найдено! Поиск в магазине приложений...</string>
 	<string name="message_changes_saved">Настройки сохранены!</string>
-	<string name="message_package_name_not_specified">Вы не указали Package Name приложения для запуска!</string>
+	<string name="message_package_name_not_specified">Вы не указали имя пакета приложения для запуска!</string>
 	<string name="message_package_name_copied">Скопировано! Теперь вставьте скопированный текст в поле ввода.</string>
 	<string name="message_wait">Подождите...</string>
 	<string name="message_app_selected_as_assistant">Приложение установлено в качестве ассистента!</string>
@@ -27,7 +27,7 @@
 	
 	<string name="packages_list">Список приложений</string>
 	<string name="packages_list_apps_count">Количество приложений:</string>
-	<string name="packages_list_desc">Нажмите на необходимое приложение, чтобы скопировать Package Name!</string>
+	<string name="packages_list_desc">Нажмите на необходимое приложение, чтобы скопировать имя пакета!</string>
 
 	<string-array name="package_list_action">
         <item>Установить в качестве ассистента</item>
