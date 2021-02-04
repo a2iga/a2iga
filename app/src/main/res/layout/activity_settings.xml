@@ -55,7 +55,8 @@
 				android:layout_height="wrap_content"
 				android:text="@string/apply_changes"
 				android:id="@+id/applyChanges"
-				android:layout_weight="1.0"/>
+				android:layout_weight="1.0"
+				android:drawableLeft="@drawable/ic_apply"/>
 
 			<Button
 				android:layout_width="wrap_content"
@@ -63,7 +64,8 @@
 				android:layout_height="wrap_content"
 				android:text="@string/show_packages_list"
 				android:id="@+id/showPackagesList"
-				android:layout_weight="1.0"/>
+				android:layout_weight="1.0"
+				android:drawableLeft="@drawable/ic_list_apps"/>
 
 		</LinearLayout>
 
@@ -72,7 +74,16 @@
 			style="?android:attr/buttonBarButtonStyle"
 			android:layout_height="wrap_content"
 			android:text="@string/settings_set_assistant_app"
-			android:id="@+id/setAssistantApp"/>
+			android:id="@+id/setAssistantApp"
+			android:drawableLeft="@drawable/ic_settings_assistant"/>
+
+		<Button
+			android:layout_width="match_parent"
+			style="?android:attr/buttonBarButtonStyle"
+			android:layout_height="wrap_content"
+			android:text="@string/settings_set_assistant_app"
+			android:id="@+id/setAssistantApp"
+			android:drawableLeft="@drawable/ic_settings"/>
 
 	</LinearLayout>
 

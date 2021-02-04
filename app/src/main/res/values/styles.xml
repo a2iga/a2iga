@@ -2,6 +2,7 @@
 <resources>
 	
 	<color name="colorAppIconBackground">#ff1a73e8</color>
+	<color name="colorIcon">?android:attr/colorAccent</color>
 	
 	<style 
 		name="AppTheme" 

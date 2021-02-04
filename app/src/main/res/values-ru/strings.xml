@@ -16,7 +16,7 @@
 	<string name="settings_input_package_name_hint">Имя пакета</string>
 	<string name="settings_input_package_name_desc">Введите имя пакета приложения, которое будет запускаться жестом вызова ассистента:</string>
 	<string name="settings_set_assistant_app">Перейти в настройки ассистента</string>
-	<string name="settings_tutorial">Более подробное описание настройки A2IGA: https://git.io/JT1zL</string>
+	<string name="settings_tutorial">Более подробное описание настройки A2IGA: https://git.io/JtBlG</string>
 	
 	<string name="about_dialog_title">Привет!</string>
 	<string name="about_dialog_action_source_code">Исходный код</string>
