@@ -25,7 +25,7 @@
 		
 		<activity
 			android:fitsSystemWindows="true"
-			android:name=".activity.SettingsActivity">
+			android:name=".activity.MainActivity">
 			
 			<intent-filter>
 				
@@ -63,11 +63,6 @@
             </intent-filter>
 			
 		</activity>
-		
-		<activity
-			android:name=".activity.PackagesListActivity" 
-			android:theme="@style/AppTheme.PackagesList"
-			android:label="@string/packages_list" />
 		
 	</application>
 	
