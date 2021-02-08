@@ -1,33 +1,50 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".MainActivity">
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical"
+	tools:context=".MainActivity">
 
-    <android.support.v7.widget.Toolbar 
+	<LinearLayout
+		android:orientation="vertical"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+
+		<TextView
+			android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
+			android:paddingStart="?android:attr/listPreferredItemPaddingStart"
+			android:id="@+id/text_header"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:background="?colorAccent"
+			android:paddingTop="6dp"
+			android:paddingBottom="10dp"
+			android:gravity="center"
+			android:textColor="#FF000000"
+			android:textStyle="bold"/>
+
+		<ListView
+			android:fastScrollAlwaysVisible="true"
+			android:fastScrollEnabled="true"
+			android:id="@+id/list_view"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:dividerHeight="1dp"
+			android:layout_marginBottom="?attr/actionBarSize"/>
+
+	</LinearLayout>
+
+	<android.support.v7.widget.Toolbar
 		android:id="@+id/toolbar"
 		android:minHeight="?attr/actionBarSize"
 		android:background="?attr/colorPrimary"
 		android:layout_width="match_parent"
 		android:theme="@style/ThemeOverlay.AppCompat.Dark"
-		android:layout_height="wrap_content"/>
-	
-    <TextView
-        android:id="@+id/text_header"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/app_name"
-        android:gravity="center"
-        android:textColor="@android:color/white"
-        android:textStyle="bold" />
-	
-	<ListView
-		android:fastScrollAlwaysVisible="true"
-		android:fastScrollEnabled="true"
-		android:id="@+id/list_view"
-		android:layout_width="match_parent"
-		android:layout_height="match_parent"
-		android:dividerHeight="1dp"/>
-	
-</LinearLayout>
+		android:layout_height="wrap_content"
+		android:layout_gravity="bottom|center"/>
+
+</FrameLayout>
+

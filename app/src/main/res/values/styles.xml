@@ -51,6 +51,10 @@
         <item name="android:navigationBarColor">@color/colorSurface</item>
         <item name="colorPrimaryDark">@color/colorSurface</item>
     </style>
+	
+	<style name="AppTheme.AppsList" parent="AppTheme.NoActionBar">
+        <item name="colorPrimaryDark">@color/colorAccent</item>
+    </style>
 
     <style name="AppTheme.TextAppearanceBody2">
         <item name="android:textSize">14sp</item>

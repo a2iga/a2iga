@@ -16,6 +16,7 @@
 	<!-- Menu -->
 	<string name="menu_settings">@string/activity_settings</string>
 	<string name="menu_search">Поиск</string>
+	<string name="menu_search_hint_appslist">Поиск приложения...</string>
 	
 	<!-- Messages -->
 	<string name="msg_pkg_name_copied">Имя пакета приложения скопировано!</string>

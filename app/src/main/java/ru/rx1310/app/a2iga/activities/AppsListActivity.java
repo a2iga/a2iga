@@ -55,7 +55,9 @@ public class AppsListActivity extends AppCompatActivity {
         mToolbar = findViewById(R.id.toolbar);
 
         setSupportActionBar(mToolbar);
-
+		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+		getSupportActionBar().setDisplayShowHomeEnabled(true);
+		
         mDlgProgress = ProgressDialog.show(this, getString(R.string.dlg_appslist_loading), getString(R.string.dlg_appslist_loading_desc));
         mAdapter = new ApplicationAdapter(this, R.layout.ui_list_item, mList);
         mListView.setAdapter(mAdapter);
@@ -71,6 +73,8 @@ public class AppsListActivity extends AppCompatActivity {
 		mSearchMng = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
 		
         mSearchView = (SearchView) mMenu.findItem(R.id.appslist_search).getActionView();
+		mSearchView.setQueryHint(getString(R.string.menu_search_hint_appslist));
+		mSearchView.setMaxWidth(Integer.MAX_VALUE);
         mSearchView.setOnQueryTextListener(onQueryTextListener());
         mSearchView.setSearchableInfo(mSearchMng.getSearchableInfo(getComponentName()));
 
@@ -121,5 +125,11 @@ public class AppsListActivity extends AppCompatActivity {
     public void updateUILayout(String content) {
         mHeaderText.setText(content);
     }
+	
+	@Override
+	public boolean onSupportNavigateUp() {
+		onBackPressed();
+		return true;
+	}
 	
 }
