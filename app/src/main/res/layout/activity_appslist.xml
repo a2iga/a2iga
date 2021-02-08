@@ -1,0 +1,33 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <android.support.v7.widget.Toolbar 
+		android:id="@+id/toolbar"
+		android:minHeight="?attr/actionBarSize"
+		android:background="?attr/colorPrimary"
+		android:layout_width="match_parent"
+		android:theme="@style/ThemeOverlay.AppCompat.Dark"
+		android:layout_height="wrap_content"/>
+	
+    <TextView
+        android:id="@+id/text_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:textStyle="bold" />
+	
+	<ListView
+		android:fastScrollAlwaysVisible="true"
+		android:fastScrollEnabled="true"
+		android:id="@+id/list_view"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:dividerHeight="1dp"/>
+	
+</LinearLayout>

@@ -2,30 +2,124 @@
 
 package ru.rx1310.app.a2iga.activities;
 
-import android.content.Intent;
-import android.content.SharedPreferences;
+
+import android.app.ProgressDialog;
+import android.app.SearchManager;
+import android.content.Context;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.os.Handler;
-import android.preference.PreferenceManager;
+
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.Button;
+import android.support.v7.widget.SearchView;
+import android.support.v7.widget.Toolbar;
+
+import android.view.Menu;
+import android.view.MenuInflater;
+
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import ru.rx1310.app.a2iga.R;
+import ru.rx1310.app.a2iga.adapters.ApplicationAdapter;
+import ru.rx1310.app.a2iga.tasks.LoadAppsTask;
 
 public class AppsListActivity extends AppCompatActivity {
 
-	SharedPreferences mSharedPrefs;
-	SharedPreferences.Editor mSharedPrefsEditor;
+    ListView mListView;
+	TextView mHeaderText;
+    Toolbar mToolbar;
+    PackageManager mPkgMan;
+    ArrayAdapter<ApplicationInfo> mAdapter;
+    ArrayList<ApplicationInfo> mList;
+    ProgressDialog mDlgProgress;
+	MenuInflater mInflater;
+	SearchManager mSearchMng;
+	SearchView mSearchView;
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+		
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_appslist);
 
-		setContentView(R.layout.activity_intro);
+        mPkgMan = getPackageManager();
+        mList = new ArrayList<>();
 
-		mSharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
-		mSharedPrefsEditor = mSharedPrefs.edit();
+		mHeaderText = findViewById(R.id.text_header);
+        mListView = findViewById(R.id.list_view);
+        mToolbar = findViewById(R.id.toolbar);
 
-	}
+        setSupportActionBar(mToolbar);
 
+        mDlgProgress = ProgressDialog.show(this, "Loading All Apps", "Loading application info...");
+        mAdapter = new ApplicationAdapter(this, R.layout.ui_list_item, mList);
+        mListView.setAdapter(mAdapter);
+		
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu mMenu) {
+		
+        mInflater = getMenuInflater();
+        mInflater.inflate(R.menu.appslist, mMenu);
+        
+		mSearchMng = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+		
+        mSearchView = (SearchView) mMenu.findItem(R.id.appslist_search).getActionView();
+        mSearchView.setOnQueryTextListener(onQueryTextListener());
+        mSearchView.setSearchableInfo(mSearchMng.getSearchableInfo(getComponentName()));
+
+        return true;
+		
+    }
+
+    SearchView.OnQueryTextListener onQueryTextListener() {
+		
+		return new SearchView.OnQueryTextListener() {
+			
+			@Override
+            public boolean onQueryTextSubmit(String s) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+				mAdapter.getFilter().filter(s);
+                return false;
+            }
+			
+        };
+		
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        new LoadAppsTask(this, mList, mPkgMan).execute();
+    }
+
+
+    public void callBackDataFromAsynctask(List<ApplicationInfo> list) {
+		
+		mList.clear();
+
+        for (int i = 0; i < list.size(); i++) {
+            mList.add(list.get(i));
+        }
+		
+		mHeaderText.setText("All Apps (" + mList.size() + ")");
+        mAdapter.notifyDataSetChanged();
+        mDlgProgress.dismiss();
+		
+    }
+
+    public void updateUILayout(String content) {
+        mHeaderText.setText(content);
+    }
+	
 }
