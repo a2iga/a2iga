@@ -7,8 +7,11 @@
 	<color name="colorSurface">#FF000000</color>
 	<color name="colorHover">#FF323642</color>
 	<color name="colorIcon">#fafafa</color>
+	<color name="colorCard">#FF1F1F1F</color>
 	
 	<color name="colorAppAdaptiveIcon">@color/colorAccent</color>
 	<color name="colorPromtPreferenceBackground">@color/colorHover</color>
+	
+	<color name="colorError">#A63232</color>
 	
 </resources>

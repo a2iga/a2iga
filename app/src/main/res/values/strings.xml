@@ -5,7 +5,6 @@
 	<string name="activity_settings">Настройки приложения</string>
 	<string name="activity_appslist">Список приложений</string>
 	<string name="activity_splash">app#splash</string>
-	<string name="activity_intro">app#intro</string>
 	
 	<!-- Intro -->
 	<string name="intro_title">A2IGA</string>
@@ -24,6 +23,10 @@
 	<string name="msg_app_not_found">Приложение не найдено! Поиск в магазине приложений...</string>
 	<string name="msg_changes_saved">Настройки сохранены!</string>
 	<string name="msg_pkg_name_not_specified">Вы не указали имя пакета приложения для запуска!</string>
+	
+	<!-- Uncompatibility with Android 5 and below -->
+	<string name="uncompatibility_api22">У Вас старая версия ОС!</string>
+	<string name="uncompatibility_api22_desc">Для работы A2IGA необходимо иметь версию Android 6.0 и новее.</string>
 	
 	<!-- Dialogs -->
 	<string name="dlg_appslist_loading">Загрузка списка</string>

@@ -34,6 +34,21 @@
         <item name="android:textColor">#FF4665EF</item>
         <item name="android:textColorPrimary">#FFDBE500</item-->
     </style>
+	
+	<style name="AppTheme.CardView" parent="Theme.AppCompat">  
+		<item name="cardCornerRadius">8dp</item>
+		<item name="cardElevation">2dp</item>
+		<item name="cardMaxElevation">4dp</item>
+		<item name="contentPaddingBottom">?android:attr/listPreferredItemPaddingEnd</item>
+		<item name="contentPaddingTop">?android:attr/listPreferredItemPaddingStart</item>
+		<item name="contentPaddingLeft">?android:attr/listPreferredItemPaddingStart</item>
+		<item name="contentPaddingRight">?android:attr/listPreferredItemPaddingEnd</item>
+		<item name="cardBackgroundColor">@color/colorCard</item>
+	</style>  
+	
+	<style name="AppTheme.CardViewError" parent="AppTheme.CardView">  
+		<item name="cardBackgroundColor">@color/colorError</item>
+	</style>
 
     <style name="AppTheme.NoActionBar" parent="AppTheme">
         <item name="windowActionBar">false</item>
