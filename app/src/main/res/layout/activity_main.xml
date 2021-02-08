@@ -1,18 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="fill_parent"
-	android:layout_height="fill_parent"
-	android:orientation="vertical"
-	android:gravity="center">
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical">
 
-	<TextView
-		android:layout_width="wrap_content"
+	<android.support.design.widget.AppBarLayout
+		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:text="This is a demo version of A2IGA 2. Switch to the pre-reborn branch if you want to build a previous version."
-		android:textColor="?colorAccent"
-		android:gravity="center"
-		android:padding="16dp"/>
+		android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+		
+		<android.support.v7.widget.Toolbar
+			android:id="@+id/toolbar"
+			android:layout_width="match_parent"
+			android:layout_height="?attr/actionBarSize"
+		    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
+	</android.support.design.widget.AppBarLayout>
 
 </LinearLayout>
 

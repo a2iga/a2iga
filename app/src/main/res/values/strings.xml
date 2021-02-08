@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	
+	<string name="activity_main">@string/app_name</string>
+	<string name="activity_settings">Настройки приложения</string>
+	<string name="activity_appslist">Список приложений</string>
+	<string name="activity_splash">app#splash</string>
+	<string name="activity_intro">app#intro</string>
+	
+</resources>

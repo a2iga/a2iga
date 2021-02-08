@@ -7,11 +7,10 @@ android {
     defaultConfig {
 		
         applicationId "ru.rx1310.app.a2iga"
-		
-        minSdkVersion 23
+        minSdkVersion 16
         targetSdkVersion 29
 		
-        versionCode 210206
+        versionCode 210208
         versionName "8"
 		
     }
@@ -27,19 +26,15 @@ android {
 	
 }
 
-repositories {
-    mavenCentral()
-}
-
 dependencies {
 	
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+  /*api 'android.arch.core:runtime:+'
+	api 'android.arch.core:core:+'
+	api 'android.arch.core:common:+'*/
 	
-	implementation 'android.arch.core:common:+'
-	implementation 'android.arch.core:runtime:+'
+    api 'com.android.support:appcompat-v7:27.1.1'
+	api 'com.android.support:design:27.1.1'
 	
-	implementation 'com.android.support:support-v4:27.+'
-	implementation 'com.android.support:design:27.+'
-	implementation 'com.android.support:appcompat-v7:27.+'
+    compile fileTree(dir: 'libs', include: ['*.jar'])
 	
 }
