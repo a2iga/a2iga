@@ -5,6 +5,9 @@ package ru.rx1310.app.a2iga.adapters;
 import android.content.DialogInterface;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +24,8 @@ import java.util.List;
 
 import ru.rx1310.app.a2iga.R;
 import ru.rx1310.app.a2iga.activities.AppsListActivity;
+import ru.rx1310.app.a2iga.utils.SettingsUtils;
+import ru.rx1310.app.a2iga.A2IGA;
 
 public class ApplicationAdapter extends ArrayAdapter<ApplicationInfo> {
 	
@@ -101,17 +106,28 @@ public class ApplicationAdapter extends ArrayAdapter<ApplicationInfo> {
             @Override
             public void onClick(View v) {
 				
-                ApplicationInfo ai = mListApps.get(p);
+                final ApplicationInfo ai = mListApps.get(p);
                
 				android.support.v7.app.AlertDialog.Builder b = new android.support.v7.app.AlertDialog.Builder(mActivity, R.style.AppTheme_Dialog_Alert);
-				b.setTitle(ai.name);
+				b.setTitle(ai.loadLabel(mPkgMng));
+				b.setIcon(ai.loadIcon(mPkgMng));
 				b.setItems(R.array.appslist_actions, new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface d, int p) {
 						
 						if (p == 0) {
 							
+							SettingsUtils.put(getContext(), A2IGA.PREF_PKGNAME_ASSISTANT_KEY, ai.packageName);
+							mActivity.finish();
+							Toast.makeText(mActivity, getContext().getString(R.string.msg_app_selected_as_assistant) + " (" + ai.loadLabel(mPkgMng) + ")", Toast.LENGTH_SHORT).show();
+							
 						} if (p == 1) {
-							Toast.makeText(mActivity, "Copy", Toast.LENGTH_SHORT).show();
+							
+							ClipboardManager mClipboardMng = (ClipboardManager) mActivity.getSystemService(Context.CLIPBOARD_SERVICE);
+							ClipData mClipData = ClipData.newPlainText(null, ai.packageName);
+							mClipboardMng.setPrimaryClip(mClipData);
+
+							Toast.makeText(getContext(), mActivity.getString(R.string.msg_pkg_name_copied), Toast.LENGTH_SHORT).show();
+							
 						}
 						
 					}

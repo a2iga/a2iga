@@ -20,7 +20,10 @@
 	
 	<!-- Messages -->
 	<string name="msg_pkg_name_copied">Имя пакета приложения скопировано!</string>
-	<string name="msg_assistant_changed">Приложение установлено в качестве ассистента!</string>
+	<string name="msg_app_selected_as_assistant">Приложение установлено в качестве ассистента!</string>
+	<string name="msg_app_not_found">Приложение не найдено! Поиск в магазине приложений...</string>
+	<string name="msg_changes_saved">Настройки сохранены!</string>
+	<string name="msg_pkg_name_not_specified">Вы не указали имя пакета приложения для запуска!</string>
 	
 	<!-- Dialogs -->
 	<string name="dlg_appslist_loading">Загрузка списка</string>
@@ -28,7 +31,7 @@
 	
 	<!-- AppsList -->
 	<string name="appslist_action_copy_pkgname">Скопировать имя пакета</string>
-	<string name="appslist_action_install_as_assistant">Использовать как ассистент</string>
+	<string name="appslist_action_select_as_assistant">Использовать как ассистент</string>
 	<string name="appslist_header_apps_count">Количество приложений: %1$s</string>
 	<string name="appslist_header_apps_count_filtered">Найдено совпадений: %1$s</string>
 	<string name="appslist_"></string>

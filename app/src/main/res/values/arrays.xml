@@ -2,7 +2,7 @@
 <resources>
 	
 	<string-array name="appslist_actions">
-        <item>@string/appslist_action_install_as_assistant</item>
+        <item>@string/appslist_action_select_as_assistant</item>
 		<item>@string/appslist_action_copy_pkgname</item>
     </string-array>
 	
