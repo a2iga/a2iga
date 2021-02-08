@@ -10,19 +10,17 @@ import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import ru.rx1310.app.a2iga.R;
 
 public class IntroActivity extends AppCompatActivity {
 
-	boolean isFirstStart;
-	
-	Button introContinueButton;
-	//LinearLayout introTip;
-
 	SharedPreferences mSharedPrefs;
 	SharedPreferences.Editor mSharedPrefsEditor;
 
+	boolean isFirstStart;
+
+	Button btnContinue;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -34,41 +32,36 @@ public class IntroActivity extends AppCompatActivity {
 
 		// ? Prefs
 		isFirstStart = mSharedPrefs.getBoolean("isFirstStart", true);
-		
+
 		// ? Кнопка "Продолжить"
-		introContinueButton = findViewById(R.id.el_introContinueButton);
-		introContinueButton.setEnabled(false);
-		
-		// ? Блок с подсказкой
-		//introTip = findViewById(R.id.el_introTip);
-		//introTip.setVisibility(View.INVISIBLE);
-		
+		btnContinue = findViewById(R.id.intro_btnContinue);
+		btnContinue.setEnabled(false);
+
 		Handler mHandler = new Handler(); 
 		mHandler.postDelayed(new Runnable() {
 			public void run() {
-				//introTip.setVisibility(View.VISIBLE);
-				introContinueButton.setEnabled(true);
-				introContinueButton.setText("Continue");
+				btnContinue.setEnabled(true);
+				btnContinue.setText(R.string.intro_continue);
 			} 
 		}, 1000);
-		
+
 	}
-	
+
 	public void introContinue(View mView) {
-		
+
 		// ? Запуск основной активности
 		startActivity(new Intent(IntroActivity.this, MainActivity.class));
-		
+
 		// ? Завершение жизни текущей активности
 		IntroActivity.this.finish();
-		
+
 		// ? Отображение анимации перехода
 		overridePendingTransition(R.anim.abc_fade_in, R.anim.abc_fade_out);
-		
+
 		// ? Сохранение настройки
 		mSharedPrefsEditor.putBoolean("isFirstStart", false);
 		mSharedPrefsEditor.commit();
-        
+
 	}
 
 }

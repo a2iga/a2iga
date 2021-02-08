@@ -1,52 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<LinearLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:orientation="vertical"
 	android:layout_width="match_parent"
+	android:layout_height="match_parent"
 	android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
 	android:paddingStart="?android:attr/listPreferredItemPaddingStart"
-	android:layout_height="match_parent">
+	android:gravity="center"
+	android:layout_gravity="center">
 
-	<LinearLayout
-		android:orientation="vertical"
-		android:layout_width="match_parent"
+	<ImageView
+		android:src="@drawable/ic_app_logo"
+		android:layout_width="150dp"
+		android:layout_height="150dp"
+		android:layout_marginBottom="26dp"/>
+
+	<TextView
+		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
-		android:paddingStart="?android:attr/listPreferredItemPaddingStart"
+		android:text="@string/intro_title"
+		android:textAppearance="?android:attr/textAppearanceLarge"
 		android:gravity="center"
-		android:layout_gravity="center">
+		android:textStyle="bold"/>
 
-		<ImageView
-			android:src="@drawable/ic_app_logo"
-			android:layout_width="150dp"
-			android:layout_height="150dp"
-			android:layout_marginBottom="26dp"/>
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="@string/intro_subtitle"
+		android:layout_marginBottom="26dp"
+		android:alpha="0.5"/>
 
-		<TextView
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:text="intro_title"
-			android:textAppearance="?android:attr/textAppearanceLarge"
-			android:gravity="center"/>
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="@string/intro_desc"
+		android:layout_marginBottom="26dp"
+		android:gravity="center"
+		android:textAppearance="?android:attr/textAppearanceMedium"
+		android:alpha="0.8"/>
 
-		<TextView
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:text="intro_subtitle"
-			android:layout_marginBottom="26dp"
-			android:gravity="center"
-			android:textAppearance="?android:attr/textAppearanceMedium"
-			android:alpha="0.8"/>
+	<Button
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		style="@style/Widget.AppCompat.Button.Colored"
+		android:onClick="introContinue"
+		android:id="@+id/intro_btnContinue"
+		android:text="• • •"/>
 
-		<Button
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			style="@style/Widget.AppCompat.Button.Colored"
-			android:onClick="introContinue"
-			android:id="@+id/el_introContinueButton"
-			android:text="• • •"/>
-
-	</LinearLayout>
-
-</FrameLayout>
+</LinearLayout>
 

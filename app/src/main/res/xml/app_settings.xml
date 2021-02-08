@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<SwitchPreference
+		android:icon="@android:color/transparent"
+		android:title="pref_ui_fab_scroll"
+		android:summary="pref_ui_fab_scroll_summary"
+		android:defaultValue="false"
+		android:enabled="true"/>
+
+</PreferenceScreen>

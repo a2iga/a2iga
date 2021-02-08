@@ -7,4 +7,13 @@
 	<string name="activity_splash">app#splash</string>
 	<string name="activity_intro">app#intro</string>
 	
+	<!-- Intro -->
+	<string name="intro_title">A2IGA</string>
+	<string name="intro_subtitle">Any app instead Google Assistant</string>
+	<string name="intro_desc">Маленькая утилита, которая поможет заменить Google Assistant, вызываемый зажатием кнопки Home / жестом нижних краёв экрана (Android Q), на любое приложение, нужное вам.</string>
+	<string name="intro_continue">Продолжить</string>
+    
+	<!-- Menu -->
+	<string name="menu_settings">@string/activity_settings</string>
+	
 </resources>

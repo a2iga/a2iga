@@ -4,20 +4,29 @@
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	android:orientation="vertical">
+	android:orientation="vertical"
+	android:paddingTop="?android:attr/listPreferredItemPaddingEnd"
+	android:paddingBottom="?android:attr/listPreferredItemPaddingStart"
+	android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
+	android:paddingStart="?android:attr/listPreferredItemPaddingStart"
+	android:gravity="top|center">
 
-	<android.support.design.widget.AppBarLayout
-		android:layout_width="match_parent"
+	<ImageView
+		android:src="@drawable/ic_logo"
+		android:layout_width="50dp"
+		android:layout_height="50dp"
+		android:tint="?colorAccent"/>
+
+	<TextView
+		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
-		
-		<android.support.v7.widget.Toolbar
-			android:id="@+id/toolbar"
-			android:layout_width="match_parent"
-			android:layout_height="?attr/actionBarSize"
-		    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+		android:text="Text"/>
 
-	</android.support.design.widget.AppBarLayout>
+	<Button
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="apps list"
+		android:onClick="appsListGet"/>
 
 </LinearLayout>
 

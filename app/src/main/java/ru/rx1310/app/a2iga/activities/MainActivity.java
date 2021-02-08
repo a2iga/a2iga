@@ -4,8 +4,9 @@ package ru.rx1310.app.a2iga.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import android.view.View;
 import ru.rx1310.app.a2iga.R;
+import android.content.Intent;
 
 public class MainActivity extends AppCompatActivity {
     
@@ -14,9 +15,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 		
-		Toolbar toolbar=findViewById(R.id.toolbar);
-		setSupportActionBar(toolbar);
-        
     }
+	
+	public void appsListGet(View v) {
+		startActivity(new Intent(this, AppsListActivity.class));
+	}
     
 }
