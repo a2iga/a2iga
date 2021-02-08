@@ -21,4 +21,9 @@
 	<string name="msg_pkg_name_copied">Имя пакета приложения скопировано!</string>
 	<string name="msg_assistant_changed">Приложение установлено в качестве ассистента!</string>
 	
+	<!-- Dialogs -->
+	<string name="dlg_appslist_loading">Загрузка списка</string>
+	<string name="dlg_appslist_loading_desc">Подождите, идет загрузка списка установленных приложений...</string>
+	<string name="dlg_"></string>
+	
 </resources>

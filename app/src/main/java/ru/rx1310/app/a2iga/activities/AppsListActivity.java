@@ -56,7 +56,7 @@ public class AppsListActivity extends AppCompatActivity {
 
         setSupportActionBar(mToolbar);
 
-        mDlgProgress = ProgressDialog.show(this, "Loading All Apps", "Loading application info...");
+        mDlgProgress = ProgressDialog.show(this, getString(R.string.dlg_appslist_loading), getString(R.string.dlg_appslist_loading_desc));
         mAdapter = new ApplicationAdapter(this, R.layout.ui_list_item, mList);
         mListView.setAdapter(mAdapter);
 		
