@@ -59,7 +59,8 @@
 			android:name=".activities.IntroActivity"/>
 		
 		<activity
-			android:theme="@style/AppTheme.NoActionBar"
+			android:label="@string/activity_appslist"
+			android:theme="@style/AppTheme.AppsList"
 			android:name=".activities.AppsListActivity"/>
 
 		<activity

@@ -116,7 +116,7 @@ public class AppsListActivity extends AppCompatActivity {
             mList.add(list.get(i));
         }
 		
-		mHeaderText.setText("All Apps (" + mList.size() + ")");
+		mHeaderText.setText(String.format(getString(R.string.appslist_header_apps_count), mList.size()));
         mAdapter.notifyDataSetChanged();
         mDlgProgress.dismiss();
 		

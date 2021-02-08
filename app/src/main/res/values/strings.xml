@@ -25,6 +25,13 @@
 	<!-- Dialogs -->
 	<string name="dlg_appslist_loading">Загрузка списка</string>
 	<string name="dlg_appslist_loading_desc">Подождите, идет загрузка списка установленных приложений...</string>
-	<string name="dlg_"></string>
+	
+	<!-- AppsList -->
+	<string name="appslist_action_copy_pkgname">Скопировать имя пакета</string>
+	<string name="appslist_action_install_as_assistant">Использовать как ассистент</string>
+	<string name="appslist_header_apps_count">Количество приложений: %1$s</string>
+	<string name="appslist_header_apps_count_filtered">Найдено совпадений: %1$s</string>
+	<string name="appslist_"></string>
+	<string name="appslist_2"></string>
 	
 </resources>
