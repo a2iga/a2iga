@@ -16,6 +16,7 @@
     <uses-permission android:name="android.permission.REQUEST_DELETE_PACKAGES" />
 
     <application
+		android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher" 
         android:roundIcon="@mipmap/ic_launcher_round"
         android:label="@string/app_name" 
@@ -27,6 +28,10 @@
 			android:label="@string/app_name"
 			android:theme="@style/AppTheme.Splash"
 			android:fitsSystemWindows="true"
+			android:noHistory="true" 
+			android:excludeFromRecents="true" 
+			android:finishOnCloseSystemDialogs="true" 
+			android:launchMode="singleInstance" 
 			android:name=".activities.SplashActivity">
 
 			<intent-filter>
@@ -54,10 +59,6 @@
 			android:theme="@style/AppTheme.NoActionBar"
 			android:name=".activities.MainActivity"/>
 
-		<activity
-			android:theme="@style/AppTheme.NoActionBar"
-			android:name=".activities.IntroActivity"/>
-		
 		<activity
 			android:label="@string/activity_appslist"
 			android:theme="@style/AppTheme.AppsList"
@@ -92,6 +93,7 @@
 
 		<!-- Активность, которая запускает приложение -->
         <activity
+			android:theme="@android:style/Theme.DeviceDefault"
             android:noHistory="true" 
             android:excludeFromRecents="true" 
             android:finishOnCloseSystemDialogs="true" 
