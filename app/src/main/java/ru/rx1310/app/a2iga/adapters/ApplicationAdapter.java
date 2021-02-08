@@ -84,9 +84,9 @@ public class ApplicationAdapter extends ArrayAdapter<ApplicationInfo> {
             vh = (ViewHolder) v.getTag();
         }
 
-        vh.appName.setText(getItem(p).loadLabel(mPkgMng)); //get app name
-        vh.appPackage.setText(getItem(p).packageName); //get app package
-        vh.icon.setImageDrawable(getItem(p).loadIcon(mPkgMng)); //get app icon
+        vh.appName.setText(getItem(p).loadLabel(mPkgMng));
+        vh.appPackage.setText(getItem(p).packageName);
+        vh.icon.setImageDrawable(getItem(p).loadIcon(mPkgMng));
 
         v.setOnClickListener(onClickListener(p));
 
@@ -103,7 +103,7 @@ public class ApplicationAdapter extends ArrayAdapter<ApplicationInfo> {
 				
                 ApplicationInfo ai = mListApps.get(p);
                
-				android.support.v7.app.AlertDialog.Builder b = new android.support.v7.app.AlertDialog.Builder(mActivity);
+				android.support.v7.app.AlertDialog.Builder b = new android.support.v7.app.AlertDialog.Builder(mActivity, R.style.AppTheme_Dialog_Alert);
 				b.setTitle(ai.name);
 				b.setItems(R.array.appslist_actions, new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface d, int p) {
@@ -197,9 +197,9 @@ public class ApplicationAdapter extends ArrayAdapter<ApplicationInfo> {
             notifyDataSetChanged();
 
             if (mListApps.size() == mList.size()) {
-                mActivity.updateUILayout("All apps (" + mListApps.size() + ")");
+                mActivity.updateUILayout(String.format(getContext().getString(R.string.appslist_header_apps_count),  mListApps.size()));
             } else {
-                mActivity.updateUILayout("Filtered apps (" + mListApps.size() + ")");
+                mActivity.updateUILayout(String.format(getContext().getString(R.string.appslist_header_apps_count_filtered), mListApps.size()));
             }
 			
         }
