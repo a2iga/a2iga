@@ -93,7 +93,7 @@
 
 		<!-- Активность, которая запускает приложение -->
         <activity
-			android:theme="@android:style/Theme.DeviceDefault"
+			android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"
             android:noHistory="true" 
             android:excludeFromRecents="true" 
             android:finishOnCloseSystemDialogs="true" 
