@@ -64,6 +64,8 @@ public class AppsListActivity extends AppCompatActivity {
         mSearchView.setOnQueryTextListener(onQueryTextListener());
         mSearchView.setSearchableInfo(mSearchMng.getSearchableInfo(getComponentName()));
 		mSearchView.setIconifiedByDefault(false);
+		mSearchView.setFocusable(true);
+		mSearchView.requestFocusFromTouch();
 		
 		mDlgProgress = ProgressDialog.show(this, getString(R.string.dlg_appslist_loading), getString(R.string.dlg_appslist_loading_desc));
         mAdapter = new ApplicationAdapter(this, R.layout.ui_list_item, mList);
@@ -105,7 +107,7 @@ public class AppsListActivity extends AppCompatActivity {
             mList.add(list.get(i));
         }
 		
-		mAppsCount.setText(String.format(getString(R.string.appslist_header_apps_count), mList.size()));
+		mAppsCount.setText(String.format(getString(R.string.appslist_apps_count), mList.size()));
         mAdapter.notifyDataSetChanged();
         mDlgProgress.dismiss();
 		

@@ -57,6 +57,7 @@
 						android:id="@+id/searchView"
 						android:iconifiedByDefault="false"
 						android:queryBackground="@null"
+						android:focusableInTouchMode="true"
 						app:queryHint="@string/appslist_search_hint"
 						app:defaultQueryHint="@string/appslist_search_hint"
 						app:searchIcon="@null"
