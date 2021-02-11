@@ -2,12 +2,12 @@
 <resources>
 	
 	<color name="colorAccent">#FF2A62FF</color>
-	<color name="colorPrimary">@color/colorSurface</color> <!-- OLD VALUE: #FF2E2E2E --> 
+	<color name="colorPrimary">@color/colorCard</color> <!-- OLD VALUE: #FF2E2E2E --> 
 	<color name="colorPrimaryDark">@color/colorPrimary</color>
-	<color name="colorSurface">#FF000000</color>
-	<color name="colorHover">#FF323642</color>
-	<color name="colorIcon">#fafafa</color>
-	<color name="colorCard">#FF1F1F1F</color>
+	<color name="colorSurface">#FF202124</color>
+	<color name="colorHover">#FF313236</color>
+	<color name="colorIcon">#FF999DA6</color>
+	<color name="colorCard">#FF313236</color>
 	
 	<color name="colorAppAdaptiveIcon">@color/colorAccent</color>
 	<color name="colorPromtPreferenceBackground">@color/colorHover</color>
