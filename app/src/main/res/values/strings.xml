@@ -9,7 +9,6 @@
 	<!-- Menu -->
 	<string name="menu_settings">@string/activity_settings</string>
 	<string name="menu_search">Поиск</string>
-	<string name="menu_search_hint_appslist">Поиск приложения...</string>
 	
 	<!-- Messages -->
 	<string name="msg_pkg_name_copied">Имя пакета приложения скопировано!</string>
@@ -31,7 +30,7 @@
 	<string name="appslist_action_select_as_assistant">Использовать как ассистент</string>
 	<string name="appslist_header_apps_count">Количество приложений: %1$s</string>
 	<string name="appslist_header_apps_count_filtered">Найдено совпадений: %1$s</string>
-	<string name="appslist_"></string>
+	<string name="appslist_search_hint">Поиск приложений</string>
 	<string name="appslist_2"></string>
 	
 </resources>

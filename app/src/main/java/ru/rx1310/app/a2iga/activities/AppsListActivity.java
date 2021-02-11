@@ -39,6 +39,7 @@ public class AppsListActivity extends AppCompatActivity {
     ProgressDialog mDlgProgress;
 	SearchManager mSearchMng;
 	SearchView mSearchView;
+	TextView mAppsCount;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -51,7 +52,8 @@ public class AppsListActivity extends AppCompatActivity {
 
 		mListView = findViewById(R.id.listView);
         mToolbar = findViewById(R.id.toolbar);
-
+		mAppsCount = findViewById(R.id.appsCount);
+		
         setSupportActionBar(mToolbar);
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 		getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -103,14 +105,14 @@ public class AppsListActivity extends AppCompatActivity {
             mList.add(list.get(i));
         }
 		
-		mToolbar.setSubtitle(String.format(getString(R.string.appslist_header_apps_count), mList.size()));
+		mAppsCount.setText(String.format(getString(R.string.appslist_header_apps_count), mList.size()));
         mAdapter.notifyDataSetChanged();
         mDlgProgress.dismiss();
 		
     }
 
     public void updateUILayout(String content) {
-        mToolbar.setSubtitle(content);
+        mAppsCount.setText(content);
     }
 	
 	@Override
