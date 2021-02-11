@@ -9,6 +9,7 @@ import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.widget.ImageView;
 
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
@@ -31,16 +32,14 @@ import ru.rx1310.app.a2iga.tasks.LoadAppsTask;
 public class AppsListActivity extends AppCompatActivity {
 
     ListView mListView;
-	TextView mHeaderText;
     Toolbar mToolbar;
     PackageManager mPkgMan;
     ArrayAdapter<ApplicationInfo> mAdapter;
     ArrayList<ApplicationInfo> mList;
     ProgressDialog mDlgProgress;
-	MenuInflater mInflater;
 	SearchManager mSearchMng;
 	SearchView mSearchView;
-
+	
     @Override
     public void onCreate(Bundle savedInstanceState) {
 		
@@ -50,38 +49,26 @@ public class AppsListActivity extends AppCompatActivity {
         mPkgMan = getPackageManager();
         mList = new ArrayList<>();
 
-		mHeaderText = findViewById(R.id.text_header);
-        mListView = findViewById(R.id.list_view);
+		mListView = findViewById(R.id.listView);
         mToolbar = findViewById(R.id.toolbar);
 
         setSupportActionBar(mToolbar);
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 		getSupportActionBar().setDisplayShowHomeEnabled(true);
 		
-        mDlgProgress = ProgressDialog.show(this, getString(R.string.dlg_appslist_loading), getString(R.string.dlg_appslist_loading_desc));
+		mSearchMng = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+
+        mSearchView = findViewById(R.id.searchView);
+        mSearchView.setOnQueryTextListener(onQueryTextListener());
+        mSearchView.setSearchableInfo(mSearchMng.getSearchableInfo(getComponentName()));
+		mSearchView.setIconifiedByDefault(false);
+		
+		mDlgProgress = ProgressDialog.show(this, getString(R.string.dlg_appslist_loading), getString(R.string.dlg_appslist_loading_desc));
         mAdapter = new ApplicationAdapter(this, R.layout.ui_list_item, mList);
         mListView.setAdapter(mAdapter);
 		
     }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu mMenu) {
-		
-        mInflater = getMenuInflater();
-        mInflater.inflate(R.menu.appslist, mMenu);
-        
-		mSearchMng = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-		
-        mSearchView = (SearchView) mMenu.findItem(R.id.appslist_search).getActionView();
-		mSearchView.setQueryHint(getString(R.string.menu_search_hint_appslist));
-		mSearchView.setMaxWidth(Integer.MAX_VALUE);
-        mSearchView.setOnQueryTextListener(onQueryTextListener());
-        mSearchView.setSearchableInfo(mSearchMng.getSearchableInfo(getComponentName()));
-
-        return true;
-		
-    }
-
+	
     SearchView.OnQueryTextListener onQueryTextListener() {
 		
 		return new SearchView.OnQueryTextListener() {
@@ -116,14 +103,14 @@ public class AppsListActivity extends AppCompatActivity {
             mList.add(list.get(i));
         }
 		
-		mHeaderText.setText(String.format(getString(R.string.appslist_header_apps_count), mList.size()));
+		mToolbar.setSubtitle(String.format(getString(R.string.appslist_header_apps_count), mList.size()));
         mAdapter.notifyDataSetChanged();
         mDlgProgress.dismiss();
 		
     }
 
     public void updateUILayout(String content) {
-        mHeaderText.setText(content);
+        mToolbar.setSubtitle(content);
     }
 	
 	@Override

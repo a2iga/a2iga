@@ -61,7 +61,7 @@
 
 		<activity
 			android:label="@string/activity_appslist"
-			android:theme="@style/AppTheme.AppsList"
+			android:theme="@style/AppTheme.NoActionBar"
 			android:name=".activities.AppsListActivity"/>
 
 		<activity

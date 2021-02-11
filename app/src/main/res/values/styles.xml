@@ -12,7 +12,7 @@
         <item name="colorButtonNormal">@color/colorAccent</item>
         <item name="colorControlHighlight">@color/colorHover</item>
         <!--item name="bottomSheetDialogTheme">@style/AppTheme.SheetDialog</item-->
-        <item name="android:navigationBarColor">@color/colorSurface</item>
+		<item name="android:navigationBarColor">@color/colorSurface</item>
         <item name="android:windowBackground">@color/colorSurface</item>
         <item name="android:colorBackgroundCacheHint">@null</item>
         <item name="android:displayOptions">showCustom</item>
@@ -67,14 +67,10 @@
         <item name="colorPrimaryDark">@color/colorSurface</item>
     </style>
 	
-	<style name="AppTheme.AppsList" parent="AppTheme.NoActionBar">
-        <item name="colorPrimaryDark">@color/colorAccent</item>
-    </style>
-
     <style name="AppTheme.TextAppearanceBody2">
         <item name="android:textSize">14sp</item>
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:textColor">?android:attr/textColorPrimary</item>
     </style>
-
+	
 </resources>
