@@ -94,7 +94,7 @@ public class ApplicationAdapter extends ArrayAdapter<ApplicationInfo> {
         vh.appPackage.setText(getItem(p).packageName);
         //vh.icon.setImageDrawable(getItem(p).loadIcon(mPkgMng));
 		//vh.icon.setImageDrawable(mActivity.getDrawable(R.drawable.ic_logo));
-		vh.icon.setImageDrawable(Resources.getSystem().getDrawable(android.R.mipmap.sym_def_app_icon));
+		//vh.icon.setImageDrawable(Resources.getSystem().getDrawable(android.R.mipmap.sym_def_app_icon));
 		
         v.setOnClickListener(onClickListener(p));
 
@@ -216,9 +216,11 @@ public class ApplicationAdapter extends ArrayAdapter<ApplicationInfo> {
             notifyDataSetChanged();
 
             if (mListApps.size() == mList.size()) {
-                mActivity.updateUILayout(String.format(getContext().getString(R.string.appslist_header_apps_count),  mListApps.size()));
-            } else {
-                mActivity.updateUILayout(String.format(getContext().getString(R.string.appslist_header_apps_count_filtered), mListApps.size()));
+                mActivity.updateUILayout(String.format(getContext().getString(R.string.appslist_apps_count),  mListApps.size()));
+            } else if (mListApps.size() == 0) {
+				mActivity.updateUILayout(getContext().getString(R.string.appslist_apps_count_filtered_zero));
+			} else {
+                mActivity.updateUILayout(String.format(getContext().getString(R.string.appslist_apps_count_filtered), mListApps.size()));
             }
 			
         }
