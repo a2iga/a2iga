@@ -4,79 +4,79 @@
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	android:orientation="vertical"
 	android:layout_width="match_parent"
-	android:layout_height="match_parent"
-	android:paddingTop="?android:attr/listPreferredItemPaddingStart"
-	android:paddingBottom="?android:attr/listPreferredItemPaddingEnd"
-	android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
-	android:paddingStart="?android:attr/listPreferredItemPaddingStart"
-	android:gravity="top"
-	android:layout_gravity="center">
+	android:layout_height="match_parent">
 
-	<android.support.v7.widget.CardView
-		android:id="@+id/uncompatibilityApi22Message"
+	<LinearLayout
+		android:paddingBottom="?android:attr/listPreferredItemPaddingEnd"
+		android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
+		android:paddingStart="?android:attr/listPreferredItemPaddingStart"
+		android:orientation="vertical"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_centerHorizontal="true"
-		style="@style/AppTheme.CardViewError"
-		android:visibility="gone">
+		android:background="?colorAccent">
 
-		<LinearLayout
-			android:orientation="vertical"
+		<EditText
+			android:paddingTop="?android:attr/listPreferredItemPaddingStart"
+			android:paddingBottom="?android:attr/listPreferredItemPaddingEnd"
+			android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
+			android:paddingStart="?android:attr/listPreferredItemPaddingStart"
 			android:layout_width="match_parent"
-			android:layout_height="wrap_content">
+			android:ems="10"
+			android:layout_height="wrap_content"
+			android:id="@+id/inputAssistantPackageName"
+			android:hint="Input..."
+			android:inputType="text"
+			android:background="@drawable/background_edittext_black"/>
 
-			<TextView
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:text="@string/uncompatibility_api22"
-				android:textAppearance="?android:attr/textAppearanceMedium"
-				android:textStyle="bold"/>
+	</LinearLayout>
 
-			<TextView
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:text="@string/uncompatibility_api22_desc"/>
+	<LinearLayout
+		android:paddingTop="?android:attr/listPreferredItemPaddingStart"
+		android:paddingBottom="?android:attr/listPreferredItemPaddingEnd"
+		android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
+		android:paddingStart="?android:attr/listPreferredItemPaddingStart"
+		android:orientation="vertical"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
 
-		</LinearLayout>
+		<android.support.v7.widget.CardView
+			android:id="@+id/uncompatibilityApi22Message"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			style="@style/AppTheme.CardViewError"
+			android:visibility="gone">
 
-	</android.support.v7.widget.CardView>
+			<LinearLayout
+				android:orientation="vertical"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content">
 
-	<ImageView
-		android:src="@drawable/ic_app_logo"
-		android:layout_width="150dp"
-		android:layout_height="150dp"
-		android:layout_marginBottom="26dp"/>
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="@string/uncompatibility_api22"
+					android:textAppearance="?android:attr/textAppearanceMedium"
+					android:textStyle="bold"/>
 
-	<TextView
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:text="@string/intro_title"
-		android:textAppearance="?android:attr/textAppearanceLarge"
-		android:gravity="center"
-		android:textStyle="bold"/>
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="@string/uncompatibility_api22_desc"/>
 
-	<TextView
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:text="@string/intro_subtitle"
-		android:layout_marginBottom="26dp"
-		android:alpha="0.5"/>
+			</LinearLayout>
 
-	<TextView
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:text="@string/intro_desc"
-		android:layout_marginBottom="26dp"
-		android:gravity="center"
-		android:textAppearance="?android:attr/textAppearanceMedium"
-		android:alpha="0.8"/>
+		</android.support.v7.widget.CardView>
 
-	<Button
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		style="@style/Widget.AppCompat.Button.Colored"
-		android:onClick="appsListGet"
-		android:text="Apps list"/>
+		<Button
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			style="@style/Widget.AppCompat.Button.Colored"
+			android:onClick="appsListGet"
+			android:text="Apps list"/>
+
+		
+		
+	</LinearLayout>
 
 </LinearLayout>
 
