@@ -92,7 +92,7 @@ public class ApplicationAdapter extends ArrayAdapter<ApplicationInfo> {
 
         vh.appName.setText(getItem(p).loadLabel(mPkgMng));
         vh.appPackage.setText(getItem(p).packageName);
-        //vh.icon.setImageDrawable(getItem(p).loadIcon(mPkgMng));
+        vh.icon.setImageDrawable(getItem(p).loadIcon(mPkgMng));
 		//vh.icon.setImageDrawable(mActivity.getDrawable(R.drawable.ic_logo));
 		//vh.icon.setImageDrawable(Resources.getSystem().getDrawable(android.R.mipmap.sym_def_app_icon));
 		

@@ -9,22 +9,20 @@ import ru.rx1310.app.a2iga.R;
 import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.os.Build;
+import android.support.v7.widget.Toolbar;
 
 public class MainActivity extends AppCompatActivity {
     
-	CardView msgUncompatApi22;
+	Toolbar mToolbar;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 		
-		msgUncompatApi22 = findViewById(R.id.uncompatibilityApi22Message);
-		if (Build.VERSION.SDK_INT >= 22) {
-			msgUncompatApi22.setVisibility(View.GONE);
-		} else {
-			msgUncompatApi22.setVisibility(View.VISIBLE);
-		}
+		mToolbar = findViewById(R.id.toolbar);
+		
+        setSupportActionBar(mToolbar);
 		
     }
 	
