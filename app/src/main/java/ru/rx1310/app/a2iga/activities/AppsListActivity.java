@@ -68,7 +68,7 @@ public class AppsListActivity extends AppCompatActivity {
 		mSearchView.requestFocusFromTouch();
 		
 		mDlgProgress = ProgressDialog.show(this, getString(R.string.dlg_appslist_loading), getString(R.string.dlg_appslist_loading_desc));
-        mAdapter = new ApplicationAdapter(this, R.layout.ui_list_item, mList);
+        mAdapter = new ApplicationAdapter(this, R.layout.ui_appslist_item, mList);
         mListView.setAdapter(mAdapter);
 		
     }

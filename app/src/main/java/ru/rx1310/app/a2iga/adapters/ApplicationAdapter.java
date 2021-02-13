@@ -27,12 +27,15 @@ import ru.rx1310.app.a2iga.R;
 import ru.rx1310.app.a2iga.activities.AppsListActivity;
 import ru.rx1310.app.a2iga.utils.SettingsUtils;
 import ru.rx1310.app.a2iga.A2IGA;
+import android.support.v7.app.AppCompatActivity;
+import ru.rx1310.app.a2iga.activities.MainActivity;
 
 public class ApplicationAdapter extends ArrayAdapter<ApplicationInfo> {
 	
     private List<ApplicationInfo> mListApps;
     private List<ApplicationInfo> mList;
     private AppsListActivity mActivity;
+	private MainActivity mActivityMain;
     private PackageManager mPkgMng;
     private AppsFilter mFilter;
 
@@ -82,7 +85,7 @@ public class ApplicationAdapter extends ArrayAdapter<ApplicationInfo> {
         
 		if (v == null) {
 			
-            v = inflater.inflate(R.layout.ui_list_item, vg, false);
+            v = inflater.inflate(R.layout.ui_appslist_item, vg, false);
             vh = new ViewHolder(v);
             v.setTag(vh);
 			
