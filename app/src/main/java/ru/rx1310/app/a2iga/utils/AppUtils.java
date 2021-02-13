@@ -1,4 +1,4 @@
-// ! rx1310 <rx1310@inbox.ru> | Copyright (c) DevReader, 2020 | MIT License
+// ! rx1310 <rx1310@inbox.ru> | Copyright (c) rx1310, 2021 | MIT License
 
 package ru.rx1310.app.a2iga.utils;
 
@@ -22,7 +22,6 @@ import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import android.graphics.drawable.Drawable;
 
 public class AppUtils {
 
