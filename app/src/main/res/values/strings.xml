@@ -25,6 +25,16 @@
 	<string name="dlg_appslist_loading">Загрузка списка</string>
 	<string name="dlg_appslist_loading_desc">Подождите, идет загрузка списка установленных приложений...</string>
 	
+	<!-- Main -->
+	<string name="main_current_assistant">Текущ. приложение-ассистент</string>
+	<string name="main_select_from_appslist">Выбрать из списка приложений</string>
+	<string name="main_input_packagename">Введите имя пакета</string>
+	<string name="main_apply_changes">Применить изменения</string>
+	<!--string name="main_"></string>
+	<string name="main_"></string>
+	<string name="main_"></string>
+	<string name="main_"></string-->
+	
 	<!-- AppsList -->
 	<string name="appslist_action_copy_pkgname">Скопировать имя пакета</string>
 	<string name="appslist_action_select_as_assistant">Использовать как ассистент</string>
