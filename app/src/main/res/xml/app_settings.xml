@@ -4,9 +4,18 @@
 
 	<SwitchPreference
 		android:icon="@android:color/transparent"
-		android:title="pref_ui_fab_scroll"
-		android:summary="pref_ui_fab_scroll_summary"
+		android:title="Switch"
+		android:summary="Summary"
 		android:defaultValue="false"
 		android:enabled="true"/>
+	
+	<ru.rx1310.app.a2iga.ui.preference.BorderPreference />
+	
+	<ru.rx1310.app.a2iga.ui.preference.CategoryPreference
+		android:title="Category"/>
+	
+	<ru.rx1310.app.a2iga.ui.preference.PromtPreference 
+		android:title="Promt"
+		android:summary="Text"/>
 
 </PreferenceScreen>
