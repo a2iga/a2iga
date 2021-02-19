@@ -2,29 +2,27 @@
 
 package ru.rx1310.app.a2iga.activities;
 
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import ru.rx1310.app.a2iga.R;
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
-import android.support.v7.widget.CardView;
-import android.os.Build;
-import android.support.v7.widget.Toolbar;
-import android.graphics.drawable.Drawable;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.graphics.drawable.Drawable;
+import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.provider.Settings;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import ru.rx1310.app.a2iga.utils.AppUtils;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
-import android.content.pm.ResolveInfo;
-import android.content.ComponentName;
-import android.provider.Settings;
-import android.content.Context;
-import ru.rx1310.app.a2iga.utils.SharedPrefUtils;
-import ru.rx1310.app.a2iga.Constants;
 
-public class MainActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener{
+import ru.rx1310.app.a2iga.Constants;
+import ru.rx1310.app.a2iga.R;
+import ru.rx1310.app.a2iga.utils.AppUtils;
+import ru.rx1310.app.a2iga.utils.SharedPrefUtils;
+
+public class MainActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
     
 	Toolbar mToolbar;
 	ImageView mAssistantAppIcon;
@@ -43,7 +41,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 		mSharedPreferences.registerOnSharedPreferenceChangeListener(this);
 		
 		mToolbar = findViewById(R.id.toolbar);
-		setSupportActionBar(mToolbar);
+				   setSupportActionBar(mToolbar);
 		
 		mAssistantAppName = findViewById(R.id.name);
 		mAssistantAppName.setText(AppUtils.getAppName(this, prefAssistantPackageName));
@@ -59,21 +57,9 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 			e.printStackTrace();
 		}
 		
-		AppUtils.showToast(this, getCurrentAssist(this) + "");
-		
-		SharedPrefUtils.saveData(this, "first", true);
+		AppUtils.showToast(this, AppUtils.getCurrentAssist(this) + "");
 		
     }
-	
-	public ComponentName getCurrentAssist(Context context) {
-		final String setting = Settings.Secure.getString(context.getContentResolver(), "assistant");
-
-		if (setting != null) {
-			return ComponentName.unflattenFromString(setting);
-		}
-
-		return null;
-	}
 	
 	@Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPrefs, String key) {

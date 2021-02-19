@@ -8,7 +8,9 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.res.TypedArray;
+import android.content.ComponentName;
 
+import android.provider.Settings;
 import android.graphics.Color;
 import android.support.annotation.ColorInt;
 import android.util.Log;
@@ -201,6 +203,19 @@ public class AppUtils {
 		i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 		context.startActivity(i);
 
+	}
+	
+	// ? Component name текущ. прил. ассист.
+	public static ComponentName getCurrentAssist(Context context) {
+		
+		final String setting = Settings.Secure.getString(context.getContentResolver(), "assistant");
+
+		if (setting != null) {
+			return ComponentName.unflattenFromString(setting);
+		}
+
+		return null;
+		
 	}
 
 }
