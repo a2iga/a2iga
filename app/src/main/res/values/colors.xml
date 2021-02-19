@@ -6,7 +6,7 @@
 	<color name="colorPrimaryDark">@color/colorPrimary</color>
 	<color name="colorSurface">#FF202124</color>
 	<color name="colorHover">#FF333A4D</color>
-	<color name="colorIcon">#FF999DA6</color>
+	<color name="colorIcon">#FFFFFFFF</color>
 	<color name="colorCard">#FF313236</color>
 	
 	<color name="colorAppAdaptiveIcon">@color/colorAccent</color>
