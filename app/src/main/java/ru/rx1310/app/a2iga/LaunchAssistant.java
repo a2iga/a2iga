@@ -14,21 +14,20 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import android.text.TextUtils;
-
-import ru.rx1310.app.a2iga.utils.SettingsUtils;
+import ru.rx1310.app.a2iga.utils.SharedPrefUtils;
 
 public class LaunchAssistant extends Activity {
 
-	String assistantPkgName;
+	String assistAppPkgName;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		assistantPkgName = SettingsUtils.get(this, A2IGA.PREF_PKGNAME_ASSISTANT_KEY);
+		assistAppPkgName = SharedPrefUtils.getStringData(this, Constants.PrefsKeys.ASSIST_APP_PKGNAME);
 
 		// Запускаем ассистент
-		startAssistantApp(assistantPkgName);
+		startAssistApp(assistAppPkgName);
 
 		// Убиваем активность после запуска ассистента
 		this.finish();
@@ -36,7 +35,7 @@ public class LaunchAssistant extends Activity {
 	}
 
 	// Функция запуска ассистента
-	public void startAssistantApp(String pkgName) {
+	public void startAssistApp(String pkgName) {
 
 		if (TextUtils.isEmpty(pkgName)) {
 

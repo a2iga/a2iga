@@ -13,8 +13,6 @@ import android.support.v7.widget.Toolbar;
 import android.graphics.drawable.Drawable;
 import android.content.pm.PackageManager;
 import android.widget.ImageView;
-import ru.rx1310.app.a2iga.utils.SettingsUtils;
-import ru.rx1310.app.a2iga.A2IGA;
 import android.widget.TextView;
 import ru.rx1310.app.a2iga.utils.AppUtils;
 import android.content.SharedPreferences;
@@ -23,6 +21,8 @@ import android.content.pm.ResolveInfo;
 import android.content.ComponentName;
 import android.provider.Settings;
 import android.content.Context;
+import ru.rx1310.app.a2iga.utils.SharedPrefUtils;
+import ru.rx1310.app.a2iga.Constants;
 
 public class MainActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener{
     
@@ -30,13 +30,15 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 	ImageView mAssistantAppIcon;
 	String prefAssistantPackageName;
 	TextView mAssistantAppName, mAssistantPackageName;
-	private SharedPreferences mSharedPreferences;
+	SharedPreferences mSharedPreferences;
+	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 		
-		prefAssistantPackageName = SettingsUtils.get(this, A2IGA.PREF_PKGNAME_ASSISTANT_KEY);
+		prefAssistantPackageName = SharedPrefUtils.getStringData(this, Constants.PrefsKeys.ASSIST_APP_PKGNAME);
+		
 		mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 		mSharedPreferences.registerOnSharedPreferenceChangeListener(this);
 		
@@ -74,7 +76,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 	@Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
         //does this need to run in uiThread?
-        if (key.equals(A2IGA.PREF_PKGNAME_ASSISTANT_KEY)) {
+        if (key.equals(Constants.PrefsKeys.ASSIST_APP_PKGNAME)) {
             recreate();
         }
 

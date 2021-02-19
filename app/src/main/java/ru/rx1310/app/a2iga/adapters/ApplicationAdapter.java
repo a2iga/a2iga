@@ -25,10 +25,10 @@ import java.util.List;
 
 import ru.rx1310.app.a2iga.R;
 import ru.rx1310.app.a2iga.activities.AppsListActivity;
-import ru.rx1310.app.a2iga.utils.SettingsUtils;
-import ru.rx1310.app.a2iga.A2IGA;
 import android.support.v7.app.AppCompatActivity;
 import ru.rx1310.app.a2iga.activities.MainActivity;
+import ru.rx1310.app.a2iga.utils.SharedPrefUtils;
+import ru.rx1310.app.a2iga.Constants;
 
 public class ApplicationAdapter extends ArrayAdapter<ApplicationInfo> {
 	
@@ -122,7 +122,7 @@ public class ApplicationAdapter extends ArrayAdapter<ApplicationInfo> {
 						
 						if (p == 0) {
 							
-							SettingsUtils.put(getContext(), A2IGA.PREF_PKGNAME_ASSISTANT_KEY, ai.packageName);
+							SharedPrefUtils.saveData(getContext(), Constants.PrefsKeys.ASSIST_APP_PKGNAME, ai.packageName);
 							mActivity.finish();
 							Toast.makeText(mActivity, getContext().getString(R.string.msg_app_selected_as_assistant) + " (" + ai.loadLabel(mPkgMng) + ")", Toast.LENGTH_SHORT).show();
 							
