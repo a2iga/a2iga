@@ -61,6 +61,8 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 		
 		AppUtils.showToast(this, getCurrentAssist(this) + "");
 		
+		SharedPrefUtils.saveData(this, "first", true);
+		
     }
 	
 	public ComponentName getCurrentAssist(Context context) {
@@ -74,9 +76,9 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 	}
 	
 	@Override
-    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-        //does this need to run in uiThread?
-        if (key.equals(Constants.PrefsKeys.ASSIST_APP_PKGNAME)) {
+    public void onSharedPreferenceChanged(SharedPreferences sharedPrefs, String key) {
+        
+		if (key.equals(Constants.PrefsKeys.ASSIST_APP_PKGNAME)) {
             recreate();
         }
 
