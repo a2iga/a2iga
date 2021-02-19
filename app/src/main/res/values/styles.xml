@@ -11,6 +11,7 @@
 
         <item name="colorButtonNormal">@color/colorAccent</item>
         <item name="colorControlHighlight">@color/colorHover</item>
+		<item name="colorControlNormal">@color/colorIcon</item>
         <!--item name="bottomSheetDialogTheme">@style/AppTheme.SheetDialog</item-->
 		<item name="android:navigationBarColor">@color/colorSurface</item>
         <item name="android:windowBackground">@color/colorSurface</item>

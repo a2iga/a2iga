@@ -2,7 +2,6 @@
 
 package ru.rx1310.app.a2iga.activities;
 
-
 import android.app.ProgressDialog;
 import android.app.SearchManager;
 import android.content.Context;
@@ -56,6 +55,7 @@ public class AppsListActivity extends AppCompatActivity {
 		
         setSupportActionBar(mToolbar);
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+		getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close);
 		getSupportActionBar().setDisplayShowHomeEnabled(true);
 		
 		mSearchMng = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
