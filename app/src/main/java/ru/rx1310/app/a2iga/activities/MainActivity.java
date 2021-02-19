@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     
 	Toolbar mToolbar;
 	ImageView mAssistantAppIcon;
-	String prefAssistantPackageName;
+	String isAssistAppPkgName;
 	TextView mAssistantAppName, mAssistantPackageName;
 	SharedPreferences mSharedPreferences;
 	
@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 		
-		prefAssistantPackageName = SharedPrefUtils.getStringData(this, Constants.PrefsKeys.ASSIST_APP_PKGNAME);
+		isAssistAppPkgName = SharedPrefUtils.getStringData(this, Constants.PrefsKeys.ASSIST_APP_PKGNAME);
 		
 		mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 		mSharedPreferences.registerOnSharedPreferenceChangeListener(this);
@@ -44,14 +44,14 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 				   setSupportActionBar(mToolbar);
 		
 		mAssistantAppName = findViewById(R.id.name);
-		mAssistantAppName.setText(AppUtils.getAppName(this, prefAssistantPackageName));
+		mAssistantAppName.setText(AppUtils.getAppName(this, isAssistAppPkgName));
 		
 		mAssistantPackageName = findViewById(R.id.package_name);
-		mAssistantPackageName.setText(prefAssistantPackageName);
+		mAssistantPackageName.setText(isAssistAppPkgName);
 		
 		mAssistantAppIcon = findViewById(R.id.icon);
 		try {
-			Drawable drawable = getPackageManager().getApplicationIcon(prefAssistantPackageName);
+			Drawable drawable = getPackageManager().getApplicationIcon(isAssistAppPkgName);
 			mAssistantAppIcon.setImageDrawable(drawable);
 		} catch (PackageManager.NameNotFoundException e) {
 			e.printStackTrace();

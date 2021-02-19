@@ -18,16 +18,16 @@ import ru.rx1310.app.a2iga.utils.SharedPrefUtils;
 
 public class LaunchAssistant extends Activity {
 
-	String assistAppPkgName;
+	String isAssistAppPkgName;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		assistAppPkgName = SharedPrefUtils.getStringData(this, Constants.PrefsKeys.ASSIST_APP_PKGNAME);
+		isAssistAppPkgName = SharedPrefUtils.getStringData(this, Constants.PrefsKeys.ASSIST_APP_PKGNAME);
 
 		// Запускаем ассистент
-		startAssistApp(assistAppPkgName);
+		startAssistApp(isAssistAppPkgName);
 
 		// Убиваем активность после запуска ассистента
 		this.finish();
