@@ -41,7 +41,11 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 		mSharedPreferences.registerOnSharedPreferenceChangeListener(this);
 		
 		mToolbar = findViewById(R.id.toolbar);
-				   setSupportActionBar(mToolbar);
+		
+		setSupportActionBar(mToolbar);
+		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+		getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_logo);
+		getSupportActionBar().setDisplayShowHomeEnabled(true);
 		
 		mAssistantAppName = findViewById(R.id.name);
 		mAssistantAppName.setText(AppUtils.getAppName(this, isAssistAppPkgName));
@@ -57,7 +61,9 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 			e.printStackTrace();
 		}
 		
-		AppUtils.showToast(this, AppUtils.getCurrentAssist(this) + "");
+		if (AppUtils.getCurrentAssist(this).toString().contains("a2iga")) {
+			AppUtils.showToast(this, AppUtils.getCurrentAssist(this) + "");
+		}
 		
     }
 	
@@ -76,6 +82,12 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 	
 	public void appSettingsGet(View v) {
 		startActivity(new Intent(this, SettingsActivity.class));
+	}
+	
+	@Override
+	public boolean onSupportNavigateUp() {
+		onBackPressed();
+		return true;
 	}
     
 }
