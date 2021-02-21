@@ -9,7 +9,7 @@
 			android:radius="9.0dip" />
 
 		<solid 
-			android:color="@color/colorSurface" />
+			android:color="@color/colorAccent" />
 
 	</shape>
 
