@@ -83,13 +83,20 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 			}
 		});
 		
+    }
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		
 		if (AppUtils.getCurrentAssist(this).toString().contains("a2iga")) {
 			mDefaultAssistAppCard.setVisibility(View.GONE);
 		} else {
 			mDefaultAssistAppCard.setVisibility(View.VISIBLE);
 		}
 		
-    }
+	}
+	
 	
 	@Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPrefs, String key) {
