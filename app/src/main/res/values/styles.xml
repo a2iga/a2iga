@@ -10,7 +10,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
 
         <item name="colorButtonNormal">@color/colorAccent</item>
-        <item name="colorControlHighlight">@color/colorHover</item>
+        <!--item name="colorControlHighlight">@color/colorHover</item-->
 		<item name="colorControlNormal">@color/colorIcon</item>
         <!--item name="bottomSheetDialogTheme">@style/AppTheme.SheetDialog</item-->
 		<item name="android:navigationBarColor">@color/colorSurface</item>
@@ -52,10 +52,6 @@
 		<item name="android:foreground">?android:attr/selectableItemBackground</item>
 	</style>
 	
-	<style name="AppTheme.CardViewError" parent="AppTheme.CardView">  
-		<item name="cardBackgroundColor">@color/colorError</item>
-	</style>
-
     <style name="AppTheme.NoActionBar" parent="AppTheme">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>

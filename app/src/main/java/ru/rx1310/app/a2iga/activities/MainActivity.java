@@ -48,18 +48,30 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 		getSupportActionBar().setDisplayShowHomeEnabled(true);
 		
 		mAssistantAppName = findViewById(R.id.name);
-		mAssistantAppName.setText(AppUtils.getAppName(this, isAssistAppPkgName));
-		
 		mAssistantPackageName = findViewById(R.id.package_name);
-		mAssistantPackageName.setText(isAssistAppPkgName);
-		
 		mAssistantAppIcon = findViewById(R.id.icon);
-		try {
-			Drawable drawable = getPackageManager().getApplicationIcon(isAssistAppPkgName);
-			mAssistantAppIcon.setImageDrawable(drawable);
-		} catch (PackageManager.NameNotFoundException e) {
-			e.printStackTrace();
+		
+		if (isAssistAppPkgName == null) {
+			
+			mAssistantAppName.setText("Empty app");
+			mAssistantPackageName.setText("Empty pkg");
+			mAssistantAppIcon.setImageDrawable(getDrawable(R.drawable.ic_logo_alt));
+			
+		} else {
+			
+			mAssistantAppName.setText(AppUtils.getAppName(this, isAssistAppPkgName));
+			mAssistantPackageName.setText(isAssistAppPkgName);
+			
+			try {
+				Drawable drawable = getPackageManager().getApplicationIcon(isAssistAppPkgName);
+				mAssistantAppIcon.setImageDrawable(drawable);
+			} catch (PackageManager.NameNotFoundException e) {
+				e.printStackTrace();
+			}
+			
 		}
+		
+		
 		
 		if (AppUtils.getCurrentAssist(this).toString().contains("a2iga")) {
 			AppUtils.showToast(this, AppUtils.getCurrentAssist(this) + "");
@@ -78,10 +90,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 	
 	public void appsListGet(View v) {
 		startActivity(new Intent(this, AppsListActivity.class));
-	}
-	
-	public void appSettingsGet(View v) {
-		startActivity(new Intent(this, SettingsActivity.class));
 	}
 	
 	@Override

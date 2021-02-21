@@ -57,18 +57,8 @@
 
 		<activity
 			android:theme="@style/AppTheme.NoActionBar"
-			android:name=".activities.MainActivity"/>
-
-		<activity
-			android:label="@string/activity_appslist"
-			android:theme="@style/AppTheme.NoActionBar"
-			android:name=".activities.AppsListActivity"/>
-
-		<activity
-			android:label="@string/activity_settings"
-			android:theme="@style/AppTheme.Preferences"
-			android:name=".activities.SettingsActivity">
-
+			android:name=".activities.MainActivity">
+			
 			<intent-filter>
 
 				<action android:name="android.intent.action.APPLICATION_PREFERENCES"/>
@@ -84,12 +74,13 @@
 					android:scheme="a2iga"/>
 
 			</intent-filter>
-
-			<meta-data
-				android:name="android.support.PARENT_ACTIVITY"
-				android:value="ru.rx1310.app.a2iga.activities.MainActivity"/>
-
+			
 		</activity>
+
+		<activity
+			android:label="@string/activity_appslist"
+			android:theme="@style/AppTheme.NoActionBar"
+			android:name=".activities.AppsListActivity"/>
 
 		<!-- Активность, которая запускает приложение -->
         <activity

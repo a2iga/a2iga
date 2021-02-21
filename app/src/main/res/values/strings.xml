@@ -2,13 +2,11 @@
 <resources>
 	
 	<string name="activity_main">@string/app_name</string>
-	<string name="activity_settings">Настройки приложения</string>
 	<string name="activity_appslist">Список приложений</string>
 	<string name="activity_splash">app#splash</string>
 	
-	<!-- Menu -->
-	<string name="menu_settings">@string/activity_settings</string>
-	<string name="menu_search">Поиск</string>
+	<!-- Actions -->
+	<string name="action_open_app_info">Информация о приложении</string>
 	
 	<!-- Messages -->
 	<string name="msg_pkg_name_copied">Имя пакета приложения скопировано!</string>
@@ -24,12 +22,12 @@
 	<!-- Dialogs -->
 	<string name="dlg_appslist_loading">Загрузка списка</string>
 	<string name="dlg_appslist_loading_desc">Подождите, идет загрузка списка установленных приложений...</string>
+	<string name="dlg_a2iga_not_default_assist">Помощник по умолчанию</string>
+	<string name="dlg_a2iga_not_default_assist_desc">A2IGA не установлен в качестве помощника в системе по умолчанию. </string>
 	
 	<!-- Main -->
 	<string name="main_current_assistant">Текущ. приложение-ассистент</string>
-	<string name="main_select_from_appslist">Выбрать из списка приложений</string>
-	<string name="main_input_packagename">Введите имя пакета</string>
-	<string name="main_apply_changes">Применить изменения</string>
+	<string name="main_select_from_appslist">Нажмите на эту карточку, чтобы выбрать другое приложении из списка установленных.</string>
 	<!--string name="main_"></string>
 	<string name="main_"></string>
 	<string name="main_"></string>
