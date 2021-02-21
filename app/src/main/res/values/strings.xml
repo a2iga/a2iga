@@ -22,12 +22,13 @@
 	<!-- Dialogs -->
 	<string name="dlg_appslist_loading">Загрузка списка</string>
 	<string name="dlg_appslist_loading_desc">Подождите, идет загрузка списка установленных приложений...</string>
-	<string name="dlg_a2iga_not_default_assist">Помощник по умолчанию</string>
-	<string name="dlg_a2iga_not_default_assist_desc">A2IGA не установлен в качестве помощника в системе по умолчанию. </string>
 	
 	<!-- Main -->
 	<string name="main_current_assistant">Текущ. приложение-ассистент</string>
-	<string name="main_select_from_appslist">Нажмите на эту карточку, чтобы выбрать другое приложении из списка установленных.</string>
+	<string name="main_select_from_appslist">Нажмите на эту карточку, чтобы выбрать приложение из списка установленных.</string>
+	<string name="main_a2iga_not_default_assist">Помощник по умолчанию</string>
+	<string name="main_a2iga_not_default_assist_desc">A2IGA не установлен в качестве помощника в системе по умолчанию.</string>
+	
 	<!--string name="main_"></string>
 	<string name="main_"></string>
 	<string name="main_"></string>

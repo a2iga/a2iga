@@ -21,10 +21,13 @@ import ru.rx1310.app.a2iga.Constants;
 import ru.rx1310.app.a2iga.R;
 import ru.rx1310.app.a2iga.utils.AppUtils;
 import ru.rx1310.app.a2iga.utils.SharedPrefUtils;
+import android.support.v7.widget.CardView;
+import android.view.View.OnClickListener;
 
-public class MainActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
+public class MainActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener, View.OnClickListener {
     
 	Toolbar mToolbar;
+	CardView mDefaultAssistAppCard;
 	ImageView mAssistantAppIcon;
 	String isAssistAppPkgName;
 	TextView mAssistantAppName, mAssistantPackageName;
@@ -71,10 +74,19 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 			
 		}
 		
-		
+		mDefaultAssistAppCard = findViewById(R.id.a2igaIsNotDefaultAssistAppCard);
+		mDefaultAssistAppCard.setOnClickListener(this);
+		mDefaultAssistAppCard.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				startActivity(new Intent(android.provider.Settings.ACTION_VOICE_INPUT_SETTINGS));
+			}
+		});
 		
 		if (AppUtils.getCurrentAssist(this).toString().contains("a2iga")) {
-			AppUtils.showToast(this, AppUtils.getCurrentAssist(this) + "");
+			mDefaultAssistAppCard.setVisibility(View.GONE);
+		} else {
+			mDefaultAssistAppCard.setVisibility(View.VISIBLE);
 		}
 		
     }
@@ -85,6 +97,21 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 		if (key.equals(Constants.PrefsKeys.ASSIST_APP_PKGNAME)) {
             recreate();
         }
+
+	}
+	
+	@Override
+	public void onClick(View v) {
+
+		switch (v.getId()) {
+
+			//case R.id.applyChanges:
+			//
+			//break;
+				
+			default: break;
+
+		}
 
 	}
 	
