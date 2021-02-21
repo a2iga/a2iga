@@ -47,6 +47,11 @@
 		<item name="cardBackgroundColor">@color/colorCard</item>
 	</style>  
 	
+	<style name="AppTheme.CardView.Clickable" parent="AppTheme.CardView">  
+		<item name="android:clickable">true</item>
+		<item name="android:foreground">?android:attr/selectableItemBackground</item>
+	</style>
+	
 	<style name="AppTheme.CardViewError" parent="AppTheme.CardView">  
 		<item name="cardBackgroundColor">@color/colorError</item>
 	</style>
