@@ -26,7 +26,7 @@
 	<!-- Main -->
 	<string name="main_current_assistant">Текущ. приложение-ассистент</string>
 	<string name="main_select_from_appslist">Нажмите на эту карточку, чтобы выбрать приложение из списка установленных.</string>
-	<string name="main_a2iga_not_default_assist">A2IGA не установлен в качестве ассистента по умолчанию. Пожалуйста, нажмите на жту карточку и в настройках помощника поставьте галочку напротив A2IGA.</string>
+	<string name="main_a2iga_not_default_assist">A2IGA не установлен в качестве ассистента по умолчанию. Пожалуйста, нажмите на эту карточку и в настройках помощника поставьте галочку напротив A2IGA.</string>
 	
 	<!--string name="main_"></string>
 	<string name="main_"></string>
