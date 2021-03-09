@@ -84,6 +84,15 @@
 
 		</android.support.v7.widget.CardView>
 
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/main_current_assistant"
+			android:textAppearance="@android:style/TextAppearance.Material.Body2"
+			android:textColor="?android:attr/colorAccent"
+			android:textStyle="bold"
+			android:layout_marginBottom="?android:attr/listPreferredItemPaddingEnd"/>
+
 		<android.support.v7.widget.CardView
 			android:onClick="appsListGet"
 			android:layout_width="match_parent"
@@ -92,69 +101,46 @@
 			android:layout_marginBottom="10dp">
 
 			<LinearLayout
-				android:orientation="vertical"
+				android:orientation="horizontal"
 				android:layout_width="match_parent"
-				android:layout_height="wrap_content">
+				android:layout_height="wrap_content"
+				android:gravity="left|center">
 
-				<TextView
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:text="@string/main_current_assistant"
-					android:textAppearance="@android:style/TextAppearance.Material.Body2"
-					android:textColor="?android:attr/colorAccent"
-					android:textStyle="bold"
-					android:layout_marginBottom="?android:attr/listPreferredItemPaddingEnd"/>
+				<ImageView
+					android:layout_width="48dp"
+					android:layout_height="48dp"
+					android:id="@+id/icon"/>
 
 				<LinearLayout
-					android:orientation="horizontal"
+					android:orientation="vertical"
+					android:paddingStart="10dp"
 					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
+					android:layout_height="match_parent"
 					android:gravity="left|center">
 
-					<ImageView
-						android:layout_width="48dp"
-						android:layout_height="48dp"
-						android:id="@+id/icon"/>
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:textAppearance="?android:attr/textAppearanceMedium"
+						android:id="@+id/name"
+						android:textStyle="bold"/>
 
-					<LinearLayout
-						android:orientation="vertical"
-						android:paddingStart="10dp"
+					<TextView
 						android:layout_width="match_parent"
-						android:layout_height="match_parent"
-						android:gravity="left|center">
-
-						<TextView
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:textAppearance="?android:attr/textAppearanceMedium"
-							android:id="@+id/name"
-							android:textStyle="bold"/>
-
-						<TextView
-							android:layout_width="match_parent"
-							android:layout_height="wrap_content"
-							android:id="@+id/package_name"
-							android:alpha="0.8"/>
-
-					</LinearLayout>
+						android:layout_height="wrap_content"
+						android:id="@+id/package_name"
+						android:alpha="0.8"/>
 
 				</LinearLayout>
-
-				<View
-					android:layout_marginTop="?android:attr/listPreferredItemPaddingStart"
-					android:layout_marginBottom="?android:attr/listPreferredItemPaddingEnd"
-					android:background="?android:attr/dividerVertical"
-					android:layout_width="match_parent"
-					android:layout_height="1dp"/>
-
-				<TextView
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:text="@string/main_select_from_appslist"/>
 
 			</LinearLayout>
 
 		</android.support.v7.widget.CardView>
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/main_select_from_appslist"/>
 
 	</LinearLayout>
 

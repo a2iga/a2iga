@@ -115,34 +115,37 @@ public class ApplicationAdapter extends ArrayAdapter<ApplicationInfo> {
                 final ApplicationInfo ai = mListApps.get(p);
                
 				android.support.v7.app.AlertDialog.Builder b = new android.support.v7.app.AlertDialog.Builder(mActivity, R.style.AppTheme_Dialog_Alert);
+				
 				b.setTitle(ai.loadLabel(mPkgMng));
 				b.setIcon(ai.loadIcon(mPkgMng));
-				b.setItems(R.array.appslist_actions, new DialogInterface.OnClickListener() {
-					public void onClick(DialogInterface d, int p) {
-						
-						if (p == 0) {
-							
-							SharedPrefUtils.saveData(getContext(), Constants.PrefsKeys.ASSIST_APP_PKGNAME, ai.packageName);
-							mActivity.finish();
-							Toast.makeText(mActivity, getContext().getString(R.string.msg_app_selected_as_assistant) + " (" + ai.loadLabel(mPkgMng) + ")", Toast.LENGTH_SHORT).show();
-							
-						} if (p == 1) {
-							
-							ClipboardManager mClipboardMng = (ClipboardManager) mActivity.getSystemService(Context.CLIPBOARD_SERVICE);
-							ClipData mClipData = ClipData.newPlainText(null, ai.packageName);
-							mClipboardMng.setPrimaryClip(mClipData);
+				b.setMessage(R.string.dlg_appslist_app_select_desc);
+				
+				/*b.setNeutralButton(android.R.string.cancel, new DialogInterface.OnClickListener() { // обработка нажатия кнопки "Да"
+					public void onClick(DialogInterface d, int i) {
+						d.dismiss();
+						ClipboardManager mClipboardMng = (ClipboardManager) mActivity.getSystemService(Context.CLIPBOARD_SERVICE);
+						ClipData mClipData = ClipData.newPlainText(null, ai.packageName);
+						mClipboardMng.setPrimaryClip(mClipData);
 
-							Toast.makeText(getContext(), mActivity.getString(R.string.msg_pkg_name_copied), Toast.LENGTH_SHORT).show();
-							
-						}
-						
+						Toast.makeText(getContext(), mActivity.getString(R.string.msg_pkg_name_copied), Toast.LENGTH_SHORT).show();
 					}
-				});
-				b.setPositiveButton(android.R.string.cancel, new DialogInterface.OnClickListener() { // обработка нажатия кнопки "Да"
+				});*/
+				
+				
+				b.setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() { // обработка нажатия кнопки "No"
 					public void onClick(DialogInterface d, int i) {
 						d.dismiss();
 					}
 				});
+				
+				b.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() { // обработка нажатия кнопки "Yes"
+					public void onClick(DialogInterface d, int i) {
+						SharedPrefUtils.saveData(getContext(), Constants.PrefsKeys.ASSIST_APP_PKGNAME, ai.packageName);
+						mActivity.finish();
+						Toast.makeText(mActivity, getContext().getString(R.string.msg_app_selected_as_assistant) + " (" + ai.loadLabel(mPkgMng) + ")", Toast.LENGTH_SHORT).show();
+					}
+				});
+				
 				b.show();
 				
             }

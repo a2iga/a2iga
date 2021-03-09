@@ -27,7 +27,6 @@ import android.view.View.OnClickListener;
 public class MainActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener, View.OnClickListener {
     
 	Toolbar mToolbar;
-	CardView mDefaultAssistAppCard;
 	ImageView mAssistantAppIcon;
 	String isAssistAppPkgName;
 	TextView mAssistantAppName, mAssistantPackageName;
@@ -74,15 +73,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 			
 		}
 		
-		mDefaultAssistAppCard = findViewById(R.id.a2igaIsNotDefaultAssistAppCard);
-		mDefaultAssistAppCard.setOnClickListener(this);
-		mDefaultAssistAppCard.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				startActivity(new Intent(android.provider.Settings.ACTION_VOICE_INPUT_SETTINGS));
-			}
-		});
-		
     }
 
 	@Override
@@ -90,9 +80,9 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 		super.onResume();
 		
 		if (AppUtils.getCurrentAssist(this).toString().contains("a2iga")) {
-			mDefaultAssistAppCard.setVisibility(View.GONE);
+			// Hide msg
 		} else {
-			mDefaultAssistAppCard.setVisibility(View.VISIBLE);
+			// Show msg
 		}
 		
 	}

@@ -22,20 +22,19 @@
 	<!-- Dialogs -->
 	<string name="dlg_appslist_loading">Загрузка списка</string>
 	<string name="dlg_appslist_loading_desc">Подождите, идет загрузка списка установленных приложений...</string>
+	<string name="dlg_appslist_app_select">Подтвердите действие</string>
+	<string name="dlg_appslist_app_select_desc">Вы действительно хотите установить в качестве ассистента данное приложение?</string>
 	
 	<!-- Main -->
-	<string name="main_current_assistant">Текущ. приложение-ассистент</string>
-	<string name="main_select_from_appslist">Нажмите на эту карточку, чтобы выбрать приложение из списка установленных.</string>
+	<string name="main_current_assistant">Текущая замена ассистента</string>
+	<string name="main_select_from_appslist">Нажмите на эту карточку для того, чтобы выбрать другое приложение в качестве ассистента</string>
 	<string name="main_a2iga_not_default_assist">A2IGA не установлен в качестве ассистента по умолчанию. Пожалуйста, нажмите на эту карточку и в настройках помощника поставьте галочку напротив A2IGA.</string>
 	
-	<!--string name="main_"></string>
 	<string name="main_"></string>
 	<string name="main_"></string>
-	<string name="main_"></string-->
+	<string name="main_"></string>
 	
 	<!-- AppsList -->
-	<string name="appslist_action_copy_pkgname">Скопировать имя пакета</string>
-	<string name="appslist_action_select_as_assistant">Использовать как ассистент</string>
 	<string name="appslist_apps_count">Количество приложений: %1$s</string>
 	<string name="appslist_apps_count_filtered">Найдено совпадений: %1$s</string>
 	<string name="appslist_apps_count_filtered_zero" formatted="false">Нет совпадений ¯\u005c_(ツ)_/¯</string>
