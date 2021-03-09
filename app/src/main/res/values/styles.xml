@@ -75,4 +75,21 @@
         <item name="android:textColor">?android:attr/textColorPrimary</item>
     </style>
 	
+	<style name="AppTheme.TextAppearanceTitle">
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+        <!--item name="android:textStyle">bold</item-->
+        <item name="android:textColor">#FFFFFFFF</item>
+    </style>
+	
+	<style name="AppTheme.AboutItem">
+        <item name="android:clickable">true</item>
+        <item name="android:foreground">?android:attr/selectableItemBackground</item>
+        <item name="android:orientation">vertical</item>
+		<item name="android:layout_width">match_parent</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:paddingStart">72dp</item>
+		<item name="android:paddingTop">12dp</item>
+		<item name="android:paddingBottom">12dp</item>
+    </style>
+	
 </resources>

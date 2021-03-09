@@ -6,143 +6,85 @@
 	android:layout_width="match_parent"
 	android:layout_height="match_parent">
 
-	<android.support.design.widget.AppBarLayout
-		android:id="@+id/appbar"
-		android:minHeight="?attr/actionBarSize"
+	<include
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+		layout="@layout/layout_appbar"/>
 
-		<android.support.v7.widget.Toolbar
-			android:id="@+id/toolbar"
-			android:minHeight="?attr/actionBarSize"
-			android:background="?attr/colorPrimary"
-			android:layout_width="match_parent"
-			android:theme="@style/ThemeOverlay.AppCompat.Dark"
-			android:layout_height="wrap_content"/>
-
-		<View
-			android:background="?android:attr/dividerVertical"
-			android:layout_width="match_parent"
-			android:layout_height="1dp"/>
-
-		<LinearLayout
-			android:paddingTop="?android:attr/listPreferredItemPaddingStart"
-			android:paddingBottom="?android:attr/listPreferredItemPaddingEnd"
-			android:clickable="true"
-			android:minHeight="?attr/actionBarSize"
-			android:foreground="?android:attr/selectableItemBackground"
-			android:orientation="horizontal"
-			android:gravity="left|center"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content">
-
-			<ImageView
-				android:layout_marginRight="?android:attr/listPreferredItemPaddingEnd"
-				android:layout_marginLeft="?android:attr/listPreferredItemPaddingStart"
-				android:src="@drawable/ic_info"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"/>
-
-			<TextView
-				android:layout_marginLeft="?android:attr/listPreferredItemPaddingStart"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:text="@string/app_info"
-				style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"/>
-
-		</LinearLayout>
-
-	</android.support.design.widget.AppBarLayout>
-
-	<LinearLayout
-		android:paddingTop="?android:attr/listPreferredItemPaddingStart"
-		android:paddingBottom="?android:attr/listPreferredItemPaddingEnd"
-		android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
-		android:paddingStart="?android:attr/listPreferredItemPaddingStart"
-		android:orientation="vertical"
+	<ScrollView
 		android:layout_width="match_parent"
 		android:layout_height="match_parent">
 
-		<android.support.v7.widget.CardView
+		<LinearLayout
+			android:orientation="vertical"
 			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			style="@style/AppTheme.CardView.Clickable"
-			android:foreground="?android:attr/selectableItemBackground"
-			android:clickable="true"
-			android:layout_marginBottom="10dp"
-			app:cardBackgroundColor="@color/colorError"
-			android:id="@+id/a2igaIsNotDefaultAssistAppCard"
-			android:visibility="gone">
-
-			<TextView
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:text="@string/a2iga_not_default_assist_message"
-				android:textAppearance="?android:attr/textAppearanceSmall"
-				android:textColor="#FFFFFFFF"/>
-
-		</android.support.v7.widget.CardView>
-
-		<TextView
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:text="@string/current_assistant"
-			android:textAppearance="@android:style/TextAppearance.Material.Body2"
-			android:textColor="?android:attr/colorAccent"
-			android:textStyle="bold"
-			android:layout_marginBottom="?android:attr/listPreferredItemPaddingEnd"/>
-
-		<android.support.v7.widget.CardView
-			android:onClick="appsListGet"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			style="@style/AppTheme.CardView.Clickable"
-			android:layout_marginBottom="10dp">
+			android:layout_height="match_parent">
 
 			<LinearLayout
-				android:orientation="horizontal"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:gravity="top|left|center">
+				style="@style/AppTheme.AboutItem"
+				android:background="@color/colorError">
 
-				<ImageView
-					android:layout_width="48dp"
-					android:layout_height="48dp"
-					android:id="@+id/icon"/>
-
-				<LinearLayout
-					android:orientation="vertical"
-					android:paddingStart="12dp"
-					android:layout_width="match_parent"
+				<TextView
+					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
-					android:gravity="left|center">
+					android:text="@string/app_unsupported_api22"
+					style="@style/AppTheme.TextAppearanceTitle"/>
 
-					<TextView
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						android:textAppearance="?android:attr/textAppearanceMedium"
-						android:id="@+id/name"
-						android:textStyle="bold"/>
-
-					<TextView
-						android:layout_width="match_parent"
-						android:layout_height="wrap_content"
-						android:alpha="0.8"
-						android:text="@string/current_assistant_open_appslist"/>
-
-				</LinearLayout>
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="@string/app_unsupported_api22_desc"/>
 
 			</LinearLayout>
 
-		</android.support.v7.widget.CardView>
+			<include
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				layout="@layout/layout_main"/>
 
-		<TextView
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:text="current_assistant_select_from_appslist"/>
+			<TextView
+				style="@style/AppTheme.AboutItem"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/a2iga_not_default_assist_message"
+				android:textColor="@color/colorError"/>
 
-	</LinearLayout>
+			<LinearLayout
+				android:background="?colorPrimary"
+				android:paddingTop="?android:attr/listPreferredItemPaddingStart"
+				android:paddingBottom="?android:attr/listPreferredItemPaddingEnd"
+				android:clickable="true"
+				android:minHeight="?attr/actionBarSize"
+				android:foreground="?android:attr/selectableItemBackground"
+				android:orientation="horizontal"
+				android:gravity="left|center"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content">
+
+				<ImageView
+					android:layout_marginRight="?android:attr/listPreferredItemPaddingEnd"
+					android:layout_marginLeft="?android:attr/listPreferredItemPaddingStart"
+					android:src="@drawable/ic_info"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"/>
+
+				<TextView
+					android:layout_marginLeft="?android:attr/listPreferredItemPaddingStart"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:text="@string/app_info"
+					style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"/>
+
+			</LinearLayout>
+
+			<include
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				layout="@layout/layout_about"/>
+
+		</LinearLayout>
+
+	</ScrollView>
 
 </LinearLayout>
 

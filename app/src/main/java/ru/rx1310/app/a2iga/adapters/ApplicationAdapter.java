@@ -85,7 +85,7 @@ public class ApplicationAdapter extends ArrayAdapter<ApplicationInfo> {
         
 		if (v == null) {
 			
-            v = inflater.inflate(R.layout.ui_appslist_item, vg, false);
+            v = inflater.inflate(R.layout.list_item_appslist, vg, false);
             vh = new ViewHolder(v);
             v.setTag(vh);
 			

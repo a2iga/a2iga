@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+
+	<LinearLayout
+		style="@style/AppTheme.AboutItem">
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/app_desc"/>
+
+	</LinearLayout>
+
+	<View
+		android:background="?android:attr/dividerVertical"
+		android:layout_width="match_parent"
+		android:layout_height="1dp"/>
+
+	<LinearLayout
+		style="@style/AppTheme.AboutItem">
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/version"
+			style="@style/AppTheme.TextAppearanceTitle"/>
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="8.888888\n\nНажмите для проверки обновлений"/>
+
+	</LinearLayout>
+
+	<LinearLayout
+		style="@style/AppTheme.AboutItem">
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/developer"
+			style="@style/AppTheme.TextAppearanceTitle"/>
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/app_author"/>
+
+	</LinearLayout>
+
+	<LinearLayout
+		style="@style/AppTheme.AboutItem">
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/opensource"
+			style="@style/AppTheme.TextAppearanceTitle"/>
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/opensource_desc"/>
+
+	</LinearLayout>
+
+</LinearLayout>
+

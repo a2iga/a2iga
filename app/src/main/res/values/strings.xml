@@ -7,7 +7,8 @@
 	
 	<string name="a2iga_not_default_assist_message">A2IGA не установлен в качестве ассистента по умолчанию. Пожалуйста, нажмите на эту карточку и в настройках помощника поставьте галочку напротив A2IGA.</string>
 	
-	<string name="app_info">Информация о приложении</string>
+	<string name="app_info">О программе</string>
+	<string name="app_settings">Настройки</string>
 	<string name="app_unsupported_api22">У Вас старая версия Android!</string>
 	<string name="app_unsupported_api22_desc">Для работы A2IGA необходимо иметь версию Android 6.0 и новее.</string>
 	<string name="app_selected_as_assistant">Выбранное приложение успешно установлено в качестве ассистента!</string>
@@ -26,9 +27,14 @@
 	<string name="current_assistant_null">¯\u005c_(ツ)_/¯</string>
 	<string name="current_assistant_open_appslist">Нажмите на эту карточку для того, чтобы открыть список установленных приложений</string>
 	
+	<string name="developer">Разработчик</string>
+	
 	<string name="pkg_name_copied">Имя пакета приложения скопировано!</string>
 	<string name="pkg_name_notspecified">Пожалуйста, перейдите в A2IGA и выберите необходимое приложение в качестве ассистента.</string>
 	
+	<string name="opensource">Открытый исходный код</string>
+	<string name="opensource_desc">Приложение A2IGA бесплатно распространяется с открытым исходным кодом под лицензией MIT.\n\nhttps://github.com/rx1310/a2iga</string>
 	
+	<string name="version">Версия приложения</string>
 	
 </resources>
