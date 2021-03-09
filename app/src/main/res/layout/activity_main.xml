@@ -26,7 +26,6 @@
 				layout="@layout/layout_main"/>
 
 			<android.support.design.widget.AppBarLayout
-				xmlns:android="http://schemas.android.com/apk/res/android"
 				android:id="@+id/appbar"
 				android:minHeight="?attr/actionBarSize"
 				android:layout_width="match_parent"
@@ -37,9 +36,7 @@
 					android:background="?colorPrimary"
 					android:paddingTop="?android:attr/listPreferredItemPaddingStart"
 					android:paddingBottom="?android:attr/listPreferredItemPaddingEnd"
-					android:clickable="true"
 					android:minHeight="?attr/actionBarSize"
-					android:foreground="?android:attr/selectableItemBackground"
 					android:orientation="horizontal"
 					android:gravity="left|center"
 					android:layout_width="match_parent"
@@ -62,8 +59,6 @@
 				</LinearLayout>
 
 			</android.support.design.widget.AppBarLayout>
-			
-			
 
 			<include
 				android:layout_width="match_parent"
