@@ -12,6 +12,7 @@
 	<color name="colorAppAdaptiveIcon">@color/colorAccent</color>
 	<color name="colorPromtPreferenceBackground">@color/colorHover</color>
 	
-	<color name="colorError">#A63232</color>
+	<color name="colorError">#B71C1C</color>
+	<color name="colorWarn">#FF6F00</color>
 	
 </resources>

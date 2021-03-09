@@ -20,62 +20,50 @@
 			android:layout_width="match_parent"
 			android:layout_height="match_parent">
 
-			<LinearLayout
-				style="@style/AppTheme.AboutItem"
-				android:background="@color/colorError">
-
-				<TextView
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:text="@string/app_unsupported_api22"
-					style="@style/AppTheme.TextAppearanceTitle"/>
-
-				<TextView
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:text="@string/app_unsupported_api22_desc"/>
-
-			</LinearLayout>
-
 			<include
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				layout="@layout/layout_main"/>
 
-			<TextView
-				style="@style/AppTheme.AboutItem"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:text="@string/a2iga_not_default_assist_message"
-				android:textColor="@color/colorError"/>
-
-			<LinearLayout
-				android:background="?colorPrimary"
-				android:paddingTop="?android:attr/listPreferredItemPaddingStart"
-				android:paddingBottom="?android:attr/listPreferredItemPaddingEnd"
-				android:clickable="true"
+			<android.support.design.widget.AppBarLayout
+				xmlns:android="http://schemas.android.com/apk/res/android"
+				android:id="@+id/appbar"
 				android:minHeight="?attr/actionBarSize"
-				android:foreground="?android:attr/selectableItemBackground"
-				android:orientation="horizontal"
-				android:gravity="left|center"
 				android:layout_width="match_parent"
-				android:layout_height="wrap_content">
+				android:layout_height="wrap_content"
+				android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
-				<ImageView
-					android:layout_marginRight="?android:attr/listPreferredItemPaddingEnd"
-					android:layout_marginLeft="?android:attr/listPreferredItemPaddingStart"
-					android:src="@drawable/ic_info"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"/>
-
-				<TextView
-					android:layout_marginLeft="?android:attr/listPreferredItemPaddingStart"
+				<LinearLayout
+					android:background="?colorPrimary"
+					android:paddingTop="?android:attr/listPreferredItemPaddingStart"
+					android:paddingBottom="?android:attr/listPreferredItemPaddingEnd"
+					android:clickable="true"
+					android:minHeight="?attr/actionBarSize"
+					android:foreground="?android:attr/selectableItemBackground"
+					android:orientation="horizontal"
+					android:gravity="left|center"
 					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:text="@string/app_info"
-					style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"/>
+					android:layout_height="wrap_content">
 
-			</LinearLayout>
+					<ImageView
+						android:layout_marginRight="?android:attr/listPreferredItemPaddingEnd"
+						android:layout_marginLeft="?android:attr/listPreferredItemPaddingStart"
+						android:src="@drawable/ic_info"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"/>
+
+					<TextView
+						android:layout_marginLeft="?android:attr/listPreferredItemPaddingStart"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:text="@string/app_info"
+						style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"/>
+
+				</LinearLayout>
+
+			</android.support.design.widget.AppBarLayout>
+			
+			
 
 			<include
 				android:layout_width="match_parent"

@@ -23,10 +23,12 @@ import ru.rx1310.app.a2iga.utils.AppUtils;
 import ru.rx1310.app.a2iga.utils.SharedPrefUtils;
 import android.support.v7.widget.CardView;
 import android.view.View.OnClickListener;
+import android.os.Build;
 
 public class MainActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener, View.OnClickListener {
     
 	Toolbar mToolbar;
+	CardView mUnsupportedApi22Card, mNotDefaultAssistCard;
 	ImageView mAssistantAppIcon;
 	String isAssistAppPkgName;
 	TextView mAssistantAppName;
@@ -70,6 +72,23 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 			
 		}
 		
+		mNotDefaultAssistCard = findViewById(R.id.cardNotDefaultAssist);
+		mNotDefaultAssistCard.setOnClickListener(this);
+		mNotDefaultAssistCard.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				startActivity(new Intent(android.provider.Settings.ACTION_VOICE_INPUT_SETTINGS));
+			}
+		});
+		
+		mUnsupportedApi22Card = findViewById(R.id.cardUnsupportedApi22);
+		
+		if (Build.VERSION.SDK_INT < 22) {
+			mUnsupportedApi22Card.setVisibility(View.VISIBLE);
+		} else {
+			mUnsupportedApi22Card.setVisibility(View.GONE);
+		}
+		
     }
 
 	@Override
@@ -77,9 +96,9 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 		super.onResume();
 		
 		if (AppUtils.getCurrentAssist(this).toString().contains("a2iga")) {
-			// Hide msg
+			mNotDefaultAssistCard.setVisibility(View.GONE);
 		} else {
-			// Show msg
+			mNotDefaultAssistCard.setVisibility(View.VISIBLE);
 		}
 		
 	}
