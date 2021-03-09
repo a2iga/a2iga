@@ -2,27 +2,22 @@
 
 package ru.rx1310.app.a2iga.activities;
 
-import android.content.ComponentName;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import ru.rx1310.app.a2iga.Constants;
 import ru.rx1310.app.a2iga.R;
 import ru.rx1310.app.a2iga.utils.AppUtils;
 import ru.rx1310.app.a2iga.utils.SharedPrefUtils;
-import android.support.v7.widget.CardView;
-import android.view.View.OnClickListener;
 import android.os.Build;
 
 public class MainActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener, View.OnClickListener {
@@ -95,7 +90,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 	protected void onResume() {
 		super.onResume();
 		
-		if (AppUtils.getCurrentAssist(this).toString().contains("a2iga")) {
+		if (AppUtils.getCurrentAssist(this).getClassName().toString().contains("a2iga")) {
 			mNotDefaultAssistCard.setVisibility(View.GONE);
 		} else {
 			mNotDefaultAssistCard.setVisibility(View.VISIBLE);
