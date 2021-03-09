@@ -118,7 +118,7 @@ public class ApplicationAdapter extends ArrayAdapter<ApplicationInfo> {
 				
 				b.setTitle(ai.loadLabel(mPkgMng));
 				b.setIcon(ai.loadIcon(mPkgMng));
-				b.setMessage(R.string.dlg_appslist_app_select_desc);
+				b.setMessage(R.string.appslist_app_select_dialog_desc);
 				
 				/*b.setNeutralButton(android.R.string.cancel, new DialogInterface.OnClickListener() { // обработка нажатия кнопки "Да"
 					public void onClick(DialogInterface d, int i) {
@@ -142,7 +142,7 @@ public class ApplicationAdapter extends ArrayAdapter<ApplicationInfo> {
 					public void onClick(DialogInterface d, int i) {
 						SharedPrefUtils.saveData(getContext(), Constants.PrefsKeys.ASSIST_APP_PKGNAME, ai.packageName);
 						mActivity.finish();
-						Toast.makeText(mActivity, getContext().getString(R.string.msg_app_selected_as_assistant) + " (" + ai.loadLabel(mPkgMng) + ")", Toast.LENGTH_SHORT).show();
+						Toast.makeText(mActivity, getContext().getString(R.string.app_selected_as_assistant) + " (" + ai.loadLabel(mPkgMng) + ")", Toast.LENGTH_SHORT).show();
 					}
 				});
 				

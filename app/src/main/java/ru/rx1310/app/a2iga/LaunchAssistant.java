@@ -41,7 +41,7 @@ public class LaunchAssistant extends Activity {
 
 			/* Если packageName пустой, то отобразим
 			 * toast-сообщение, которое уведомляет об этом */
-			Toast.makeText(this, R.string.msg_pkg_name_not_specified, Toast.LENGTH_LONG).show();
+			Toast.makeText(this, R.string.pkg_name_notspecified, Toast.LENGTH_LONG).show();
 
 			// Также запустим окно настроек
 			//startActivity(new Intent(this, SettingsActivity.class));
@@ -56,7 +56,7 @@ public class LaunchAssistant extends Activity {
 				/* Если package name указан, но приложение
 				 * не установлено — ищем в Play Store это приложение */
 				i = new Intent(Intent.ACTION_VIEW);
-				Toast.makeText(this, R.string.msg_app_not_found, Toast.LENGTH_LONG).show();
+				Toast.makeText(this, R.string.app_not_found, Toast.LENGTH_LONG).show();
 				i.setData(Uri.parse("market://details?id=" + pkgName));
 
 			}

@@ -48,7 +48,7 @@
 				android:layout_marginLeft="?android:attr/listPreferredItemPaddingStart"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:text="@string/action_open_app_info"
+				android:text="@string/app_info"
 				style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"/>
 
 		</LinearLayout>
@@ -78,7 +78,7 @@
 			<TextView
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:text="@string/main_a2iga_not_default_assist"
+				android:text="@string/a2iga_not_default_assist_message"
 				android:textAppearance="?android:attr/textAppearanceSmall"
 				android:textColor="#FFFFFFFF"/>
 
@@ -87,7 +87,7 @@
 		<TextView
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:text="@string/main_current_assistant"
+			android:text="@string/current_assistant"
 			android:textAppearance="@android:style/TextAppearance.Material.Body2"
 			android:textColor="?android:attr/colorAccent"
 			android:textStyle="bold"
@@ -104,7 +104,7 @@
 				android:orientation="horizontal"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:gravity="left|center">
+				android:gravity="top|left|center">
 
 				<ImageView
 					android:layout_width="48dp"
@@ -113,9 +113,9 @@
 
 				<LinearLayout
 					android:orientation="vertical"
-					android:paddingStart="10dp"
+					android:paddingStart="12dp"
 					android:layout_width="match_parent"
-					android:layout_height="match_parent"
+					android:layout_height="wrap_content"
 					android:gravity="left|center">
 
 					<TextView
@@ -128,8 +128,8 @@
 					<TextView
 						android:layout_width="match_parent"
 						android:layout_height="wrap_content"
-						android:id="@+id/package_name"
-						android:alpha="0.8"/>
+						android:alpha="0.8"
+						android:text="@string/current_assistant_open_appslist"/>
 
 				</LinearLayout>
 
@@ -140,7 +140,7 @@
 		<TextView
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:text="@string/main_select_from_appslist"/>
+			android:text="current_assistant_select_from_appslist"/>
 
 	</LinearLayout>
 

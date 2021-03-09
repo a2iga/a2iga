@@ -5,39 +5,30 @@
 	<string name="activity_appslist">Список приложений</string>
 	<string name="activity_splash">app#splash</string>
 	
-	<!-- Actions -->
-	<string name="action_open_app_info">Информация о приложении</string>
+	<string name="a2iga_not_default_assist_message">A2IGA не установлен в качестве ассистента по умолчанию. Пожалуйста, нажмите на эту карточку и в настройках помощника поставьте галочку напротив A2IGA.</string>
 	
-	<!-- Messages -->
-	<string name="msg_pkg_name_copied">Имя пакета приложения скопировано!</string>
-	<string name="msg_app_selected_as_assistant">Приложение установлено в качестве ассистента!</string>
-	<string name="msg_app_not_found">Приложение не найдено! Поиск в магазине приложений...</string>
-	<string name="msg_changes_saved">Настройки сохранены!</string>
-	<string name="msg_pkg_name_not_specified">Вы не указали имя пакета приложения для запуска!</string>
+	<string name="app_info">Информация о приложении</string>
+	<string name="app_unsupported_api22">У Вас старая версия Android!</string>
+	<string name="app_unsupported_api22_desc">Для работы A2IGA необходимо иметь версию Android 6.0 и новее.</string>
+	<string name="app_selected_as_assistant">Выбранное приложение успешно установлено в качестве ассистента!</string>
+	<string name="app_not_found">Приложение не найдено! Поиск в магазине приложений...</string>
 	
-	<!-- Uncompatibility with Android 5 and below -->
-	<string name="uncompatibility_api22">У Вас старая версия ОС!</string>
-	<string name="uncompatibility_api22_desc">Для работы A2IGA необходимо иметь версию Android 6.0 и новее.</string>
-	
-	<!-- Dialogs -->
-	<string name="dlg_appslist_loading">Загрузка списка</string>
-	<string name="dlg_appslist_loading_desc">Подождите, идет загрузка списка установленных приложений...</string>
-	<string name="dlg_appslist_app_select">Подтвердите действие</string>
-	<string name="dlg_appslist_app_select_desc">Вы действительно хотите установить в качестве ассистента данное приложение?</string>
-	
-	<!-- Main -->
-	<string name="main_current_assistant">Текущая замена ассистента</string>
-	<string name="main_select_from_appslist">Нажмите на эту карточку для того, чтобы выбрать другое приложение в качестве ассистента</string>
-	<string name="main_a2iga_not_default_assist">A2IGA не установлен в качестве ассистента по умолчанию. Пожалуйста, нажмите на эту карточку и в настройках помощника поставьте галочку напротив A2IGA.</string>
-	
-	<string name="main_"></string>
-	<string name="main_"></string>
-	<string name="main_"></string>
-	
-	<!-- AppsList -->
+	<string name="appslist_loading_dialog">Загрузка списка</string>
+	<string name="appslist_loading_dialog_desc">Подождите, идет загрузка списка установленных приложений...</string>
+	<string name="appslist_app_select_dialog">Подтвердите действие</string>
+	<string name="appslist_app_select_dialog_desc">Вы действительно хотите установить в качестве ассистента данное приложение?</string>
 	<string name="appslist_apps_count">Количество приложений: %1$s</string>
 	<string name="appslist_apps_count_filtered">Найдено совпадений: %1$s</string>
 	<string name="appslist_apps_count_filtered_zero" formatted="false">Нет совпадений ¯\u005c_(ツ)_/¯</string>
 	<string name="appslist_search_hint">Поиск приложения...</string>
+	
+	<string name="current_assistant">Текущ. ассистент</string>
+	<string name="current_assistant_null">¯\u005c_(ツ)_/¯</string>
+	<string name="current_assistant_open_appslist">Нажмите на эту карточку для того, чтобы открыть список установленных приложений</string>
+	
+	<string name="pkg_name_copied">Имя пакета приложения скопировано!</string>
+	<string name="pkg_name_notspecified">Пожалуйста, перейдите в A2IGA и выберите необходимое приложение в качестве ассистента.</string>
+	
+	
 	
 </resources>

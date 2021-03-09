@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 	Toolbar mToolbar;
 	ImageView mAssistantAppIcon;
 	String isAssistAppPkgName;
-	TextView mAssistantAppName, mAssistantPackageName;
+	TextView mAssistantAppName;
 	SharedPreferences mSharedPreferences;
 	
     @Override
@@ -50,19 +50,16 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 		getSupportActionBar().setDisplayShowHomeEnabled(true);
 		
 		mAssistantAppName = findViewById(R.id.name);
-		mAssistantPackageName = findViewById(R.id.package_name);
 		mAssistantAppIcon = findViewById(R.id.icon);
 		
 		if (isAssistAppPkgName == null) {
 			
-			mAssistantAppName.setText("Empty app");
-			mAssistantPackageName.setText("Empty pkg");
-			mAssistantAppIcon.setImageDrawable(getDrawable(R.drawable.ic_logo_alt));
+			mAssistantAppName.setText(R.string.current_assistant_null);
+			mAssistantAppIcon.setImageDrawable(getDrawable(R.drawable.ic_appslist));
 			
 		} else {
 			
 			mAssistantAppName.setText(AppUtils.getAppName(this, isAssistAppPkgName));
-			mAssistantPackageName.setText(isAssistAppPkgName);
 			
 			try {
 				Drawable drawable = getPackageManager().getApplicationIcon(isAssistAppPkgName);
