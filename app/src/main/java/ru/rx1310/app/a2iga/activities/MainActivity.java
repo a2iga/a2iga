@@ -19,6 +19,7 @@ import ru.rx1310.app.a2iga.R;
 import ru.rx1310.app.a2iga.utils.AppUtils;
 import ru.rx1310.app.a2iga.utils.SharedPrefUtils;
 import android.os.Build;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener, View.OnClickListener {
     
@@ -26,8 +27,9 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 	CardView mUnsupportedApi22Card, mNotDefaultAssistCard;
 	ImageView mAssistantAppIcon;
 	String isAssistAppPkgName;
-	TextView mAssistantAppName;
+	TextView mAssistantAppName, mRandomPromt;
 	SharedPreferences mSharedPreferences;
+	Random mRandom = new Random();
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,9 +45,11 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 		
 		setSupportActionBar(mToolbar);
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-		getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_logo);
+		getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_settings);
 		getSupportActionBar().setDisplayShowHomeEnabled(true);
+		getSupportActionBar().setTitle(R.string.activity_main);
 		
+		mRandomPromt = findViewById(R.id.textRandomPromt);
 		mAssistantAppName = findViewById(R.id.name);
 		mAssistantAppIcon = findViewById(R.id.icon);
 		
@@ -84,6 +88,8 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 			mUnsupportedApi22Card.setVisibility(View.GONE);
 		}
 		
+		
+		
     }
 
 	@Override
@@ -94,7 +100,9 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 			mNotDefaultAssistCard.setVisibility(View.GONE);
 		} else {
 			mNotDefaultAssistCard.setVisibility(View.VISIBLE);
-		}
+		} 
+		
+		mRandomPromt.setText(Constants.randomPromts[mRandom.nextInt(8)]);
 		
 	}
 	

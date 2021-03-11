@@ -37,52 +37,6 @@
 	</android.support.v7.widget.CardView>
 
 	<android.support.v7.widget.CardView
-		android:onClick="appsListGet"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		style="@style/AppTheme.CardView.Clickable"
-		android:layout_marginLeft="57dp">
-
-		<LinearLayout
-			android:orientation="vertical"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:gravity="top|left|center">
-
-			<LinearLayout
-				android:orientation="horizontal"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:gravity="left|center">
-
-				<ImageView
-					android:layout_width="24dp"
-					android:layout_height="24dp"
-					android:id="@+id/icon"
-					android:layout_marginRight="10dp"/>
-
-				<TextView
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:textAppearance="?android:attr/textAppearanceMedium"
-					android:id="@+id/name"
-					android:textStyle="bold"
-					android:textColor="#FFFFFFFF"/>
-
-			</LinearLayout>
-
-			<TextView
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:alpha="0.8"
-				android:text="@string/current_assistant_open_appslist"
-				android:layout_marginStart="34dp"/>
-
-		</LinearLayout>
-
-	</android.support.v7.widget.CardView>
-	
-	<android.support.v7.widget.CardView
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		style="@style/AppTheme.CardView"

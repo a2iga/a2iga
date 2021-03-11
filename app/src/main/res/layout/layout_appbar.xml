@@ -15,5 +15,55 @@
 		android:theme="@style/ThemeOverlay.AppCompat.Dark"
 		android:layout_height="wrap_content"/>
 
+	<View
+		android:background="?android:attr/dividerVertical"
+		android:layout_width="match_parent"
+		android:layout_height="1dp"/>
+
+	<LinearLayout
+		android:onClick="appsListGet"
+		android:clickable="true"
+		android:foreground="?android:attr/selectableItemBackground"
+		android:paddingTop="?android:attr/listPreferredItemPaddingStart"
+		android:paddingBottom="?android:attr/listPreferredItemPaddingEnd"
+		android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
+		android:paddingStart="?android:attr/listPreferredItemPaddingStart"
+		android:orientation="horizontal"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:gravity="top|left|center">
+
+		<ImageView
+			android:layout_width="22dp"
+			android:layout_height="22dp"
+			android:id="@+id/icon"
+			android:layout_marginLeft="2dp"
+			android:layout_marginRight="8dp"/>
+
+		<LinearLayout
+			android:orientation="vertical"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:gravity="left|center"
+			android:layout_marginStart="24dp">
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textAppearance="?android:attr/textAppearanceMedium"
+				android:id="@+id/name"
+				android:textStyle="bold"
+				android:textColor="#FFFFFFFF"/>
+
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:alpha="0.8"
+				android:text="@string/current_assistant_open_appslist"/>
+
+		</LinearLayout>
+
+	</LinearLayout>
+
 </android.support.design.widget.AppBarLayout>
 

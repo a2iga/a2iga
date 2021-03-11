@@ -6,6 +6,7 @@
 	android:layout_height="match_parent">
 
 	<LinearLayout
+		android:clickable="false"
 		style="@style/AppTheme.AboutItem">
 
 		<TextView
@@ -13,14 +14,23 @@
 			android:layout_height="wrap_content"
 			android:text="@string/app_desc"/>
 
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="Random Text"
+			android:id="@+id/textRandomPromt"
+			android:layout_marginTop="10dp"/>
+
 	</LinearLayout>
 
 	<View
 		android:background="?android:attr/dividerVertical"
 		android:layout_width="match_parent"
-		android:layout_height="1dp"/>
+		android:layout_height="1dp"
+		android:layout_marginStart="72dp"/>
 
 	<LinearLayout
+		android:clickable="false"
 		style="@style/AppTheme.AboutItem">
 
 		<TextView
@@ -32,9 +42,15 @@
 		<TextView
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:text="8.888888\n\nНажмите для проверки обновлений"/>
+			android:text="8.210401"/>
 
 	</LinearLayout>
+
+	<View
+		android:background="?android:attr/dividerVertical"
+		android:layout_width="match_parent"
+		android:layout_height="1dp"
+		android:layout_marginLeft="72dp"/>
 
 	<LinearLayout
 		style="@style/AppTheme.AboutItem">
@@ -51,6 +67,12 @@
 			android:text="@string/app_author"/>
 
 	</LinearLayout>
+	
+	<View
+		android:background="?android:attr/dividerVertical"
+		android:layout_width="match_parent"
+		android:layout_height="1dp"
+		android:layout_marginLeft="72dp"/>
 
 	<LinearLayout
 		style="@style/AppTheme.AboutItem">

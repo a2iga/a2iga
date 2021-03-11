@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	
-	<string name="activity_main">@string/app_name</string>
+	<string name="activity_main">Настройка A2IGA</string>
 	<string name="activity_appslist">Список приложений</string>
 	<string name="activity_splash">app#splash</string>
 	
@@ -33,7 +33,7 @@
 	<string name="pkg_name_notspecified">Пожалуйста, перейдите в A2IGA и выберите необходимое приложение в качестве ассистента.</string>
 	
 	<string name="opensource">Открытый исходный код</string>
-	<string name="opensource_desc">Приложение A2IGA бесплатно распространяется с открытым исходным кодом под лицензией MIT.\n\nhttps://github.com/rx1310/a2iga</string>
+	<string name="opensource_desc">Приложение A2IGA бесплатно распространяется с открытым исходным кодом под лицензией MIT</string>
 	
 	<string name="version">Версия приложения</string>
 	
