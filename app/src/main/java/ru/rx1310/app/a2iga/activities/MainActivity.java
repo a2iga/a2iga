@@ -25,6 +25,7 @@ import ru.rx1310.app.a2iga.Constants;
 import ru.rx1310.app.a2iga.R;
 import ru.rx1310.app.a2iga.utils.AppUtils;
 import ru.rx1310.app.a2iga.utils.SharedPrefUtils;
+import ru.rx1310.app.a2iga.fragments.SettingsFragment;
 
 public class MainActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener, View.OnClickListener {
     
@@ -40,6 +41,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+		getFragmentManager().beginTransaction().replace(R.id.layoutSettings, new SettingsFragment()).commit();
 		
 		isAssistAppPkgName = SharedPrefUtils.getStringData(this, Constants.PrefsKeys.ASSIST_APP_PKGNAME);
 		

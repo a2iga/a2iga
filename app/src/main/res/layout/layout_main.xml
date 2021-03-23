@@ -17,7 +17,6 @@
 		style="@style/AppTheme.CardView.Clickable"
 		android:layout_marginLeft="57dp"
 		app:cardBackgroundColor="@color/colorAccent"
-		android:layout_marginBottom="10dp"
 		android:id="@+id/cardNotDefaultAssist">
 
 		<LinearLayout

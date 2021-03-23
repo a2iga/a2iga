@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    
+	<SwitchPreference
+		android:icon="@android:color/transparent"
+		android:key="key"
+		android:title="Title"
+		android:summary="Summary"
+		android:defaultValue="false"
+		android:enabled="true"/>
+	
+</PreferenceScreen>
