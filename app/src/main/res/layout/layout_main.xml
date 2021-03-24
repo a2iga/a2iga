@@ -2,8 +2,6 @@
 <LinearLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
-	android:paddingTop="?android:attr/listPreferredItemPaddingStart"
-	android:paddingBottom="?android:attr/listPreferredItemPaddingEnd"
 	android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
 	android:paddingStart="?android:attr/listPreferredItemPaddingStart"
 	android:orientation="vertical"
@@ -15,9 +13,9 @@
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		style="@style/AppTheme.CardView.Clickable"
-		android:layout_marginLeft="57dp"
 		app:cardBackgroundColor="@color/colorAccent"
-		android:id="@+id/cardNotDefaultAssist">
+		android:id="@+id/cardNotDefaultAssist"
+		android:layout_marginTop="10dp">
 
 		<LinearLayout
 			android:orientation="vertical"
@@ -39,10 +37,10 @@
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		style="@style/AppTheme.CardView"
-		android:layout_marginLeft="57dp"
 		app:cardBackgroundColor="@color/colorError"
 		android:layout_marginTop="10dp"
-		android:id="@+id/cardUnsupportedApi22">
+		android:id="@+id/cardUnsupportedApi22"
+		android:layout_marginBottom="10dp">
 
 		<LinearLayout
 			android:orientation="vertical"

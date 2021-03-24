@@ -26,6 +26,7 @@ import ru.rx1310.app.a2iga.R;
 import ru.rx1310.app.a2iga.utils.AppUtils;
 import ru.rx1310.app.a2iga.utils.SharedPrefUtils;
 import ru.rx1310.app.a2iga.fragments.SettingsFragment;
+import android.widget.FrameLayout;
 
 public class MainActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener, View.OnClickListener {
     
@@ -34,7 +35,10 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 	ImageView mAssistantAppIcon;
 	String isAssistAppPkgName;
 	TextView mAssistantAppName, mRandomPromt;
+	FrameLayout mSettingsLayout;
+	
 	SharedPreferences mSharedPreferences;
+	
 	Random mRandom = new Random();
 	
     @Override
@@ -47,6 +51,8 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 		
 		mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 		mSharedPreferences.registerOnSharedPreferenceChangeListener(this);
+		
+		mSettingsLayout = findViewById(R.id.layoutSettings);
 		
 		mToolbar = findViewById(R.id.toolbar);
 		
@@ -103,8 +109,10 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 		
 		if (AppUtils.getCurrentAssist(this).getClassName().toString().contains("a2iga")) {
 			mNotDefaultAssistCard.setVisibility(View.GONE);
+			mSettingsLayout.setVisibility(View.VISIBLE);
 		} else {
 			mNotDefaultAssistCard.setVisibility(View.VISIBLE);
+			mSettingsLayout.setVisibility(View.GONE);
 		} 
 		
 		//mRandomPromt.setText(Constants.randomPromts[mRandom.nextInt(8)]);
