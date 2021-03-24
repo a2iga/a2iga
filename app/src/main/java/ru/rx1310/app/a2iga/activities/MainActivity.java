@@ -97,8 +97,10 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 		
 		if (Build.VERSION.SDK_INT < 22) {
 			mUnsupportedApi22Card.setVisibility(View.VISIBLE);
+			mSettingsLayout.setVisibility(View.VISIBLE);
 		} else {
 			mUnsupportedApi22Card.setVisibility(View.GONE);
+			mSettingsLayout.setVisibility(View.GONE);
 		}
 		
     }
