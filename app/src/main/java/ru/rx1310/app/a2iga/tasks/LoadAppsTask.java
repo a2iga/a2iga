@@ -14,24 +14,24 @@ import ru.rx1310.app.a2iga.activities.AppsListActivity;
 
 public class LoadAppsTask extends AsyncTask<Void, Void, List<ApplicationInfo>> {
 
-	private AppsListActivity mActivity;
-	private List<ApplicationInfo> mList;
-	private PackageManager mPkgMng;
+	private AppsListActivity oActivity;
+	private List<ApplicationInfo> oList;
+	private PackageManager oPkgMng;
 
 	public LoadAppsTask(AppsListActivity activity, List<ApplicationInfo> list, PackageManager pkgMng) {
 		
-		this.mActivity = activity;
-		this.mList = list;
-		this.mPkgMng = pkgMng;
+		this.oActivity = activity;
+		this.oList = list;
+		this.oPkgMng = pkgMng;
 		
 	}
 
 	@Override
 	protected List<ApplicationInfo> doInBackground(Void... params) {
 		
-		mList = checkForLaunchIntent(mPkgMng.getInstalledApplications(PackageManager.GET_META_DATA));
+		oList = checkForLaunchIntent(oPkgMng.getInstalledApplications(PackageManager.GET_META_DATA));
 		
-		return mList;
+		return oList;
 		
 	}
 
@@ -42,7 +42,7 @@ public class LoadAppsTask extends AsyncTask<Void, Void, List<ApplicationInfo>> {
 		for (ApplicationInfo applicationInfo : list) {
 			
 			try {
-				if (mPkgMng.getLaunchIntentForPackage(applicationInfo.packageName) != null) applist.add(applicationInfo);
+				if (oPkgMng.getLaunchIntentForPackage(applicationInfo.packageName) != null) applist.add(applicationInfo);
 			} catch (Exception ex) {
 				ex.printStackTrace();
 			}
@@ -58,7 +58,7 @@ public class LoadAppsTask extends AsyncTask<Void, Void, List<ApplicationInfo>> {
 		
 		super.onPostExecute(list);
 		
-		mActivity.callBackDataFromAsynctask(list);
+		oActivity.callBackDataFromAsynctask(list);
 		
 	}
 	

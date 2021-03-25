@@ -2,27 +2,66 @@
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android">
     
+	<PreferenceCategory
+		android:title="@string/pref_general_category"/>
+
+	<Preference
+		android:key="general.dozeMode"
+		android:title="@string/pref_general_doze_mode"
+		android:summary="@string/pref_general_doze_mode_desc"/>
+	
+	<PreferenceCategory
+		android:title="@string/pref_appslist_category"/>
+	
 	<SwitchPreference
-		android:key="key"
-		android:title="Title"
-		android:summary="Summary"
+		android:key="appslist.icons"
+		android:title="@string/pref_appslist_icons"
+		android:summary="@string/pref_appslist_icons_desc"
 		android:defaultValue="false"
 		android:enabled="true"/>
 	
 	<SwitchPreference
-		android:key="key"
-		android:title="Title"
-		android:summary="Summary"
-		android:defaultValue="false"
-		android:enabled="true"/>
-	
-	<SwitchPreference
-		android:key="key"
-		android:title="Title"
-		android:summary="Summary"
+		android:key="appslist.pkgname"
+		android:title="@string/pref_appslist_pkgname"
+		android:summary="@string/pref_appslist_pkgname_desc"
 		android:defaultValue="false"
 		android:enabled="true"/>
 
+	<PreferenceCategory
+		android:title="@string/pref_ota_category"/>
+
+	<Preference
+		android:key="ota.check"
+		android:title="@string/pref_ota_check"
+		android:summary="@string/pref_ota_check_desc"/>
+	
+	<Preference
+		android:key="ota.changelog"
+		android:title="@string/pref_ota_changelog"/>
+	
+	<PreferenceCategory
+		android:title="@string/pref_about_category"/>
+
+	<Preference
+		android:key="about.appVersion"
+		android:title="@string/pref_about_app_version"/>
+
+	<Preference
+		android:key="about.appDeveloper"
+		android:title="@string/pref_about_app_developer"/>
+	
+	<Preference
+		android:key="about.appLicenses"
+		android:title="@string/pref_about_app_licenses"
+		android:summary="@string/pref_about_app_licenses_desc"/>
+	
+	<Preference
+		android:key="about.appWebsite"
+		android:title="@string/pref_about_app_website"/>
+	
+	<PreferenceCategory
+		android:title="Category"/>
+	
 	<SwitchPreference
 		android:key="key"
 		android:title="Title"

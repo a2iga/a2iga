@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	
+	<!-- General -->
+	<string name="pref_general_category">Основные настройки</string>
+	<string name="pref_general_doze_mode">Режим Doze</string>
+	<string name="pref_general_doze_mode_desc">Уберите ограничение режима Doze для A2IGA, если приложение не запускается при вызове ассистента</string>
+	
+	<!-- AppsList -->
+	<string name="pref_appslist_category">Список приложений</string>
+	<string name="pref_appslist_icons">Иконки приложений</string>
+	<string name="pref_appslist_icons_desc">Отображать иконки приложений в списке?</string>
+	<string name="pref_appslist_pkgname">Имя пакета</string>
+	<string name="pref_appslist_pkgname_desc">Отображать имя пакета приложения в списке?</string>
+	
+	<!-- Other -->
+	<string name="pref_other_category">Прочее</string>
+	<string name="pref_other_search_in_playstore">Поиск в Play Store</string>
+	<string name="pref_other_search_in_playstore">Выполнить поиск приложения в Google Play Store если запускаемое приложение не было найдено на устройстве?</string>
+	
+	<!-- OTA -->
+	<string name="pref_ota_category">Обновление приложения</string>
+	<string name="pref_ota_check">Проверить сейчас</string>
+	<string name="pref_ota_check_desc">Посл. раз проверка была 01.01.2000 в 01:01</string>
+	<string name="pref_ota_changelog">История изменений</string>
+	
+	<!-- About -->
+	<string name="pref_about_category">О приложении</string>
+	<string name="pref_about_app_version">Версия A2IGA</string>
+	<string name="pref_about_app_developer">Разработчик</string>
+	<string name="pref_about_app_licenses">Лицензии</string>
+	<string name="pref_about_app_licenses_desc">A2IGA является проектом с открытым исходным кодом и распространяется совершенно бесплатно</string>
+	<string name="pref_about_app_website">Веб-сайт</string>
+	<string name="pref_about_app_playstore">Google Play Store</string>
+	<string name="pref_about_app_playstore_desc">Посетите страницу A2IGA в Play Store чтобы оценить приложение</string>
+	<string name="pref_other_share">Рассказать друзьям</string>
+	<string name="pref_other_share_desc">Понравилось приложение? Расскажите о нём своим друзьям!</string>
+	
+	<!--string name="pref_"></string>
+	<string name="pref_"></string>
+	<string name="pref_"></string>
+	<string name="pref_"></string>
+	<string name="pref_"></string>
+	<string name="pref_"></string>
+	<string name="pref_"></string>
+	<string name="pref_"></string>
+	<string name="pref_"></string>
+	<string name="pref_"></string-->
+	
+</resources>

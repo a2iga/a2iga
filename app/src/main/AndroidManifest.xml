@@ -14,7 +14,8 @@
         android:xlargeScreens="true" />
 
     <uses-permission android:name="android.permission.REQUEST_DELETE_PACKAGES" />
-
+	<uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"/>
+	
     <application
 		android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher" 

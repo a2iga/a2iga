@@ -30,15 +30,15 @@ import ru.rx1310.app.a2iga.tasks.LoadAppsTask;
 
 public class AppsListActivity extends AppCompatActivity {
 
-    ListView mListView;
-    Toolbar mToolbar;
-    PackageManager mPkgMan;
-    ArrayAdapter<ApplicationInfo> mAdapter;
-    ArrayList<ApplicationInfo> mList;
-    ProgressDialog mDlgProgress;
-	SearchManager mSearchMng;
-	SearchView mSearchView;
-	TextView mAppsCount;
+    ListView oListView;
+    Toolbar oToolbar;
+    PackageManager oPkgMan;
+    ArrayAdapter<ApplicationInfo> oAdapter;
+    ArrayList<ApplicationInfo> oList;
+    ProgressDialog oDlgProgress;
+	SearchManager oSearchMng;
+	SearchView oSearchView;
+	TextView oAppsCount;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -46,30 +46,30 @@ public class AppsListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_appslist);
 
-        mPkgMan = getPackageManager();
-        mList = new ArrayList<>();
+        oPkgMan = getPackageManager();
+        oList = new ArrayList<>();
 
-		mListView = findViewById(R.id.listView);
-        mToolbar = findViewById(R.id.toolbar);
-		mAppsCount = findViewById(R.id.appsCount);
+		oListView = findViewById(R.id.listView);
+        oToolbar = findViewById(R.id.toolbar);
+		oAppsCount = findViewById(R.id.appsCount);
 		
-        setSupportActionBar(mToolbar);
+        setSupportActionBar(oToolbar);
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 		getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close);
 		getSupportActionBar().setDisplayShowHomeEnabled(true);
 		
-		mSearchMng = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+		oSearchMng = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
 
-        mSearchView = findViewById(R.id.searchView);
-        mSearchView.setOnQueryTextListener(onQueryTextListener());
-        mSearchView.setSearchableInfo(mSearchMng.getSearchableInfo(getComponentName()));
-		mSearchView.setIconifiedByDefault(false);
-		mSearchView.setFocusable(true);
-		mSearchView.requestFocusFromTouch();
+        oSearchView = findViewById(R.id.searchView);
+        oSearchView.setOnQueryTextListener(onQueryTextListener());
+        oSearchView.setSearchableInfo(oSearchMng.getSearchableInfo(getComponentName()));
+		oSearchView.setIconifiedByDefault(false);
+		oSearchView.setFocusable(true);
+		oSearchView.requestFocusFromTouch();
 		
-		mDlgProgress = ProgressDialog.show(this, getString(R.string.appslist_loading_dialog), getString(R.string.appslist_loading_dialog_desc));
-        mAdapter = new ApplicationAdapter(this, R.layout.list_item_appslist, mList);
-        mListView.setAdapter(mAdapter);
+		oDlgProgress = ProgressDialog.show(this, getString(R.string.appslist_loading_dialog), getString(R.string.appslist_loading_dialog_desc));
+        oAdapter = new ApplicationAdapter(this, R.layout.list_item_appslist, oList);
+        oListView.setAdapter(oAdapter);
 		
     }
 	
@@ -84,7 +84,7 @@ public class AppsListActivity extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextChange(String s) {
-				mAdapter.getFilter().filter(s);
+				oAdapter.getFilter().filter(s);
                 return false;
             }
 			
@@ -95,26 +95,26 @@ public class AppsListActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        new LoadAppsTask(this, mList, mPkgMan).execute();
+        new LoadAppsTask(this, oList, oPkgMan).execute();
     }
 
 
     public void callBackDataFromAsynctask(List<ApplicationInfo> list) {
 		
-		mList.clear();
+		oList.clear();
 
         for (int i = 0; i < list.size(); i++) {
-            mList.add(list.get(i));
+            oList.add(list.get(i));
         }
 		
-		mAppsCount.setText(String.format(getString(R.string.appslist_apps_count), mList.size()));
-        mAdapter.notifyDataSetChanged();
-        mDlgProgress.dismiss();
+		oAppsCount.setText(String.format(getString(R.string.appslist_apps_count), oList.size()));
+        oAdapter.notifyDataSetChanged();
+        oDlgProgress.dismiss();
 		
     }
 
     public void updateUILayout(String content) {
-        mAppsCount.setText(content);
+        oAppsCount.setText(content);
     }
 	
 	@Override

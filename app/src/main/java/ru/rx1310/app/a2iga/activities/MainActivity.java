@@ -30,16 +30,16 @@ import android.widget.FrameLayout;
 
 public class MainActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener, View.OnClickListener {
     
-	Toolbar mToolbar;
-	CardView mUnsupportedApi22Card, mNotDefaultAssistCard;
-	ImageView mAssistantAppIcon;
+	Toolbar oToolbar;
+	CardView oUnsupportedApi22Card, oNotDefaultAssistCard;
+	ImageView oAssistantAppIcon;
 	String isAssistAppPkgName;
-	TextView mAssistantAppName, mRandomPromt;
-	FrameLayout mSettingsLayout;
+	TextView oAssistantAppName, oRandomPromt;
+	FrameLayout oSettingsLayout;
 	
-	SharedPreferences mSharedPreferences;
+	SharedPreferences oSharedPreferences;
 	
-	Random mRandom = new Random();
+	Random oRandom = new Random();
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,58 +49,58 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 		
 		isAssistAppPkgName = SharedPrefUtils.getStringData(this, Constants.PrefsKeys.ASSIST_APP_PKGNAME);
 		
-		mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-		mSharedPreferences.registerOnSharedPreferenceChangeListener(this);
+		oSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+		oSharedPreferences.registerOnSharedPreferenceChangeListener(this);
 		
-		mSettingsLayout = findViewById(R.id.layoutSettings);
+		oSettingsLayout = findViewById(R.id.layoutSettings);
 		
-		mToolbar = findViewById(R.id.toolbar);
+		oToolbar = findViewById(R.id.toolbar);
 		
-		setSupportActionBar(mToolbar);
+		setSupportActionBar(oToolbar);
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 		getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_logo);
 		getSupportActionBar().setDisplayShowHomeEnabled(true);
 		getSupportActionBar().setTitle(R.string.activity_main);
 		
-		//mRandomPromt = findViewById(R.id.textRandomPromt);
-		mAssistantAppName = findViewById(R.id.name);
-		mAssistantAppIcon = findViewById(R.id.icon);
+		//oRandomPromt = findViewById(R.id.textRandomPromt);
+		oAssistantAppName = findViewById(R.id.name);
+		oAssistantAppIcon = findViewById(R.id.icon);
 		
 		if (isAssistAppPkgName == null) {
 			
-			mAssistantAppName.setText(R.string.current_assistant_null);
-			mAssistantAppIcon.setImageDrawable(getDrawable(R.drawable.ic_appslist));
+			oAssistantAppName.setText(R.string.current_assistant_null);
+			oAssistantAppIcon.setImageDrawable(getDrawable(R.drawable.ic_appslist));
 			
 		} else {
 			
-			mAssistantAppName.setText(AppUtils.getAppName(this, isAssistAppPkgName));
+			oAssistantAppName.setText(AppUtils.getAppName(this, isAssistAppPkgName));
 			
 			try {
 				Drawable drawable = getPackageManager().getApplicationIcon(isAssistAppPkgName);
-				mAssistantAppIcon.setImageDrawable(drawable);
+				oAssistantAppIcon.setImageDrawable(drawable);
 			} catch (PackageManager.NameNotFoundException e) {
 				e.printStackTrace();
 			}
 			
 		}
 		
-		mNotDefaultAssistCard = findViewById(R.id.cardNotDefaultAssist);
-		mNotDefaultAssistCard.setOnClickListener(this);
-		mNotDefaultAssistCard.setOnClickListener(new View.OnClickListener() {
+		oNotDefaultAssistCard = findViewById(R.id.cardNotDefaultAssist);
+		oNotDefaultAssistCard.setOnClickListener(this);
+		oNotDefaultAssistCard.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				startActivity(new Intent(android.provider.Settings.ACTION_VOICE_INPUT_SETTINGS));
 			}
 		});
 		
-		mUnsupportedApi22Card = findViewById(R.id.cardUnsupportedApi22);
+		oUnsupportedApi22Card = findViewById(R.id.cardUnsupportedApi22);
 		
 		if (Build.VERSION.SDK_INT < 22) {
-			mUnsupportedApi22Card.setVisibility(View.VISIBLE);
-			mSettingsLayout.setVisibility(View.VISIBLE);
+			oUnsupportedApi22Card.setVisibility(View.VISIBLE);
+			oSettingsLayout.setVisibility(View.VISIBLE);
 		} else {
-			mUnsupportedApi22Card.setVisibility(View.GONE);
-			mSettingsLayout.setVisibility(View.GONE);
+			oUnsupportedApi22Card.setVisibility(View.GONE);
+			oSettingsLayout.setVisibility(View.GONE);
 		}
 		
     }
@@ -110,14 +110,14 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 		super.onResume();
 		
 		if (AppUtils.getCurrentAssist(this).getClassName().toString().contains("a2iga")) {
-			mNotDefaultAssistCard.setVisibility(View.GONE);
-			mSettingsLayout.setVisibility(View.VISIBLE);
+			oNotDefaultAssistCard.setVisibility(View.GONE);
+			oSettingsLayout.setVisibility(View.VISIBLE);
 		} else {
-			mNotDefaultAssistCard.setVisibility(View.VISIBLE);
-			mSettingsLayout.setVisibility(View.GONE);
+			oNotDefaultAssistCard.setVisibility(View.VISIBLE);
+			oSettingsLayout.setVisibility(View.GONE);
 		} 
 		
-		//mRandomPromt.setText(Constants.randomPromts[mRandom.nextInt(8)]);
+		//oRandomPromt.setText(Constants.randomPromts[oRandom.nextInt(8)]);
 		
 	}
 	

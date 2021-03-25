@@ -23,57 +23,56 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-import ru.rx1310.app.a2iga.R;
-import ru.rx1310.app.a2iga.activities.AppsListActivity;
 import android.support.v7.app.AppCompatActivity;
-import ru.rx1310.app.a2iga.activities.MainActivity;
+
+import ru.rx1310.app.a2iga.R;
 import ru.rx1310.app.a2iga.utils.SharedPrefUtils;
 import ru.rx1310.app.a2iga.Constants;
+import ru.rx1310.app.a2iga.activities.AppsListActivity;
 
 public class ApplicationAdapter extends ArrayAdapter<ApplicationInfo> {
 	
-    private List<ApplicationInfo> mListApps;
-    private List<ApplicationInfo> mList;
-    private AppsListActivity mActivity;
-	private MainActivity mActivityMain;
-    private PackageManager mPkgMng;
-    private AppsFilter mFilter;
+    private List<ApplicationInfo> oListApps;
+    private List<ApplicationInfo> oList;
+    private AppsListActivity oActivity;
+	private PackageManager oPkgMng;
+    private AppsFilter oFilter;
 
     public ApplicationAdapter(AppsListActivity activity, int textViewResourceId, List<ApplicationInfo> appsList) {
 		
         super(activity, textViewResourceId, appsList);
 		
-        this.mActivity = activity;
-        this.mListApps = appsList;
-        this.mList = appsList;
+        this.oActivity = activity;
+        this.oListApps = appsList;
+        this.oList = appsList;
 		
-        mPkgMng = mActivity.getPackageManager();
+        oPkgMng = oActivity.getPackageManager();
 		
     }
 
     @Override
     public int getCount() {
-		return mListApps.size(); 
+		return oListApps.size(); 
 	}
 
     @Override
     public ApplicationInfo getItem(int p) {
-		return mListApps.get(p); 
+		return oListApps.get(p); 
 	}
 
     @Override
     public long getItemId(int p) {
-        return mListApps.indexOf(getItem(p));
+        return oListApps.indexOf(getItem(p));
     }
 
     @Override
     public Filter getFilter() {
 		
-        if (mFilter == null) {
-            mFilter = new AppsFilter();
+        if (oFilter == null) {
+            oFilter = new AppsFilter();
         }
 		
-        return mFilter;
+        return oFilter;
 		
     }
 
@@ -81,7 +80,7 @@ public class ApplicationAdapter extends ArrayAdapter<ApplicationInfo> {
     public View getView(int p, View v, ViewGroup vg) {
 		
         ViewHolder vh;
-        LayoutInflater inflater = (LayoutInflater) mActivity.getSystemService(mActivity.LAYOUT_INFLATER_SERVICE);
+        LayoutInflater inflater = (LayoutInflater) oActivity.getSystemService(oActivity.LAYOUT_INFLATER_SERVICE);
         
 		if (v == null) {
 			
@@ -93,10 +92,10 @@ public class ApplicationAdapter extends ArrayAdapter<ApplicationInfo> {
             vh = (ViewHolder) v.getTag();
         }
 
-        vh.appName.setText(getItem(p).loadLabel(mPkgMng));
+        vh.appName.setText(getItem(p).loadLabel(oPkgMng));
         vh.appPackage.setText(getItem(p).packageName);
-        vh.icon.setImageDrawable(getItem(p).loadIcon(mPkgMng));
-		//vh.icon.setImageDrawable(mActivity.getDrawable(R.drawable.ic_logo));
+        vh.icon.setImageDrawable(getItem(p).loadIcon(oPkgMng));
+		//vh.icon.setImageDrawable(oActivity.getDrawable(R.drawable.ic_logo));
 		//vh.icon.setImageDrawable(Resources.getSystem().getDrawable(android.R.mipmap.sym_def_app_icon));
 		
         v.setOnClickListener(onClickListener(p));
@@ -112,22 +111,22 @@ public class ApplicationAdapter extends ArrayAdapter<ApplicationInfo> {
             @Override
             public void onClick(View v) {
 				
-                final ApplicationInfo ai = mListApps.get(p);
+                final ApplicationInfo ai = oListApps.get(p);
                
-				android.support.v7.app.AlertDialog.Builder b = new android.support.v7.app.AlertDialog.Builder(mActivity, R.style.AppTheme_Dialog_Alert);
+				android.support.v7.app.AlertDialog.Builder b = new android.support.v7.app.AlertDialog.Builder(oActivity, R.style.AppTheme_Dialog_Alert);
 				
-				b.setTitle(ai.loadLabel(mPkgMng));
-				b.setIcon(ai.loadIcon(mPkgMng));
+				b.setTitle(ai.loadLabel(oPkgMng));
+				b.setIcon(ai.loadIcon(oPkgMng));
 				b.setMessage(R.string.appslist_app_select_dialog_desc);
 				
 				/*b.setNeutralButton(android.R.string.cancel, new DialogInterface.OnClickListener() { // обработка нажатия кнопки "Да"
 					public void onClick(DialogInterface d, int i) {
 						d.dismiss();
-						ClipboardManager mClipboardMng = (ClipboardManager) mActivity.getSystemService(Context.CLIPBOARD_SERVICE);
+						ClipboardManager mClipboardMng = (ClipboardManager) oActivity.getSystemService(Context.CLIPBOARD_SERVICE);
 						ClipData mClipData = ClipData.newPlainText(null, ai.packageName);
 						mClipboardMng.setPrimaryClip(mClipData);
 
-						Toast.makeText(getContext(), mActivity.getString(R.string.msg_pkg_name_copied), Toast.LENGTH_SHORT).show();
+						Toast.makeText(getContext(), oActivity.getString(R.string.msg_pkg_name_copied), Toast.LENGTH_SHORT).show();
 					}
 				});*/
 				
@@ -141,8 +140,8 @@ public class ApplicationAdapter extends ArrayAdapter<ApplicationInfo> {
 				b.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() { // обработка нажатия кнопки "Yes"
 					public void onClick(DialogInterface d, int i) {
 						SharedPrefUtils.saveData(getContext(), Constants.PrefsKeys.ASSIST_APP_PKGNAME, ai.packageName);
-						mActivity.finish();
-						Toast.makeText(mActivity, getContext().getString(R.string.app_selected_as_assistant) + " (" + ai.loadLabel(mPkgMng) + ")", Toast.LENGTH_SHORT).show();
+						oActivity.finish();
+						Toast.makeText(oActivity, getContext().getString(R.string.app_selected_as_assistant) + " (" + ai.loadLabel(oPkgMng) + ")", Toast.LENGTH_SHORT).show();
 					}
 				});
 				
@@ -152,11 +151,11 @@ public class ApplicationAdapter extends ArrayAdapter<ApplicationInfo> {
 			
 			/*try {
 			 Intent intent = packageManager.getLaunchIntentForPackage(app.packageName);
-			 mActivity.startmActivity(intent);
+			 oActivity.startoActivity(intent);
 			 if (null != intent) {
-			 mActivity.startmActivity(intent);
+			 oActivity.startoActivity(intent);
 			 }
-			 } catch (mActivityNotFoundException e) {
+			 } catch (oActivityNotFoundException e) {
 			 e.printStackTrace();
 			 }*/
 			
@@ -191,11 +190,11 @@ public class ApplicationAdapter extends ArrayAdapter<ApplicationInfo> {
 				
                 ArrayList<ApplicationInfo> filterList = new ArrayList<ApplicationInfo>();
 				
-                for (int i = 0; i < mList.size(); i++) {
+                for (int i = 0; i < oList.size(); i++) {
 					
-                    if ((mList.get(i).loadLabel(mPkgMng).toString().toUpperCase()).contains(c.toString().toUpperCase())) {
+                    if ((oList.get(i).loadLabel(oPkgMng).toString().toUpperCase()).contains(c.toString().toUpperCase())) {
 						
-                        ApplicationInfo ai = mList.get(i);
+                        ApplicationInfo ai = oList.get(i);
                         filterList.add(ai);
 						
                     }
@@ -206,8 +205,8 @@ public class ApplicationAdapter extends ArrayAdapter<ApplicationInfo> {
                 fr.values = filterList;
 
             } else {
-                fr.count = mList.size();
-                fr.values = mList;
+                fr.count = oList.size();
+                fr.values = oList;
             }
 			
             return fr;
@@ -217,16 +216,16 @@ public class ApplicationAdapter extends ArrayAdapter<ApplicationInfo> {
         @Override
         protected void publishResults(CharSequence c, FilterResults fr) {
 			
-            mListApps = (ArrayList<ApplicationInfo>) fr.values;
+            oListApps = (ArrayList<ApplicationInfo>) fr.values;
 			
             notifyDataSetChanged();
 
-            if (mListApps.size() == mList.size()) {
-                mActivity.updateUILayout(String.format(getContext().getString(R.string.appslist_apps_count),  mListApps.size()));
-            } else if (mListApps.size() == 0) {
-				mActivity.updateUILayout(getContext().getString(R.string.appslist_apps_count_filtered_zero));
+            if (oListApps.size() == oList.size()) {
+                oActivity.updateUILayout(String.format(getContext().getString(R.string.appslist_apps_count),  oListApps.size()));
+            } else if (oListApps.size() == 0) {
+				oActivity.updateUILayout(getContext().getString(R.string.appslist_apps_count_filtered_zero));
 			} else {
-                mActivity.updateUILayout(String.format(getContext().getString(R.string.appslist_apps_count_filtered), mListApps.size()));
+                oActivity.updateUILayout(String.format(getContext().getString(R.string.appslist_apps_count_filtered), oListApps.size()));
             }
 			
         }

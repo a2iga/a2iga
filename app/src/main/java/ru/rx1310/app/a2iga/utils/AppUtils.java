@@ -2,17 +2,16 @@
 
 package ru.rx1310.app.a2iga.utils;
 
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.res.TypedArray;
-import android.content.ComponentName;
 
-import android.provider.Settings;
 import android.graphics.Color;
-import android.support.annotation.ColorInt;
+import android.provider.Settings;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -20,10 +19,17 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 
-import java.io.File;
+import android.support.annotation.ColorInt;
+import android.support.annotation.NonNull;
+import android.support.customtabs.CustomTabsClient;
+import android.support.customtabs.CustomTabsIntent;
+import android.support.customtabs.CustomTabsServiceConnection;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+
+import ru.rx1310.app.a2iga.R;
 
 public class AppUtils {
 
@@ -198,12 +204,52 @@ public class AppUtils {
 	// ? Переход по ссылкам
 	public static void openURL(Context context, String link) {
 
-		Intent i = new Intent(Intent.ACTION_VIEW);
-		i.setData(Uri.parse(link));
-		i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-		context.startActivity(i);
+		if (AppUtils.isAppInstalled(context, "com.android.chrome") && AppUtils.isChromeCustomTabsSupported(context)) {
+
+			Uri uri = Uri.parse(link);
+
+			CustomTabsIntent.Builder tabsIntentBuilder = new CustomTabsIntent.Builder();
+
+			tabsIntentBuilder.setToolbarColor(context.getColor(R.color.colorPrimary));
+			tabsIntentBuilder.setSecondaryToolbarColor(context.getColor(R.color.colorPrimaryDark));
+			tabsIntentBuilder.setShowTitle(true);
+			tabsIntentBuilder.addDefaultShareMenuItem();
+
+			CustomTabsIntent tabsIntent = tabsIntentBuilder.build();
+
+			tabsIntent.launchUrl(context, uri);
+
+		} else {
+
+			Intent i = new Intent(Intent.ACTION_VIEW);
+			i.setData(Uri.parse(link));
+			i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+			context.startActivity(i);
+
+		}
 
 	}
+
+	// ? Проверка поддержки Chrome Custom Tabs
+	public static boolean isChromeCustomTabsSupported(@NonNull final Context context) {
+
+        Intent i = new Intent("android.support.customtabs.action.CustomTabsService");
+
+        i.setPackage("com.android.chrome");
+
+        CustomTabsServiceConnection tabsServiceConnection = new CustomTabsServiceConnection() {
+
+            public void onCustomTabsServiceConnected(final ComponentName componentName, final CustomTabsClient customTabsClient) { }
+            public void onServiceDisconnected(final ComponentName name) { }
+
+        };
+
+        boolean customTabsSupported = context.bindService(i, tabsServiceConnection, Context.BIND_AUTO_CREATE | Context.BIND_WAIVE_PRIORITY); 
+		context.unbindService(tabsServiceConnection);
+
+        return customTabsSupported;
+
+    }
 	
 	// ? Component name текущ. прил. ассист.
 	public static ComponentName getCurrentAssist(Context context) {
