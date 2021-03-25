@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://rx1310.github.io">
-    <img src="https://raw.githubusercontent.com/rx1310/a2iga/master/app-logo.png" alt="Project logo" width="50%">
+    <img src="https://raw.githubusercontent.com/rx1310/a2iga/pre-reborn/app-logo.png" alt="Project logo" width="50%">
   </a>
 </p>
 <br>
