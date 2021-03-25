@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 		
 		setSupportActionBar(mToolbar);
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-		getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_settings);
+		getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_logo);
 		getSupportActionBar().setDisplayShowHomeEnabled(true);
 		getSupportActionBar().setTitle(R.string.activity_main);
 		
