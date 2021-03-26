@@ -29,6 +29,7 @@ import ru.rx1310.app.a2iga.R;
 import ru.rx1310.app.a2iga.utils.SharedPrefUtils;
 import ru.rx1310.app.a2iga.Constants;
 import ru.rx1310.app.a2iga.activities.AppsListActivity;
+import ru.rx1310.app.a2iga.utils.AppUtils;
 
 public class ApplicationAdapter extends ArrayAdapter<ApplicationInfo> {
 	
@@ -155,7 +156,7 @@ public class ApplicationAdapter extends ArrayAdapter<ApplicationInfo> {
 					public void onClick(DialogInterface d, int i) {
 						SharedPrefUtils.saveData(getContext(), Constants.ASSIST_APP_PKGNAME, ai.packageName);
 						oActivity.finish();
-						Toast.makeText(oActivity, getContext().getString(R.string.app_selected_as_assistant) + " (" + ai.loadLabel(oPkgMng) + ")", Toast.LENGTH_SHORT).show();
+						AppUtils.showToast(oActivity, getContext().getString(R.string.app_selected_as_assistant) + " (" + ai.loadLabel(oPkgMng) + ")");
 					}
 				});
 				
