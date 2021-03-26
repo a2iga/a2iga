@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         setContentView(R.layout.activity_main);
 		getFragmentManager().beginTransaction().replace(R.id.layoutSettings, new SettingsFragment()).commit();
 		
-		isAssistAppPkgName = SharedPrefUtils.getStringData(this, Constants.PrefsKeys.ASSIST_APP_PKGNAME);
+		isAssistAppPkgName = SharedPrefUtils.getStringData(this, Constants.ASSIST_APP_PKGNAME);
 		
 		oSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 		oSharedPreferences.registerOnSharedPreferenceChangeListener(this);
@@ -125,7 +125,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 	@Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPrefs, String key) {
         
-		if (key.equals(Constants.PrefsKeys.ASSIST_APP_PKGNAME)) {
+		if (key.equals(Constants.ASSIST_APP_PKGNAME)) {
             recreate();
         }
 
@@ -136,7 +136,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
 		switch (v.getId()) {
 
-			//case R.id.applyChanges:
+			//case R.id.:
 			//
 			//break;
 				
@@ -146,7 +146,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
 	}
 	
-	public void appsListGet(View v) {
+	public void showAppsList(View v) {
 		startActivity(new Intent(this, AppsListActivity.class));
 	}
 	

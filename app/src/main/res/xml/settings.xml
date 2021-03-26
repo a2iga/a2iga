@@ -17,14 +17,14 @@
 		android:key="appslist.icons"
 		android:title="@string/pref_appslist_icons"
 		android:summary="@string/pref_appslist_icons_desc"
-		android:defaultValue="false"
+		android:defaultValue="true"
 		android:enabled="true"/>
 	
 	<SwitchPreference
 		android:key="appslist.pkgname"
 		android:title="@string/pref_appslist_pkgname"
 		android:summary="@string/pref_appslist_pkgname_desc"
-		android:defaultValue="false"
+		android:defaultValue="true"
 		android:enabled="true"/>
 
 	<PreferenceCategory

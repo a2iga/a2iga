@@ -21,7 +21,7 @@
 		android:layout_height="1dp"/>
 
 	<LinearLayout
-		android:onClick="appsListGet"
+		android:onClick="showAppsList"
 		android:clickable="true"
 		android:foreground="?android:attr/selectableItemBackground"
 		android:paddingTop="?android:attr/listPreferredItemPaddingStart"

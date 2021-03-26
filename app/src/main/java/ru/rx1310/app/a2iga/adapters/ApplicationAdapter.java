@@ -37,7 +37,9 @@ public class ApplicationAdapter extends ArrayAdapter<ApplicationInfo> {
     private AppsListActivity oActivity;
 	private PackageManager oPkgMng;
     private AppsFilter oFilter;
-
+	
+	private boolean showAppIcon, showAppPkgName;
+	
     public ApplicationAdapter(AppsListActivity activity, int textViewResourceId, List<ApplicationInfo> appsList) {
 		
         super(activity, textViewResourceId, appsList);
@@ -81,7 +83,11 @@ public class ApplicationAdapter extends ArrayAdapter<ApplicationInfo> {
 		
         ViewHolder vh;
         LayoutInflater inflater = (LayoutInflater) oActivity.getSystemService(oActivity.LAYOUT_INFLATER_SERVICE);
-        
+		
+		// ? Получение prefs
+		showAppIcon = SharedPrefUtils.getBooleanData(oActivity, "appslist.icons");
+		showAppPkgName = SharedPrefUtils.getBooleanData(oActivity, "appslist.pkgname");
+		
 		if (v == null) {
 			
             v = inflater.inflate(R.layout.list_item_appslist, vg, false);
@@ -92,9 +98,17 @@ public class ApplicationAdapter extends ArrayAdapter<ApplicationInfo> {
             vh = (ViewHolder) v.getTag();
         }
 
+		// ? Отображение названия приложения
         vh.appName.setText(getItem(p).loadLabel(oPkgMng));
-        vh.appPackage.setText(getItem(p).packageName);
-        vh.icon.setImageDrawable(getItem(p).loadIcon(oPkgMng));
+		
+		// ? Отображение Package Name
+        if (showAppPkgName) vh.appPackage.setText(getItem(p).packageName);
+		else vh.appPackage.setVisibility(View.GONE);
+		
+		// ? Отображение реальной иконки приложения
+		if (showAppIcon) vh.icon.setImageDrawable(getItem(p).loadIcon(oPkgMng));
+		else vh.icon.setImageDrawable(Resources.getSystem().getDrawable(android.R.mipmap.sym_def_app_icon));
+        
 		//vh.icon.setImageDrawable(oActivity.getDrawable(R.drawable.ic_logo));
 		//vh.icon.setImageDrawable(Resources.getSystem().getDrawable(android.R.mipmap.sym_def_app_icon));
 		
@@ -139,7 +153,7 @@ public class ApplicationAdapter extends ArrayAdapter<ApplicationInfo> {
 				
 				b.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() { // обработка нажатия кнопки "Yes"
 					public void onClick(DialogInterface d, int i) {
-						SharedPrefUtils.saveData(getContext(), Constants.PrefsKeys.ASSIST_APP_PKGNAME, ai.packageName);
+						SharedPrefUtils.saveData(getContext(), Constants.ASSIST_APP_PKGNAME, ai.packageName);
 						oActivity.finish();
 						Toast.makeText(oActivity, getContext().getString(R.string.app_selected_as_assistant) + " (" + ai.loadLabel(oPkgMng) + ")", Toast.LENGTH_SHORT).show();
 					}

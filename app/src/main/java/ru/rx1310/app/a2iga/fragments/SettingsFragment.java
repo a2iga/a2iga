@@ -29,6 +29,7 @@ public class SettingsFragment extends PreferenceFragment {
 		oPowerManager = (PowerManager) getContext().getSystemService(getContext().POWER_SERVICE);
 		
 		dozeMode = findPreference("general.dozeMode");
+		dozeMode.setPersistent(true);
 		
 		appVersion = findPreference("about.appVersion");
 		appVersion.setSummary(AppUtils.getVersionName(getContext(), getContext().getPackageName()) + "." + AppUtils.getVersionCode(getContext(), getContext().getPackageName()));
@@ -43,8 +44,8 @@ public class SettingsFragment extends PreferenceFragment {
 	public void onResume() {
 		super.onResume();
 		
-		dozeMode.setEnabled(dozeModePrefEnabled());
 		
+		dozeMode.setEnabled(dozeModePrefEnabled());
 		
 	}
 	

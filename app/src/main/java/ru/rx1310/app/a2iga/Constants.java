@@ -4,11 +4,7 @@ package ru.rx1310.app.a2iga;
 
 public class Constants {
 	
-	public static class PrefsKeys {
-		
-		public static String ASSIST_APP_PKGNAME = "ASSIST_PKGNAME";
-		
-	}
+	public static String ASSIST_APP_PKGNAME = "ASSIST_PKGNAME";
 	
 	public static final String randomPromts[] = {
 		"A2IGA позволяет запускать приложение с любой позиции — просто запустите ассистент!",

@@ -5,6 +5,7 @@
 	<string name="pref_general_category">Основные настройки</string>
 	<string name="pref_general_doze_mode">Режим Doze</string>
 	<string name="pref_general_doze_mode_desc">Уберите ограничение режима Doze для A2IGA, если приложение не запускается при вызове ассистента</string>
+	<string name="pref_general_doze_mode_desc_enabled">A2IGA уже включен в «белый лист» режима Doze!</string>
 	
 	<!-- AppsList -->
 	<string name="pref_appslist_category">Список приложений</string>
