@@ -21,6 +21,8 @@
 	<string name="appslist_apps_count_filtered_zero" formatted="false">Нет совпадений ¯\u005c_(ツ)_/¯</string>
 	<string name="appslist_search_hint">Поиск приложения...</string>
 	
+	<string name="beta_version_installed">У Вас установлена beta-версия для тестирования! Возможны неполадки в работе приложения.</string>
+	
 	<string name="current_assistant">Текущ. ассистент</string>
 	<string name="current_assistant_null">¯\u005c_(ツ)_/¯</string>
 	<string name="current_assistant_open_appslist">Нажмите на эту карточку для того, чтобы открыть список установленных приложений</string>

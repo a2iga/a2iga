@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 	String isAssistAppPkgName;
 	TextView oAssistantAppName, oRandomPromt;
 	FrameLayout oSettingsLayout;
-	LinearLayout oCurrentAssistAppLayout;
+	LinearLayout oCurrentAssistAppLayout, oBetaVersionInstalledMsgLayout;
 	
 	SharedPreferences oSharedPreferences;
 	
@@ -61,7 +61,23 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 		
 		oSettingsLayout = findViewById(R.id.layoutSettings);
 		
+		oBetaVersionInstalledMsgLayout = findViewById(R.id.toolbarBetaMessage);
+		if (AppUtils.getVersionName(this, getPackageName()).contains("b")) oBetaVersionInstalledMsgLayout.setVisibility(View.VISIBLE);
+		else oBetaVersionInstalledMsgLayout.setVisibility(View.GONE);
+		
 		oToolbar = findViewById(R.id.toolbar);
+		/*oToolbar.setOnLongClickListener(new View.OnLongClickListener() {
+
+			@Override
+			public boolean onLongClick(View v) {
+
+				AppUtils.showToast(MainActivity.this, "Long click");
+					
+				return true;
+
+			}
+			
+		});*/
 		
 		setSupportActionBar(oToolbar);
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
