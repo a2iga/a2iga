@@ -187,16 +187,6 @@ public class ApplicationAdapter extends ArrayAdapter<ApplicationInfo> {
 				
             }
 			
-			/*try {
-			 Intent intent = packageManager.getLaunchIntentForPackage(app.packageName);
-			 oActivity.startoActivity(intent);
-			 if (null != intent) {
-			 oActivity.startoActivity(intent);
-			 }
-			 } catch (oActivityNotFoundException e) {
-			 e.printStackTrace();
-			 }*/
-			
         };
 		
     }
@@ -241,7 +231,7 @@ public class ApplicationAdapter extends ArrayAdapter<ApplicationInfo> {
 
                 fr.count = filterList.size();
                 fr.values = filterList;
-
+				
             } else {
                 fr.count = oList.size();
                 fr.values = oList;

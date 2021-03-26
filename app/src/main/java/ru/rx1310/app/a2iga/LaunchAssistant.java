@@ -16,6 +16,7 @@ import android.widget.Toast;
 import android.text.TextUtils;
 import ru.rx1310.app.a2iga.utils.SharedPrefUtils;
 import ru.rx1310.app.a2iga.tasks.OTACheckTask;
+import ru.rx1310.app.a2iga.utils.AppUtils;
 
 public class LaunchAssistant extends Activity {
 
@@ -65,7 +66,7 @@ public class LaunchAssistant extends Activity {
 			i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
 			startActivity(i);
-
+			
 		}
 
 	}
