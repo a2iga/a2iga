@@ -9,7 +9,7 @@
 	<color name="colorIcon">#FFFFFFFF</color>
 	<color name="colorCard">#FF313236</color>
 	
-	<color name="colorAppAdaptiveIcon">#FF2A62FF</color>
+	<color name="colorAppAdaptiveIcon">@color/colorSurface</color>
 	<color name="colorPromtPreferenceBackground">@color/colorHover</color>
 	
 	<color name="colorError">#B71C1C</color>
