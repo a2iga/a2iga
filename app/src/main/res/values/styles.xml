@@ -14,7 +14,7 @@
 		<item name="colorControlNormal">@color/colorIcon</item>
         <!--item name="bottomSheetDialogTheme">@style/AppTheme.SheetDialog</item-->
 		
-		<item name="android:navigationBarColor">@color/colorSurface</item>
+		<item name="android:navigationBarColor">@color/colorPrimary</item>
         <item name="android:windowBackground">@color/colorSurface</item>
         <item name="android:colorBackgroundCacheHint">@null</item>
         <item name="android:displayOptions">showCustom</item>

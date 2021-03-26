@@ -1,21 +1,25 @@
 package ru.rx1310.app.a2iga.tasks;
 
-import android.app.ProgressDialog;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+
+import android.app.ProgressDialog;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import ru.rx1310.app.a2iga.Constants;
 import ru.rx1310.app.a2iga.R;
 import ru.rx1310.app.a2iga.utils.AppUtils;
@@ -50,10 +54,7 @@ public class OTACheckTask extends AsyncTask<Void, Void, String> {
     protected void onPostExecute(String result) {
 
 		if (oProgressDialog) progressDialog.dismiss();
-
         if (!TextUtils.isEmpty(result)) parseJson(result);
-
-		AppUtils.Log(oContext, "d", "onPostExecute: " + result);
 
     }
 
@@ -93,6 +94,7 @@ public class OTACheckTask extends AsyncTask<Void, Void, String> {
 
 		android.support.v7.app.AlertDialog.Builder alertBuilder = new android.support.v7.app.AlertDialog.Builder(context, R.style.AppTheme_Dialog_Alert);
 
+		alertBuilder.setIcon(R.drawable.ic_logo);
 		alertBuilder.setTitle(oContext.getString(R.string.app_name) + " " + updateVersion + "." + updateVersionCode);
 		alertBuilder.setMessage(updateMessage);
 		alertBuilder.setPositiveButton(R.string.ota_action_download, new DialogInterface.OnClickListener() {
