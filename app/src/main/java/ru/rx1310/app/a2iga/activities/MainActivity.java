@@ -6,26 +6,32 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.ViewGroup;
+
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
+import android.support.v7.widget.Toolbar;
+
 import java.util.Random;
+
 import ru.rx1310.app.a2iga.Constants;
 import ru.rx1310.app.a2iga.R;
+import ru.rx1310.app.a2iga.activities.MainActivity;
 import ru.rx1310.app.a2iga.fragments.SettingsFragment;
 import ru.rx1310.app.a2iga.utils.AppUtils;
 import ru.rx1310.app.a2iga.utils.SharedPrefUtils;
+import android.support.v7.app.AlertDialog;
 
 public class MainActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener, View.OnClickListener {
     
@@ -86,8 +92,11 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 				b.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
-						SharedPrefUtils.saveData(MainActivity.this, Constants.ASSIST_APP_PKGNAME, pkgNameDialogInput.getText().toString());
-						AppUtils.showToast(MainActivity.this, getString(R.string.app_selected_as_assistant) + " (" +  AppUtils.getAppName(MainActivity.this, pkgNameDialogInput.getText().toString() + ")"));
+						if (pkgNameDialogInput.getText().toString().isEmpty()) dialog.dismiss();
+						else {
+							SharedPrefUtils.saveData(MainActivity.this, Constants.ASSIST_APP_PKGNAME, pkgNameDialogInput.getText().toString());
+							AppUtils.showToast(MainActivity.this, getString(R.string.app_selected_as_assistant) + " (" +  AppUtils.getAppName(MainActivity.this, pkgNameDialogInput.getText().toString() + ")"));
+						}
 					}
 				});
 				b.setNegativeButton(android.R.string.cancel, null);
