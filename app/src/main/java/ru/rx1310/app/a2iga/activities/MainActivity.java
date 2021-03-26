@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 						if (pkgNameDialogInput.getText().toString().isEmpty()) dialog.dismiss();
 						else {
 							SharedPrefUtils.saveData(MainActivity.this, Constants.ASSIST_APP_PKGNAME, pkgNameDialogInput.getText().toString());
-							AppUtils.showToast(MainActivity.this, getString(R.string.app_selected_as_assistant) + " (" +  AppUtils.getAppName(MainActivity.this, pkgNameDialogInput.getText().toString() + ")"));
+							AppUtils.showToast(MainActivity.this, getString(R.string.app_selected_as_assistant));
 						}
 					}
 				});
