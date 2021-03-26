@@ -2,40 +2,41 @@
 
 package ru.rx1310.app.a2iga.activities;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
-
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import java.util.Random;
-
 import ru.rx1310.app.a2iga.Constants;
 import ru.rx1310.app.a2iga.R;
+import ru.rx1310.app.a2iga.fragments.SettingsFragment;
 import ru.rx1310.app.a2iga.utils.AppUtils;
 import ru.rx1310.app.a2iga.utils.SharedPrefUtils;
-import ru.rx1310.app.a2iga.fragments.SettingsFragment;
-import android.widget.FrameLayout;
 
 public class MainActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener, View.OnClickListener {
     
 	Toolbar oToolbar;
+	EditText pkgNameDialogInput;
 	CardView oUnsupportedApi22Card, oNotDefaultAssistCard;
 	ImageView oAssistantAppIcon;
 	String isAssistAppPkgName;
 	TextView oAssistantAppName, oRandomPromt;
 	FrameLayout oSettingsLayout;
+	LinearLayout oCurrentAssistAppLayout;
 	
 	SharedPreferences oSharedPreferences;
 	
@@ -61,6 +62,42 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 		getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_logo);
 		getSupportActionBar().setDisplayShowHomeEnabled(true);
 		getSupportActionBar().setTitle(R.string.activity_main);
+		
+		oCurrentAssistAppLayout = findViewById(R.id.toolbarCurrentAssistAppLayout);
+		oCurrentAssistAppLayout.setOnClickListener(this);
+		oCurrentAssistAppLayout.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				startActivity(new Intent(MainActivity.this, AppsListActivity.class));
+			}
+		});
+		oCurrentAssistAppLayout.setOnLongClickListener(new View.OnLongClickListener() {
+			@Override
+			public boolean onLongClick(View v) {
+				
+				pkgNameDialogInput = new EditText(MainActivity.this);
+				pkgNameDialogInput.setHint(getString(R.string.current_assistant_pkgname_dialog_hint) + " " + isAssistAppPkgName);
+				
+				android.support.v7.app.AlertDialog.Builder b = new android.support.v7.app.AlertDialog.Builder(MainActivity.this, R.style.AppTheme_Dialog_Alert);
+				
+				b.setTitle(R.string.current_assistant_pkgname_dialog_title);
+				b.setMessage(R.string.current_assistant_pkgname_dialog_message);
+				b.setView(pkgNameDialogInput, 50, 0, 50, 0);
+				b.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						SharedPrefUtils.saveData(MainActivity.this, Constants.ASSIST_APP_PKGNAME, pkgNameDialogInput.getText().toString());
+						AppUtils.showToast(MainActivity.this, getString(R.string.app_selected_as_assistant) + " (" +  AppUtils.getAppName(MainActivity.this, pkgNameDialogInput.getText().toString() + ")"));
+					}
+				});
+				b.setNegativeButton(android.R.string.cancel, null);
+				b.create();
+				b.show();
+				
+				return true;
+				
+			}
+		});
 		
 		//oRandomPromt = findViewById(R.id.textRandomPromt);
 		oAssistantAppName = findViewById(R.id.name);
@@ -144,10 +181,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
 		}
 
-	}
-	
-	public void showAppsList(View v) {
-		startActivity(new Intent(this, AppsListActivity.class));
 	}
 	
 	@Override

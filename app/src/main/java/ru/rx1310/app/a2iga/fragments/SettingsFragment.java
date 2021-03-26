@@ -14,6 +14,9 @@ import android.provider.Settings;
 import ru.rx1310.app.a2iga.R;
 import ru.rx1310.app.a2iga.utils.AppUtils;
 import android.support.annotation.NonNull;
+import android.preference.EditTextPreference;
+import ru.rx1310.app.a2iga.utils.SharedPrefUtils;
+import ru.rx1310.app.a2iga.Constants;
 
 public class SettingsFragment extends PreferenceFragment {
 
@@ -36,7 +39,6 @@ public class SettingsFragment extends PreferenceFragment {
 		
 		appDeveloper = findPreference("about.appDeveloper");
 		appDeveloper.setSummary(appDeveloperVerify());
-		
 		
 	}
 

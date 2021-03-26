@@ -21,7 +21,6 @@
 		android:layout_height="1dp"/>
 
 	<LinearLayout
-		android:onClick="showAppsList"
 		android:clickable="true"
 		android:foreground="?android:attr/selectableItemBackground"
 		android:paddingTop="?android:attr/listPreferredItemPaddingStart"
@@ -31,7 +30,8 @@
 		android:orientation="horizontal"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:gravity="top|left|center">
+		android:gravity="top|left|center"
+		android:id="@+id/toolbarCurrentAssistAppLayout">
 
 		<ImageView
 			android:layout_width="22dp"
