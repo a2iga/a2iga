@@ -43,7 +43,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 	TextView oAssistantAppName, oRandomPromt;
 	FrameLayout oSettingsLayout;
 	LinearLayout oCurrentAssistAppLayout;
-	private FragmentRefreshListener fragmentRefreshListener;
 	
 	SharedPreferences oSharedPreferences;
 	
@@ -73,6 +72,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 		oCurrentAssistAppLayout = findViewById(R.id.toolbarCurrentAssistAppLayout);
 		oCurrentAssistAppLayout.setOnClickListener(this);
 		oCurrentAssistAppLayout.setOnLongClickListener(new View.OnLongClickListener() {
+			
 			@Override
 			public boolean onLongClick(View v) {
 				
@@ -101,6 +101,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 				return true;
 				
 			}
+			
 		});
 		
 		//oRandomPromt = findViewById(R.id.textRandomPromt);
@@ -192,17 +193,5 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 		onBackPressed();
 		return true;
 	}
-	
-	public FragmentRefreshListener getFragmentRefreshListener() {
-        return fragmentRefreshListener;
-    }
-
-    public void setFragmentRefreshListener(FragmentRefreshListener fragmentRefreshListener) {
-        this.fragmentRefreshListener = fragmentRefreshListener;
-    }
-
-    public interface FragmentRefreshListener{
-        void onRefresh();
-    }
     
 }

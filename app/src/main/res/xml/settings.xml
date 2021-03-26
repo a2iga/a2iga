@@ -56,7 +56,13 @@
 		android:summary="@string/pref_about_app_code_desc"/>
 	
 	<Preference
+		android:key="about.appTelegram"
+		android:title="@string/pref_about_app_telegram"
+		android:summary="@string/pref_about_app_telegram_desc"/>
+	
+	<Preference
 		android:key="about.appWebsite"
-		android:title="@string/pref_about_app_website"/>
+		android:title="@string/pref_about_app_website"
+		android:summary="@string/pref_about_app_website_desc"/>
 	
 </PreferenceScreen>

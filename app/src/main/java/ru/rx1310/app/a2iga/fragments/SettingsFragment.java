@@ -95,6 +95,10 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
 				AppUtils.openURL(getContext(), "https://github.com/rx1310/a2iga");
 				break;
 				
+			case "about.appTelegram":
+				AppUtils.openURL(getContext(), "https://t.me/rx1310_dev");
+				break;
+				
 			case "ota.check":
 				OTACheckTask.checkUpdates(getContext(), true);
 				break;

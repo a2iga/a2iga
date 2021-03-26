@@ -22,7 +22,8 @@
 	<!-- OTA -->
 	<string name="pref_ota_category">Обновление приложения</string>
 	<string name="pref_ota_check">Проверить сейчас</string>
-	<string name="pref_ota_check_desc"> Дата посл. проверки: </string>
+	<string name="pref_ota_check_desc">Дата посл. проверки: </string>
+	<string name="pref_ota_check_desc_null">Нажмите, чтобы проверить наличие новой версии приложения</string>
 	<string name="pref_ota_changelog">История изменений</string>
 	
 	<!-- About -->
@@ -32,10 +33,13 @@
 	<string name="pref_about_app_code">Исходный код</string>
 	<string name="pref_about_app_code_desc">A2IGA является проектом с открытым исходным кодом и распространяется совершенно бесплатно. Каждый из пользователей может принять участие в разработке и переводе приложения на другие языки!</string>
 	<string name="pref_about_app_website">Веб-сайт</string>
+	<string name="pref_about_app_website_desc">Посетите официальный сайт A2IGA, где также можно найти FAQ по приложению</string>
 	<string name="pref_about_app_playstore">Google Play Store</string>
 	<string name="pref_about_app_playstore_desc">Посетите страницу A2IGA в Play Store чтобы оценить приложение</string>
 	<string name="pref_other_share">Рассказать друзьям</string>
 	<string name="pref_other_share_desc">Понравилось приложение? Расскажите о нём своим друзьям!</string>
+	<string name="pref_about_app_telegram">Telegram</string>
+	<string name="pref_about_app_telegram_desc">Подпишитесь на официальный канал @rx1310_dev, чтобы быть в курсе всех нововведений</string>
 	
 	<!--string name="pref_"></string>
 	<string name="pref_"></string>

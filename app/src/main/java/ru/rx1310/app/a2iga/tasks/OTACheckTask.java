@@ -5,7 +5,6 @@ import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 
 import android.app.ProgressDialog;
 import android.net.Uri;
@@ -120,17 +119,13 @@ public class OTACheckTask extends AsyncTask<Void, Void, String> {
 		AppUtils.Log(oContext, "d", "updateDialog = show()");
 
 		// ? Сохранение URL файла со списком изменений
-		SharedPrefUtils.saveData(oContext, "ota.changelogUrl", changelogUrl);
+		// SharedPrefUtils.saveData(oContext, "ota.changelogUrl", changelogUrl);
 		
 	}
 
     @Override
     protected String doInBackground(Void... args) {
-
-		//return HttpUtils.get(oContext, Constants.OTA.URL_JSON);
-
-		// -> new OTACheckTask(getContext(), "release").execute();
-
+		
 		return HttpUtils.get(oContext, Constants.OTA.URL_JSON);
 
 	}
@@ -138,27 +133,15 @@ public class OTACheckTask extends AsyncTask<Void, Void, String> {
 	// ? Проверка обновленмй
 	public static void checkUpdates(Context context, boolean isProgressDialogEnabled) {
 
-		SharedPreferences mSharedPrefs;
-		SharedPreferences.Editor mSharedPrefsEditor;
 		SimpleDateFormat mDateFormat = new SimpleDateFormat("dd/MM/yyyy (HH:mm:ss)", Locale.getDefault());
 		String isLastCheckDate = mDateFormat.format(new Date());
 
-		mSharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
-		mSharedPrefsEditor = mSharedPrefs.edit();
-
 		if (AppUtils.isNetworkAvailable(context)) {
-
-			mSharedPrefsEditor.putString("ota.lastCheckDate", isLastCheckDate);
-			mSharedPrefsEditor.commit();
-
+			SharedPrefUtils.saveData(context, "ota.lastCheckDate", isLastCheckDate);
 			new OTACheckTask(context, isProgressDialogEnabled).execute();
-
-		} else {
-			AppUtils.showToast(context, context.getString(R.string.ota_msg_no_network));
-		}
+		} else { AppUtils.showToast(context, context.getString(R.string.ota_msg_no_network)); }
+		
 
 	}
 	
-	// OTACheckTask.checkUpdates(this, true);
-
 }
