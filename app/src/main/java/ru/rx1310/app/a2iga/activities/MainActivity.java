@@ -22,6 +22,7 @@ import android.widget.TextView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
+import android.support.v7.app.AlertDialog;
 
 import java.util.Random;
 
@@ -31,7 +32,6 @@ import ru.rx1310.app.a2iga.activities.MainActivity;
 import ru.rx1310.app.a2iga.fragments.SettingsFragment;
 import ru.rx1310.app.a2iga.utils.AppUtils;
 import ru.rx1310.app.a2iga.utils.SharedPrefUtils;
-import android.support.v7.app.AlertDialog;
 
 public class MainActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener, View.OnClickListener {
     
@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 	TextView oAssistantAppName, oRandomPromt;
 	FrameLayout oSettingsLayout;
 	LinearLayout oCurrentAssistAppLayout;
+	private FragmentRefreshListener fragmentRefreshListener;
 	
 	SharedPreferences oSharedPreferences;
 	
@@ -71,12 +72,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 		
 		oCurrentAssistAppLayout = findViewById(R.id.toolbarCurrentAssistAppLayout);
 		oCurrentAssistAppLayout.setOnClickListener(this);
-		oCurrentAssistAppLayout.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				startActivity(new Intent(MainActivity.this, AppsListActivity.class));
-			}
-		});
 		oCurrentAssistAppLayout.setOnLongClickListener(new View.OnLongClickListener() {
 			@Override
 			public boolean onLongClick(View v) {
@@ -182,9 +177,9 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
 		switch (v.getId()) {
 
-			//case R.id.:
-			//
-			//break;
+			case R.id.toolbarCurrentAssistAppLayout:
+				startActivity(new Intent(MainActivity.this, AppsListActivity.class));
+				break;
 				
 			default: break;
 
@@ -197,5 +192,17 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 		onBackPressed();
 		return true;
 	}
+	
+	public FragmentRefreshListener getFragmentRefreshListener() {
+        return fragmentRefreshListener;
+    }
+
+    public void setFragmentRefreshListener(FragmentRefreshListener fragmentRefreshListener) {
+        this.fragmentRefreshListener = fragmentRefreshListener;
+    }
+
+    public interface FragmentRefreshListener{
+        void onRefresh();
+    }
     
 }

@@ -17,4 +17,15 @@ public class Constants {
 		"При вызове ассистента запускается A2IGA, а потом само приложение. Однако вы не увидите окно A2IGA, запуск происходит моментально (даже если смотреть в замедленной съёмке)."
     };
 	
+	public static class OTA {
+
+		public static final String URL_JSON = "https://raw.githubusercontent.com/rx1310/a2iga/master/ota.json";
+		public static final String URL_APK = "apkUrl";
+		public static final String URL_CHANGELOG = "changelogUrl";
+		public static final String VERSION_NAME = "versionName";
+		public static final String VERSION_CODE = "versionCode";
+		public static final String MESSAGE = "updateMessage";
+
+	}
+	
 }

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	
+	<string name="ota_dlg_checking">Проверка данных</string>
+	<string name="ota_dlg_checking_description">Подождите, происходит запрос и проверка данных...</string>
+
+	<string name="ota_msg_used_latest_release">Вы используете последнюю версию приложения!</string>
+	<string name="ota_msg_no_network">Для проверки необходимо наличие интернет-соединения!</string>
+	<string name="ota_msg_url_copied">Ссылка на файл скопирована в буфер обмена!</string>
+	<string name="ota_msg_update_installation_completed">Обновление успешно установлено!</string>
+	<string name="ota_msg_update_not_found">Обновлений не найдено.</string>
+
+	<string name="ota_action_download">Скачать</string>
+	<string name="ota_action_changelog">Изменения</string>
+	<string name="ota_action_copy_url">Ссылка</string>
+	<string name="ota_action_cancel">Закрыть</string>
+	
+</resources>
