@@ -43,7 +43,6 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
 		appDeveloper.setSummary(R.string.app_author);
 		
 		otaCheck = findPreference("ota.check");
-		
 		otaCheck.setSummary(getString(R.string.pref_ota_check_desc) + " " + SharedPrefUtils.getStringData(getContext(), "ota.lastCheckDate"));
 		
 	}
@@ -92,8 +91,16 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
 				AppUtils.openURL(getContext(), getString(R.string.app_author_url) + "/a2iga");
 				break;
 				
+			case "about.appSourceCode":
+				AppUtils.openURL(getContext(), "https://github.com/rx1310/a2iga");
+				break;
+				
 			case "ota.check":
 				OTACheckTask.checkUpdates(getContext(), true);
+				break;
+				
+			case "ota.changelog":
+				AppUtils.openURL(getContext(), "https://github.com/rx1310/a2iga/docs/changelog_" + AppUtils.getVersionCode(getContext(), getContext().getPackageName()) + ".md");
 				break;
 
 			default: break;

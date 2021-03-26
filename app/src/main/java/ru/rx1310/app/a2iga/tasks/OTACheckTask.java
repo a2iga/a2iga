@@ -20,6 +20,7 @@ import ru.rx1310.app.a2iga.Constants;
 import ru.rx1310.app.a2iga.R;
 import ru.rx1310.app.a2iga.utils.AppUtils;
 import ru.rx1310.app.a2iga.utils.HttpUtils;
+import ru.rx1310.app.a2iga.utils.SharedPrefUtils;
 
 public class OTACheckTask extends AsyncTask<Void, Void, String> {
 
@@ -116,6 +117,9 @@ public class OTACheckTask extends AsyncTask<Void, Void, String> {
 
 		AppUtils.Log(oContext, "d", "updateDialog = show()");
 
+		// ? Сохранение URL файла со списком изменений
+		SharedPrefUtils.saveData(oContext, "ota.changelogUrl", changelogUrl);
+		
 	}
 
     @Override

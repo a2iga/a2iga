@@ -51,79 +51,12 @@
 		android:title="@string/pref_about_app_developer"/>
 	
 	<Preference
-		android:key="about.appLicenses"
-		android:title="@string/pref_about_app_licenses"
-		android:summary="@string/pref_about_app_licenses_desc"/>
+		android:key="about.appSourceCode"
+		android:title="@string/pref_about_app_code"
+		android:summary="@string/pref_about_app_code_desc"/>
 	
 	<Preference
 		android:key="about.appWebsite"
 		android:title="@string/pref_about_app_website"/>
-	
-	<PreferenceCategory
-		android:title="Category"/>
-	
-	<SwitchPreference
-		android:key="key"
-		android:title="Title"
-		android:summary="Summary"
-		android:defaultValue="false"
-		android:enabled="true"/>
-	
-	<SwitchPreference
-		android:key="key"
-		android:title="Title"
-		android:summary="Summary"
-		android:defaultValue="false"
-		android:enabled="true"/>
-
-	<SwitchPreference
-		android:key="key"
-		android:title="Title"
-		android:summary="Summary"
-		android:defaultValue="false"
-		android:enabled="true"/>
-	
-	<SwitchPreference
-		android:key="key"
-		android:title="Title"
-		android:summary="Summary"
-		android:defaultValue="false"
-		android:enabled="true"/>
-
-	<SwitchPreference
-		android:key="key"
-		android:title="Title"
-		android:summary="Summary"
-		android:defaultValue="false"
-		android:enabled="true"/>
-	
-	<SwitchPreference
-		android:key="key"
-		android:title="Title"
-		android:summary="Summary"
-		android:defaultValue="false"
-		android:enabled="true"/>
-
-	<SwitchPreference
-		android:key="key"
-		android:title="Title"
-		android:summary="Summary"
-		android:defaultValue="false"
-		android:enabled="true"/>
-	
-	<SwitchPreference
-		android:key="key"
-		android:title="Title"
-		android:summary="Summary"
-		android:defaultValue="false"
-		android:enabled="true"/>
-
-	<SwitchPreference
-		android:key="key"
-		android:title="Title"
-		android:summary="Summary"
-		android:defaultValue="false"
-		android:enabled="true"/>
-	
 	
 </PreferenceScreen>

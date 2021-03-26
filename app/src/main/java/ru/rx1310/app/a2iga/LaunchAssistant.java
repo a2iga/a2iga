@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import android.text.TextUtils;
 import ru.rx1310.app.a2iga.utils.SharedPrefUtils;
+import ru.rx1310.app.a2iga.tasks.OTACheckTask;
 
 public class LaunchAssistant extends Activity {
 
@@ -28,7 +29,7 @@ public class LaunchAssistant extends Activity {
 
 		// Запускаем ассистент
 		startAssistApp(isAssistAppPkgName);
-
+		
 		// Убиваем активность после запуска ассистента
 		this.finish();
 
