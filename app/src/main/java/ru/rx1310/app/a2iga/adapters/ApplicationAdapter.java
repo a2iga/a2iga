@@ -13,6 +13,7 @@ import android.content.res.Resources;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.View.OnLongClickListener;
 
 import android.widget.ArrayAdapter;
 import android.widget.Filter;
@@ -30,7 +31,6 @@ import ru.rx1310.app.a2iga.utils.SharedPrefUtils;
 import ru.rx1310.app.a2iga.Constants;
 import ru.rx1310.app.a2iga.activities.AppsListActivity;
 import ru.rx1310.app.a2iga.utils.AppUtils;
-import android.view.View.OnLongClickListener;
 
 public class ApplicationAdapter extends ArrayAdapter<ApplicationInfo> {
 	
@@ -127,10 +127,15 @@ public class ApplicationAdapter extends ArrayAdapter<ApplicationInfo> {
 
 			@Override
 			public boolean onLongClick(View p1) {
+				
 				ClipboardManager mClipboardMng = (ClipboardManager) oActivity.getSystemService(Context.CLIPBOARD_SERVICE);
 				ClipData mClipData = ClipData.newPlainText(null, getItem(p).packageName);
 				mClipboardMng.setPrimaryClip(mClipData);
+				
+				AppUtils.showToast(oActivity, oActivity.getString(R.string.pkg_name_copied) + " (" + getItem(p).packageName + ")");
+				
 				return true;
+				
 			}
 			
         };
