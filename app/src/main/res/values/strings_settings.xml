@@ -13,6 +13,8 @@
 	<string name="pref_appslist_icons_desc">Отображать иконки приложений в списке?</string>
 	<string name="pref_appslist_pkgname">Имя пакета</string>
 	<string name="pref_appslist_pkgname_desc">Отображать имя пакета приложения в списке?</string>
+	<string name="pref_appslist_extended">Расширенный список</string>
+	<string name="pref_appslist_extended_desc">Отображать абсолютно все приложения, установленные на устройстве, даже если в манифесте приложения не указан Intent для запуска?</string>
 	
 	<!-- Other -->
 	<string name="pref_other_category">Прочее</string>

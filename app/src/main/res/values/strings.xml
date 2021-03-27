@@ -26,6 +26,7 @@
 	<string name="current_assistant">Текущ. ассистент</string>
 	<string name="current_assistant_null">¯\u005c_(ツ)_/¯</string>
 	<string name="current_assistant_open_appslist">Нажмите на эту карточку для того, чтобы открыть список установленных приложений</string>
+	<string name="current_assistant_open_module_settings">или нажмите и удерживайте для того, чтобы открыть настройки модуля</string>
 	<string name="current_assistant_pkgname_dialog_title">Ручной ввод Package Name</string>
 	<string name="current_assistant_pkgname_dialog_message">Помимо выбора приложения из списка установленных Вы можете вручную указать package name приложения, которое будет запускаться при вызове ассистента.</string>
 	<string name="current_assistant_pkgname_dialog_hint">Текущ.:</string>

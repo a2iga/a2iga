@@ -32,6 +32,7 @@ import ru.rx1310.app.a2iga.activities.MainActivity;
 import ru.rx1310.app.a2iga.fragments.SettingsFragment;
 import ru.rx1310.app.a2iga.utils.AppUtils;
 import ru.rx1310.app.a2iga.utils.SharedPrefUtils;
+import android.content.ComponentName;
 
 public class MainActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener, View.OnClickListener {
     
@@ -40,9 +41,9 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 	CardView oUnsupportedApi22Card, oNotDefaultAssistCard;
 	ImageView oAssistantAppIcon, oModuleVerifyIcon;
 	String isAssistAppPkgName;
-	TextView oAssistantAppName, oRandomPromt;
+	TextView oAssistantAppName, oRandomPromt, oAssistAppNameSummary;
 	FrameLayout oSettingsLayout;
-	LinearLayout oCurrentAssistAppLayout, oBetaVersionInstalledMsgLayout;
+	LinearLayout oCurrentAssistAppLayout, oBetaVersionInstalledMsgLayout, oModuleSettingsLayout;
 	
 	SharedPreferences oSharedPreferences;
 	
@@ -59,6 +60,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 		oSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 		oSharedPreferences.registerOnSharedPreferenceChangeListener(this);
 		
+		oAssistAppNameSummary = findViewById(R.id.toolbarCurrentAssistAppSummary);
 		oModuleVerifyIcon = findViewById(R.id.iconVerify);
 		oSettingsLayout = findViewById(R.id.layoutSettings);
 		
@@ -72,7 +74,27 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 			@Override
 			public boolean onLongClick(View v) {
 
-				AppUtils.showToast(MainActivity.this, "👨‍💻 with ❤️ by rx1310");
+				pkgNameDialogInput = new EditText(MainActivity.this);
+				pkgNameDialogInput.setHint(getString(R.string.current_assistant_pkgname_dialog_hint) + " " + isAssistAppPkgName);
+
+				android.support.v7.app.AlertDialog.Builder b = new android.support.v7.app.AlertDialog.Builder(MainActivity.this, R.style.AppTheme_Dialog_Alert);
+
+				b.setTitle(R.string.current_assistant_pkgname_dialog_title);
+				b.setMessage(R.string.current_assistant_pkgname_dialog_message);
+				b.setView(pkgNameDialogInput, 50, 0, 50, 0);
+				b.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						if (pkgNameDialogInput.getText().toString().isEmpty()) dialog.dismiss();
+						else {
+							SharedPrefUtils.saveData(MainActivity.this, Constants.ASSIST_APP_PKGNAME, pkgNameDialogInput.getText().toString());
+							AppUtils.showToast(MainActivity.this, getString(R.string.app_selected_as_assistant));
+						}
+					}
+				});
+				b.setNegativeButton(android.R.string.cancel, null);
+				b.create();
+				b.show();
 				
 				return true;
 
@@ -93,33 +115,17 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 			@Override
 			public boolean onLongClick(View v) {
 				
-				pkgNameDialogInput = new EditText(MainActivity.this);
-				pkgNameDialogInput.setHint(getString(R.string.current_assistant_pkgname_dialog_hint) + " " + isAssistAppPkgName);
-				
-				android.support.v7.app.AlertDialog.Builder b = new android.support.v7.app.AlertDialog.Builder(MainActivity.this, R.style.AppTheme_Dialog_Alert);
-				
-				b.setTitle(R.string.current_assistant_pkgname_dialog_title);
-				b.setMessage(R.string.current_assistant_pkgname_dialog_message);
-				b.setView(pkgNameDialogInput, 50, 0, 50, 0);
-				b.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
-						if (pkgNameDialogInput.getText().toString().isEmpty()) dialog.dismiss();
-						else {
-							SharedPrefUtils.saveData(MainActivity.this, Constants.ASSIST_APP_PKGNAME, pkgNameDialogInput.getText().toString());
-							AppUtils.showToast(MainActivity.this, getString(R.string.app_selected_as_assistant));
-						}
-					}
-				});
-				b.setNegativeButton(android.R.string.cancel, null);
-				b.create();
-				b.show();
+				Intent i = new Intent(Intent.ACTION_MAIN);
+				i.setComponent(new ComponentName(isAssistAppPkgName, isAssistAppPkgName + ".ModuleSettingsActivity"));
+				startActivity(i);
 				
 				return true;
 				
 			}
 			
 		});
+		
+		//AppUtils.showToast(MainActivity.this, "👨‍💻 with ❤️ by rx1310");
 		
 		//oRandomPromt = findViewById(R.id.textRandomPromt);
 		oAssistantAppName = findViewById(R.id.name);
@@ -132,9 +138,14 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 			
 		} else {
 			
-			if (isAssistAppPkgName.contains("ru.rx1310.app.a2iga.module")) oModuleVerifyIcon.setVisibility(View.VISIBLE);
-			else oModuleVerifyIcon.setVisibility(View.INVISIBLE);
-				
+			if (isAssistAppPkgName.contains("a2iga.module.")) {
+				oAssistAppNameSummary.setText(getString(R.string.current_assistant_open_appslist) + " " + getString(R.string.current_assistant_open_module_settings));
+				oModuleVerifyIcon.setVisibility(View.VISIBLE);
+			} else {
+				oAssistAppNameSummary.setText(getString(R.string.current_assistant_open_appslist));
+				oModuleVerifyIcon.setVisibility(View.INVISIBLE);
+			}
+			
 			oAssistantAppName.setText(AppUtils.getAppName(this, isAssistAppPkgName));
 			
 			try {

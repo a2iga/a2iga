@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ru.rx1310.app.a2iga.activities.AppsListActivity;
+import ru.rx1310.app.a2iga.utils.SharedPrefUtils;
 
 public class LoadAppsTask extends AsyncTask<Void, Void, List<ApplicationInfo>> {
 
@@ -37,12 +38,17 @@ public class LoadAppsTask extends AsyncTask<Void, Void, List<ApplicationInfo>> {
 
 	private List<ApplicationInfo> checkForLaunchIntent(List<ApplicationInfo> list) {
 		
+		boolean extendedAppsList = SharedPrefUtils.getBooleanData(oActivity, "appslist.extended");
+		
 		ArrayList<ApplicationInfo> applist = new ArrayList<>();
 		
 		for (ApplicationInfo applicationInfo : list) {
 			
 			try {
-				if (oPkgMng.getLaunchIntentForPackage(applicationInfo.packageName) != null) applist.add(applicationInfo);
+				if (extendedAppsList) applist.add(applicationInfo);
+				else {
+					if (oPkgMng.getLaunchIntentForPackage(applicationInfo.packageName) != null) applist.add(applicationInfo);
+				}
 			} catch (Exception ex) {
 				ex.printStackTrace();
 			}

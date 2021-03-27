@@ -27,6 +27,13 @@
 		android:defaultValue="true"
 		android:enabled="true"/>
 
+	<SwitchPreference
+		android:key="appslist.extended"
+		android:title="@string/pref_appslist_extended"
+		android:summary="@string/pref_appslist_extended_desc"
+		android:defaultValue="false"
+		android:enabled="true"/>
+	
 	<PreferenceCategory
 		android:title="@string/pref_ota_category"/>
 
