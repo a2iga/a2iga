@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 	Toolbar oToolbar;
 	EditText pkgNameDialogInput;
 	CardView oUnsupportedApi22Card, oNotDefaultAssistCard;
-	ImageView oAssistantAppIcon;
+	ImageView oAssistantAppIcon, oModuleVerifyIcon;
 	String isAssistAppPkgName;
 	TextView oAssistantAppName, oRandomPromt;
 	FrameLayout oSettingsLayout;
@@ -59,6 +59,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 		oSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 		oSharedPreferences.registerOnSharedPreferenceChangeListener(this);
 		
+		oModuleVerifyIcon = findViewById(R.id.iconVerify);
 		oSettingsLayout = findViewById(R.id.layoutSettings);
 		
 		oBetaVersionInstalledMsgLayout = findViewById(R.id.toolbarBetaMessage);
@@ -66,18 +67,18 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 		else oBetaVersionInstalledMsgLayout.setVisibility(View.GONE);
 		
 		oToolbar = findViewById(R.id.toolbar);
-		/*oToolbar.setOnLongClickListener(new View.OnLongClickListener() {
+		oToolbar.setOnLongClickListener(new View.OnLongClickListener() {
 
 			@Override
 			public boolean onLongClick(View v) {
 
-				AppUtils.showToast(MainActivity.this, "Long click");
-					
+				AppUtils.showToast(MainActivity.this, "👨‍💻 with ❤️ by rx1310");
+				
 				return true;
 
 			}
 			
-		});*/
+		});
 		
 		setSupportActionBar(oToolbar);
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -131,8 +132,10 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 			
 		} else {
 			
-			if (isAssistAppPkgName.contains("ru.rx1310.app.a2iga.module")) oAssistantAppName.setText("✓" + AppUtils.getAppName(this, isAssistAppPkgName));
-			else oAssistantAppName.setText(AppUtils.getAppName(this, isAssistAppPkgName));
+			if (isAssistAppPkgName.contains("ru.rx1310.app.a2iga.module")) oModuleVerifyIcon.setVisibility(View.VISIBLE);
+			else oModuleVerifyIcon.setVisibility(View.INVISIBLE);
+				
+			oAssistantAppName.setText(AppUtils.getAppName(this, isAssistAppPkgName));
 			
 			try {
 				Drawable drawable = getPackageManager().getApplicationIcon(isAssistAppPkgName);

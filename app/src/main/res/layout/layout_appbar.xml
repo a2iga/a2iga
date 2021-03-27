@@ -33,12 +33,28 @@
 		android:gravity="top|left|center"
 		android:id="@+id/toolbarCurrentAssistAppLayout">
 
-		<ImageView
-			android:layout_width="22dp"
-			android:layout_height="22dp"
-			android:id="@+id/icon"
+		<FrameLayout
 			android:layout_marginLeft="2dp"
-			android:layout_marginRight="8dp"/>
+			android:layout_marginRight="8dp"
+			android:layout_width="wrap_content"
+			android:layout_height="match_parent">
+
+			<ImageView
+				android:layout_width="22dp"
+				android:layout_height="22dp"
+				android:id="@+id/icon"
+				android:layout_gravity="top"/>
+
+			<ImageView
+				android:id="@+id/iconVerify"
+				android:src="@drawable/ic_verify"
+				android:layout_width="22dp"
+				android:layout_height="22dp"
+				android:layout_gravity="bottom"
+				android:tint="@color/colorSuccess"
+				android:visibility="invisible"/>
+
+		</FrameLayout>
 
 		<LinearLayout
 			android:orientation="vertical"
