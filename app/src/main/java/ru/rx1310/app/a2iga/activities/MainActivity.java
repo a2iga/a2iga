@@ -131,7 +131,8 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 			
 		} else {
 			
-			oAssistantAppName.setText(AppUtils.getAppName(this, isAssistAppPkgName));
+			if (isAssistAppPkgName.contains("ru.rx1310.app.a2iga.module")) oAssistantAppName.setText("✓" + AppUtils.getAppName(this, isAssistAppPkgName));
+			else oAssistantAppName.setText(AppUtils.getAppName(this, isAssistAppPkgName));
 			
 			try {
 				Drawable drawable = getPackageManager().getApplicationIcon(isAssistAppPkgName);

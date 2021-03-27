@@ -4,15 +4,19 @@ package ru.rx1310.app.a2iga.fragments;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
+
 import android.os.Build;
 import android.os.Bundle;
 import android.os.PowerManager;
+
+import android.provider.Settings;
+import android.net.Uri;
+
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
-import android.provider.Settings;
+
 import ru.rx1310.app.a2iga.R;
 import ru.rx1310.app.a2iga.activities.MainActivity;
 import ru.rx1310.app.a2iga.tasks.OTACheckTask;
@@ -43,7 +47,8 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
 		appDeveloper.setSummary(R.string.app_author);
 		
 		otaCheck = findPreference("ota.check");
-		otaCheck.setSummary(getString(R.string.pref_ota_check_desc) + " " + SharedPrefUtils.getStringData(getContext(), "ota.lastCheckDate"));
+		if (SharedPrefUtils.getStringData(getContext(), "ota.lastCheckDate") == null) otaCheck.setSummary("Check");
+		else otaCheck.setSummary(getString(R.string.pref_ota_check_desc) + " " + SharedPrefUtils.getStringData(getContext(), "ota.lastCheckDate"));
 		
 	}
 	

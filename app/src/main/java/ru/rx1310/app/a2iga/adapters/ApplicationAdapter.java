@@ -155,7 +155,7 @@ public class ApplicationAdapter extends ArrayAdapter<ApplicationInfo> {
 				
 				b.setTitle(ai.loadLabel(oPkgMng));
 				b.setIcon(ai.loadIcon(oPkgMng));
-				b.setMessage(R.string.appslist_app_select_dialog_desc);
+				b.setMessage(oActivity.getString(R.string.appslist_app_select_dialog_desc));
 				
 				/*b.setNeutralButton(android.R.string.cancel, new DialogInterface.OnClickListener() { // обработка нажатия кнопки "Да"
 					public void onClick(DialogInterface d, int i) {
