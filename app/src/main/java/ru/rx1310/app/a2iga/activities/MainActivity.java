@@ -64,6 +64,9 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 		oModuleVerifyIcon = findViewById(R.id.iconVerify);
 		oSettingsLayout = findViewById(R.id.layoutSettings);
 		
+		/* ? Сообщение о статусе Beta
+		 *   Отображается только если в versionName в build.gradle
+		 *   обнаружена буква "b" */
 		oBetaVersionInstalledMsgLayout = findViewById(R.id.toolbarBetaMessage);
 		if (AppUtils.getVersionName(this, getPackageName()).contains("b")) oBetaVersionInstalledMsgLayout.setVisibility(View.VISIBLE);
 		else oBetaVersionInstalledMsgLayout.setVisibility(View.GONE);
@@ -71,6 +74,10 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 		oToolbar = findViewById(R.id.toolbar);
 		oToolbar.setOnLongClickListener(new View.OnLongClickListener() {
 
+			/* ? Обработка длительного нажатия на Toolbar
+			 *   Отображается диалог, в котором можно вручную
+			 *   указать имя пакета приложения, которое будет
+			 *   запускать a2iga при вызове ассистента */
 			@Override
 			public boolean onLongClick(View v) {
 
@@ -81,7 +88,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
 				b.setTitle(R.string.current_assistant_pkgname_dialog_title);
 				b.setMessage(R.string.current_assistant_pkgname_dialog_message);
-				b.setView(pkgNameDialogInput, 50, 0, 50, 0);
+				b.setView(pkgNameDialogInput, 50, 0, 50, 0); // 50, 0, 50, 0 — отступы EditText слева/справа
 				b.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
@@ -103,18 +110,22 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 		});
 		
 		setSupportActionBar(oToolbar);
-		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-		getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_logo);
-		getSupportActionBar().setDisplayShowHomeEnabled(true);
-		getSupportActionBar().setTitle(R.string.activity_main);
+		getSupportActionBar().setDisplayHomeAsUpEnabled(true); // ? Включение кнопки Back в Toolbar
+		getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_logo); // ? Замена иконки Back в Toolbar на свою
+		getSupportActionBar().setDisplayShowHomeEnabled(true); // ? Вязанное с setDisplayHomeAsUpEnabled
+		getSupportActionBar().setTitle(R.string.activity_main); // ? Заголовок Toolbar
 		
 		oCurrentAssistAppLayout = findViewById(R.id.toolbarCurrentAssistAppLayout);
 		oCurrentAssistAppLayout.setOnClickListener(this);
 		oCurrentAssistAppLayout.setOnLongClickListener(new View.OnLongClickListener() {
 			
+			/* ? Обработка длительного нажатия на блоке с названием и иконкой
+			 *   текущ. приложения для запуска при вызове ассистента */
 			@Override
 			public boolean onLongClick(View v) {
 				
+				/* ? Если выбран модуль, то при длительном
+				 *   удержании будет вызвано окно настроект модуля */
 				if (isAssistAppPkgName.contains("a2iga.module.")) {
 					Intent i = new Intent(Intent.ACTION_MAIN);
 					i.setComponent(new ComponentName(isAssistAppPkgName, isAssistAppPkgName + ".ModuleSettingsActivity"));
