@@ -115,17 +115,17 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 			@Override
 			public boolean onLongClick(View v) {
 				
-				Intent i = new Intent(Intent.ACTION_MAIN);
-				i.setComponent(new ComponentName(isAssistAppPkgName, isAssistAppPkgName + ".ModuleSettingsActivity"));
-				startActivity(i);
+				if (isAssistAppPkgName.contains("a2iga.module.")) {
+					Intent i = new Intent(Intent.ACTION_MAIN);
+					i.setComponent(new ComponentName(isAssistAppPkgName, isAssistAppPkgName + ".ModuleSettingsActivity"));
+					startActivity(i);
+				} else AppUtils.showToast(MainActivity.this, "👨‍💻 with ❤️ by rx1310");
 				
 				return true;
 				
 			}
 			
 		});
-		
-		//AppUtils.showToast(MainActivity.this, "👨‍💻 with ❤️ by rx1310");
 		
 		//oRandomPromt = findViewById(R.id.textRandomPromt);
 		oAssistantAppName = findViewById(R.id.name);
