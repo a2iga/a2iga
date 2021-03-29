@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://github.com/rx1310/a2iga/blob/master/app/src/main/res/mipmap-xhdpi/ic_launcher_foreground.png?raw=true">
+  <img src="https://github.com/rx1310/a2iga/blob/master/app/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.png?raw=true">
   <h1>Any App Instead Google Assistant</h1>
   <p>Маленькая утилита, которая поможет заменить Google Assistant, вызываемый зажатием кнопки Home / жестом нижних краёв экрана (Android Q), на любое приложение, нужное вам.</p>
   <p>
