@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 	CardView oUnsupportedApi22Card, oNotDefaultAssistCard;
 	ImageView oAssistantAppIcon, oModuleIcon;
 	String isAssistAppPkgName;
-	TextView oAssistantAppName, oRandomPromt, oAssistAppNameSummary;
+	TextView oAssistantAppName, oRandomPromt;
 	FrameLayout oSettingsLayout;
 	LinearLayout oCurrentAssistAppLayout, oBetaVersionInstalledMsgLayout, oModuleSettingsLayout;
 	
@@ -60,7 +60,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 		oSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 		oSharedPreferences.registerOnSharedPreferenceChangeListener(this);
 		
-		oAssistAppNameSummary = findViewById(R.id.toolbarCurrentAssistAppSummary);
 		oModuleIcon = findViewById(R.id.iconModule);
 		oSettingsLayout = findViewById(R.id.layoutSettings);
 		
@@ -81,26 +80,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 		
 		oCurrentAssistAppLayout = findViewById(R.id.toolbarCurrentAssistAppLayout);
 		oCurrentAssistAppLayout.setOnClickListener(this);
-		oCurrentAssistAppLayout.setOnLongClickListener(new View.OnLongClickListener() {
-			
-			/* ? Обработка длительного нажатия на блоке с названием и иконкой
-			 *   текущ. приложения для запуска при вызове ассистента */
-			@Override
-			public boolean onLongClick(View v) {
-				
-				/* ? Если выбран модуль, то при длительном
-				 *   удержании будет вызвано окно настроект модуля */
-				if (isAssistAppPkgName.contains("a2iga.module.")) {
-					Intent i = new Intent(Intent.ACTION_MAIN);
-					i.setComponent(new ComponentName(isAssistAppPkgName, isAssistAppPkgName + ".ModuleSettingsActivity"));
-					startActivity(i);
-				} else AppUtils.showToast(MainActivity.this, "👨‍💻 with ❤️ by rx1310");
-				
-				return true;
-				
-			}
-			
-		});
 		
 		//oRandomPromt = findViewById(R.id.textRandomPromt);
 		oAssistantAppName = findViewById(R.id.name);
@@ -113,13 +92,9 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 			
 		} else {
 			
-			if (isAssistAppPkgName.contains("a2iga.module.")) {
-				oAssistAppNameSummary.setText(getString(R.string.current_assistant_open_appslist) + " " + getString(R.string.current_assistant_open_module_settings));
-				oModuleIcon.setVisibility(View.VISIBLE);
-			} else {
-				oAssistAppNameSummary.setText(getString(R.string.current_assistant_open_appslist));
-				oModuleIcon.setVisibility(View.INVISIBLE);
-			}
+			// ? Отображение иконки индикатора модуля
+			if (isAssistAppPkgName.contains("a2iga.module.")) oModuleIcon.setVisibility(View.VISIBLE);
+			else oModuleIcon.setVisibility(View.INVISIBLE);
 			
 			oAssistantAppName.setText(AppUtils.getAppName(this, isAssistAppPkgName));
 			
