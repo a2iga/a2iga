@@ -2,6 +2,7 @@
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android">
     
+	<!-- General -->
 	<PreferenceCategory
 		android:title="@string/pref_general_category"/>
 
@@ -10,6 +11,7 @@
 		android:title="@string/pref_general_doze_mode"
 		android:summary="@string/pref_general_doze_mode_desc"/>
 	
+	<!-- AppsList -->
 	<PreferenceCategory
 		android:title="@string/pref_appslist_category"/>
 	
@@ -34,6 +36,20 @@
 		android:defaultValue="false"
 		android:enabled="true"/>
 	
+	<!-- Module -->
+	<PreferenceCategory
+		android:title="@string/pref_module_category"/>
+
+	<Preference
+		android:key="module.info"
+		android:selectable="false"
+		android:title="@string/pref_module_info"/>
+	
+	<Preference
+		android:key="module.settings"
+		android:title="@string/pref_module_settings"/>
+	
+	<!-- OTA -->
 	<PreferenceCategory
 		android:title="@string/pref_ota_category"/>
 
@@ -46,6 +62,7 @@
 		android:key="ota.changelog"
 		android:title="@string/pref_ota_changelog"/>
 	
+	<!-- About -->
 	<PreferenceCategory
 		android:title="@string/pref_about_category"/>
 

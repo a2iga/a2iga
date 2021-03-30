@@ -16,10 +16,18 @@
 	<string name="pref_appslist_extended">Расширенный список</string>
 	<string name="pref_appslist_extended_desc">Отображать абсолютно все приложения, установленные на устройстве, даже если в манифесте приложения не указан Intent для запуска?</string>
 	
+	<!-- Module -->
+	<string name="pref_module_category">Модули</string>
+	<string name="pref_module_info">Информация о модуле</string>
+	<string name="pref_module_info_desc">Версия: %1$s\nPackage Name: %2$s\nДата установки: %3$s</string>
+	<string name="pref_module_info_desc_isNotModule">Приложение «%1$s» не является модулем!</string>
+	<string name="pref_module_settings">Настройки модуля</string>
+	<string name="pref_module_settings_desc">Нажмите для того, чтобы открыть настройки модуля «%1$s»</string>
+	
 	<!-- Other -->
 	<string name="pref_other_category">Прочее</string>
 	<string name="pref_other_search_in_playstore">Поиск в Play Store</string>
-	<string name="pref_other_search_in_playstore">Выполнить поиск приложения в Google Play Store если запускаемое приложение не было найдено на устройстве?</string>
+	<string name="pref_other_search_in_playstore_desc">Выполнить поиск приложения в Google Play Store если запускаемое приложение не было найдено на устройстве?</string>
 	
 	<!-- OTA -->
 	<string name="pref_ota_category">Обновление приложения</string>

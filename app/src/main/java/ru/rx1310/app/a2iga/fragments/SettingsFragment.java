@@ -22,18 +22,25 @@ import ru.rx1310.app.a2iga.activities.MainActivity;
 import ru.rx1310.app.a2iga.tasks.OTACheckTask;
 import ru.rx1310.app.a2iga.utils.AppUtils;
 import ru.rx1310.app.a2iga.utils.SharedPrefUtils;
+import ru.rx1310.app.a2iga.Constants;
 
 public class SettingsFragment extends PreferenceFragment implements SharedPreferences.OnSharedPreferenceChangeListener {
 
 	Preference dozeMode;
 	Preference appVersion, appDeveloper;
 	Preference otaCheck;
+	Preference moduleInfo, moduleSettings;
 	PowerManager oPowerManager;
+	
 	Intent oIntent = new Intent();
+	
+	String isAssistAppPkgName;
 	
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		addPreferencesFromResource(R.xml.settings);
+		
+		isAssistAppPkgName = SharedPrefUtils.getStringData(getContext(), Constants.ASSIST_APP_PKGNAME);
 		
 		oPowerManager = (PowerManager) getContext().getSystemService(getContext().POWER_SERVICE);
 		
@@ -49,6 +56,19 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
 		otaCheck = findPreference("ota.check");
 		if (SharedPrefUtils.getStringData(getContext(), "ota.lastCheckDate") == null) otaCheck.setSummary("Check");
 		else otaCheck.setSummary(getString(R.string.pref_ota_check_desc) + " " + SharedPrefUtils.getStringData(getContext(), "ota.lastCheckDate"));
+		
+		moduleInfo = findPreference("module.info");
+		if (isAssistAppPkgName.contains("a2iga.module")) moduleInfo.setSummary(String.format(getContext().getString(R.string.pref_module_info_desc), AppUtils.getVersionName(getContext(), isAssistAppPkgName), isAssistAppPkgName, AppUtils.getInstallDate(getContext(), isAssistAppPkgName, false, false)));
+		else moduleInfo.setSummary(String.format(getContext().getString(R.string.pref_module_info_desc_isNotModule), AppUtils.getAppName(getContext(), isAssistAppPkgName)));
+		
+		moduleSettings = findPreference("module.settings");
+		
+		if (isAssistAppPkgName.contains("a2iga.module")) {
+			moduleSettings.setEnabled(true);
+			moduleSettings.setSummary(String.format(getContext().getString(R.string.pref_module_settings_desc), AppUtils.getAppName(getContext(), isAssistAppPkgName)));
+		} else {
+			moduleSettings.setEnabled(false);
+		}
 		
 	}
 	
