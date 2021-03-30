@@ -33,11 +33,12 @@
 		android:gravity="top|left|center"
 		android:id="@+id/toolbarCurrentAssistAppLayout">
 
-		<FrameLayout
+		<LinearLayout
 			android:layout_marginLeft="2dp"
 			android:layout_marginRight="8dp"
 			android:layout_width="wrap_content"
-			android:layout_height="match_parent">
+			android:layout_height="match_parent"
+			android:orientation="vertical">
 
 			<ImageView
 				android:layout_width="22dp"
@@ -46,15 +47,15 @@
 				android:layout_gravity="top"/>
 
 			<ImageView
-				android:id="@+id/iconVerify"
-				android:src="@drawable/ic_verify"
+				android:id="@+id/iconModule"
+				android:src="@drawable/ic_module"
 				android:layout_width="22dp"
 				android:layout_height="22dp"
 				android:layout_gravity="bottom"
 				android:tint="@color/colorSuccess"
 				android:visibility="invisible"/>
 
-		</FrameLayout>
+		</LinearLayout>
 
 		<LinearLayout
 			android:orientation="vertical"

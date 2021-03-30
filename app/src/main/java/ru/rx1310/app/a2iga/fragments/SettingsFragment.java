@@ -58,12 +58,13 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
 		else otaCheck.setSummary(getString(R.string.pref_ota_check_desc) + " " + SharedPrefUtils.getStringData(getContext(), "ota.lastCheckDate"));
 		
 		moduleInfo = findPreference("module.info");
-		if (isAssistAppPkgName.contains("a2iga.module")) moduleInfo.setSummary(String.format(getContext().getString(R.string.pref_module_info_desc), AppUtils.getVersionName(getContext(), isAssistAppPkgName), isAssistAppPkgName, AppUtils.getInstallDate(getContext(), isAssistAppPkgName, false, false)));
+		moduleInfo.setEnabled(false);
+		if (isAssistAppPkgName.contains("a2iga.module.")) moduleInfo.setSummary(String.format(getContext().getString(R.string.pref_module_info_desc), AppUtils.getVersionName(getContext(), isAssistAppPkgName), isAssistAppPkgName, AppUtils.getInstallDate(getContext(), isAssistAppPkgName, false, false)));
 		else moduleInfo.setSummary(String.format(getContext().getString(R.string.pref_module_info_desc_isNotModule), AppUtils.getAppName(getContext(), isAssistAppPkgName)));
 		
 		moduleSettings = findPreference("module.settings");
 		
-		if (isAssistAppPkgName.contains("a2iga.module")) {
+		if (isAssistAppPkgName.contains("a2iga.module.")) {
 			moduleSettings.setEnabled(true);
 			moduleSettings.setSummary(String.format(getContext().getString(R.string.pref_module_settings_desc), AppUtils.getAppName(getContext(), isAssistAppPkgName)));
 		} else {

@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 	Toolbar oToolbar;
 	EditText pkgNameDialogInput;
 	CardView oUnsupportedApi22Card, oNotDefaultAssistCard;
-	ImageView oAssistantAppIcon, oModuleVerifyIcon;
+	ImageView oAssistantAppIcon, oModuleIcon;
 	String isAssistAppPkgName;
 	TextView oAssistantAppName, oRandomPromt, oAssistAppNameSummary;
 	FrameLayout oSettingsLayout;
@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 		oSharedPreferences.registerOnSharedPreferenceChangeListener(this);
 		
 		oAssistAppNameSummary = findViewById(R.id.toolbarCurrentAssistAppSummary);
-		oModuleVerifyIcon = findViewById(R.id.iconVerify);
+		oModuleIcon = findViewById(R.id.iconModule);
 		oSettingsLayout = findViewById(R.id.layoutSettings);
 		
 		/* ? Сообщение о статусе Beta
@@ -115,10 +115,10 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 			
 			if (isAssistAppPkgName.contains("a2iga.module.")) {
 				oAssistAppNameSummary.setText(getString(R.string.current_assistant_open_appslist) + " " + getString(R.string.current_assistant_open_module_settings));
-				oModuleVerifyIcon.setVisibility(View.VISIBLE);
+				oModuleIcon.setVisibility(View.VISIBLE);
 			} else {
 				oAssistAppNameSummary.setText(getString(R.string.current_assistant_open_appslist));
-				oModuleVerifyIcon.setVisibility(View.INVISIBLE);
+				oModuleIcon.setVisibility(View.INVISIBLE);
 			}
 			
 			oAssistantAppName.setText(AppUtils.getAppName(this, isAssistAppPkgName));

@@ -42,7 +42,6 @@
 
 	<Preference
 		android:key="module.info"
-		android:selectable="false"
 		android:title="@string/pref_module_info"/>
 	
 	<Preference
