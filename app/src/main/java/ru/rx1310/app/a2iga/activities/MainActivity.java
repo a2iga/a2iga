@@ -72,42 +72,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 		else oBetaVersionInstalledMsgLayout.setVisibility(View.GONE);
 		
 		oToolbar = findViewById(R.id.toolbar);
-		oToolbar.setOnLongClickListener(new View.OnLongClickListener() {
-
-			/* ? Обработка длительного нажатия на Toolbar
-			 *   Отображается диалог, в котором можно вручную
-			 *   указать имя пакета приложения, которое будет
-			 *   запускать a2iga при вызове ассистента */
-			@Override
-			public boolean onLongClick(View v) {
-
-				pkgNameDialogInput = new EditText(MainActivity.this);
-				pkgNameDialogInput.setHint(getString(R.string.current_assistant_pkgname_dialog_hint) + " " + isAssistAppPkgName);
-
-				android.support.v7.app.AlertDialog.Builder b = new android.support.v7.app.AlertDialog.Builder(MainActivity.this, R.style.AppTheme_Dialog_Alert);
-
-				b.setTitle(R.string.current_assistant_pkgname_dialog_title);
-				b.setMessage(R.string.current_assistant_pkgname_dialog_message);
-				b.setView(pkgNameDialogInput, 50, 0, 50, 0); // 50, 0, 50, 0 — отступы EditText слева/справа
-				b.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
-						if (pkgNameDialogInput.getText().toString().isEmpty()) dialog.dismiss();
-						else {
-							SharedPrefUtils.saveData(MainActivity.this, Constants.ASSIST_APP_PKGNAME, pkgNameDialogInput.getText().toString());
-							AppUtils.showToast(MainActivity.this, getString(R.string.app_selected_as_assistant));
-						}
-					}
-				});
-				b.setNegativeButton(android.R.string.cancel, null);
-				b.create();
-				b.show();
-				
-				return true;
-
-			}
-			
-		});
 		
 		setSupportActionBar(oToolbar);
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true); // ? Включение кнопки Back в Toolbar
@@ -230,10 +194,39 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
 	}
 	
+	/* ? Обработка нажатия на иконку в Toolbar
+	 *   Отображается диалог, в котором можно вручную
+	 *   указать имя пакета приложения, которое будет
+	 *   запускать a2iga при вызове ассистента */
 	@Override
 	public boolean onSupportNavigateUp() {
-		onBackPressed();
+		
+		//onBackPressed();
+		
+		pkgNameDialogInput = new EditText(MainActivity.this);
+		pkgNameDialogInput.setHint(getString(R.string.current_assistant_pkgname_dialog_hint) + " " + isAssistAppPkgName);
+
+		android.support.v7.app.AlertDialog.Builder b = new android.support.v7.app.AlertDialog.Builder(MainActivity.this, R.style.AppTheme_Dialog_Alert);
+
+		b.setTitle(R.string.current_assistant_pkgname_dialog_title);
+		b.setMessage(R.string.current_assistant_pkgname_dialog_message);
+		b.setView(pkgNameDialogInput, 50, 0, 50, 0); // 50, 0, 50, 0 — отступы EditText слева/справа
+		b.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				if (pkgNameDialogInput.getText().toString().isEmpty()) dialog.dismiss();
+				else {
+					SharedPrefUtils.saveData(MainActivity.this, Constants.ASSIST_APP_PKGNAME, pkgNameDialogInput.getText().toString());
+					AppUtils.showToast(MainActivity.this, getString(R.string.app_selected_as_assistant));
+				}
+			}
+		});
+		b.setNegativeButton(android.R.string.cancel, null);
+		b.create();
+		b.show();
+
 		return true;
+		
 	}
     
 }

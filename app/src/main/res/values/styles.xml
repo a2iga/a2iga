@@ -13,6 +13,7 @@
         <!--item name="colorControlHighlight">@color/colorHover</item-->
 		<item name="colorControlNormal">@color/colorIcon</item>
         <!--item name="bottomSheetDialogTheme">@style/AppTheme.SheetDialog</item-->
+		<!--item name="colorControlActivated">@color/colorAccent</item-->
 		
 		<item name="android:navigationBarColor">@color/colorPrimary</item>
         <item name="android:windowBackground">@color/colorSurface</item>
@@ -22,7 +23,7 @@
         <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
         <item name="android:buttonStyle">@style/Widget.AppCompat.Button.Borderless.Colored</item>
         <item name="android:colorButtonNormal">@color/colorAccent</item>
-
+		
 		<item name="appColorIcon">@color/colorIcon</item>
 		
     </style>
@@ -32,7 +33,7 @@
         <item name="android:background">@android:color/transparent</item>
         <item name="android:colorPrimary">?colorPrimary</item>
         <item name="android:colorAccent">@color/colorAccent</item>
-        <!--item name="android:colorAccent">#FFFF0000</item>
+		<!--item name="android:colorAccent">#FFFF0000</item>
         <item name="android:textColor">#FF4665EF</item>
         <item name="android:textColorPrimary">#FFDBE500</item-->
     </style>
