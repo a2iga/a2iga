@@ -4,6 +4,7 @@ package ru.rx1310.app.a2iga.fragments;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.ComponentName;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -98,9 +99,8 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
         otaCheck.setSummary(getString(R.string.pref_ota_check_desc) + " " + SharedPrefUtils.getStringData(getContext(), "ota.lastCheckDate"));
 
     }
-
 	
-	
+	// ? Обработка нажатия на Preferences
 	public boolean onPreferenceTreeClick(PreferenceScreen prefScreen, Preference pref) {
 
 		switch (pref.getKey()) {
@@ -132,6 +132,10 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
 			case "ota.changelog":
 				AppUtils.openURL(getContext(), "https://github.com/rx1310/a2iga/docs/changelog_" + AppUtils.getVersionCode(getContext(), getContext().getPackageName()) + ".md");
 				break;
+				
+			case "module.settings":
+				openModuleSettings();
+				break;
 
 			default: break;
 
@@ -141,15 +145,22 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
 
 	}
 	
+	// ? Если A2IGA в «белом списке», то вернется true, если нет — false
 	boolean dozeModePrefEnabled() {
 		if (!oPowerManager.isIgnoringBatteryOptimizations(getContext().getPackageName())) return true;
 		else return false;
 	}
 	
+	/* ? Вносим A2IGA в «белый» список режима Doze
+	 *   Чтобы Android не ограничивал A2IGA и
+	 *   не "усыплял" его необходимо внести A2IGA
+	 *   в т.н. «белый» список режима Doze.
+	 *   
+	 *   Подробнее: https://clck.ru/U453L
+	 */
 	void ignoreDozeMode() {
 		
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-			
 			
 			String pn = getContext().getPackageName();
 			
@@ -165,5 +176,28 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
 		}
 		
 	} // ignoreDozeMode()
+	
+	/* ? Запуск окна настроект модуля
+	 *   Также при открытии Activity настроек
+	 *	 модуля будет "послано" немного данных,
+	 *   которые могут быть использованы в модуле.
+	 *
+	 *   Это обычный Intent, а поэтому данные эти получаются
+	 *   след. образом:
+	 *   
+	 *   String isData = getIntent().getStringExtra("paramName");
+	 */
+	void openModuleSettings() {
+		
+		boolean extendedAppsList = SharedPrefUtils.getBooleanData(getContext(), "appslist.extended");
+		
+		oIntent.setComponent(new ComponentName(isAssistAppPkgName, isAssistAppPkgName + ".MainActivity"));
+		
+		oIntent.putExtra("a2iga_assistAppPkgName", isAssistAppPkgName); // string
+		oIntent.putExtra("a2iga_extendedAppsList", extendedAppsList); // boolean
+		
+		startActivity(oIntent);
+		
+	} // openModuleSettings()
 
 }
