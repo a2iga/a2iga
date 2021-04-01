@@ -97,23 +97,23 @@ public class OTACheckTask extends AsyncTask<Void, Void, String> {
 		alertBuilder.setTitle(oContext.getString(R.string.app_name) + " " + updateVersion + "." + updateVersionCode);
 		alertBuilder.setMessage(updateMessage);
 		alertBuilder.setPositiveButton(R.string.ota_action_download, new DialogInterface.OnClickListener() {
-				public void onClick(DialogInterface d, int i) {
-					oContext.startActivity(new Intent (Intent.ACTION_VIEW, Uri.parse(apkUrl)));
-				}
-			});
+			public void onClick(DialogInterface d, int i) {
+				oContext.startActivity(new Intent (Intent.ACTION_VIEW, Uri.parse(apkUrl)));
+			}
+		});
 		alertBuilder.setNegativeButton(R.string.ota_action_changelog, new DialogInterface.OnClickListener() {
-				public void onClick(DialogInterface d, int i) {
-					context.startActivity(new Intent (Intent.ACTION_VIEW, Uri.parse(changelogUrl)));
-				}
-			});
+			public void onClick(DialogInterface d, int i) {
+				context.startActivity(new Intent (Intent.ACTION_VIEW, Uri.parse(changelogUrl)));
+			}
+		});
 		alertBuilder.setNeutralButton(R.string.ota_action_copy_url, new DialogInterface.OnClickListener() {
-				public void onClick(DialogInterface d, int i) {
-					ClipboardManager mClipboardMng = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
-					ClipData mClipData = ClipData.newPlainText(null, apkUrl);
-					mClipboardMng.setPrimaryClip(mClipData);
-					AppUtils.showToast(context, context.getString(R.string.ota_msg_url_copied));
-				}
-			});
+			public void onClick(DialogInterface d, int i) {
+				ClipboardManager mClipboardMng = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+				ClipData mClipData = ClipData.newPlainText(null, apkUrl);
+				mClipboardMng.setPrimaryClip(mClipData);
+				AppUtils.showToast(context, context.getString(R.string.ota_msg_url_copied));
+			}
+		});
 		alertBuilder.show();
 
 		AppUtils.Log(oContext, "d", "updateDialog = show()");
@@ -139,9 +139,8 @@ public class OTACheckTask extends AsyncTask<Void, Void, String> {
 		if (AppUtils.isNetworkAvailable(context)) {
 			SharedPrefUtils.saveData(context, "ota.lastCheckDate", isLastCheckDate);
 			new OTACheckTask(context, isProgressDialogEnabled).execute();
-		} else { AppUtils.showToast(context, context.getString(R.string.ota_msg_no_network)); }
+		} else AppUtils.showToast(context, context.getString(R.string.ota_msg_no_network));
 		
-
 	}
 	
 }

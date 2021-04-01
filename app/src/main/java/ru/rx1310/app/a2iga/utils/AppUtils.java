@@ -36,18 +36,12 @@ public class AppUtils {
 	// Логи
 	public static void Log(Context context, String logType, String logMessage) {
 
-		if (logType == "e") {
-			Log.e("[E] DevReader (rx1310)", context.getClass().getName() + "\n" + logMessage);
-		} else if (logType == "d") {
-			Log.d("[D] DevReader (rx1310)", context.getClass().getName() + "\n" + logMessage);
-		} else if (logType == "i") {
-			Log.i("[I] DevReader (rx1310)", context.getClass().getName() + "\n" + logMessage);
-		} else if (logType == "w") {
-			Log.w("[W] DevReader (rx1310)", context.getClass().getName() + "\n" + logMessage);
-		} else {
-			return ;
-		}
-
+		if (logType == "e") 	 Log.e("[E] DevReader (rx1310)", context.getClass().getName() + "\n" + logMessage);
+		else if (logType == "d") Log.d("[D] DevReader (rx1310)", context.getClass().getName() + "\n" + logMessage);
+		else if (logType == "i") Log.i("[I] DevReader (rx1310)", context.getClass().getName() + "\n" + logMessage);
+		else if (logType == "w") Log.w("[W] DevReader (rx1310)", context.getClass().getName() + "\n" + logMessage);
+		else return ;
+		
 	}
 
 	// ? Получение имени версии
@@ -179,17 +173,11 @@ public class AppUtils {
 
             PackageInfo packageInfo = packageMng.getPackageInfo(packageName, 0);
 
-            if (lastUpdateTime) {
-				installTimeInMs = packageInfo.lastUpdateTime;
-			} else {
-				installTimeInMs = packageInfo.firstInstallTime;
-			}
+            if (lastUpdateTime) installTimeInMs = packageInfo.lastUpdateTime;
+			else installTimeInMs = packageInfo.firstInstallTime;
 
-			if (onlyInt) {
-				installDateString  = getDate(installTimeInMs, "ddMMyyyyHHmmss");
-			} else {
-				installDateString  = getDate(installTimeInMs, "dd/MM/yyyy (HH:mm:ss)");
-			}
+			if (onlyInt) installDateString  = getDate(installTimeInMs, "ddMMyyyyHHmmss");
+			else installDateString  = getDate(installTimeInMs, "dd/MM/yyyy (HH:mm:ss)");
 
         } catch (PackageManager.NameNotFoundException e) {
 			Log(context, "e", "getInstallDate: " + e + "\nlastUpdateTime: " + lastUpdateTime);
@@ -256,9 +244,7 @@ public class AppUtils {
 		
 		final String setting = Settings.Secure.getString(context.getContentResolver(), "assistant");
 
-		if (setting != null) {
-			return ComponentName.unflattenFromString(setting);
-		}
+		if (setting != null) return ComponentName.unflattenFromString(setting);
 
 		return null;
 		

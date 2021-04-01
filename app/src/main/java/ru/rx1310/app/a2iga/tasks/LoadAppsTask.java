@@ -46,9 +46,7 @@ public class LoadAppsTask extends AsyncTask<Void, Void, List<ApplicationInfo>> {
 			
 			try {
 				if (extendedAppsList) applist.add(applicationInfo);
-				else {
-					if (oPkgMng.getLaunchIntentForPackage(applicationInfo.packageName) != null) applist.add(applicationInfo);
-				}
+				else { if (oPkgMng.getLaunchIntentForPackage(applicationInfo.packageName) != null) applist.add(applicationInfo); }
 			} catch (Exception ex) {
 				ex.printStackTrace();
 			}

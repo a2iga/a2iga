@@ -32,7 +32,6 @@ import ru.rx1310.app.a2iga.activities.MainActivity;
 import ru.rx1310.app.a2iga.fragments.SettingsFragment;
 import ru.rx1310.app.a2iga.utils.AppUtils;
 import ru.rx1310.app.a2iga.utils.SharedPrefUtils;
-import android.content.ComponentName;
 
 public class MainActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener, View.OnClickListener {
     
@@ -47,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 	
 	SharedPreferences oSharedPreferences;
 	
-	Random oRandom = new Random();
+	//Random oRandom = new Random();
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {

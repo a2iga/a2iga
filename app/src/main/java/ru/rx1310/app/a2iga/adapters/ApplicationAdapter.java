@@ -121,10 +121,15 @@ public class ApplicationAdapter extends ArrayAdapter<ApplicationInfo> {
 		
     }
 	
+	// ? Обработка long click на пункте в ListView
 	private View.OnLongClickListener OnLongClickListener(final int p) {
 
         return new View.OnLongClickListener() {
 
+			/* ? При длительном удержании на пункте в
+			 *   ListView будет скопирован package name
+			 *   приложения, на которое нажали
+			 */
 			@Override
 			public boolean onLongClick(View p1) {
 				
@@ -132,6 +137,7 @@ public class ApplicationAdapter extends ArrayAdapter<ApplicationInfo> {
 				ClipData mClipData = ClipData.newPlainText(null, getItem(p).packageName);
 				mClipboardMng.setPrimaryClip(mClipData);
 				
+				// ? Отображаем Toast, которое уведомляет юзера о копировании
 				AppUtils.showToast(oActivity, oActivity.getString(R.string.pkg_name_copied) + " (" + getItem(p).packageName + ")");
 				
 				return true;
@@ -142,6 +148,7 @@ public class ApplicationAdapter extends ArrayAdapter<ApplicationInfo> {
 
     }
 
+	// ? Обработка нажатия на пункт в ListView
     private View.OnClickListener onClickListener(final int p) {
 		
         return new View.OnClickListener() {
