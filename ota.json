@@ -1,7 +1,7 @@
 {
-	"apkUrl": "https://github.com/rx1310/a2iga/releases/download/%tag%/app-release.apk",
-	"changelogUrl": "https://change.log",
-	"versionName": "N",
-	"versionCode": 999999,
-	"updateMessage": "OTA test"
+	"apkUrl": "https://github.com/rx1310/a2iga/releases/download/210403/A2IGA_8.210403.apk",
+	"changelogUrl": "https://github.com/rx1310/a2iga/blob/master/docs/changelog_210403.md",
+	"versionName": "8",
+	"versionCode": 210403,
+	"updateMessage": "Последняя версия A2IGA 7 была выпущена в ноябре 2020 года. Прошло много времени и я решил, что пора бы уже обновить приложение. Изменений очень много и, соответственно список довольно длинный.\n\nВкратце о том, что изменилось: новый интерфейс, новая иконка, упразднение ручного ввода package name (теперь во главе AppsList), улучшение производительности, оптимизация и рефакторинг кода, внедрение механизма OTA-обновлений, модули (о них отдельно будет пост позже) и многое-многое другое!"
 }
