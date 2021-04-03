@@ -58,7 +58,7 @@ public class LaunchAssistant extends Activity {
 				/* Если package name указан, но приложение
 				 * не установлено — ищем в Play Store это приложение */
 				i = new Intent(Intent.ACTION_VIEW);
-				Toast.makeText(this, R.string.app_not_found, Toast.LENGTH_LONG).show();
+				AppUtils.showToast(this, getString(R.string.app_not_found));
 				i.setData(Uri.parse("market://details?id=" + pkgName));
 
 			}

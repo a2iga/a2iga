@@ -68,7 +68,7 @@
 	<Preference
 		android:key="about.appVersion"
 		android:title="@string/pref_about_app_version"/>
-
+	
 	<Preference
 		android:key="about.appDeveloper"
 		android:title="@string/pref_about_app_developer"/>
@@ -87,5 +87,10 @@
 		android:key="about.appWebsite"
 		android:title="@string/pref_about_app_website"
 		android:summary="@string/pref_about_app_website_desc"/>
+	
+	<Preference
+		android:key="about.appFacts"
+		android:enabled="false"
+		android:selectable="false"/>
 	
 </PreferenceScreen>

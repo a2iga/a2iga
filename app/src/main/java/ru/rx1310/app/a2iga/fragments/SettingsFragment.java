@@ -18,6 +18,8 @@ import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
 
+import java.util.Random;
+
 import ru.rx1310.app.a2iga.R;
 import ru.rx1310.app.a2iga.activities.MainActivity;
 import ru.rx1310.app.a2iga.tasks.OTACheckTask;
@@ -28,12 +30,13 @@ import ru.rx1310.app.a2iga.Constants;
 public class SettingsFragment extends PreferenceFragment implements SharedPreferences.OnSharedPreferenceChangeListener {
 
 	Preference dozeMode;
-	Preference appVersion, appDeveloper;
+	Preference appVersion, appDeveloper, appFacts;
 	Preference otaCheck;
 	Preference moduleInfo, moduleSettings;
 	PowerManager oPowerManager;
 	
 	Intent oIntent = new Intent();
+	Random oRandom = new Random();
 	
 	String isAssistAppPkgName;
 	String lastOtaCheckDate;
@@ -53,11 +56,13 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
 		appVersion = findPreference("about.appVersion");
 		appVersion.setSummary(AppUtils.getVersionName(getContext(), getContext().getPackageName()) + "." + AppUtils.getVersionCode(getContext(), getContext().getPackageName()));
 		
+		appFacts = findPreference("about.appFacts");
+		
 		appDeveloper = findPreference("about.appDeveloper");
 		appDeveloper.setSummary(R.string.app_author);
 		
 		otaCheck = findPreference("ota.check");
-		if (lastOtaCheckDate == null) otaCheck.setSummary("");
+		if (lastOtaCheckDate == null) otaCheck.setSummary(getString(R.string.pref_ota_check_desc_null));
 		else otaCheck.setSummary(getString(R.string.pref_ota_check_desc) + " " + SharedPrefUtils.getStringData(getContext(), "ota.lastCheckDate"));
 		
 		moduleInfo = findPreference("module.info");
@@ -88,7 +93,8 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
 		getPreferenceScreen().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
 		
 		dozeMode.setEnabled(dozeModePrefEnabled());
-
+		appFacts.setSummary(Constants.randomPromts[oRandom.nextInt(13)]);
+		
 	}
   
 

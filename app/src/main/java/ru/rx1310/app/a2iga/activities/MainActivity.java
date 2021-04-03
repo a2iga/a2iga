@@ -46,8 +46,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 	
 	SharedPreferences oSharedPreferences;
 	
-	//Random oRandom = new Random();
-	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,7 +78,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 		oCurrentAssistAppLayout = findViewById(R.id.toolbarCurrentAssistAppLayout);
 		oCurrentAssistAppLayout.setOnClickListener(this);
 		
-		//oRandomPromt = findViewById(R.id.textRandomPromt);
 		oAssistantAppName = findViewById(R.id.name);
 		oAssistantAppIcon = findViewById(R.id.icon);
 		
@@ -138,8 +135,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 			oNotDefaultAssistCard.setVisibility(View.VISIBLE);
 			oSettingsLayout.setVisibility(View.GONE);
 		} 
-		
-		//oRandomPromt.setText(Constants.randomPromts[oRandom.nextInt(8)]);
 		
 	}
 	
