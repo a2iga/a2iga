@@ -36,12 +36,14 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
 	Intent oIntent = new Intent();
 	
 	String isAssistAppPkgName;
+	String lastOtaCheckDate;
 	
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		addPreferencesFromResource(R.xml.settings);
 		
 		isAssistAppPkgName = SharedPrefUtils.getStringData(getContext(), Constants.ASSIST_APP_PKGNAME);
+		lastOtaCheckDate = SharedPrefUtils.getStringData(getContext(), "ota.lastCheckDate");
 		
 		oPowerManager = (PowerManager) getContext().getSystemService(getContext().POWER_SERVICE);
 		
@@ -55,22 +57,27 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
 		appDeveloper.setSummary(R.string.app_author);
 		
 		otaCheck = findPreference("ota.check");
-		if (SharedPrefUtils.getStringData(getContext(), "ota.lastCheckDate") == null) otaCheck.setSummary("Check");
+		if (lastOtaCheckDate == null) otaCheck.setSummary("Check");
 		else otaCheck.setSummary(getString(R.string.pref_ota_check_desc) + " " + SharedPrefUtils.getStringData(getContext(), "ota.lastCheckDate"));
 		
 		moduleInfo = findPreference("module.info");
 		moduleInfo.setEnabled(false);
-		if (isAssistAppPkgName.contains("a2iga.module.")) moduleInfo.setSummary(String.format(getContext().getString(R.string.pref_module_info_desc), AppUtils.getVersionName(getContext(), isAssistAppPkgName), isAssistAppPkgName, AppUtils.getInstallDate(getContext(), isAssistAppPkgName, false, false)));
-		else moduleInfo.setSummary(String.format(getContext().getString(R.string.pref_module_info_desc_isNotModule), AppUtils.getAppName(getContext(), isAssistAppPkgName)));
 		
 		moduleSettings = findPreference("module.settings");
+		moduleSettings.setEnabled(false);
 		
-		if (isAssistAppPkgName.contains("a2iga.module.")) {
-			moduleSettings.setEnabled(true);
-			moduleSettings.setSummary(String.format(getContext().getString(R.string.pref_module_settings_desc), AppUtils.getAppName(getContext(), isAssistAppPkgName)));
-		} else {
-			moduleSettings.setEnabled(false);
-		}
+		if (isAssistAppPkgName != null) {
+			
+			if (isAssistAppPkgName.contains("a2iga.module.")) {
+				moduleSettings.setEnabled(true);
+				moduleSettings.setSummary(String.format(getContext().getString(R.string.pref_module_settings_desc), AppUtils.getAppName(getContext(), isAssistAppPkgName)));
+				moduleInfo.setSummary(String.format(getContext().getString(R.string.pref_module_info_desc), AppUtils.getVersionName(getContext(), isAssistAppPkgName), isAssistAppPkgName, AppUtils.getInstallDate(getContext(), isAssistAppPkgName, false, false)));
+			} else {
+				moduleSettings.setEnabled(false);
+				moduleInfo.setSummary(String.format(getContext().getString(R.string.pref_module_info_desc_isNotModule), AppUtils.getAppName(getContext(), isAssistAppPkgName)));
+			}
+			
+		} 
 		
 	}
 	
