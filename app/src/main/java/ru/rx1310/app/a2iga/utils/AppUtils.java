@@ -245,8 +245,7 @@ public class AppUtils {
 		final String setting = Settings.Secure.getString(context.getContentResolver(), "assistant");
 
 		if (setting != null) return ComponentName.unflattenFromString(setting);
-
-		return null;
+		else return null;
 		
 	}
 
