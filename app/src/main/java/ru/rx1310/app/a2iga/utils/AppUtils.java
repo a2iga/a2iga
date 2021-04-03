@@ -36,10 +36,10 @@ public class AppUtils {
 	// Логи
 	public static void Log(Context context, String logType, String logMessage) {
 
-		if (logType == "e") 	 Log.e("[E] DevReader (rx1310)", context.getClass().getName() + "\n" + logMessage);
-		else if (logType == "d") Log.d("[D] DevReader (rx1310)", context.getClass().getName() + "\n" + logMessage);
-		else if (logType == "i") Log.i("[I] DevReader (rx1310)", context.getClass().getName() + "\n" + logMessage);
-		else if (logType == "w") Log.w("[W] DevReader (rx1310)", context.getClass().getName() + "\n" + logMessage);
+		if (logType == "e") 	 Log.e("[E] A2IGA (rx1310)", context.getClass().getName() + "\n" + logMessage);
+		else if (logType == "d") Log.d("[D] A2IGA (rx1310)", context.getClass().getName() + "\n" + logMessage);
+		else if (logType == "i") Log.i("[I] A2IGA (rx1310)", context.getClass().getName() + "\n" + logMessage);
+		else if (logType == "w") Log.w("[W] A2IGA (rx1310)", context.getClass().getName() + "\n" + logMessage);
 		else return ;
 		
 	}

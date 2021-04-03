@@ -57,7 +57,7 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
 		appDeveloper.setSummary(R.string.app_author);
 		
 		otaCheck = findPreference("ota.check");
-		if (lastOtaCheckDate == null) otaCheck.setSummary("Check");
+		if (lastOtaCheckDate == null) otaCheck.setSummary("");
 		else otaCheck.setSummary(getString(R.string.pref_ota_check_desc) + " " + SharedPrefUtils.getStringData(getContext(), "ota.lastCheckDate"));
 		
 		moduleInfo = findPreference("module.info");

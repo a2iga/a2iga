@@ -43,8 +43,8 @@ public class LaunchAssistant extends Activity {
 
 			/* Если packageName пустой, то отобразим
 			 * toast-сообщение, которое уведомляет об этом */
-			Toast.makeText(this, R.string.pkg_name_notspecified, Toast.LENGTH_LONG).show();
-
+			AppUtils.showToast(this, getString(R.string.pkg_name_notspecified));
+			
 			// Также запустим окно настроек
 			//startActivity(new Intent(this, SettingsActivity.class));
 
