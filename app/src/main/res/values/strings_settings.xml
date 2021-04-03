@@ -24,11 +24,6 @@
 	<string name="pref_module_settings">Настройки модуля</string>
 	<string name="pref_module_settings_desc">Нажмите для того, чтобы открыть настройки модуля «%1$s»</string>
 	
-	<!-- Other -->
-	<string name="pref_other_category">Прочее</string>
-	<string name="pref_other_search_in_playstore">Поиск в Play Store</string>
-	<string name="pref_other_search_in_playstore_desc">Выполнить поиск приложения в Google Play Store если запускаемое приложение не было найдено на устройстве?</string>
-	
 	<!-- OTA -->
 	<string name="pref_ota_category">Обновление приложения</string>
 	<string name="pref_ota_check">Проверить сейчас</string>
@@ -46,8 +41,6 @@
 	<string name="pref_about_app_website_desc">Посетите официальный сайт A2IGA, где также можно найти FAQ по приложению</string>
 	<string name="pref_about_app_playstore">Google Play Store</string>
 	<string name="pref_about_app_playstore_desc">Посетите страницу A2IGA в Play Store чтобы оценить приложение</string>
-	<string name="pref_other_share">Рассказать друзьям</string>
-	<string name="pref_other_share_desc">Понравилось приложение? Расскажите о нём своим друзьям!</string>
 	<string name="pref_about_app_telegram">Telegram</string>
 	<string name="pref_about_app_telegram_desc">Подпишитесь на официальный канал @rx1310_dev, чтобы быть в курсе всех нововведений</string>
 	
