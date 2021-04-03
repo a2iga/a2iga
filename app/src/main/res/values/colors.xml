@@ -5,7 +5,7 @@
 	<color name="colorPrimary">@color/colorCard</color> <!-- OLD VALUE: #FF2E2E2E --> 
 	<color name="colorPrimaryDark">@color/colorPrimary</color>
 	<color name="colorSurface">#FF202124</color>
-	<color name="colorHover">#FF333A4D</color>
+	<color name="colorHover">#FF656D82</color>
 	<color name="colorIcon">#FFFFFFFF</color>
 	<color name="colorCard">#FF313236</color>
 	
