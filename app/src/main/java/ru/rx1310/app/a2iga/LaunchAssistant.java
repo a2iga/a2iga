@@ -6,14 +6,13 @@ import android.app.Activity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.ComponentName;
 
 import android.net.Uri;
-
 import android.os.Bundle;
-
 import android.widget.Toast;
-
 import android.text.TextUtils;
+
 import ru.rx1310.app.a2iga.utils.SharedPrefUtils;
 import ru.rx1310.app.a2iga.tasks.OTACheckTask;
 import ru.rx1310.app.a2iga.utils.AppUtils;
@@ -21,6 +20,7 @@ import ru.rx1310.app.a2iga.utils.AppUtils;
 public class LaunchAssistant extends Activity {
 
 	String isAssistAppPkgName;
+	Intent oIntent = new Intent();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +48,12 @@ public class LaunchAssistant extends Activity {
 			// Также запустим окно настроек
 			//startActivity(new Intent(this, SettingsActivity.class));
 
+		} else if (isAssistAppPkgName.contains("a2iga.module.")) {
+			
+			// ? Если установлен модуль
+			oIntent.setComponent(new ComponentName(isAssistAppPkgName, isAssistAppPkgName + ".LaunchModule"));
+			startActivity(oIntent);
+			
 		} else {
 
 			// Если в packageName есть данные, то запускаем приложение
