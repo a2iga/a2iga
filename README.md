@@ -29,6 +29,9 @@
 
 Теперь при вызове ассистента будет запущено выбранное вами приложение. Подробнее можно почитать на [сайте](https://rx1310.github.io/docs/a2iga/faq.html#install) проекта!
 
+## Модули
+Модули можно скачать с интернета свободно, с темы [4PDA](https://4pda.ru/forum/index.php?showtopic=1002185&st=0) или с [официальной страницы](https://rx1310.github.io/a2iga.html#modules) A2IGA
+
 ## A2IGA Pre-Reborn
 Если Вас интересует версия A2IGA до редизайна, то перейдите в ветку [pre-reborn](https://github.com/rx1310/a2iga/tree/pre-reborn)
 
