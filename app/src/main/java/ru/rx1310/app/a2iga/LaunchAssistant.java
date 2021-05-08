@@ -22,7 +22,7 @@ public class LaunchAssistant extends Activity {
 	Intent oIntent = new Intent();
 	FingerprintHelper oFingerprintHelper;
 
-	boolean isFingerprintPermEnabled;
+	boolean isFingerprintPermEnabled, isFingerprintPermDialogAppIconEnabled;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +30,7 @@ public class LaunchAssistant extends Activity {
 		
 		isAssistAppPkgName = SharedPrefUtils.getStringData(this, Constants.ASSIST_APP_PKGNAME);
 		isFingerprintPermEnabled = SharedPrefUtils.getBooleanData(this, "security.fingerprintPerm");
+		isFingerprintPermDialogAppIconEnabled = SharedPrefUtils.getBooleanData(this, "security.fingerprintPerm.dialogAppIcon");
 		
 		// Запускаем ассистент
 		if (isFingerprintPermEnabled) startAssistAppWithFingerprint(isAssistAppPkgName);
@@ -98,11 +99,17 @@ public class LaunchAssistant extends Activity {
 		b.setMessage(String.format(getString(R.string.fingerprint_perm_dialog_desc), AppUtils.getAppName(this, isAssistAppPkgName)));
 		b.setCancelable(false);
 		
-		try {
-			Drawable drawable = getPackageManager().getApplicationIcon(isAssistAppPkgName);
-			b.setIcon(drawable);
-		} catch (PackageManager.NameNotFoundException e) {
-			e.printStackTrace();
+		if (isFingerprintPermDialogAppIconEnabled) {
+			
+			try {
+				Drawable drawable = getPackageManager().getApplicationIcon(isAssistAppPkgName);
+				b.setIcon(drawable);
+			} catch (PackageManager.NameNotFoundException e) {
+				e.printStackTrace();
+			}
+			
+		} else {
+			b.setIcon(R.drawable.ic_app_logo);
 		}
 		
 		b.setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() { // обработка нажатия кнопки "No"

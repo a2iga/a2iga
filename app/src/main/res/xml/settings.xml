@@ -22,6 +22,16 @@
 		android:defaultValue="false"
 		android:enabled="true"/>
 	
+	<SwitchPreference
+		android:key="security.fingerprintPerm.dialogAppIcon"
+		android:title="@string/pref_security_fingerprint_perm_showIcon"
+		android:summary="@string/pref_security_fingerprint_perm_showIcon_desc"
+		android:defaultValue="true"
+		android:dependency="security.fingerprintPerm"
+		android:enabled="true"/>
+	
+	
+	
 	<!-- AppsList -->
 	<PreferenceCategory
 		android:title="@string/pref_appslist_category"/>
