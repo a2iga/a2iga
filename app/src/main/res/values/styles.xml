@@ -73,7 +73,7 @@
 	<style name="AppTheme.TextAppearanceTitle">
         <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
         <!--item name="android:textStyle">bold</item-->
-        <item name="android:textColor">#FFFFFFFF</item>
+        <item name="android:textColor">@color/colorFont</item>
     </style>
 	
 </resources>

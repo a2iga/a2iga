@@ -6,6 +6,8 @@
 	<string name="pref_general_doze_mode">Режим Doze</string>
 	<string name="pref_general_doze_mode_desc">Уберите ограничение режима Doze для A2IGA, если приложение не запускается при вызове ассистента</string>
 	<string name="pref_general_doze_mode_desc_enabled">A2IGA уже включен в «белый лист» режима Doze!</string>
+	<!--string name="pref_general_"></string>
+	<string name="pref_general_"></string-->
 	
 	<!-- AppsList -->
 	<string name="pref_appslist_category">Список приложений</string>
@@ -23,6 +25,11 @@
 	<string name="pref_module_info_desc_isNotModule">Приложение «%1$s» не является модулем!</string>
 	<string name="pref_module_settings">Настройки модуля</string>
 	<string name="pref_module_settings_desc">Нажмите для того, чтобы открыть настройки модуля «%1$s»</string>
+	
+	<!-- Security -->
+	<string name="pref_security_category">Безопасность</string>
+	<string name="pref_security_fingerprint_perm">Запуск по отпечатку пальца</string>
+	<string name="pref_security_fingerprint_perm_desc">Запрашивать подтверждение по отпечатку пальца при запуске приложения?</string>
 	
 	<!-- OTA -->
 	<string name="pref_ota_category">Обновление приложения</string>

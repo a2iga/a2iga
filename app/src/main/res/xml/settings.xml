@@ -11,6 +11,17 @@
 		android:title="@string/pref_general_doze_mode"
 		android:summary="@string/pref_general_doze_mode_desc"/>
 	
+	<!-- Security -->
+	<PreferenceCategory
+		android:title="@string/pref_security_category"/>
+	
+	<SwitchPreference
+		android:key="security.fingerprintPerm"
+		android:title="@string/pref_security_fingerprint_perm"
+		android:summary="@string/pref_security_fingerprint_perm_desc"
+		android:defaultValue="false"
+		android:enabled="true"/>
+	
 	<!-- AppsList -->
 	<PreferenceCategory
 		android:title="@string/pref_appslist_category"/>

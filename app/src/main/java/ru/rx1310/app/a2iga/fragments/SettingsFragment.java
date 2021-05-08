@@ -33,6 +33,7 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
 	Preference appVersion, appDeveloper, appFacts;
 	Preference otaCheck;
 	Preference moduleInfo, moduleSettings;
+	Preference securityFingerprintPerm;
 	
 	PowerManager oPowerManager;
 	
@@ -82,6 +83,9 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
 			}
 			
 		} 
+		
+		securityFingerprintPerm = findPreference("security.fingerprintPerm");
+		if (!AppUtils.isFingerprintSensorDetected(getContext())) securityFingerprintPerm.setEnabled(false);
 		
 	}
 	

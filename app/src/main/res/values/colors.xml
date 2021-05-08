@@ -8,6 +8,7 @@
 	<color name="colorHover">#FF656D82</color>
 	<color name="colorIcon">#FFFFFFFF</color>
 	<color name="colorCard">#FF313236</color>
+	<color name="colorFont">#FFFFFFFF</color>
 	
 	<color name="colorError">#B71C1C</color>
 	<color name="colorWarn">#FF6F00</color>

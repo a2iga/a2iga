@@ -13,18 +13,15 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
 
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
+import android.support.v7.widget.Toolbar;
+
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.Toolbar;
-import android.support.v7.app.AlertDialog;
-
-import java.util.Random;
 
 import ru.rx1310.app.a2iga.Constants;
 import ru.rx1310.app.a2iga.R;
@@ -43,7 +40,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 	TextView oAssistantAppName, oRandomPromt;
 	FrameLayout oSettingsLayout;
 	LinearLayout oCurrentAssistAppLayout, oBetaVersionInstalledMsgLayout, oModuleSettingsLayout;
-	
 	SharedPreferences oSharedPreferences;
 	
     @Override

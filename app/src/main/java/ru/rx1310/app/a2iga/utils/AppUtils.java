@@ -11,13 +11,18 @@ import android.content.pm.PackageManager;
 import android.content.res.TypedArray;
 
 import android.graphics.Color;
-import android.provider.Settings;
-import android.util.Log;
-import android.widget.Toast;
+import android.hardware.fingerprint.FingerprintManager;
+import android.icu.text.SimpleDateFormat;
+import android.icu.util.Calendar;
 
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
+
+import android.os.Build;
+import android.provider.Settings;
+import android.util.Log;
+import android.widget.Toast;
 
 import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
@@ -25,8 +30,6 @@ import android.support.customtabs.CustomTabsClient;
 import android.support.customtabs.CustomTabsIntent;
 import android.support.customtabs.CustomTabsServiceConnection;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 
 import ru.rx1310.app.a2iga.R;
@@ -246,6 +249,27 @@ public class AppUtils {
 
 		if (setting != null) return ComponentName.unflattenFromString(setting);
 		else return null;
+		
+	}
+	
+	// ? Проверка на наличие сканера отпечатка пальцев
+	public static boolean isFingerprintSensorDetected(Context context) {
+		
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+			
+			FingerprintManager fingerprintManager = (FingerprintManager) context.getSystemService(Context.FINGERPRINT_SERVICE);
+			
+			if (!fingerprintManager.isHardwareDetected()) { 
+				return false;
+			} else if (!fingerprintManager.hasEnrolledFingerprints()) { 
+				return false;
+			} else { 
+				return true;
+			}
+			
+		}
+		
+		return false;
 		
 	}
 
