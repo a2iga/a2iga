@@ -27,6 +27,9 @@
 	<string name="fingerprint_perm_dialog_desc">Пожалуйста, приложите зарегистрированный в системе палец к сканеру отпечатка пальца для запуска приложения «%1$s».</string>
 	<string name="fingerprint_perm_denied">Отказано в доступе! Отпечаток пальца не распознан!</string>
 	
+	<string name="assistant_from_intent_dialog">Запрос на установку</string>
+	<string name="assistant_from_intent_dialog_desc" formatted="false">Вы действительно хотите установить «&lt;b&gt;%1$s&lt;/b&gt;» в качестве приложения-ассистента?</string>
+	
 	<string name="current_assistant">Текущ. ассистент</string>
 	<string name="current_assistant_null">¯\u005c_(ツ)_/¯</string>
 	<string name="current_assistant_open_appslist">Нажмите на эту карточку для того, чтобы открыть список установленных приложений</string>

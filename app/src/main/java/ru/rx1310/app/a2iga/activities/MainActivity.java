@@ -29,6 +29,10 @@ import ru.rx1310.app.a2iga.activities.MainActivity;
 import ru.rx1310.app.a2iga.fragments.SettingsFragment;
 import ru.rx1310.app.a2iga.utils.AppUtils;
 import ru.rx1310.app.a2iga.utils.SharedPrefUtils;
+import android.content.Context;
+import android.content.ComponentName;
+import android.app.admin.DevicePolicyManager;
+import android.text.Html;
 
 public class MainActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener, View.OnClickListener {
     
@@ -41,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 	FrameLayout oSettingsLayout;
 	LinearLayout oCurrentAssistAppLayout, oBetaVersionInstalledMsgLayout, oModuleSettingsLayout;
 	SharedPreferences oSharedPreferences;
-	
+	Intent oIntent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +53,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 		getFragmentManager().beginTransaction().replace(R.id.layoutSettings, new SettingsFragment()).commit();
 		
 		isAssistAppPkgName = SharedPrefUtils.getStringData(this, Constants.ASSIST_APP_PKGNAME);
+		oIntent = getIntent();
 		
 		oSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 		oSharedPreferences.registerOnSharedPreferenceChangeListener(this);
@@ -118,6 +123,12 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 			oSettingsLayout.setVisibility(View.GONE);
 		}
 		
+		// ?  
+		String isIntentAction = oIntent.getAction();
+		String isIntentType = oIntent.getType();
+		
+		if (Intent.ACTION_SEND.equals(isIntentAction) && isIntentType != null || "text/plain".equals(isIntentType)) setAssistantAppFromIntent(oIntent);
+		
     }
 
 	@Override
@@ -125,17 +136,18 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 		super.onResume();
 		
 		if (AppUtils.getCurrentAssist(this) != null) {
+			
 			if (AppUtils.getCurrentAssist(this).getClassName().toString().contains("a2iga")) {
 				oNotDefaultAssistCard.setVisibility(View.GONE);
 				oSettingsLayout.setVisibility(View.VISIBLE);
 			} 
+			
 		} else {
 			oNotDefaultAssistCard.setVisibility(View.VISIBLE);
 			oSettingsLayout.setVisibility(View.GONE);
 		}
 		
 	}
-	
 	
 	@Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPrefs, String key) {
@@ -196,4 +208,36 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 		
 	}
     
+	/* Отображаем AlertDialog при получении данных.
+	 * Код передачи данных из приложения в A2IGA:
+	 * ---
+	 * 1. Intent sendPackageName = new Intent();
+	 * 2. sendPackageName.setAction(Intent.ACTION_SEND);
+	 * 3. sendPackageName.setClassName("ru.rx1310.app.a2iga", "ru.rx1310.app.a2iga.activities.MainActivity").addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+	 * 4. sendPackageName.putExtra(Intent.EXTRA_TEXT, "com.android.settings"); // "com.android.settings" - имя пакета, которое принимает A2IGA
+	 * 5. sendPackageName.setType("text/plain");
+	 * 6. startActivity(Intent.createChooser(sendPackageName, "Select «A2IGA»!"));
+	 * --- */
+	void setAssistantAppFromIntent(Intent intent){
+
+		final String pkgName = intent.getStringExtra(Intent.EXTRA_TEXT);
+
+		android.support.v7.app.AlertDialog.Builder b = new android.support.v7.app.AlertDialog.Builder(MainActivity.this, R.style.AppTheme_Dialog_Alert);
+
+		b.setTitle(R.string.gotten_package_name_dialog);
+		b.setMessage(Html.fromHtml(String.format(getString(R.string.gotten_package_name_dialog_desc), AppUtils.getAppName(this, pkgName))));
+		b.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				SharedPrefUtils.saveData(MainActivity.this, Constants.ASSIST_APP_PKGNAME, pkgName);
+				AppUtils.showToast(MainActivity.this, getString(R.string.app_selected_as_assistant));
+				finish();
+			}
+		});
+		b.setNegativeButton(android.R.string.cancel, null);
+		b.create();
+		b.show();
+		
+	}
+	
 }
