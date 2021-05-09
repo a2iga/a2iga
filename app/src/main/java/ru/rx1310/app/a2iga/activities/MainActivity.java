@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 	LinearLayout oCurrentAssistAppLayout, oBetaVersionInstalledMsgLayout, oModuleSettingsLayout;
 	SharedPreferences oSharedPreferences;
 	Intent oIntent;
+	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
