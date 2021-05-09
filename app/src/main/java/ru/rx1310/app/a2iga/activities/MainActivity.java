@@ -208,24 +208,31 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 		
 	}
     
-	/* Отображаем AlertDialog при получении данных.
-	 * Код передачи данных из приложения в A2IGA:
-	 * ---
-	 * 1. Intent sendPackageName = new Intent();
-	 * 2. sendPackageName.setAction(Intent.ACTION_SEND);
-	 * 3. sendPackageName.setClassName("ru.rx1310.app.a2iga", "ru.rx1310.app.a2iga.activities.MainActivity").addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-	 * 4. sendPackageName.putExtra(Intent.EXTRA_TEXT, "com.android.settings"); // "com.android.settings" - имя пакета, которое принимает A2IGA
-	 * 5. sendPackageName.setType("text/plain");
-	 * 6. startActivity(Intent.createChooser(sendPackageName, "Select «A2IGA»!"));
-	 * --- */
+	/* ? Отображаем AlertDialog при получении данных.
+	 *   Код передачи данных из приложения в A2IGA:
+	 *   ---
+	 *   1. Intent sendPackageName = new Intent();
+	 *   2. sendPackageName.setAction(Intent.ACTION_SEND);
+	 *   3. sendPackageName.setClassName("ru.rx1310.app.a2iga", "ru.rx1310.app.a2iga.activities.MainActivity").addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+	 *   4. sendPackageName.putExtra(Intent.EXTRA_TEXT, "com.android.settings"); // "com.android.settings" - имя пакета, которое принимает A2IGA
+	 *   5. sendPackageName.setType("text/plain");
+	 *   6. startActivity(Intent.createChooser(sendPackageName, "Select «A2IGA»!")); */
 	void setAssistantAppFromIntent(Intent intent){
 
 		final String pkgName = intent.getStringExtra(Intent.EXTRA_TEXT);
 
 		android.support.v7.app.AlertDialog.Builder b = new android.support.v7.app.AlertDialog.Builder(MainActivity.this, R.style.AppTheme_Dialog_Alert);
 
-		b.setTitle(R.string.gotten_package_name_dialog);
-		b.setMessage(Html.fromHtml(String.format(getString(R.string.gotten_package_name_dialog_desc), AppUtils.getAppName(this, pkgName))));
+		b.setTitle(R.string.assistant_from_intent_dialog);
+		b.setMessage(Html.fromHtml(String.format(getString(R.string.assistant_from_intent_dialog_desc), AppUtils.getAppName(this, pkgName))));
+		
+		try {
+			Drawable drawable = getPackageManager().getApplicationIcon(pkgName);
+			b.setIcon(drawable);
+		} catch (PackageManager.NameNotFoundException e) {
+			e.printStackTrace();
+		}
+		
 		b.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
@@ -234,6 +241,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 				finish();
 			}
 		});
+		
 		b.setNegativeButton(android.R.string.cancel, null);
 		b.create();
 		b.show();
