@@ -138,7 +138,7 @@ public class AppUtils {
 
 	// ? Отображение Toast
 	public static void showToast(Context context, String message) {
-		Toast.makeText(context, message, Toast.LENGTH_LONG).show();
+		Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
 		Log(context, "d", "showToast: " + message);
 	}
 

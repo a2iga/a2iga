@@ -92,7 +92,6 @@
 		android:layout_height="wrap_content"
 		android:gravity="top|left|center"
 		android:id="@+id/toolbarBetaMessage"
-		android:background="@color/colorWarn"
 		android:visibility="gone">
 
 		<ImageView
@@ -100,14 +99,15 @@
 			android:layout_height="22dp"
 			android:layout_marginLeft="2dp"
 			android:layout_marginRight="8dp"
-			android:src="@drawable/ic_warn"/>
+			android:src="@drawable/ic_warn"
+			android:tint="@color/colorWarn"/>
 
 		<TextView
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:text="@string/beta_version_installed"
 			android:layout_marginStart="24dp"
-			android:textColor="#FFFFFFFF"/>
+			android:textColor="@color/colorWarn"/>
 
 	</LinearLayout>
 

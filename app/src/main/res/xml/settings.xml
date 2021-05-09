@@ -30,8 +30,6 @@
 		android:dependency="security.fingerprintPerm"
 		android:enabled="true"/>
 	
-	
-	
 	<!-- AppsList -->
 	<PreferenceCategory
 		android:title="@string/pref_appslist_category"/>

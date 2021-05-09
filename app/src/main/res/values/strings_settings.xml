@@ -30,8 +30,8 @@
 	<string name="pref_security_category">Безопасность</string>
 	<string name="pref_security_fingerprint_perm">Запуск по отпечатку пальца</string>
 	<string name="pref_security_fingerprint_perm_desc">Запрашивать подтверждение по отпечатку пальца при запуске приложения?</string>
-	<string name="pref_security_fingerprint_perm_showIcon">Отображать иконку в диалоге?</string>
-	<string name="pref_security_fingerprint_perm_showIcon_desc">Если хотите скрыть иконку запускаемого приложения из диалога запроса отпечатка пальца — отключите этот параметр</string>
+	<string name="pref_security_fingerprint_perm_showIcon">Иконка запускаемого приложения</string>
+	<string name="pref_security_fingerprint_perm_showIcon_desc">Отображать иконку приложения в диалоге запроса отпечатка пальца пользователя?</string>
 	
 	<!-- OTA -->
 	<string name="pref_ota_category">Обновление приложения</string>

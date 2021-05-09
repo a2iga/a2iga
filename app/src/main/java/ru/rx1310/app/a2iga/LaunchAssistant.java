@@ -115,7 +115,7 @@ public class LaunchAssistant extends Activity {
 				}
 
 			} else {
-				b.setIcon(R.drawable.ic_app_logo);
+				b.setIcon(R.drawable.ic_logo);
 			}
 
 			b.setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() { // обработка нажатия кнопки "No"

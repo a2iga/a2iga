@@ -21,7 +21,7 @@
 	<string name="appslist_apps_count_filtered_zero" formatted="false">Нет совпадений ¯\u005c_(ツ)_/¯</string>
 	<string name="appslist_search_hint">Поиск приложения...</string>
 	
-	<string name="beta_version_installed">У Вас установлена beta-версия для тестирования! Возможны неполадки в работе приложения.</string>
+	<string name="beta_version_installed">Вы используете версию A2IGA для тестирования. Возможны какие-либо ошибки в работе приложения и прочие недочеты.</string>
 	
 	<string name="fingerprint_perm_dialog">Подтверждение запуска...</string>
 	<string name="fingerprint_perm_dialog_desc">Пожалуйста, приложите зарегистрированный в системе палец к сканеру отпечатка пальца для запуска приложения «%1$s».</string>

@@ -26,6 +26,7 @@ import ru.rx1310.app.a2iga.tasks.OTACheckTask;
 import ru.rx1310.app.a2iga.utils.AppUtils;
 import ru.rx1310.app.a2iga.utils.SharedPrefUtils;
 import ru.rx1310.app.a2iga.Constants;
+import android.content.DialogInterface;
 
 public class SettingsFragment extends PreferenceFragment implements SharedPreferences.OnSharedPreferenceChangeListener {
 
@@ -152,6 +153,10 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
 			case "module.settings":
 				openModuleSettings();
 				break;
+				
+			case "about.appVersion":
+				appAbout();
+				break;
 
 			default: break;
 
@@ -215,5 +220,22 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
 		startActivity(oIntent);
 		
 	} // openModuleSettings()
+	
+	void appAbout() {
+		
+		android.support.v7.app.AlertDialog.Builder alertBuilder = new android.support.v7.app.AlertDialog.Builder(getContext(), R.style.AppTheme_Dialog_Alert);
+
+		alertBuilder.setIcon(R.drawable.ic_logo);
+		alertBuilder.setTitle("Title");
+		alertBuilder.setMessage("Message");
+		alertBuilder.setPositiveButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+				public void onClick(DialogInterface d, int i) {
+					d.dismiss();
+				}
+			});
+		
+		alertBuilder.show();
+		
+	}
 
 }
