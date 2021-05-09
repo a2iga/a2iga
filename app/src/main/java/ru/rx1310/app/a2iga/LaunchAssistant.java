@@ -12,16 +12,22 @@ import android.hardware.fingerprint.FingerprintManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
-import ru.rx1310.app.a2iga.helpers.FingerprintHelper;
+
 import ru.rx1310.app.a2iga.utils.AppUtils;
 import ru.rx1310.app.a2iga.utils.SharedPrefUtils;
+import android.hardware.biometrics.BiometricPrompt;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Executor;
+import android.os.CancellationSignal;
+import android.widget.Toast;
 
 public class LaunchAssistant extends Activity {
 
 	String isAssistAppPkgName;
 	Intent oIntent = new Intent();
-	FingerprintHelper oFingerprintHelper;
-
+	
+	Executor oExecutor;
+	
 	boolean isFingerprintPermEnabled, isFingerprintPermDialogAppIconEnabled;
 	
 	@Override
@@ -31,6 +37,8 @@ public class LaunchAssistant extends Activity {
 		isAssistAppPkgName = SharedPrefUtils.getStringData(this, Constants.ASSIST_APP_PKGNAME);
 		isFingerprintPermEnabled = SharedPrefUtils.getBooleanData(this, "security.fingerprintPerm");
 		isFingerprintPermDialogAppIconEnabled = SharedPrefUtils.getBooleanData(this, "security.fingerprintPerm.dialogAppIcon");
+		
+		oExecutor = Executors.newSingleThreadExecutor();
 		
 		// Запускаем ассистент
 		if (isFingerprintPermEnabled) startAssistAppWithFingerprint(isAssistAppPkgName);
@@ -88,7 +96,7 @@ public class LaunchAssistant extends Activity {
 		
 		runApp(pkgName);
 
-	}
+	} // startAssistApp
 	
 	// Функция запуска ассистента через подтверждение отпечатка пальца
 	public void startAssistAppWithFingerprint(final String pkgName) {
@@ -99,73 +107,69 @@ public class LaunchAssistant extends Activity {
 			
 		} else {
 			
-			final android.support.v7.app.AlertDialog.Builder b = new android.support.v7.app.AlertDialog.Builder(LaunchAssistant.this, R.style.AppTheme_Dialog_Alert);
-
-			b.setTitle(R.string.fingerprint_perm_dialog);
-			b.setMessage(String.format(getString(R.string.fingerprint_perm_dialog_desc), AppUtils.getAppName(this, isAssistAppPkgName)));
-			b.setCancelable(false);
-
-			if (isFingerprintPermDialogAppIconEnabled) {
-
-				try {
-					Drawable drawable = getPackageManager().getApplicationIcon(isAssistAppPkgName);
-					b.setIcon(drawable);
-				} catch (PackageManager.NameNotFoundException e) {
-					e.printStackTrace();
-				}
-
-			} else {
-				b.setIcon(R.drawable.ic_logo);
-			}
-
-			b.setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() { // обработка нажатия кнопки "No"
-					public void onClick(DialogInterface d, int i) {
-						finish();
+			BiometricPrompt mBiometricPrompt = new BiometricPrompt.Builder(this)
+				.setTitle(AppUtils.getAppName(this, isAssistAppPkgName))
+				.setDescription(getString(R.string.fingerprint_perm_dialog_desc))
+				.setNegativeButton(getString(android.R.string.cancel), oExecutor, new DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						//dialog.dismiss();
+						LaunchAssistant.this.finish();
 					}
-				});
+				})
+				.build();
 
-			b.create();
-			b.show();
-
-			if (FingerprintHelper.canUseFingerprint()) {
-
-				try {
-
-					oFingerprintHelper = new FingerprintHelper() {
-
+			mBiometricPrompt.authenticate(new CancellationSignal(), oExecutor, new BiometricPrompt.AuthenticationCallback() {
+				
+				@Override
+				public void onAuthenticationError(int errorCode, final CharSequence errString) {
+					super.onAuthenticationError(errorCode, errString);
+					
+					runOnUiThread(new Runnable() {
 						@Override
-						public void onAuthenticationError(int errCode, CharSequence errMessage) {
-							AppUtils.showToast(LaunchAssistant.this, errMessage + "");
-							AppUtils.Log(LaunchAssistant.this, "e", "onAuthenticationError || errorCode: " + errCode + " || errorMessage: " + errMessage);
+						public void run() {
+							
+							Toast.makeText(LaunchAssistant.this, "E: " + errString, Toast.LENGTH_LONG).show();
+							finish();
+							
 						}
-
-						@Override
-						public void onAuthenticationHelp(int helpCode, CharSequence helpMessage) {
-							AppUtils.showToast(LaunchAssistant.this, "Help string: " + helpMessage + " / " + helpCode);
-						}
-
-						@Override
-						public void onAuthenticationSucceeded(FingerprintManager.AuthenticationResult result) {
-							runApp(pkgName);
-						}
-
-						@Override
-						public void onAuthenticationFailed() {
-							AppUtils.showToast(LaunchAssistant.this, getString(R.string.fingerprint_perm_denied));
-							//finish();
-						}
-
-					};
-
-					oFingerprintHelper.startAuth();
-
-				} catch (Exception e) {
-					e.printStackTrace();
+					});
+					
 				}
 
-			}
+				@Override
+				public void onAuthenticationHelp(int helpCode, final CharSequence helpString) {
+					super.onAuthenticationHelp(helpCode, helpString);
+					
+					runOnUiThread(new Runnable() {
+						@Override
+						public void run() {
+							
+							Toast.makeText(LaunchAssistant.this, "D: " + helpString, Toast.LENGTH_LONG).show();
+							
+						}
+					});
+						
+				}
+
+				@Override
+				public void onAuthenticationSucceeded(BiometricPrompt.AuthenticationResult result) {
+					super.onAuthenticationSucceeded(result);
+					
+					runOnUiThread(new Runnable() {
+						@Override
+						public void run() {
+							
+							runApp(pkgName);
+
+						}
+					});
+				}
+				
+			});
+			
 		}
 		
-	}
+	} // startAssistAppWithFingerprint
 
 }

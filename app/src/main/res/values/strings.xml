@@ -23,8 +23,8 @@
 	
 	<string name="beta_version_installed">Вы используете версию A2IGA для тестирования. Возможны какие-либо ошибки в работе приложения и прочие недочеты.</string>
 	
-	<string name="fingerprint_perm_dialog">Подтверждение запуска...</string>
-	<string name="fingerprint_perm_dialog_desc">Пожалуйста, приложите зарегистрированный в системе палец к сканеру отпечатка пальца для запуска приложения «%1$s».</string>
+	<string name="fingerprint_perm_dialog">@string/app_name</string>
+	<string name="fingerprint_perm_dialog_desc">Пожалуйста, приложите зарегистрированный в системе палец к сканеру отпечатка пальца для запуска приложения</string>
 	<string name="fingerprint_perm_denied">Отказано в доступе! Отпечаток пальца не распознан!</string>
 	
 	<string name="assistant_from_intent_dialog">Запрос на установку</string>
