@@ -12,14 +12,14 @@ import android.hardware.fingerprint.FingerprintManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.os.CancellationSignal;
+import android.widget.Toast;
 
 import ru.rx1310.app.a2iga.utils.AppUtils;
 import ru.rx1310.app.a2iga.utils.SharedPrefUtils;
 import android.hardware.biometrics.BiometricPrompt;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Executor;
-import android.os.CancellationSignal;
-import android.widget.Toast;
 
 public class LaunchAssistant extends Activity {
 
@@ -28,7 +28,7 @@ public class LaunchAssistant extends Activity {
 	
 	Executor oExecutor;
 	
-	boolean isFingerprintPermEnabled, isFingerprintPermDialogAppIconEnabled;
+	boolean isFingerprintPermEnabled;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +36,6 @@ public class LaunchAssistant extends Activity {
 		
 		isAssistAppPkgName = SharedPrefUtils.getStringData(this, Constants.ASSIST_APP_PKGNAME);
 		isFingerprintPermEnabled = SharedPrefUtils.getBooleanData(this, "security.fingerprintPerm");
-		isFingerprintPermDialogAppIconEnabled = SharedPrefUtils.getBooleanData(this, "security.fingerprintPerm.dialogAppIcon");
 		
 		oExecutor = Executors.newSingleThreadExecutor();
 		
