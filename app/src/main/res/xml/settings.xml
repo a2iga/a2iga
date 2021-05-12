@@ -102,6 +102,6 @@
 	<Preference
 		android:key="about.appFacts"
 		android:enabled="false"
-		android:selectable="false"/>
+		android:selectable="true"/>
 	
 </PreferenceScreen>

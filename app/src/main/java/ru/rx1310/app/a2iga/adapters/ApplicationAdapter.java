@@ -31,6 +31,7 @@ import ru.rx1310.app.a2iga.utils.SharedPrefUtils;
 import ru.rx1310.app.a2iga.Constants;
 import ru.rx1310.app.a2iga.activities.AppsListActivity;
 import ru.rx1310.app.a2iga.utils.AppUtils;
+import android.content.Intent;
 
 public class ApplicationAdapter extends ArrayAdapter<ApplicationInfo> {
 	
@@ -39,8 +40,10 @@ public class ApplicationAdapter extends ArrayAdapter<ApplicationInfo> {
     private AppsListActivity oActivity;
 	private PackageManager oPkgMng;
     private AppsFilter oFilter;
-	
+	private Intent sendPackageName;
 	private boolean showAppIcon, showAppPkgName;
+
+	private String isAssistAppPkgName;
 	
     public ApplicationAdapter(AppsListActivity activity, int textViewResourceId, List<ApplicationInfo> appsList) {
 		
@@ -156,6 +159,8 @@ public class ApplicationAdapter extends ArrayAdapter<ApplicationInfo> {
             @Override
             public void onClick(View v) {
 				
+				isAssistAppPkgName = SharedPrefUtils.getStringData(oActivity, Constants.ASSIST_APP_PKGNAME);
+				
                 final ApplicationInfo ai = oListApps.get(p);
                
 				android.support.v7.app.AlertDialog.Builder b = new android.support.v7.app.AlertDialog.Builder(oActivity, R.style.AppTheme_Dialog_Alert);
@@ -164,17 +169,25 @@ public class ApplicationAdapter extends ArrayAdapter<ApplicationInfo> {
 				b.setIcon(ai.loadIcon(oPkgMng));
 				b.setMessage(oActivity.getString(R.string.appslist_app_select_dialog_desc));
 				
-				/*b.setNeutralButton(android.R.string.cancel, new DialogInterface.OnClickListener() { // обработка нажатия кнопки "Да"
+				b.setNeutralButton(R.string.appslist_app_select_dialog_addToFavApps, new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface d, int i) {
-						d.dismiss();
-						ClipboardManager mClipboardMng = (ClipboardManager) oActivity.getSystemService(Context.CLIPBOARD_SERVICE);
-						ClipData mClipData = ClipData.newPlainText(null, ai.packageName);
-						mClipboardMng.setPrimaryClip(mClipData);
+						
+						if (AppUtils.isAppInstalled(oActivity, "ru.rx1310.a2iga.module.favapps")) {
+							
+							sendPackageName = new Intent();
+							sendPackageName.setAction(Intent.ACTION_SEND);
+							sendPackageName.setClassName("ru.rx1310.a2iga.module.favapps", "ru.rx1310.a2iga.module.favapps.ModuleSettings").addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+							sendPackageName.putExtra(Intent.EXTRA_TEXT, ai.packageName);
+							sendPackageName.setType("text/plain");
 
-						Toast.makeText(getContext(), oActivity.getString(R.string.msg_pkg_name_copied), Toast.LENGTH_SHORT).show();
+							oActivity.startActivity(Intent.createChooser(sendPackageName, "Select «FavApps»!"));
+							
+						} else {
+							favAppsInstallRequestDialog();
+						}
+						
 					}
-				});*/
-				
+				});
 				
 				b.setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() { // обработка нажатия кнопки "No"
 					public void onClick(DialogInterface d, int i) {
@@ -266,5 +279,29 @@ public class ApplicationAdapter extends ArrayAdapter<ApplicationInfo> {
         }
 		
     }
+	
+	void favAppsInstallRequestDialog() {
+		
+		android.support.v7.app.AlertDialog.Builder b = new android.support.v7.app.AlertDialog.Builder(oActivity, R.style.AppTheme_Dialog_Alert);
+
+		b.setTitle(oActivity.getString(R.string.favapps_not_installed));
+		b.setIcon(oActivity.getDrawable(R.drawable.ic_logo));
+		b.setMessage(oActivity.getString(R.string.favapps_not_installed_desc));
+
+		b.setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() { // обработка нажатия кнопки "No"
+			public void onClick(DialogInterface d, int i) {
+				d.dismiss();
+			}
+		});
+
+		b.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() { // обработка нажатия кнопки "Yes"
+			public void onClick(DialogInterface d, int i) {
+				AppUtils.openURL(oActivity, "https://rx1310.github.io/docs/a2iga/modules.html");
+			}
+		});
+
+		b.show();
+		
+	}
 	
 }

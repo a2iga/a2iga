@@ -212,7 +212,7 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
 		
 		boolean extendedAppsList = SharedPrefUtils.getBooleanData(getContext(), "appslist.extended");
 		
-		oIntent.setComponent(new ComponentName(isAssistAppPkgName, isAssistAppPkgName + ".ModuleSettingsActivity"));
+		oIntent.setComponent(new ComponentName(isAssistAppPkgName, isAssistAppPkgName + ".ModuleSettings"));
 		
 		oIntent.putExtra("a2iga_assistAppPkgName", isAssistAppPkgName); // string
 		oIntent.putExtra("a2iga_extendedAppsList", extendedAppsList); // boolean

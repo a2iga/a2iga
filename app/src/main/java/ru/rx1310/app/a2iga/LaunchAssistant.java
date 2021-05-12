@@ -62,7 +62,7 @@ public class LaunchAssistant extends Activity {
 		} else if (isAssistAppPkgName.contains("a2iga.module.")) {
 
 			// ? Если установлен модуль
-			oIntent.setComponent(new ComponentName(isAssistAppPkgName, isAssistAppPkgName + ".LaunchModule"));
+			oIntent.setComponent(new ComponentName(isAssistAppPkgName, isAssistAppPkgName + ".ModuleLaunch"));
 			startActivity(oIntent);
 
 		} else {
@@ -128,7 +128,7 @@ public class LaunchAssistant extends Activity {
 						@Override
 						public void run() {
 							
-							Toast.makeText(LaunchAssistant.this, "E: " + errString, Toast.LENGTH_LONG).show();
+							Toast.makeText(LaunchAssistant.this, "" + errString, Toast.LENGTH_LONG).show();
 							finish();
 							
 						}
@@ -144,7 +144,7 @@ public class LaunchAssistant extends Activity {
 						@Override
 						public void run() {
 							
-							Toast.makeText(LaunchAssistant.this, "D: " + helpString, Toast.LENGTH_LONG).show();
+							Toast.makeText(LaunchAssistant.this, "" + helpString, Toast.LENGTH_LONG).show();
 							
 						}
 					});
@@ -163,6 +163,7 @@ public class LaunchAssistant extends Activity {
 
 						}
 					});
+					
 				}
 				
 			});
