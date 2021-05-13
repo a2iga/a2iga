@@ -4,19 +4,19 @@
   <p>Маленькая утилита, которая поможет заменить Google Assistant, вызываемый зажатием кнопки Home / жестом нижних краёв экрана (Android Q), на любое приложение, нужное вам.</p>
   <p>
     <img src="https://img.shields.io/badge/min%20api%20level-22%2B-brightgreen?style=flat">
-    <img src="https://visitor-badge.laobi.icu/badge?page_id=rx1310.a2iga">
-    <a href="https://github.com/rx1310/a2iga/releases"><img src="https://img.shields.io/github/v/release/rx1310/a2iga"></a>
-    <a href="https://github.com/rx1310/a2iga/blob/master/LICENSE"><img src="https://img.shields.io/github/license/rx1310/a2iga"></a>
-    <img src="https://img.shields.io/github/downloads/rx1310/a2iga/total">
-    <img src="https://img.shields.io/github/languages/code-size/rx1310/a2iga">
-    <img src="https://img.shields.io/github/repo-size/rx1310/a2iga">
-    <img src="https://img.shields.io/github/languages/count/rx1310/a2iga">
-    <img src="https://img.shields.io/github/languages/top/rx1310/a2iga">
-    <img src="https://img.shields.io/github/stars/rx1310/a2iga">
-    <img src="https://img.shields.io/github/watchers/rx1310/a2iga">
-    <img src="https://img.shields.io/github/forks/rx1310/a2iga">
-    <img src="https://img.shields.io/github/release-date/rx1310/a2iga">
-    <a href="https://github.com/rx1310/a2iga/commits/master"><img src="https://img.shields.io/github/last-commit/rx1310/a2iga"></a>
+    <img src="https://visitor-badge.laobi.icu/badge?page_id=a2iga.a2iga">
+    <a href="https://github.com/a2iga/a2iga/releases"><img src="https://img.shields.io/github/v/release/a2iga/a2iga"></a>
+    <a href="https://github.com/a2iga/a2iga/blob/master/LICENSE"><img src="https://img.shields.io/github/license/a2iga/a2iga"></a>
+    <img src="https://img.shields.io/github/downloads/a2iga/a2iga/total">
+    <img src="https://img.shields.io/github/languages/code-size/a2iga/a2iga">
+    <img src="https://img.shields.io/github/repo-size/a2iga/a2iga">
+    <img src="https://img.shields.io/github/languages/count/a2iga/a2iga">
+    <img src="https://img.shields.io/github/languages/top/a2iga/a2iga">
+    <img src="https://img.shields.io/github/stars/a2iga/a2iga">
+    <img src="https://img.shields.io/github/watchers/a2iga/a2iga">
+    <img src="https://img.shields.io/github/forks/a2iga/a2iga">
+    <img src="https://img.shields.io/github/release-date/a2iga/a2iga">
+    <a href="https://github.com/rx1310/a2iga/commits/master"><img src="https://img.shields.io/github/last-commit/a2iga/a2iga"></a>
   </p>
   
 </div>
