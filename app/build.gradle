@@ -10,8 +10,8 @@ android {
         minSdkVersion 16
         targetSdkVersion 29
 		
-        versionCode 210509
-        versionName "b9"
+        versionCode 210513
+        versionName "9"
 		
     }
 	
