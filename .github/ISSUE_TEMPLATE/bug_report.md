@@ -1,38 +1,39 @@
 ---
-name: Bug report
-about: Create a report to help us improve
-title: 'a2iga/bug: '
+name: Сообщить о проблеме
+about: Воспользуйтесь уже готовым шаблоном сообщения о проблеме!
+title: ' [a2iga/bug]'
 labels: bug
 assignees: rx1310
 
 ---
 
-**Расскажите о баге**
-1
+### Что случилось?
+Сотрите этот текст и напишите о том, что случилось
 
-**To Reproduce**
-Steps to reproduce the behavior:
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
+### Что я делал?
+Сотрите этот текст и напишите о том, как Вы добились этой ошибки по пунктам (как в примере ниже):
 
-**Expected behavior**
-A clear and concise description of what you expected to happen.
+1. Запустил A2IGA
+2. Нажал на "Проверить обновления"
+3. Свернул приложение во время проверки
+4. Приложение остановилось с ошибкой
 
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
+### Что я хотел сделать?
+Сотрите этот текст и напишите о том, чего вы хотели добиться своими действиями? Какова была ваша цель?
 
-**Desktop (please complete the following information):**
- - OS: [e.g. iOS]
- - Browser [e.g. chrome, safari]
- - Version [e.g. 22]
+### Скриншоты или скринкаст
+Было бы отлично иметь скриншоты проблемы, а лучше запись экрана с воспроизведением проблемы.
 
-**Smartphone (please complete the following information):**
- - Device: [e.g. iPhone6]
- - OS: [e.g. iOS8.1]
- - Browser [e.g. stock browser, safari]
- - Version [e.g. 22]
+### Логи
+Логи очень сильно помогли бы в рассмотрении и решении проблемы. Если можно, то прикрепите или оставьте ссылку на логи падения приложения.
 
-**Additional context**
-Add any other context about the problem here.
+### Устройство
+Пожалуйста, заполните список информацией о вашем устройстве, на котором наблюдаются проблемы с приложением:
+- Версия ОС Android: [напр. 7.1.2 или 10]
+- Оболочка: [напр. MIUI 10 или AOSP]
+- Производитель и название устройства: [напр. Google Pixel 2]
+- Версия A2IGA: [напр. 9]
+- Установленный модуль: [напр. FavApps]
+
+### По итогу
+Напишите о том, что вы думаете об этом и в чем по вашему мнению заключается ошибка 
