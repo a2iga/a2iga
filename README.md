@@ -14,6 +14,7 @@
 ![Release date badge](https://img.shields.io/github/release-date/a2iga/a2iga)
 [![Last commit date badge](https://img.shields.io/github/last-commit/a2iga/a2iga)](https://github.com/rx1310/a2iga/commits/master)
 [![GitHub contributors](https://img.shields.io/github/contributors/a2iga/a2iga.svg)](https://github.com/a2iga/a2iga/graphs/contributors/)
+[![GitHub Discussions](https://img.shields.io/github/discussions/a2iga/a2iga)](https://github.com/a2iga/a2iga/discussions)
 
 Маленькая утилита, которая поможет заменить Google Assistant, вызываемый зажатием кнопки Home / жестом нижних краёв экрана (Android Q), на любое приложение, нужное вам.
 
