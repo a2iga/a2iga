@@ -135,7 +135,7 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
 				break;
 				
 			case "about.appSourceCode":
-				AppUtils.openURL(getContext(), "https://github.com/rx1310/a2iga");
+				AppUtils.openURL(getContext(), "https://github.com/a2iga/a2iga");
 				break;
 				
 			case "about.appTelegram":
@@ -147,7 +147,7 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
 				break;
 				
 			case "ota.changelog":
-				AppUtils.openURL(getContext(), "https://github.com/rx1310/a2iga/blob/master/docs/changelog_" + AppUtils.getVersionCode(getContext(), getContext().getPackageName()) + ".md");
+				AppUtils.openURL(getContext(), "https://github.com/a2iga/a2iga/blob/master/docs/changelog_" + AppUtils.getVersionCode(getContext(), getContext().getPackageName()) + ".md");
 				break;
 				
 			case "module.settings":

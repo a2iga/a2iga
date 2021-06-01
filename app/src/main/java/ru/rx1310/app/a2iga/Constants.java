@@ -24,7 +24,7 @@ public class Constants {
 	
 	public static class OTA {
 
-		public static final String URL_JSON = "https://raw.githubusercontent.com/rx1310/a2iga/master/ota.json";
+		public static final String URL_JSON = "https://raw.githubusercontent.com/a2iga/a2iga/master/ota.json";
 		public static final String URL_APK = "apkUrl";
 		public static final String URL_CHANGELOG = "changelogUrl";
 		public static final String VERSION_NAME = "versionName";

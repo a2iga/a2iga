@@ -23,6 +23,9 @@
         <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
         <item name="android:buttonStyle">@style/Widget.AppCompat.Button.Borderless.Colored</item>
         <item name="android:colorButtonNormal">@color/colorAccent</item>
+		<item name="android:dialogTheme">@style/AppTheme.Dialog.Alert</item>
+		<item name="android:alertDialogTheme">@style/AppTheme.Dialog.Alert</item>
+		<item name="android:alertDialogStyle">@style/AppTheme.Dialog.Alert</item>
 		
 		<item name="appColorIcon">@color/colorIcon</item>
 		
@@ -33,6 +36,10 @@
         <item name="android:background">@android:color/transparent</item>
         <item name="android:colorPrimary">?colorPrimary</item>
         <item name="android:colorAccent">@color/colorAccent</item>
+		<item name="android:colorActivatedHighlight">@color/colorAccent</item>
+		<item name="android:colorControlActivated">@color/colorAccent</item>
+		<item name="colorControlNormal">@color/colorAccent</item>
+		<item name="colorControlActivated">@color/colorAccent</item>
 		<!--item name="android:textColor">@color/colorAccent</item-->
         <!--item name="android:textColorPrimary">#FFDBE500</item-->
     </style>
