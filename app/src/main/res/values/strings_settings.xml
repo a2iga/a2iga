@@ -25,6 +25,7 @@
 	<string name="pref_module_info_desc_isNotModule">Приложение «%1$s» не является модулем!</string>
 	<string name="pref_module_settings">Настройки модуля</string>
 	<string name="pref_module_settings_desc">Нажмите для того, чтобы открыть настройки модуля «%1$s»</string>
+	<string name="pref_module_settings_not">Модуль «%1$s» не содержит настроек.</string>
 	
 	<!-- Security -->
 	<string name="pref_security_category">Безопасность</string>

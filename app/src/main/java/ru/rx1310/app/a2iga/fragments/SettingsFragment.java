@@ -206,12 +206,22 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
 	 */
 	void openModuleSettings() {
 		
-		oIntent.setComponent(new ComponentName(isAssistAppPkgName, isAssistAppPkgName + ".ModuleSettings"));
-		
-		oIntent.putExtra("a2iga_versionCode", AppUtils.getVersionCode(getContext(), getContext().getPackageName())); // int
-		oIntent.putExtra("a2iga_versionName", AppUtils.getVersionName(getContext(), getContext().getPackageName())); // string
-		
-		startActivity(oIntent);
+		try {
+			
+			oIntent.setComponent(new ComponentName(isAssistAppPkgName, isAssistAppPkgName + ".ModuleSettingse"));
+
+			oIntent.putExtra("a2iga_versionCode", AppUtils.getVersionCode(getContext(), getContext().getPackageName())); // int
+			oIntent.putExtra("a2iga_versionName", AppUtils.getVersionName(getContext(), getContext().getPackageName())); // string
+
+			startActivity(oIntent);
+			
+		} catch(Exception e) {
+			
+			// ? Если активности ModuleSettings в модуле нет, то просто скажем
+			//   юзеру, что настроек нет
+			AppUtils.showToast(getContext(), String.format(getString(R.string.pref_module_settings_not), AppUtils.getAppName(getContext(), isAssistAppPkgName)));
+			
+		}
 		
 	} // openModuleSettings()
 
