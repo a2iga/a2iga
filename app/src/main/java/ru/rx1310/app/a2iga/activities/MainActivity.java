@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 		 *   Отображается только если в versionName в build.gradle
 		 *   обнаружена буква "b" */
 		oBetaVersionInstalledMsgLayout = findViewById(R.id.toolbarBetaMessage);
-		if (AppUtils.getVersionName(this, getPackageName()).contains("b")) oBetaVersionInstalledMsgLayout.setVisibility(View.VISIBLE);
+		if (AppUtils.getVersionName(this, getPackageName()).contains("0.")) oBetaVersionInstalledMsgLayout.setVisibility(View.VISIBLE);
 		else oBetaVersionInstalledMsgLayout.setVisibility(View.GONE);
 		
 		oToolbar = findViewById(R.id.toolbar);
