@@ -136,9 +136,7 @@ public class ApplicationAdapter extends ArrayAdapter<ApplicationInfo> {
 			@Override
 			public boolean onLongClick(View p1) {
 				
-				ClipboardManager mClipboardMng = (ClipboardManager) oActivity.getSystemService(Context.CLIPBOARD_SERVICE);
-				ClipData mClipData = ClipData.newPlainText(null, getItem(p).packageName);
-				mClipboardMng.setPrimaryClip(mClipData);
+				AppUtils.copyToClipboard(getContext(), getItem(p).packageName);
 				
 				// ? Отображаем Toast, которое уведомляет юзера о копировании
 				AppUtils.showToast(oActivity, oActivity.getString(R.string.pkg_name_copied) + " (" + getItem(p).packageName + ")");

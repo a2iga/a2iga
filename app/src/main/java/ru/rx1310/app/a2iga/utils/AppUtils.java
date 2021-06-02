@@ -33,6 +33,8 @@ import android.support.customtabs.CustomTabsServiceConnection;
 import java.util.Date;
 
 import ru.rx1310.app.a2iga.R;
+import android.content.ClipboardManager;
+import android.content.ClipData;
 
 public class AppUtils {
 
@@ -270,6 +272,15 @@ public class AppUtils {
 		}
 		
 		return false;
+		
+	}
+	
+	// ? Копирование текста в буфер обмена
+	public static void copyToClipboard(Context context, String copyData) {
+		
+		ClipboardManager mClipboardMng = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+		ClipData mClipData = ClipData.newPlainText(null, copyData);
+		mClipboardMng.setPrimaryClip(mClipData);
 		
 	}
 

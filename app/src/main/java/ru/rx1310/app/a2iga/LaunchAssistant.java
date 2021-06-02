@@ -62,8 +62,15 @@ public class LaunchAssistant extends Activity {
 		} else if (isAssistAppPkgName.contains("a2iga.module.")) {
 
 			// ? Если установлен модуль
-			oIntent.setComponent(new ComponentName(isAssistAppPkgName, isAssistAppPkgName + ".ModuleLaunch"));
-			startActivity(oIntent);
+			try {
+				
+				oIntent.setComponent(new ComponentName(isAssistAppPkgName, isAssistAppPkgName + ".ModuleLaunc3h"));
+				startActivity(oIntent);
+				
+			} catch(Exception e) {
+				AppUtils.showToast(this, "Log copied to clipboard!\n\n" + e);
+				AppUtils.copyToClipboard(this, "" + e);
+			}
 
 		} else {
 
