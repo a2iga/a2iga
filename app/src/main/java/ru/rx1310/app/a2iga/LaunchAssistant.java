@@ -64,7 +64,7 @@ public class LaunchAssistant extends Activity {
 			// ? Если установлен модуль
 			try {
 				
-				oIntent.setComponent(new ComponentName(isAssistAppPkgName, isAssistAppPkgName + ".ModuleLaunc3h"));
+				oIntent.setComponent(new ComponentName(isAssistAppPkgName, isAssistAppPkgName + ".ModuleLaunch"));
 				startActivity(oIntent);
 				
 			} catch(Exception e) {
@@ -115,6 +115,7 @@ public class LaunchAssistant extends Activity {
 			
 			BiometricPrompt mBiometricPrompt = new BiometricPrompt.Builder(this)
 				.setTitle(AppUtils.getAppName(this, isAssistAppPkgName))
+				//.setSubtitle("")
 				.setDescription(getString(R.string.fingerprint_perm_dialog_desc))
 				.setNegativeButton(getString(android.R.string.cancel), oExecutor, new DialogInterface.OnClickListener() {
 					@Override

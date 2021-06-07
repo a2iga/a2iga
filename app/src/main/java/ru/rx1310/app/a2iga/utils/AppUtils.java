@@ -64,7 +64,7 @@ public class AppUtils {
 		} catch (Exception exc) {
 			exc.printStackTrace();
 			Log(context, "e", "getVersionName: " + exc);
-			return "e: getVersionName()";
+			return "EC:VNIPN";
 		}
 
 	}
@@ -104,7 +104,7 @@ public class AppUtils {
 		} catch (PackageManager.NameNotFoundException e) {
 			e.printStackTrace();
 			Log(context, "e", "getAppName: " + e);
-			return "e: getAppName();";
+			return "EC:ANIPN";
 		}
 
 	}

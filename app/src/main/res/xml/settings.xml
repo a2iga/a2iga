@@ -52,12 +52,12 @@
 		android:title="@string/pref_module_category"/>
 
 	<Preference
-		android:key="module.info"
-		android:title="@string/pref_module_info"/>
-	
-	<Preference
 		android:key="module.settings"
 		android:title="@string/pref_module_settings"/>
+	
+	<Preference
+		android:key="module.info"
+		android:title="@string/pref_module_info"/>
 	
 	<!-- OTA -->
 	<PreferenceCategory

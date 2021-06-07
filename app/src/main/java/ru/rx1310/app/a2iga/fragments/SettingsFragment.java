@@ -68,6 +68,7 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
 		
 		moduleInfo = findPreference("module.info");
 		moduleInfo.setEnabled(false);
+		moduleInfo.setSelectable(false);
 		
 		moduleSettings = findPreference("module.settings");
 		moduleSettings.setEnabled(false);

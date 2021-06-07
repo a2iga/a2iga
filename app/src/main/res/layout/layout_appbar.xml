@@ -83,7 +83,6 @@
 	</LinearLayout>
 
 	<LinearLayout
-		android:paddingTop="?android:attr/listPreferredItemPaddingStart"
 		android:paddingBottom="?android:attr/listPreferredItemPaddingEnd"
 		android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
 		android:paddingStart="?android:attr/listPreferredItemPaddingStart"

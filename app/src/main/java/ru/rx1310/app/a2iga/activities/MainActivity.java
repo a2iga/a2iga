@@ -101,6 +101,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 				oAssistantAppIcon.setImageDrawable(drawable);
 			} catch (PackageManager.NameNotFoundException e) {
 				e.printStackTrace();
+				oAssistantAppIcon.setImageDrawable(getDrawable(android.R.mipmap.sym_def_app_icon));
 			}
 			
 		}
