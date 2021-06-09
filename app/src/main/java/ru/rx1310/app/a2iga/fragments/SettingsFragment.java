@@ -209,7 +209,7 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
 		
 		try {
 			
-			oIntent.setComponent(new ComponentName(isAssistAppPkgName, isAssistAppPkgName + ".ModuleSettingse"));
+			oIntent.setComponent(new ComponentName(isAssistAppPkgName, isAssistAppPkgName + ".ModuleSettings"));
 
 			oIntent.putExtra("a2iga_versionCode", AppUtils.getVersionCode(getContext(), getContext().getPackageName())); // int
 			oIntent.putExtra("a2iga_versionName", AppUtils.getVersionName(getContext(), getContext().getPackageName())); // string
