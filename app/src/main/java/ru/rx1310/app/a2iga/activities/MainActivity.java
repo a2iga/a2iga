@@ -6,12 +6,16 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.content.Context;
+import android.content.ComponentName;
 
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
+import android.app.admin.DevicePolicyManager;
+import android.text.Html;
 
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
@@ -29,10 +33,6 @@ import ru.rx1310.app.a2iga.activities.MainActivity;
 import ru.rx1310.app.a2iga.fragments.SettingsFragment;
 import ru.rx1310.app.a2iga.utils.AppUtils;
 import ru.rx1310.app.a2iga.utils.SharedPrefUtils;
-import android.content.Context;
-import android.content.ComponentName;
-import android.app.admin.DevicePolicyManager;
-import android.text.Html;
 
 public class MainActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener, View.OnClickListener {
     

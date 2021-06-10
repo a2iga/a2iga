@@ -75,7 +75,7 @@
 	<!-- About -->
 	<PreferenceCategory
 		android:title="@string/pref_about_category"/>
-
+	
 	<Preference
 		android:key="about.appVersion"
 		android:title="@string/pref_about_app_version"/>
@@ -102,6 +102,6 @@
 	<Preference
 		android:key="about.appFacts"
 		android:enabled="false"
-		android:selectable="true"/>
+		android:selectable="false"/>
 	
 </PreferenceScreen>

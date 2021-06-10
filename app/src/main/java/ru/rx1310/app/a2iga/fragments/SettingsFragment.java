@@ -5,6 +5,7 @@ package ru.rx1310.app.a2iga.fragments;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.ComponentName;
+import android.content.DialogInterface;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -26,7 +27,6 @@ import ru.rx1310.app.a2iga.tasks.OTACheckTask;
 import ru.rx1310.app.a2iga.utils.AppUtils;
 import ru.rx1310.app.a2iga.utils.SharedPrefUtils;
 import ru.rx1310.app.a2iga.Constants;
-import android.content.DialogInterface;
 
 public class SettingsFragment extends PreferenceFragment implements SharedPreferences.OnSharedPreferenceChangeListener {
 
@@ -98,7 +98,7 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
 		getPreferenceScreen().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
 		
 		dozeMode.setEnabled(dozeModePrefEnabled());
-		appFacts.setSummary(Constants.randomPromts[oRandom.nextInt(13)]);
+		appFacts.setSummary(Constants.randomPromts[oRandom.nextInt(17)]);
 		
 	}
   
@@ -132,7 +132,7 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
 				break;
 
 			case "about.appWebsite":
-				AppUtils.openURL(getContext(), getString(R.string.app_author_url) + "/a2iga");
+				AppUtils.openURL(getContext(), "https://a2iga.github.io");
 				break;
 				
 			case "about.appSourceCode":
