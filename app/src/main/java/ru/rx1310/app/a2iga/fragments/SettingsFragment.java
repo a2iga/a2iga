@@ -34,7 +34,7 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
 
 	Preference dozeMode;
 	Preference appVersion, appDeveloper, appFacts;
-	Preference otaCheck;
+	Preference otaCheck, otaChangelog;
 	Preference moduleInfo, moduleSettings;
 	Preference securityFingerprintPerm;
 	
@@ -67,6 +67,16 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
 		otaCheck = findPreference("ota.check");
 		if (SharedPrefUtils.getStringData(getContext(), "ota.lastCheckDate") == null) otaCheck.setSummary(getString(R.string.pref_ota_check_desc_null));
 		else otaCheck.setSummary(getString(R.string.pref_ota_check_desc) + " " + SharedPrefUtils.getStringData(getContext(), "ota.lastCheckDate"));
+		
+		otaChangelog = findPreference("ota.changelog");
+		
+		if (AppUtils.getVersionName(getContext(), getContext().getPackageName()).contains("0.")) {
+			otaChangelog.setEnabled(false);
+			otaChangelog.setSummary(R.string.beta_version_block);
+		} else {
+			otaChangelog.setEnabled(true);
+			otaChangelog.setSummary(R.string.pref_ota_changelog_desc);
+		}
 		
 		moduleInfo = findPreference("module.info");
 		moduleInfo.setEnabled(false);
@@ -256,6 +266,10 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
 					sendPackageName.putExtra(Intent.EXTRA_TEXT, getContext().getPackageName());
 					sendPackageName.setType("text/plain");
 					startActivity(Intent.createChooser(sendPackageName, "Select a2iga"));
+				} if (p == 4) {
+					AppUtils.openURL(getContext(), "https://github.com/a2iga/a2iga/blob/master/docs/changelog_" + AppUtils.getVersionCode(getContext(), getContext().getPackageName()) + ".md");
+				} if (p == 5) {
+					startActivity(new Intent(android.provider.Settings.ACTION_VOICE_INPUT_SETTINGS));
 				}
 			}
 		});

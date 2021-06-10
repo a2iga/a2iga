@@ -3,19 +3,21 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
     
 	<!-- General -->
-	<PreferenceCategory
+	<ru.rx1310.app.a2iga.ui.CategoryPreference
 		android:title="@string/pref_general_category"/>
 
 	<Preference
+		android:icon="@android:color/transparent"
 		android:key="general.dozeMode"
 		android:title="@string/pref_general_doze_mode"
 		android:summary="@string/pref_general_doze_mode_desc"/>
 	
 	<!-- Security -->
-	<PreferenceCategory
+	<ru.rx1310.app.a2iga.ui.CategoryPreference
 		android:title="@string/pref_security_category"/>
 	
 	<SwitchPreference
+		android:icon="@android:color/transparent"
 		android:key="security.fingerprintPerm"
 		android:title="@string/pref_security_fingerprint_perm"
 		android:summary="@string/pref_security_fingerprint_perm_desc"
@@ -23,10 +25,11 @@
 		android:enabled="true"/>
 	
 	<!-- AppsList -->
-	<PreferenceCategory
+	<ru.rx1310.app.a2iga.ui.CategoryPreference
 		android:title="@string/pref_appslist_category"/>
 	
 	<SwitchPreference
+		android:icon="@android:color/transparent"
 		android:key="appslist.icons"
 		android:title="@string/pref_appslist_icons"
 		android:summary="@string/pref_appslist_icons_desc"
@@ -34,6 +37,7 @@
 		android:enabled="true"/>
 	
 	<SwitchPreference
+		android:icon="@android:color/transparent"
 		android:key="appslist.pkgname"
 		android:title="@string/pref_appslist_pkgname"
 		android:summary="@string/pref_appslist_pkgname_desc"
@@ -41,6 +45,7 @@
 		android:enabled="true"/>
 
 	<SwitchPreference
+		android:icon="@android:color/transparent"
 		android:key="appslist.extended"
 		android:title="@string/pref_appslist_extended"
 		android:summary="@string/pref_appslist_extended_desc"
@@ -48,58 +53,68 @@
 		android:enabled="true"/>
 	
 	<!-- Module -->
-	<PreferenceCategory
+	<ru.rx1310.app.a2iga.ui.CategoryPreference
 		android:title="@string/pref_module_category"/>
 
 	<Preference
+		android:icon="@android:color/transparent"
 		android:key="module.settings"
 		android:title="@string/pref_module_settings"/>
 	
 	<Preference
+		android:icon="@android:color/transparent"
 		android:key="module.info"
 		android:title="@string/pref_module_info"/>
 	
 	<!-- OTA -->
-	<PreferenceCategory
+	<ru.rx1310.app.a2iga.ui.CategoryPreference
 		android:title="@string/pref_ota_category"/>
 
 	<Preference
+		android:icon="@android:color/transparent"
 		android:key="ota.check"
 		android:title="@string/pref_ota_check"
 		android:summary="@string/pref_ota_check_desc"/>
 	
 	<Preference
+		android:icon="@android:color/transparent"
 		android:key="ota.changelog"
 		android:title="@string/pref_ota_changelog"/>
 	
 	<!-- About -->
-	<PreferenceCategory
+	<ru.rx1310.app.a2iga.ui.CategoryPreference
 		android:title="@string/pref_about_category"/>
 	
 	<Preference
+		android:icon="@android:color/transparent"
 		android:key="about.appVersion"
 		android:title="@string/pref_about_app_version"/>
 	
 	<Preference
+		android:icon="@android:color/transparent"
 		android:key="about.appDeveloper"
 		android:title="@string/pref_about_app_developer"/>
 	
 	<Preference
+		android:icon="@android:color/transparent"
 		android:key="about.appSourceCode"
 		android:title="@string/pref_about_app_code"
 		android:summary="@string/pref_about_app_code_desc"/>
 	
 	<Preference
+		android:icon="@android:color/transparent"
 		android:key="about.appTelegram"
 		android:title="@string/pref_about_app_telegram"
 		android:summary="@string/pref_about_app_telegram_desc"/>
 	
 	<Preference
+		android:icon="@android:color/transparent"
 		android:key="about.appWebsite"
 		android:title="@string/pref_about_app_website"
 		android:summary="@string/pref_about_app_website_desc"/>
 	
 	<Preference
+		android:icon="@android:color/transparent"
 		android:key="about.appFacts"
 		android:enabled="false"
 		android:selectable="false"/>

@@ -15,7 +15,8 @@
 		style="@style/AppTheme.CardView.Clickable"
 		app:cardBackgroundColor="@color/colorAccent"
 		android:id="@+id/cardNotDefaultAssist"
-		android:layout_marginTop="10dp">
+		android:layout_marginTop="10dp"
+		android:layout_marginLeft="57dp">
 
 		<LinearLayout
 			android:orientation="vertical"
@@ -40,7 +41,8 @@
 		app:cardBackgroundColor="@color/colorError"
 		android:layout_marginTop="10dp"
 		android:id="@+id/cardUnsupportedApi22"
-		android:layout_marginBottom="10dp">
+		android:layout_marginBottom="10dp"
+		android:layout_marginLeft="57dp">
 
 		<LinearLayout
 			android:orientation="vertical"
@@ -52,7 +54,8 @@
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				android:text="@string/app_unsupported_api22"
-				style="@style/AppTheme.TextAppearanceTitle"/>
+				style="@style/AppTheme.TextAppearanceTitle"
+				android:textStyle="bold"/>
 
 			<TextView
 				android:layout_width="wrap_content"
