@@ -2,5 +2,11 @@
 <resources>
 	
 	<!-- arrays -->
+	<string-array name="debug_options">
+        <item>@string/debug_delApp</item>
+		<item>@string/debug_delAppData</item>
+		<item>@string/debug_dataAssistAppPkgName</item>
+		<item>@string/debug_sendRequest</item>
+    </string-array>
 	
 </resources>

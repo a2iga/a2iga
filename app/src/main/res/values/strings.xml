@@ -24,6 +24,12 @@
 	
 	<string name="beta_version_installed">Вы используете версию A2IGA для тестирования. Возможны какие-либо ошибки в работе приложения и прочие недочеты.</string>
 	
+	<string name="debug">Отладка</string>
+	<string name="debug_delAppData">Удалить данные приложения</string>
+	<string name="debug_delApp">Удалить приложение</string>
+	<string name="debug_dataAssistAppPkgName">Данные из ASSIST_APP_PKGNAME</string>
+	<string name="debug_sendRequest">Отправить запрос на установку</string>
+	
 	<string name="favapps_not_installed">Модуль не установлен!</string>
 	<string name="favapps_not_installed_desc">Для того, чтобы добавить приложение в избранное необходимо установить модуль «FavApps». Хотите перейти на страницу загрузки модуля?</string>
 	

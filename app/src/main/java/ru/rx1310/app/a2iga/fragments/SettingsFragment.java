@@ -13,6 +13,8 @@ import android.os.PowerManager;
 
 import android.provider.Settings;
 import android.net.Uri;
+import android.support.v7.app.AlertDialog;
+import android.app.ActivityManager;
 
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
@@ -154,6 +156,10 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
 			case "module.settings":
 				openModuleSettings();
 				break;
+				
+			case "about.appVersion":
+				debugOptions();
+				break;
 
 			default: break;
 
@@ -225,5 +231,36 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
 		}
 		
 	} // openModuleSettings()
+	
+	void debugOptions() {
+		
+		AppUtils.showToast(getContext(), "Главное — не получить стрелу в колено 🏹");
+		
+		AlertDialog.Builder b = new AlertDialog.Builder(getContext(), R.style.AppTheme_Dialog_Alert);
+		b.setTitle(R.string.debug);
+		b.setIcon(R.drawable.ic_debug);
+		b.setItems(R.array.debug_options, new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface d, int p) {
+				if (p == 0) {
+					Intent i = new Intent(Intent.ACTION_DELETE);
+					i.setData(Uri.parse("package:" + getContext().getPackageName()));
+					startActivity(i);
+				} if (p == 1) {
+					((ActivityManager) getContext().getSystemService(getContext().ACTIVITY_SERVICE)).clearApplicationUserData();
+				} if (p == 2) {
+					AppUtils.showToast(getContext(), isAssistAppPkgName);
+				} if (p == 3) {
+					Intent sendPackageName = new Intent();
+					sendPackageName.setAction(Intent.ACTION_SEND);
+					sendPackageName.setClassName("ru.rx1310.app.a2iga", "ru.rx1310.app.a2iga.activities.MainActivity").addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+					sendPackageName.putExtra(Intent.EXTRA_TEXT, getContext().getPackageName());
+					sendPackageName.setType("text/plain");
+					startActivity(Intent.createChooser(sendPackageName, "Select a2iga"));
+				}
+			}
+		});
+		b.show();
+		
+	}
 
 }
