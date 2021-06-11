@@ -24,6 +24,15 @@
 		android:defaultValue="false"
 		android:enabled="true"/>
 	
+	<SwitchPreference
+		android:icon="@android:color/transparent"
+		android:key="security.fingerprintPermVibro"
+		android:title="@string/pref_security_fingerprint_perm_vibro"
+		android:summary="@string/pref_security_fingerprint_perm_vibro_desc"
+		android:defaultValue="false"
+		android:enabled="true"
+		android:dependency="security.fingerprintPerm"/>
+	
 	<!-- AppsList -->
 	<ru.rx1310.app.a2iga.ui.CategoryPreference
 		android:title="@string/pref_appslist_category"/>

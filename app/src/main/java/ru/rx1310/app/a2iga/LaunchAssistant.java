@@ -14,12 +14,17 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.os.CancellationSignal;
 import android.widget.Toast;
+import android.os.Vibrator;
+import android.os.Build;
+import android.content.Context;
+import android.os.VibrationEffect;
+import android.hardware.biometrics.BiometricPrompt;
+
+import java.util.concurrent.Executors;
+import java.util.concurrent.Executor;
 
 import ru.rx1310.app.a2iga.utils.AppUtils;
 import ru.rx1310.app.a2iga.utils.SharedPrefUtils;
-import android.hardware.biometrics.BiometricPrompt;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Executor;
 
 public class LaunchAssistant extends Activity {
 
@@ -28,7 +33,7 @@ public class LaunchAssistant extends Activity {
 	
 	Executor oExecutor;
 	
-	boolean isFingerprintPermEnabled;
+	boolean isFingerprintPermEnabled, isFingerprintPermVibroEnabled;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +41,7 @@ public class LaunchAssistant extends Activity {
 		
 		isAssistAppPkgName = SharedPrefUtils.getStringData(this, Constants.ASSIST_APP_PKGNAME);
 		isFingerprintPermEnabled = SharedPrefUtils.getBooleanData(this, "security.fingerprintPerm");
+		isFingerprintPermVibroEnabled = SharedPrefUtils.getBooleanData(this, "security.fingerprintPermVibro");
 		
 		oExecutor = Executors.newSingleThreadExecutor();
 		
@@ -112,6 +118,12 @@ public class LaunchAssistant extends Activity {
 			AppUtils.showToast(this, getString(R.string.pkg_name_notspecified));
 			
 		} else {
+			
+			if (isFingerprintPermVibroEnabled) {
+				Vibrator mVibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+				if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) mVibrator.vibrate(VibrationEffect.createOneShot(100, VibrationEffect.DEFAULT_AMPLITUDE));
+				else mVibrator.vibrate(100);
+			}
 			
 			BiometricPrompt mBiometricPrompt = new BiometricPrompt.Builder(this)
 				.setTitle(AppUtils.getAppName(this, isAssistAppPkgName))

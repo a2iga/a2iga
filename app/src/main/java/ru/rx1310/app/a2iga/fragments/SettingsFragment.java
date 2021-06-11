@@ -15,6 +15,8 @@ import android.provider.Settings;
 import android.net.Uri;
 import android.support.v7.app.AlertDialog;
 import android.app.ActivityManager;
+import android.widget.ListView;
+import android.view.View;
 
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
@@ -42,12 +44,17 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
 	
 	Intent oIntent = new Intent();
 	Random oRandom = new Random();
+	ListView mListView;
+	View mRootView;
 	
 	String isAssistAppPkgName;
 	
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		addPreferencesFromResource(R.xml.settings);
+		
+		/*mListView = getView(android.R.id.list);
+		mListView.setDivider(null);*/
 		
 		isAssistAppPkgName = SharedPrefUtils.getStringData(getContext(), Constants.ASSIST_APP_PKGNAME);
 		
@@ -102,6 +109,17 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
 		if (!AppUtils.isFingerprintSensorDetected(getContext())) securityFingerprintPerm.setEnabled(false);
 		
 	}
+	
+	@Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        mRootView = getView();
+		
+        mListView = mRootView.findViewById(android.R.id.list);
+        mListView.setDivider(null);
+
+    }
 	
 	@Override
 	public void onResume() {

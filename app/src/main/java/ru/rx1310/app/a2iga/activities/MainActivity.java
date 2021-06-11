@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 		getFragmentManager().beginTransaction().replace(R.id.layoutSettings, new SettingsFragment()).commit();
-		
+	
 		isAssistAppPkgName = SharedPrefUtils.getStringData(this, Constants.ASSIST_APP_PKGNAME);
 		oIntent = getIntent();
 		
