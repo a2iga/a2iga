@@ -86,9 +86,9 @@ public class ApplicationAdapter extends ArrayAdapter<ApplicationInfo> {
     }
 
     @Override
-    public View getView(int p, View v, ViewGroup vg) {
+    public View getView(final int p, View v, ViewGroup vg) {
 		
-        ViewHolder vh;
+        final ViewHolder vh;
         
 		// ? Получение prefs
 		showAppIcon = SharedPrefUtils.getBooleanData(oActivity, "appslist.icons");
@@ -118,15 +118,13 @@ public class ApplicationAdapter extends ArrayAdapter<ApplicationInfo> {
 		else vh.appPackage.setVisibility(View.GONE);
 		
 		// ? Отображение иконки приложения
-		if (showAppIcon) vh.icon.setImageDrawable(getItem(p).loadIcon(oPkgMng));
-		else vh.icon.setImageDrawable(Resources.getSystem().getDrawable(android.R.mipmap.sym_def_app_icon));
-		
-		/*new Handler().postDelayed(new Runnable() {
+		new Handler().postDelayed(new Runnable() {
 			@Override
 			public void run() {
-				
+				if (showAppIcon) vh.icon.setImageDrawable(getItem(p).loadIcon(oPkgMng));
+				else vh.icon.setImageDrawable(Resources.getSystem().getDrawable(android.R.mipmap.sym_def_app_icon));
 			}
-		}, 10);*/
+		}, 10);
 		
 		//vh.icon.setImageDrawable(oActivity.getDrawable(R.drawable.ic_logo));
 		//vh.icon.setImageDrawable(Resources.getSystem().getDrawable(android.R.mipmap.sym_def_app_icon));
