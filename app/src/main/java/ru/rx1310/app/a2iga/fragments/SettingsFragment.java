@@ -178,7 +178,7 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
 				break;
 				
 			case "ota.changelog":
-				AppUtils.openURL(getContext(), "https://github.com/a2iga/a2iga/blob/master/docs/changelog_" + AppUtils.getVersionCode(getContext(), getContext().getPackageName()) + ".md");
+				AppUtils.openURL(getContext(), "https://github.com/a2iga/a2iga/blob/main/docs/changelog_" + AppUtils.getVersionCode(getContext(), getContext().getPackageName()) + ".md");
 				break;
 				
 			case "module.settings":
@@ -285,7 +285,7 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
 					sendPackageName.setType("text/plain");
 					startActivity(Intent.createChooser(sendPackageName, "Select a2iga"));
 				} if (p == 4) {
-					AppUtils.openURL(getContext(), "https://github.com/a2iga/a2iga/blob/master/docs/changelog_" + AppUtils.getVersionCode(getContext(), getContext().getPackageName()) + ".md");
+					AppUtils.openURL(getContext(), "https://github.com/a2iga/a2iga/blob/main/docs/changelog_" + AppUtils.getVersionCode(getContext(), getContext().getPackageName()) + ".md");
 				} if (p == 5) {
 					startActivity(new Intent(android.provider.Settings.ACTION_VOICE_INPUT_SETTINGS));
 				}
