@@ -32,6 +32,7 @@ import ru.rx1310.app.a2iga.Constants;
 import ru.rx1310.app.a2iga.activities.AppsListActivity;
 import ru.rx1310.app.a2iga.utils.AppUtils;
 import android.content.Intent;
+import android.os.Handler;
 
 public class ApplicationAdapter extends ArrayAdapter<ApplicationInfo> {
 	
@@ -42,7 +43,7 @@ public class ApplicationAdapter extends ArrayAdapter<ApplicationInfo> {
     private AppsFilter oFilter;
 	private Intent sendPackageName;
 	private boolean showAppIcon, showAppPkgName;
-
+	LayoutInflater oInflater;
 	private String isAssistAppPkgName;
 	
     public ApplicationAdapter(AppsListActivity activity, int textViewResourceId, List<ApplicationInfo> appsList) {
@@ -54,6 +55,7 @@ public class ApplicationAdapter extends ArrayAdapter<ApplicationInfo> {
         this.oList = appsList;
 		
         oPkgMng = oActivity.getPackageManager();
+		oInflater = (LayoutInflater) oActivity.getSystemService(oActivity.LAYOUT_INFLATER_SERVICE);
 		
     }
 
@@ -87,42 +89,63 @@ public class ApplicationAdapter extends ArrayAdapter<ApplicationInfo> {
     public View getView(int p, View v, ViewGroup vg) {
 		
         ViewHolder vh;
-        LayoutInflater inflater = (LayoutInflater) oActivity.getSystemService(oActivity.LAYOUT_INFLATER_SERVICE);
-		
+        
 		// ? Получение prefs
 		showAppIcon = SharedPrefUtils.getBooleanData(oActivity, "appslist.icons");
 		showAppPkgName = SharedPrefUtils.getBooleanData(oActivity, "appslist.pkgname");
 		
 		if (v == null) {
 			
-            v = inflater.inflate(R.layout.list_item_appslist, vg, false);
-            vh = new ViewHolder(v);
+			vh = new ViewHolder();
+			
+            v = oInflater.inflate(R.layout.list_item_appslist, vg, false);
+            
+			vh.icon = v.findViewById(R.id.icon);
+            vh.appName = v.findViewById(R.id.name);
+            vh.appPackage = v.findViewById(R.id.package_name);
+			
             v.setTag(vh);
 			
         } else {
             vh = (ViewHolder) v.getTag();
         }
-
-		// ? Отображение названия приложения
-        vh.appName.setText(getItem(p).loadLabel(oPkgMng));
 		
+		// ? Отображение названия приложения
+		vh.appName.setText(getItem(p).loadLabel(oPkgMng));
+
 		// ? Отображение Package Name
-        if (showAppPkgName) vh.appPackage.setText(getItem(p).packageName);
+		if (showAppPkgName) vh.appPackage.setText(getItem(p).packageName);
 		else vh.appPackage.setVisibility(View.GONE);
 		
-		// ? Отображение реальной иконки приложения
+		// ? Отображение иконки приложения
 		if (showAppIcon) vh.icon.setImageDrawable(getItem(p).loadIcon(oPkgMng));
 		else vh.icon.setImageDrawable(Resources.getSystem().getDrawable(android.R.mipmap.sym_def_app_icon));
-        
+		
+		/*new Handler().postDelayed(new Runnable() {
+			@Override
+			public void run() {
+				
+			}
+		}, 10);*/
+		
 		//vh.icon.setImageDrawable(oActivity.getDrawable(R.drawable.ic_logo));
 		//vh.icon.setImageDrawable(Resources.getSystem().getDrawable(android.R.mipmap.sym_def_app_icon));
-		
+
         v.setOnClickListener(onClickListener(p));
 		v.setOnLongClickListener(OnLongClickListener(p));
 		
         return v;
 		
     }
+	
+	class ViewHolder {
+
+        private ImageView icon;
+        private TextView appName;
+        private TextView appPackage;
+
+    }
+	
 	
 	// ? Обработка long click на пункте в ListView
 	private View.OnLongClickListener OnLongClickListener(final int p) {
@@ -206,22 +229,6 @@ public class ApplicationAdapter extends ArrayAdapter<ApplicationInfo> {
             }
 			
         };
-		
-    }
-
-    private class ViewHolder {
-		
-        private ImageView icon;
-        private TextView appName;
-        private TextView appPackage;
-
-        public ViewHolder(View v) {
-			
-            icon = v.findViewById(R.id.icon);
-            appName = v.findViewById(R.id.name);
-            appPackage = v.findViewById(R.id.package_name);
-			
-        }
 		
     }
 
