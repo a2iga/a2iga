@@ -12,27 +12,16 @@
 		android:title="@string/pref_general_doze_mode"
 		android:summary="@string/pref_general_doze_mode_desc"/>
 	
-	<!-- Security -->
+	<!-- OTA -->
 	<ru.rx1310.app.a2iga.ui.CategoryPreference
-		android:title="@string/pref_security_category"/>
-	
-	<SwitchPreference
+		android:title="@string/pref_ota_category"/>
+
+	<Preference
 		android:icon="@android:color/transparent"
-		android:key="security.fingerprintPerm"
-		android:title="@string/pref_security_fingerprint_perm"
-		android:summary="@string/pref_security_fingerprint_perm_desc"
-		android:defaultValue="false"
-		android:enabled="true"/>
-	
-	<SwitchPreference
-		android:icon="@android:color/transparent"
-		android:key="security.fingerprintPermVibro"
-		android:title="@string/pref_security_fingerprint_perm_vibro"
-		android:summary="@string/pref_security_fingerprint_perm_vibro_desc"
-		android:defaultValue="false"
-		android:enabled="true"
-		android:dependency="security.fingerprintPerm"/>
-	
+		android:key="ota.check"
+		android:title="@string/pref_ota_check"
+		android:summary="@string/pref_ota_check_desc"/>
+
 	<!-- AppsList -->
 	<ru.rx1310.app.a2iga.ui.CategoryPreference
 		android:title="@string/pref_appslist_category"/>
@@ -75,20 +64,26 @@
 		android:key="module.info"
 		android:title="@string/pref_module_info"/>
 	
-	<!-- OTA -->
+	<!-- Security -->
 	<ru.rx1310.app.a2iga.ui.CategoryPreference
-		android:title="@string/pref_ota_category"/>
+		android:title="@string/pref_security_category"/>
 
-	<Preference
+	<SwitchPreference
 		android:icon="@android:color/transparent"
-		android:key="ota.check"
-		android:title="@string/pref_ota_check"
-		android:summary="@string/pref_ota_check_desc"/>
-	
-	<Preference
+		android:key="security.fingerprintPerm"
+		android:title="@string/pref_security_fingerprint_perm"
+		android:summary="@string/pref_security_fingerprint_perm_desc"
+		android:defaultValue="false"
+		android:enabled="true"/>
+
+	<SwitchPreference
 		android:icon="@android:color/transparent"
-		android:key="ota.changelog"
-		android:title="@string/pref_ota_changelog"/>
+		android:key="security.fingerprintPermVibro"
+		android:title="@string/pref_security_fingerprint_perm_vibro"
+		android:summary="@string/pref_security_fingerprint_perm_vibro_desc"
+		android:defaultValue="false"
+		android:enabled="true"
+		android:dependency="security.fingerprintPerm"/>
 	
 	<!-- About -->
 	<ru.rx1310.app.a2iga.ui.CategoryPreference
@@ -98,6 +93,11 @@
 		android:icon="@android:color/transparent"
 		android:key="about.appVersion"
 		android:title="@string/pref_about_app_version"/>
+	
+	<Preference
+		android:icon="@android:color/transparent"
+		android:key="about.appChangelog"
+		android:title="@string/pref_about_app_changelog"/>
 	
 	<Preference
 		android:icon="@android:color/transparent"

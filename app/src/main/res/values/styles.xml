@@ -27,8 +27,6 @@
 		<item name="android:alertDialogTheme">@style/AppTheme.Dialog.Alert</item>
 		<item name="android:alertDialogStyle">@style/AppTheme.Dialog.Alert</item>
 		
-		<item name="appColorIcon">@color/colorIcon</item>
-		
     </style>
 
     <style name="AppTheme.Dialog.Alert" parent="Theme.AppCompat.Dialog.Alert">

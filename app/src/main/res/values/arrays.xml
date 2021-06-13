@@ -9,6 +9,7 @@
 		<item>@string/debug_sendRequest</item>
 		<item>@string/debug_checkChangelogLink</item>
 		<item>@string/debug_openAssistAppCheckWindow</item>
+		<item>@string/debug_killApp</item>
     </string-array>
 	
 </resources>

@@ -39,12 +39,12 @@
 	<string name="pref_ota_check">Проверить сейчас</string>
 	<string name="pref_ota_check_desc">Дата посл. проверки: </string>
 	<string name="pref_ota_check_desc_null">Нажмите, чтобы проверить наличие новой версии приложения</string>
-	<string name="pref_ota_changelog">История изменений</string>
-	<string name="pref_ota_changelog_desc">Будет выполнен переход по ссылке в браузер</string>
 	
 	<!-- About -->
 	<string name="pref_about_category">О приложении</string>
 	<string name="pref_about_app_version">Версия A2IGA</string>
+	<string name="pref_about_app_changelog">История изменений</string>
+	<string name="pref_about_app_changelog_desc">Будет выполнен переход по ссылке в браузер</string>
 	<string name="pref_about_app_developer">Разработчик</string>
 	<string name="pref_about_app_code">Исходный код</string>
 	<string name="pref_about_app_code_desc">A2IGA является проектом с открытым исходным кодом и распространяется совершенно бесплатно. Каждый из пользователей может принять участие в разработке и переводе приложения на другие языки!</string>
