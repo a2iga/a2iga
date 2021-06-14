@@ -40,8 +40,8 @@ public class LaunchAssistant extends Activity {
 		super.onCreate(savedInstanceState);
 		
 		isAssistAppPkgName = SharedPrefUtils.getStringData(this, Constants.ASSIST_APP_PKGNAME);
-		isFingerprintPermEnabled = SharedPrefUtils.getBooleanData(this, "security.fingerprintPerm");
-		isFingerprintPermVibroEnabled = SharedPrefUtils.getBooleanData(this, "security.fingerprintPermVibro");
+		isFingerprintPermEnabled = SharedPrefUtils.getBooleanData(this, "safety.fingerprintPerm");
+		isFingerprintPermVibroEnabled = SharedPrefUtils.getBooleanData(this, "safety.fingerprintPermVibro");
 		
 		oExecutor = Executors.newSingleThreadExecutor();
 		

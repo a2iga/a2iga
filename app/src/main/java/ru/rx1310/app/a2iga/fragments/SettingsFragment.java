@@ -38,7 +38,7 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
 	Preference appVersion, appChangelog, appDeveloper, appFacts;
 	Preference otaCheck;
 	Preference moduleInfo, moduleSettings;
-	Preference securityFingerprintPerm;
+	Preference safetyFingerprintPerm;
 	
 	PowerManager oPowerManager;
 	
@@ -105,8 +105,8 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
 			
 		} 
 		
-		securityFingerprintPerm = findPreference("security.fingerprintPerm");
-		if (!AppUtils.isFingerprintSensorDetected(getContext())) securityFingerprintPerm.setEnabled(false);
+		safetyFingerprintPerm = findPreference("safety.fingerprintPerm");
+		if (!AppUtils.isFingerprintSensorDetected(getContext())) safetyFingerprintPerm.setEnabled(false);
 		
 	}
 	
@@ -127,7 +127,11 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
 		
 		getPreferenceScreen().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
 		
-		dozeMode.setEnabled(dozeModePrefEnabled());
+		if (dozeModeDisabled()) {
+			dozeMode.setEnabled(false);
+			dozeMode.setSummary(getString(R.string.pref_general_doze_mode_desc_enabled));
+		}
+		
 		appFacts.setSummary(Constants.randomPromts[oRandom.nextInt(17)]);
 		
 	}
@@ -198,9 +202,9 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
 	}
 	
 	// ? Если A2IGA в «белом списке», то вернется true, если нет — false
-	boolean dozeModePrefEnabled() {
-		if (!oPowerManager.isIgnoringBatteryOptimizations(getContext().getPackageName())) return true;
-		else return false;
+	boolean dozeModeDisabled() {
+		if (!oPowerManager.isIgnoringBatteryOptimizations(getContext().getPackageName())) return false;
+		else return true;
 	}
 	
 	/* ? Вносим A2IGA в «белый» список режима Doze

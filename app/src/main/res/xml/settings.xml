@@ -49,7 +49,7 @@
 		android:key="appslist.pkgname"
 		android:title="@string/pref_appslist_pkgname"
 		android:summary="@string/pref_appslist_pkgname_desc"
-		android:defaultValue="true"
+		android:defaultValue="false"
 		android:enabled="true"/>
 
 	<SwitchPreference
@@ -74,26 +74,26 @@
 		android:key="module.info"
 		android:title="@string/pref_module_info"/>
 	
-	<!-- Security -->
+	<!-- Safety -->
 	<ru.rx1310.app.a2iga.ui.CategoryPreference
-		android:title="@string/pref_security_category"/>
+		android:title="@string/pref_safety_category"/>
 
 	<SwitchPreference
 		android:icon="@android:color/transparent"
-		android:key="security.fingerprintPerm"
-		android:title="@string/pref_security_fingerprint_perm"
-		android:summary="@string/pref_security_fingerprint_perm_desc"
+		android:key="safety.fingerprintPerm"
+		android:title="@string/pref_safety_fingerprint_perm"
+		android:summary="@string/pref_safety_fingerprint_perm_desc"
 		android:defaultValue="false"
 		android:enabled="true"/>
 
 	<SwitchPreference
 		android:icon="@android:color/transparent"
-		android:key="security.fingerprintPermVibro"
-		android:title="@string/pref_security_fingerprint_perm_vibro"
-		android:summary="@string/pref_security_fingerprint_perm_vibro_desc"
+		android:key="safety.fingerprintPermVibro"
+		android:title="@string/pref_safety_fingerprint_perm_vibro"
+		android:summary="@string/pref_safety_fingerprint_perm_vibro_desc"
 		android:defaultValue="false"
 		android:enabled="true"
-		android:dependency="security.fingerprintPerm"/>
+		android:dependency="safety.fingerprintPerm"/>
 	
 	<!-- About -->
 	<ru.rx1310.app.a2iga.ui.CategoryPreference
