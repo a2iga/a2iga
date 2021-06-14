@@ -83,8 +83,8 @@
 		</android.support.design.widget.AppBarLayout>
 
 		<ListView
-			android:scrollingCache="false"
-			android:animationCache="false"
+			android:scrollingCache="true"
+			android:animationCache="true"
 			android:fastScrollAlwaysVisible="false"
 			android:fastScrollEnabled="true"
 			android:id="@+id/listView"

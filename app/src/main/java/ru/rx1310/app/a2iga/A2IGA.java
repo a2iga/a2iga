@@ -5,6 +5,7 @@ package ru.rx1310.app.a2iga;
 import android.app.Application;
 import ru.rx1310.app.a2iga.services.OTAService;
 import android.content.Intent;
+import ru.rx1310.app.a2iga.utils.AppUtils;
 
 public class A2IGA extends Application {
 	
@@ -22,7 +23,11 @@ public class A2IGA extends Application {
 	public void onCreate() {
 		super.onCreate();
 		
-		startService(new Intent(this, OTAService.class));      
+		try {
+			startService(new Intent(this, OTAService.class));      
+		} catch (Exception e) {
+			AppUtils.Log(this, "e", "Start Service error! " + e);
+		}
 		
 	}
 

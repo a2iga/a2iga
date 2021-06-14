@@ -88,6 +88,7 @@
 		</activity>
 
 		<activity
+			android:hardwareAccelerated="true"
 			android:label="@string/activity_appslist"
 			android:theme="@style/AppTheme.NoActionBar"
 			android:name=".activities.AppsListActivity"/>
@@ -116,7 +117,7 @@
 		<service 
 			android:name=".services.OTAService">
 			<intent-filter>
-				<action android:name="A2IGA_OTAService"/>
+				<action android:name="OTAService"/>
 				<category android:name="android.intent.category.DEFAULT"/>
 			</intent-filter>
 		</service>
