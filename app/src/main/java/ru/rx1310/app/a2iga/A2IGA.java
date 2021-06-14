@@ -3,12 +3,14 @@
 package ru.rx1310.app.a2iga;
 
 import android.app.Application;
+import ru.rx1310.app.a2iga.services.OTAService;
+import android.content.Intent;
 
 public class A2IGA extends Application {
 	
 	private static A2IGA instance;
 
-	public A2IGA(){
+	public A2IGA() {
 		instance = this;
 	}
 
@@ -18,8 +20,10 @@ public class A2IGA extends Application {
 
 	@Override
 	public void onCreate() {
-		// TODO: Implement this method
 		super.onCreate();
+		
+		startService(new Intent(this, OTAService.class));      
+		
 	}
 
 }

@@ -1,18 +1,21 @@
 package ru.rx1310.app.a2iga.tasks;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.app.ProgressDialog;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-
-import android.app.ProgressDialog;
+import android.icu.text.SimpleDateFormat;
 import android.net.Uri;
 import android.os.AsyncTask;
-import android.preference.PreferenceManager;
+import android.os.Build;
+import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
@@ -21,6 +24,7 @@ import org.json.JSONObject;
 
 import ru.rx1310.app.a2iga.Constants;
 import ru.rx1310.app.a2iga.R;
+import ru.rx1310.app.a2iga.activities.MainActivity;
 import ru.rx1310.app.a2iga.utils.AppUtils;
 import ru.rx1310.app.a2iga.utils.HttpUtils;
 import ru.rx1310.app.a2iga.utils.SharedPrefUtils;
@@ -54,7 +58,7 @@ public class OTACheckTask extends AsyncTask<Void, Void, String> {
 
 		if (oProgressDialog) progressDialog.dismiss();
         if (!TextUtils.isEmpty(result)) parseJson(result);
-
+		//updateNotification("12", 583, "Это небольшое минорное обновление, которое исправляет старые болячки приложения. Теперь, например, при отсутствии у модуля класса «ModuleSettings» выводится сообщение об этом, а не крашится все приложение. Также стоит отметить исправления фризов AppsList. Теперь их быть не должно, вроде исправил.");
     }
 
     private void parseJson(String result) {
@@ -75,7 +79,8 @@ public class OTACheckTask extends AsyncTask<Void, Void, String> {
 
 			if (versionCode > versionCodeInstalled) {
 
-				updateDialog(oContext, versionName, versionCode, updateMessage, urlApk, urlChangelog);
+				if (oProgressDialog) updateDialog(oContext, versionName, versionCode, updateMessage, urlApk, urlChangelog);
+				else updateNotification(versionName, versionCode, updateMessage);
 
 			} else {
 				AppUtils.showToast(oContext, oContext.getString(R.string.ota_msg_used_latest_release));
@@ -120,6 +125,53 @@ public class OTACheckTask extends AsyncTask<Void, Void, String> {
 
 		// ? Сохранение URL файла со списком изменений
 		// SharedPrefUtils.saveData(oContext, "ota.changelogUrl", changelogUrl);
+		
+	}
+	
+	void updateNotification(String versionName, int versionCode, String updateMessage) {
+		
+		/*RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.notification_custom_view);
+		remoteViews.setImageViewResource(R.id.image_icon, iconResource);
+		remoteViews.setTextViewText(R.id.text_title, title);
+		remoteViews.setTextViewText(R.id.text_message, message);
+		remoteViews.setImageViewResource(R.id.image_end, imageResource);*/
+		
+		Intent openAppIntent = new Intent(oContext, MainActivity.class);
+		PendingIntent pendingOpenAppIntent = PendingIntent.getActivity(oContext, 0, openAppIntent, PendingIntent.FLAG_ONE_SHOT);
+		
+		String notifChannelID = "a2iga_updater";
+		
+		NotificationCompat.Builder notifBuilder = new NotificationCompat.Builder(oContext, notifChannelID);
+		
+		notifBuilder.setSmallIcon(R.drawable.ic_logo);
+		//notifBuilder.setLargeIcon(BitmapFactory.decodeResource(oContext.getResources(),R.drawable.ic_info));
+		notifBuilder.setColorized(true);
+		notifBuilder.setSubText(versionName + "." + versionCode);
+		notifBuilder.setTicker("ticker");
+		notifBuilder.setContentTitle(oContext.getString(R.string.ota_msg_update_available));
+		notifBuilder.setContentText(oContext.getString(R.string.ota_notif_desc));
+		notifBuilder.setColor(AppUtils.getSystemAccentColor(oContext));
+		notifBuilder.setContentInfo("content_info");
+		notifBuilder.setPriority(NotificationCompat.PRIORITY_MAX);
+		notifBuilder.setAutoCancel(false);
+		//notifBuilder.setOngoing(true);
+		notifBuilder.setBadgeIconType(NotificationCompat.BADGE_ICON_SMALL);
+		notifBuilder.setContentIntent(pendingOpenAppIntent);
+		notifBuilder.setStyle(new NotificationCompat.BigTextStyle().bigText(updateMessage));
+		
+		NotificationManager notifManager = (NotificationManager) oContext.getSystemService(Context.NOTIFICATION_SERVICE);
+
+		// Since android Oreo notification channel is needed.
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+			NotificationChannel notifChannel = new NotificationChannel(notifChannelID, oContext.getString(R.string.ota), NotificationManager.IMPORTANCE_MAX);
+			notifChannel.setShowBadge(true);
+			notifChannel.setDescription(oContext.getString(R.string.ota_notif_channel_desc));
+			assert notifManager != null;
+			notifManager.createNotificationChannel(notifChannel);
+		}
+
+		assert notifManager != null;
+		notifManager.notify(0, notifBuilder.build());
 		
 	}
 

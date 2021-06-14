@@ -3,47 +3,37 @@
 package ru.rx1310.app.a2iga.adapters;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
-import android.content.ClipData;
-import android.content.ClipboardManager;
-import android.content.Context;
 import android.content.res.Resources;
-
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.View.OnLongClickListener;
-
 import android.widget.ArrayAdapter;
 import android.widget.Filter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import android.support.v7.app.AppCompatActivity;
-
-import ru.rx1310.app.a2iga.R;
-import ru.rx1310.app.a2iga.utils.SharedPrefUtils;
 import ru.rx1310.app.a2iga.Constants;
+import ru.rx1310.app.a2iga.R;
 import ru.rx1310.app.a2iga.activities.AppsListActivity;
 import ru.rx1310.app.a2iga.utils.AppUtils;
-import android.content.Intent;
-import android.os.Handler;
+import ru.rx1310.app.a2iga.utils.SharedPrefUtils;
 
 public class ApplicationAdapter extends ArrayAdapter<ApplicationInfo> {
 	
-    private List<ApplicationInfo> oListApps;
     private List<ApplicationInfo> oList;
     private AppsListActivity oActivity;
 	private PackageManager oPkgMng;
     private AppsFilter oFilter;
 	private Intent sendPackageName;
 	private boolean showAppIcon, showAppPkgName;
-	LayoutInflater oInflater;
+	private LayoutInflater oInflater;
 	private String isAssistAppPkgName;
 	
     public ApplicationAdapter(AppsListActivity activity, int textViewResourceId, List<ApplicationInfo> appsList) {
@@ -51,7 +41,6 @@ public class ApplicationAdapter extends ArrayAdapter<ApplicationInfo> {
         super(activity, textViewResourceId, appsList);
 		
         this.oActivity = activity;
-        this.oListApps = appsList;
         this.oList = appsList;
 		
         oPkgMng = oActivity.getPackageManager();
@@ -61,17 +50,17 @@ public class ApplicationAdapter extends ArrayAdapter<ApplicationInfo> {
 
     @Override
     public int getCount() {
-		return oListApps.size(); 
+		return oList.size(); 
 	}
 
     @Override
     public ApplicationInfo getItem(int p) {
-		return oListApps.get(p); 
+		return oList.get(p); 
 	}
 
     @Override
     public long getItemId(int p) {
-        return oListApps.indexOf(getItem(p));
+        return oList.indexOf(getItem(p));
     }
 
     @Override
@@ -118,23 +107,27 @@ public class ApplicationAdapter extends ArrayAdapter<ApplicationInfo> {
 		else vh.appPackage.setVisibility(View.GONE);
 		
 		// ? Отображение иконки приложения
-		new Handler().postDelayed(new Runnable() {
+		/*oActivity.runOnUiThread(new Runnable() {
 			@Override
 			public void run() {
 				if (showAppIcon) vh.icon.setImageDrawable(getItem(p).loadIcon(oPkgMng));
 				else vh.icon.setImageDrawable(Resources.getSystem().getDrawable(android.R.mipmap.sym_def_app_icon));
 			}
-		}, 10);
+		});*/
 		
+		if (showAppIcon) vh.icon.setImageDrawable(getItem(p).loadIcon(oPkgMng));
+		else vh.icon.setImageDrawable(Resources.getSystem().getDrawable(android.R.mipmap.sym_def_app_icon));
 		//vh.icon.setImageDrawable(oActivity.getDrawable(R.drawable.ic_logo));
 		//vh.icon.setImageDrawable(Resources.getSystem().getDrawable(android.R.mipmap.sym_def_app_icon));
-
+		
         v.setOnClickListener(onClickListener(p));
 		v.setOnLongClickListener(OnLongClickListener(p));
 		
         return v;
 		
     }
+	
+	
 	
 	class ViewHolder {
 
@@ -180,7 +173,7 @@ public class ApplicationAdapter extends ArrayAdapter<ApplicationInfo> {
 				
 				isAssistAppPkgName = SharedPrefUtils.getStringData(oActivity, Constants.ASSIST_APP_PKGNAME);
 				
-                final ApplicationInfo ai = oListApps.get(p);
+                final ApplicationInfo ai = oList.get(p);
                
 				android.support.v7.app.AlertDialog.Builder b = new android.support.v7.app.AlertDialog.Builder(oActivity, R.style.AppTheme_Dialog_Alert);
 				
@@ -267,16 +260,16 @@ public class ApplicationAdapter extends ArrayAdapter<ApplicationInfo> {
         @Override
         protected void publishResults(CharSequence c, FilterResults fr) {
 			
-            oListApps = (ArrayList<ApplicationInfo>) fr.values;
+            oList = (ArrayList<ApplicationInfo>) fr.values;
 			
             notifyDataSetChanged();
 
-            if (oListApps.size() == oList.size()) {
-                oActivity.updateUILayout(String.format(getContext().getString(R.string.appslist_apps_count),  oListApps.size()));
-            } else if (oListApps.size() == 0) {
+            if (oList.size() == oList.size()) {
+                oActivity.updateUILayout(String.format(getContext().getString(R.string.appslist_apps_count),  oList.size()));
+            } else if (oList.size() == 0) {
 				oActivity.updateUILayout(getContext().getString(R.string.appslist_apps_count_filtered_zero));
 			} else {
-                oActivity.updateUILayout(String.format(getContext().getString(R.string.appslist_apps_count_filtered), oListApps.size()));
+                oActivity.updateUILayout(String.format(getContext().getString(R.string.appslist_apps_count_filtered), oList.size()));
             }
 			
         }

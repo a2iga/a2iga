@@ -33,6 +33,7 @@ import ru.rx1310.app.a2iga.activities.MainActivity;
 import ru.rx1310.app.a2iga.fragments.SettingsFragment;
 import ru.rx1310.app.a2iga.utils.AppUtils;
 import ru.rx1310.app.a2iga.utils.SharedPrefUtils;
+import ru.rx1310.app.a2iga.services.OTAService;
 
 public class MainActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener, View.OnClickListener {
     
@@ -81,7 +82,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 		oCurrentAssistAppLayout.setOnClickListener(this);
 		
 		oAssistantAppName = findViewById(R.id.name);
-		oAssistantAppIcon = findViewById(R.id.icon);
+		oAssistantAppIcon = (ImageView) findViewById(R.id.icon);
 		
 		if (isAssistAppPkgName == null) {
 			

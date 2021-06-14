@@ -12,4 +12,19 @@
 		<item>@string/debug_killApp</item>
     </string-array>
 	
+	<!-- OTA -->
+	<!--string-array name="ota_check_frequence">
+        <item></item>
+        <item></item>
+        <item></item>
+		<item></item>
+    </string-array>
+
+    <string-array name="ota_check_frequence_values">
+        <item>1</item>
+        <item>2</item>
+		<item>6</item>
+        <item>12</item>
+    </string-array-->
+	
 </resources>

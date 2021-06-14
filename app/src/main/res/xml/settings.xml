@@ -21,7 +21,17 @@
 		android:key="ota.check"
 		android:title="@string/pref_ota_check"
 		android:summary="@string/pref_ota_check_desc"/>
-
+	
+	<!--ListPreference
+		android:icon="@android:color/transparent"
+        android:entries="@array/ota_check_frequence"
+        android:entryValues="@array/ota_check_frequence_values"
+		android:defaultValue="2000"
+        android:key="ota.checkFrequence"
+		android:title="@string/pref_ota_check_frequence"
+        android:summary="@string/pref_ota_check_frequence_desc"
+		android:dialogTitle="@string/pref_ota_check_frequence"/-->
+    
 	<!-- AppsList -->
 	<ru.rx1310.app.a2iga.ui.CategoryPreference
 		android:title="@string/pref_appslist_category"/>

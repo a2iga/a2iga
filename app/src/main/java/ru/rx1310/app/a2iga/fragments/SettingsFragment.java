@@ -35,8 +35,8 @@ import ru.rx1310.app.a2iga.Constants;
 public class SettingsFragment extends PreferenceFragment implements SharedPreferences.OnSharedPreferenceChangeListener {
 
 	Preference dozeMode;
-	Preference appVersion, appDeveloper, appFacts;
-	Preference otaCheck, otaChangelog;
+	Preference appVersion, appChangelog, appDeveloper, appFacts;
+	Preference otaCheck;
 	Preference moduleInfo, moduleSettings;
 	Preference securityFingerprintPerm;
 	
@@ -64,7 +64,17 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
 		dozeMode.setPersistent(true);
 		
 		appVersion = findPreference("about.appVersion");
-		appVersion.setSummary(AppUtils.getVersionName(getContext(), getContext().getPackageName()) + "." + AppUtils.getVersionCode(getContext(), getContext().getPackageName()));
+		appVersion.setSummary(appVersion());
+		
+		appChangelog = findPreference("about.appChangelog");
+
+		if (AppUtils.getVersionName(getContext(), getContext().getPackageName()).contains("0.")) {
+			appChangelog.setEnabled(false);
+			appChangelog.setSummary(R.string.beta_version_block);
+		} else {
+			appChangelog.setEnabled(true);
+			appChangelog.setSummary(R.string.pref_about_app_changelog_desc);
+		}
 		
 		appFacts = findPreference("about.appFacts");
 		
@@ -74,16 +84,6 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
 		otaCheck = findPreference("ota.check");
 		if (SharedPrefUtils.getStringData(getContext(), "ota.lastCheckDate") == null) otaCheck.setSummary(getString(R.string.pref_ota_check_desc_null));
 		else otaCheck.setSummary(getString(R.string.pref_ota_check_desc) + " " + SharedPrefUtils.getStringData(getContext(), "ota.lastCheckDate"));
-		
-		otaChangelog = findPreference("ota.changelog");
-		
-		if (AppUtils.getVersionName(getContext(), getContext().getPackageName()).contains("0.")) {
-			otaChangelog.setEnabled(false);
-			otaChangelog.setSummary(R.string.beta_version_block);
-		} else {
-			otaChangelog.setEnabled(true);
-			otaChangelog.setSummary(R.string.pref_ota_changelog_desc);
-		}
 		
 		moduleInfo = findPreference("module.info");
 		moduleInfo.setEnabled(false);
@@ -260,6 +260,7 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
 		
 	} // openModuleSettings()
 	
+	// ? Окно с отладочными функциями
 	void debugOptions() {
 		
 		AppUtils.showToast(getContext(), "Главное — не получить стрелу в колено 🏹");
@@ -288,10 +289,24 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
 					AppUtils.openURL(getContext(), "https://github.com/a2iga/a2iga/blob/main/docs/changelog_" + AppUtils.getVersionCode(getContext(), getContext().getPackageName()) + ".md");
 				} if (p == 5) {
 					startActivity(new Intent(android.provider.Settings.ACTION_VOICE_INPUT_SETTINGS));
+				} if (p == 6) {
+					android.os.Process.killProcess(android.os.Process.myPid());
+                    System.exit(1);
 				}
 			}
 		});
 		b.show();
+		
+	}
+	
+	// ? Версия приложения
+	String appVersion() {
+		
+		if (AppUtils.getVersionName(getContext(), getContext().getPackageName()).contains("0.")) {
+			return AppUtils.getVersionName(getContext(), getContext().getPackageName());
+		} else {
+			return AppUtils.getVersionName(getContext(), getContext().getPackageName()) + "." + AppUtils.getVersionCode(getContext(), getContext().getPackageName());
+		}
 		
 	}
 
