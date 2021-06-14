@@ -80,7 +80,7 @@ public class OTACheckTask extends AsyncTask<Void, Void, String> {
 			if (versionCode > versionCodeInstalled) {
 
 				if (oProgressDialog) updateDialog(oContext, versionName, versionCode, updateMessage, urlApk, urlChangelog);
-				else updateNotification(versionName, versionCode, updateMessage);
+				else updateNotification(versionName, versionCode, updateMessage, urlApk, urlChangelog);
 
 			} else {
 				AppUtils.showToast(oContext, oContext.getString(R.string.ota_msg_used_latest_release));
@@ -128,7 +128,7 @@ public class OTACheckTask extends AsyncTask<Void, Void, String> {
 		
 	}
 	
-	void updateNotification(String versionName, int versionCode, String updateMessage) {
+	void updateNotification(String versionName, int versionCode, String updateMessage, String apkUrl, String changelogUrl) {
 		
 		/*RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.notification_custom_view);
 		remoteViews.setImageViewResource(R.id.image_icon, iconResource);
@@ -136,7 +136,12 @@ public class OTACheckTask extends AsyncTask<Void, Void, String> {
 		remoteViews.setTextViewText(R.id.text_message, message);
 		remoteViews.setImageViewResource(R.id.image_end, imageResource);*/
 		
+		Intent dlApkIntent = new Intent (Intent.ACTION_VIEW, Uri.parse(apkUrl));
+		Intent openChangelogIntent = new Intent (Intent.ACTION_VIEW, Uri.parse(changelogUrl));
 		Intent openAppIntent = new Intent(oContext, MainActivity.class);
+		
+		PendingIntent dlApkPendingIntent = PendingIntent.getActivity(oContext, 0, dlApkIntent, Intent.FLAG_ACTIVITY_NEW_TASK);
+		PendingIntent openChangelogPendingIntent = PendingIntent.getActivity(oContext, 0, openChangelogIntent, Intent.FLAG_ACTIVITY_NEW_TASK);
 		PendingIntent pendingOpenAppIntent = PendingIntent.getActivity(oContext, 0, openAppIntent, PendingIntent.FLAG_ONE_SHOT);
 		
 		String notifChannelID = "a2iga_updater";
@@ -158,6 +163,8 @@ public class OTACheckTask extends AsyncTask<Void, Void, String> {
 		notifBuilder.setBadgeIconType(NotificationCompat.BADGE_ICON_SMALL);
 		notifBuilder.setContentIntent(pendingOpenAppIntent);
 		notifBuilder.setStyle(new NotificationCompat.BigTextStyle().bigText(updateMessage));
+		notifBuilder.addAction(R.drawable.ic_download, oContext.getString(R.string.ota_action_download), dlApkPendingIntent);
+		notifBuilder.addAction(R.drawable.ic_info, oContext.getString(R.string.ota_action_changelog), openChangelogPendingIntent);
 		
 		NotificationManager notifManager = (NotificationManager) oContext.getSystemService(Context.NOTIFICATION_SERVICE);
 

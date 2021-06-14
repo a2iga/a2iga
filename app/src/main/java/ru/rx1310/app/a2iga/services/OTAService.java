@@ -3,23 +3,21 @@ package ru.rx1310.app.a2iga.services;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
-import android.preference.PreferenceManager;
+
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.concurrent.TimeUnit;
+
 import ru.rx1310.app.a2iga.tasks.OTACheckTask;
 import ru.rx1310.app.a2iga.utils.AppUtils;
-import ru.rx1310.app.a2iga.utils.SharedPrefUtils;
-import java.util.concurrent.TimeUnit;
 
 public class OTAService extends Service {
 	
     private static Timer oTimer = new Timer(); 
     private Context oContext;
-	private String checkFrequence;
 	
     public IBinder onBind(Intent i) {
 		return null;
