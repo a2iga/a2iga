@@ -27,6 +27,7 @@ import ru.rx1310.app.a2iga.utils.SharedPrefUtils;
 
 public class ApplicationAdapter extends ArrayAdapter<ApplicationInfo> {
 	
+	private List<ApplicationInfo> oListApps;
     private List<ApplicationInfo> oList;
     private AppsListActivity oActivity;
 	private PackageManager oPkgMng;
@@ -37,12 +38,13 @@ public class ApplicationAdapter extends ArrayAdapter<ApplicationInfo> {
 	private String isAssistAppPkgName;
 	
     public ApplicationAdapter(AppsListActivity activity, int textViewResourceId, List<ApplicationInfo> appsList) {
-		
+
         super(activity, textViewResourceId, appsList);
-		
+
         this.oActivity = activity;
+        this.oListApps = appsList;
         this.oList = appsList;
-		
+
         oPkgMng = oActivity.getPackageManager();
 		oInflater = (LayoutInflater) oActivity.getSystemService(oActivity.LAYOUT_INFLATER_SERVICE);
 		
@@ -50,28 +52,28 @@ public class ApplicationAdapter extends ArrayAdapter<ApplicationInfo> {
 
     @Override
     public int getCount() {
-		return oList.size(); 
+		return oListApps.size(); 
 	}
 
     @Override
     public ApplicationInfo getItem(int p) {
-		return oList.get(p); 
+		return oListApps.get(p); 
 	}
 
     @Override
     public long getItemId(int p) {
-        return oList.indexOf(getItem(p));
+        return oListApps.indexOf(getItem(p));
     }
 
     @Override
     public Filter getFilter() {
-		
+
         if (oFilter == null) {
             oFilter = new AppsFilter();
         }
-		
+
         return oFilter;
-		
+
     }
 
     @Override
@@ -88,7 +90,7 @@ public class ApplicationAdapter extends ArrayAdapter<ApplicationInfo> {
 			vh = new ViewHolder();
 			
             v = oInflater.inflate(R.layout.list_item_appslist, vg, false);
-            
+			
 			vh.icon = v.findViewById(R.id.icon);
             vh.appName = v.findViewById(R.id.name);
             vh.appPackage = v.findViewById(R.id.package_name);
@@ -173,8 +175,8 @@ public class ApplicationAdapter extends ArrayAdapter<ApplicationInfo> {
 				
 				isAssistAppPkgName = SharedPrefUtils.getStringData(oActivity, Constants.ASSIST_APP_PKGNAME);
 				
-                final ApplicationInfo ai = oList.get(p);
-               
+                final ApplicationInfo ai = oListApps.get(p);
+				
 				android.support.v7.app.AlertDialog.Builder b = new android.support.v7.app.AlertDialog.Builder(oActivity, R.style.AppTheme_Dialog_Alert);
 				
 				b.setTitle(ai.loadLabel(oPkgMng));
@@ -259,19 +261,19 @@ public class ApplicationAdapter extends ArrayAdapter<ApplicationInfo> {
 
         @Override
         protected void publishResults(CharSequence c, FilterResults fr) {
-			
-            oList = (ArrayList<ApplicationInfo>) fr.values;
-			
+
+            oListApps = (ArrayList<ApplicationInfo>) fr.values;
+
             notifyDataSetChanged();
 
-            if (oList.size() == oList.size()) {
-                oActivity.updateUILayout(String.format(getContext().getString(R.string.appslist_apps_count),  oList.size()));
-            } else if (oList.size() == 0) {
+            if (oListApps.size() == oList.size()) {
+                oActivity.updateUILayout(String.format(getContext().getString(R.string.appslist_apps_count),  oListApps.size()));
+            } else if (oListApps.size() == 0) {
 				oActivity.updateUILayout(getContext().getString(R.string.appslist_apps_count_filtered_zero));
 			} else {
-                oActivity.updateUILayout(String.format(getContext().getString(R.string.appslist_apps_count_filtered), oList.size()));
+                oActivity.updateUILayout(String.format(getContext().getString(R.string.appslist_apps_count_filtered), oListApps.size()));
             }
-			
+
         }
 		
     }
