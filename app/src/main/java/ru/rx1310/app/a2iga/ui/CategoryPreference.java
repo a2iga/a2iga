@@ -3,11 +3,11 @@
 package ru.rx1310.app.a2iga.ui;
 
 import android.content.Context;
+import android.preference.Preference;
 import android.util.AttributeSet;
-import android.preference.PreferenceCategory;
 import ru.rx1310.app.a2iga.R;
 
-public class CategoryPreference extends PreferenceCategory {
+public class CategoryPreference extends Preference {
 
 	public CategoryPreference(Context c, AttributeSet attrs) {
 		super(c, attrs);
