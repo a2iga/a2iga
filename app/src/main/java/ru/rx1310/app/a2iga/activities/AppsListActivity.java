@@ -132,10 +132,6 @@ public class AppsListActivity extends AppCompatActivity {
 		oAppsCount.setText(String.format(getString(R.string.appslist_apps_count), oList.size()));
 		oAdapter.notifyDataSetChanged();
 		
-		try {
-			TimeUnit.SECONDS.sleep(1);
-		} catch (InterruptedException e) {}
-
 		oDlgProgress.dismiss();
 		
     }

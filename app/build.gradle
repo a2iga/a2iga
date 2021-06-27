@@ -10,7 +10,7 @@ android {
         minSdkVersion 16
         targetSdkVersion 29
 		
-        versionCode 210612
+        versionCode 2106
         versionName "0.10"
 		
     }
@@ -34,6 +34,6 @@ dependencies {
 	api 'com.android.support:customtabs:27.+'
 	api 'com.android.support:support-vector-drawable:27.+'
 	
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+	compile fileTree(dir: 'libs', include: ['*.jar'])
 	
 }

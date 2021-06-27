@@ -41,6 +41,16 @@
 	
 	<SwitchPreference
 		android:icon="@android:color/transparent"
+		android:key="appslist.extended"
+		android:title="@string/pref_appslist_extended"
+		android:summary="@string/pref_appslist_extended_desc"
+		android:defaultValue="false"
+		android:enabled="true"/>
+	
+	<ru.rx1310.app.a2iga.ui.BorderPreference />
+	
+	<SwitchPreference
+		android:icon="@android:color/transparent"
 		android:key="appslist.oldUI"
 		android:title="@string/pref_appslist_old_ui"
 		android:summary="@string/pref_appslist_old_ui_desc"
@@ -64,14 +74,6 @@
 		android:defaultValue="false"
 		android:enabled="true"
 		android:dependency="appslist.oldUI"/>
-
-	<SwitchPreference
-		android:icon="@android:color/transparent"
-		android:key="appslist.extended"
-		android:title="@string/pref_appslist_extended"
-		android:summary="@string/pref_appslist_extended_desc"
-		android:defaultValue="false"
-		android:enabled="true"/>
 	
 	<!-- Module -->
 	<ru.rx1310.app.a2iga.ui.CategoryPreference
