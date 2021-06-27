@@ -41,11 +41,20 @@
 	
 	<SwitchPreference
 		android:icon="@android:color/transparent"
+		android:key="appslist.oldUI"
+		android:title="@string/pref_appslist_old_ui"
+		android:summary="@string/pref_appslist_old_ui_desc"
+		android:defaultValue="false"
+		android:enabled="true"/>
+	
+	<SwitchPreference
+		android:icon="@android:color/transparent"
 		android:key="appslist.icons"
 		android:title="@string/pref_appslist_icons"
 		android:summary="@string/pref_appslist_icons_desc"
 		android:defaultValue="false"
-		android:enabled="true"/>
+		android:enabled="true"
+		android:dependency="appslist.oldUI"/>
 	
 	<SwitchPreference
 		android:icon="@android:color/transparent"
@@ -53,7 +62,8 @@
 		android:title="@string/pref_appslist_pkgname"
 		android:summary="@string/pref_appslist_pkgname_desc"
 		android:defaultValue="false"
-		android:enabled="true"/>
+		android:enabled="true"
+		android:dependency="appslist.oldUI"/>
 
 	<SwitchPreference
 		android:icon="@android:color/transparent"

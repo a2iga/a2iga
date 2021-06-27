@@ -27,6 +27,11 @@ import java.util.List;
 import ru.rx1310.app.a2iga.R;
 import ru.rx1310.app.a2iga.adapters.ApplicationAdapter;
 import ru.rx1310.app.a2iga.tasks.LoadAppsTask;
+import ru.rx1310.app.a2iga.utils.SharedPrefUtils;
+import ru.rx1310.app.a2iga.Constants;
+import ru.rx1310.app.a2iga.utils.AppUtils;
+import android.widget.LinearLayout;
+import android.view.View;
 
 public class AppsListActivity extends AppCompatActivity {
 
@@ -38,7 +43,10 @@ public class AppsListActivity extends AppCompatActivity {
     ProgressDialog oDlgProgress;
 	SearchManager oSearchMng;
 	SearchView oSearchView;
-	TextView oAppsCount;
+	TextView oAppsCount, oCurrentAssistAppName;
+	Boolean oldUIEnabled;
+	String isAssistAppPkgName;
+	LinearLayout oCurrentAssistApp;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -46,12 +54,22 @@ public class AppsListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_appslist);
 
+		isAssistAppPkgName = SharedPrefUtils.getStringData(this, Constants.ASSIST_APP_PKGNAME);
+		oldUIEnabled = SharedPrefUtils.getBooleanData(this, "appslist.oldUI");
+		
         oPkgMan = getPackageManager();
         oList = new ArrayList<>();
 
 		oListView = findViewById(R.id.listView);
         oToolbar = findViewById(R.id.toolbar);
 		oAppsCount = findViewById(R.id.appsCount);
+		
+		oCurrentAssistApp = findViewById(R.id.currentAssistApp);
+
+		if (isAssistAppPkgName == null || oldUIEnabled) oCurrentAssistApp.setVisibility(View.GONE);
+		
+		oCurrentAssistAppName = findViewById(R.id.currentAssistAppName);
+		oCurrentAssistAppName.setText(AppUtils.getAppName(this, isAssistAppPkgName));
 		
         setSupportActionBar(oToolbar);
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -68,7 +86,10 @@ public class AppsListActivity extends AppCompatActivity {
 		oSearchView.requestFocusFromTouch();
 		
 		oDlgProgress = ProgressDialog.show(this, getString(R.string.appslist_loading_dialog), getString(R.string.appslist_loading_dialog_desc));
-        oAdapter = new ApplicationAdapter(this, R.layout.list_item_appslist, oList);
+        
+		if (oldUIEnabled) oAdapter = new ApplicationAdapter(this, R.layout.list_item_appslist_old, oList);
+		else oAdapter = new ApplicationAdapter(this, R.layout.list_item_appslist, oList);
+		
         oListView.setAdapter(oAdapter);
 		
     }

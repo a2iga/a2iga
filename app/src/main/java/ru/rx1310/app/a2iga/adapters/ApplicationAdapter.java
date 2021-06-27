@@ -33,7 +33,7 @@ public class ApplicationAdapter extends ArrayAdapter<ApplicationInfo> {
 	private PackageManager oPkgMng;
     private AppsFilter oFilter;
 	private Intent sendPackageName;
-	private boolean showAppIcon, showAppPkgName;
+	private boolean showAppIcon, showAppPkgName, oldUIEnabled;
 	private LayoutInflater oInflater;
 	private String isAssistAppPkgName;
 	
@@ -84,12 +84,14 @@ public class ApplicationAdapter extends ArrayAdapter<ApplicationInfo> {
 		// ? Получение prefs
 		showAppIcon = SharedPrefUtils.getBooleanData(oActivity, "appslist.icons");
 		showAppPkgName = SharedPrefUtils.getBooleanData(oActivity, "appslist.pkgname");
+		oldUIEnabled = SharedPrefUtils.getBooleanData(oActivity, "appslist.oldUI");
 		
 		if (v == null) {
 			
 			vh = new ViewHolder();
 			
-            v = oInflater.inflate(R.layout.list_item_appslist, vg, false);
+            if (oldUIEnabled) v = oInflater.inflate(R.layout.list_item_appslist_old, vg, false);
+			else v = oInflater.inflate(R.layout.list_item_appslist, vg, false);
 			
 			vh.icon = v.findViewById(R.id.icon);
             vh.appName = v.findViewById(R.id.name);
@@ -105,22 +107,26 @@ public class ApplicationAdapter extends ArrayAdapter<ApplicationInfo> {
 		vh.appName.setText(getItem(p).loadLabel(oPkgMng));
 
 		// ? Отображение Package Name
-		if (showAppPkgName) vh.appPackage.setText(getItem(p).packageName);
-		else vh.appPackage.setVisibility(View.GONE);
-		
-		// ? Отображение иконки приложения
-		/*oActivity.runOnUiThread(new Runnable() {
-			@Override
-			public void run() {
-				if (showAppIcon) vh.icon.setImageDrawable(getItem(p).loadIcon(oPkgMng));
-				else vh.icon.setImageDrawable(Resources.getSystem().getDrawable(android.R.mipmap.sym_def_app_icon));
-			}
-		});*/
-		
-		if (showAppIcon) vh.icon.setImageDrawable(getItem(p).loadIcon(oPkgMng));
-		else vh.icon.setImageDrawable(Resources.getSystem().getDrawable(android.R.mipmap.sym_def_app_icon));
-		//vh.icon.setImageDrawable(oActivity.getDrawable(R.drawable.ic_logo));
-		//vh.icon.setImageDrawable(Resources.getSystem().getDrawable(android.R.mipmap.sym_def_app_icon));
+		if (oldUIEnabled) {
+			
+			if (showAppPkgName) vh.appPackage.setText(getItem(p).packageName);
+			else vh.appPackage.setVisibility(View.GONE);
+
+			// ? Отображение иконки приложения
+			oActivity.runOnUiThread(new Runnable() {
+				@Override
+				public void run() {
+					if (showAppIcon) vh.icon.setImageDrawable(getItem(p).loadIcon(oPkgMng));
+					else vh.icon.setImageDrawable(Resources.getSystem().getDrawable(android.R.mipmap.sym_def_app_icon));
+				}
+			});
+
+			//if (showAppIcon) vh.icon.setImageDrawable(getItem(p).loadIcon(oPkgMng));
+			//else vh.icon.setImageDrawable(Resources.getSystem().getDrawable(android.R.mipmap.sym_def_app_icon));
+			//vh.icon.setImageDrawable(oActivity.getDrawable(R.drawable.ic_logo));
+			//vh.icon.setImageDrawable(Resources.getSystem().getDrawable(android.R.mipmap.sym_def_app_icon));
+			
+		}
 		
         v.setOnClickListener(onClickListener(p));
 		v.setOnLongClickListener(OnLongClickListener(p));

@@ -191,6 +191,7 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
 				
 			case "about.appVersion":
 				debugOptions();
+				
 				break;
 
 			default: break;

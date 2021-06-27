@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 		getFragmentManager().beginTransaction().replace(R.id.layoutSettings, new SettingsFragment()).commit();
 	
 		isAssistAppPkgName = SharedPrefUtils.getStringData(this, Constants.ASSIST_APP_PKGNAME);
+		
 		oIntent = getIntent();
 		
 		oSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
@@ -131,9 +132,9 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 		String isIntentType = oIntent.getType();
 		
 		if (Intent.ACTION_SEND.equals(isIntentAction) && isIntentType != null || "text/plain".equals(isIntentType)) setAssistantAppFromIntent(oIntent);
-		
-    }
 
+    }
+	
 	@Override
 	protected void onResume() {
 		super.onResume();
