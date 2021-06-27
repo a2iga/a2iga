@@ -16,13 +16,16 @@ import android.support.v7.widget.Toolbar;
 
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.View;
 
+import android.widget.LinearLayout;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import ru.rx1310.app.a2iga.R;
 import ru.rx1310.app.a2iga.adapters.ApplicationAdapter;
@@ -30,8 +33,6 @@ import ru.rx1310.app.a2iga.tasks.LoadAppsTask;
 import ru.rx1310.app.a2iga.utils.SharedPrefUtils;
 import ru.rx1310.app.a2iga.Constants;
 import ru.rx1310.app.a2iga.utils.AppUtils;
-import android.widget.LinearLayout;
-import android.view.View;
 
 public class AppsListActivity extends AppCompatActivity {
 
@@ -124,20 +125,18 @@ public class AppsListActivity extends AppCompatActivity {
 		
 		oList.clear();
 		
-		Thread t = new Thread(new Runnable() {
-			public void run() {
-				for (int i = 0; i < list.size(); i++) {
-					oList.add(list.get(i));
-				}
-			}
-		});
+		for (int i = 0; i < list.size(); i++) {
+			oList.add(list.get(i));
+		}
 		
-		t.start();
-
 		oAppsCount.setText(String.format(getString(R.string.appslist_apps_count), oList.size()));
-        oAdapter.notifyDataSetChanged();
+		oAdapter.notifyDataSetChanged();
 		
-        oDlgProgress.dismiss();
+		try {
+			TimeUnit.SECONDS.sleep(1);
+		} catch (InterruptedException e) {}
+
+		oDlgProgress.dismiss();
 		
     }
 
