@@ -120,16 +120,23 @@ public class AppsListActivity extends AppCompatActivity {
     }
 
 
-    public void callBackDataFromAsynctask(List<ApplicationInfo> list) {
+    public void callBackDataFromAsynctask(final List<ApplicationInfo> list) {
 		
 		oList.clear();
-
-        for (int i = 0; i < list.size(); i++) {
-            oList.add(list.get(i));
-        }
 		
+		Thread t = new Thread(new Runnable() {
+			public void run() {
+				for (int i = 0; i < list.size(); i++) {
+					oList.add(list.get(i));
+				}
+			}
+		});
+		
+		t.start();
+
 		oAppsCount.setText(String.format(getString(R.string.appslist_apps_count), oList.size()));
         oAdapter.notifyDataSetChanged();
+		
         oDlgProgress.dismiss();
 		
     }
