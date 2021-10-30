@@ -17,6 +17,6 @@ jobs:
           to: ${{ secrets.TG_GROUP }}
           token: ${{ secrets.TG_BOT_TOKEN }}
           message: |
-            📌 ${{ github.event.commits[0].message }}
+            📌 ${{ github.event.commits[0].message }} #a2iga
  
             👨‍💻 by @${{ github.actor }} / 🔗 https://github.com/${{ github.repository }}/commit/${{github.sha}}
