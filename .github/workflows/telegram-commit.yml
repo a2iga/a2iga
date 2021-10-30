@@ -5,7 +5,7 @@
  ​  ​push​: 
  ​    ​branches​: 
  ​      - ​main 
- ​      - "​dev/v10"
+ ​      - ​dev/v10
   
  ​jobs​: 
  ​  ​send_msg​: 
