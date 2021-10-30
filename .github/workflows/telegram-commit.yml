@@ -1,0 +1,23 @@
+ 
+ ​name​: ​telegram-commit 
+  
+ ​on​: 
+ ​  ​push​: 
+ ​    ​branches​: 
+ ​      - ​main 
+ ​      - "​dev/v10"
+  
+ ​jobs​: 
+ ​  ​send_msg​: 
+ ​    ​name​: ​Send message to Telegram Chat 
+ ​    ​runs-on​: ​ubuntu-latest 
+ ​    ​steps​: 
+ ​      - ​name​: ​Sending... 
+ ​        ​uses​: ​appleboy/telegram-action@master 
+ ​        ​with​: 
+ ​          ​to​: ​${{ secrets.TG_GROUP }} 
+ ​          ​token​: ​${{ secrets.TG_BOT_TOKEN }} 
+ ​          ​message​: ​| 
+ ​            📌 ${{ github.event.commits[0].message }} #a2iga
+  
+ ​            👨‍💻 by @${{ github.actor }} / 🔗 https://github.com/${{ github.repository }}/commit/${{github.sha}}
