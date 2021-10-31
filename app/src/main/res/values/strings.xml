@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     
-    <string name=""></string>
-    <string name=""></string>
-    <string name=""></string>
+    <string name="activity_main">@string/app_name</string>
+    <string name="activity_settings">Настройки приложения</string>
+    <string name="activity_about">О приложении</string>
     
 </resources>
