@@ -33,7 +33,8 @@
 		android:supportsRtl="false">
 
 		<activity
-			android:name=".activities.MainActivity">
+			android:name=".activities.MainActivity"
+            android:label="@string/activity_main">
 
 			<intent-filter>
 
@@ -43,6 +44,14 @@
 			</intent-filter>
 
 		</activity>
+        
+        <activity
+            android:name=".activities.AboutActivity"
+            android:label="@string/activity_about"/>
+        
+        <activity
+            android:name=".activities.SettingsActivity"
+            android:label="@string/activity_settings"/>
 
 		<meta-data
 			android:name="android.max_aspect"
