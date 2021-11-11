@@ -10,7 +10,7 @@ android {
 		minSdkVersion 22
 		targetSdkVersion 29
 
-		versionCode 2107
+		versionCode 2111
 		versionName "0.10"
 
 	}
