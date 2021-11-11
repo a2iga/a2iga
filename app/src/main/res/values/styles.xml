@@ -6,6 +6,6 @@
 
 	<style
 		name="AppTheme"
-		parent="@android:style/Theme.DeviceDefault.Light"/>
+		parent="@style/Theme.AppCompat"/>
 
 </resources>

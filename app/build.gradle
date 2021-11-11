@@ -27,5 +27,12 @@ android {
 }
 
 dependencies {
-	//compile fileTree(dir: 'libs', include: ['*.jar'])
+	
+	api 'android.arch.core:runtime:+'
+	api 'com.android.support:support-v4:+'
+	api 'com.android.support:design:+'
+	api 'com.android.support:appcompat-v7:+'
+  
+	compile fileTree(dir: 'libs', include: ['*.jar'])
+  
 }
