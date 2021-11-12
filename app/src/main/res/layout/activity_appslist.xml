@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical"
+	tools:context=".MainActivity">
+
+	<LinearLayout
+		android:orientation="vertical"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+
+		<android.support.design.widget.AppBarLayout
+			android:id="@+id/appbar"
+			android:minHeight="?attr/actionBarSize"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+			<android.support.v7.widget.Toolbar
+				android:id="@+id/toolbar"
+				android:minHeight="?attr/actionBarSize"
+				android:background="?attr/colorPrimary"
+				android:layout_width="match_parent"
+				android:theme="@style/ThemeOverlay.AppCompat.Dark"
+				android:layout_height="wrap_content"/>
+
+			<View
+				android:background="?android:attr/dividerVertical"
+				android:layout_width="match_parent"
+				android:layout_height="1dp"/>
+
+			<LinearLayout
+				android:orientation="vertical"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content">
+
+				<LinearLayout
+					android:orientation="horizontal"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:gravity="left|center">
+
+					<ImageView
+						android:layout_marginRight="?android:attr/listPreferredItemPaddingEnd"
+						android:layout_marginLeft="?android:attr/listPreferredItemPaddingStart"
+						android:src="@drawable/ic_search"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"/>
+
+					<android.support.v7.widget.SearchView
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:id="@+id/searchView"
+						android:iconifiedByDefault="false"
+						android:queryBackground="@null"
+						android:focusableInTouchMode="true"
+						app:queryHint="@string/appslist_search_hint"
+						app:defaultQueryHint="@string/appslist_search_hint"
+						app:searchIcon="@null"
+						app:searchHintIcon="@null"
+						app:closeIcon="@drawable/ic_close_circle"
+						app:queryBackground="@null"
+						background="@null"/>
+
+				</LinearLayout>
+
+				<TextView
+					android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
+					android:paddingStart="72dp"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:id="@+id/appsCount"
+					android:textAppearance="?android:attr/textAppearanceSmall"
+					android:alpha="0.5"
+					android:paddingBottom="12dp"/>
+
+			</LinearLayout>
+
+		</android.support.design.widget.AppBarLayout>
+
+		<LinearLayout
+			android:id="@+id/currentAssistApp"
+			android:orientation="vertical"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content">
+
+			<LinearLayout
+				android:orientation="horizontal"
+				android:layout_width="match_parent"
+				android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
+				android:paddingStart="?android:attr/listPreferredItemPaddingStart"
+				android:layout_height="wrap_content"
+				android:gravity="left|center"
+				android:clickable="true"
+				android:foreground="?android:attr/selectableItemBackground"
+				android:paddingTop="10dp"
+				android:paddingBottom="10dp">
+
+				<ImageView
+					android:layout_marginLeft="2dp"
+					android:layout_marginRight="8dp"
+					android:layout_width="22dp"
+					android:layout_height="22dp"
+					android:src="@drawable/ic_radio_on"/>
+
+				<TextView
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:textAppearance="?android:attr/textAppearanceMedium"
+					android:id="@+id/currentAssistAppName"
+					android:paddingStart="24dp"
+					android:textColor="#FFFFFFFF"
+					android:gravity="center|start"
+					android:textStyle="bold"/>
+
+			</LinearLayout>
+
+			<View
+				android:background="?android:attr/dividerVertical"
+				android:layout_width="match_parent"
+				android:layout_height="1dp"/>
+
+		</LinearLayout>
+
+		<ListView
+			android:scrollingCache="false"
+			android:animationCache="false"
+			android:fastScrollAlwaysVisible="false"
+			android:fastScrollEnabled="true"
+			android:id="@+id/listView"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:dividerHeight="1dp"
+			android:listSelector="@color/colorHover"/>
+
+	</LinearLayout>
+
+</FrameLayout>
+

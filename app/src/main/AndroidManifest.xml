@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest
-		xmlns:android="http://schemas.android.com/apk/res/android"
-		package="ru.rx1310.app.a2iga" >
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    package="ru.rx1310.app.a2iga" >
 
-		<original-package android:name="ru.rx1310.app.a2iga" />
+    <original-package android:name="ru.rx1310.app.a2iga" />
 
-		<supports-screens
-				android:anyDensity="true"
-				android:largeScreens="true"
-				android:normalScreens="true"
-				android:resizeable="true"
-				android:smallScreens="true"
-				android:xlargeScreens="true" />
+    <supports-screens 
+        android:anyDensity="true" 
+        android:largeScreens="true" 
+        android:normalScreens="true" 
+        android:resizeable="true" 
+        android:smallScreens="true" 
+        android:xlargeScreens="true" />
 
-		<uses-permission android:name="android.permission.REQUEST_DELETE_PACKAGES" />
+    <uses-permission android:name="android.permission.REQUEST_DELETE_PACKAGES" />
 		<uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"/>
 		<uses-permission android:name="android.permission.INTERNET"/>
 		<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
@@ -24,39 +24,108 @@
 
 		<permission android:name="android.permission.QUERY_ALL_PACKAGES" />
 
-		<application
-				android:icon="@mipmap/ic_launcher"
-				android:roundIcon="@mipmap/ic_launcher_round"
-				android:label="@string/app_name"
-				android:theme="@style/AppTheme"
-				android:allowBackup="true"
-				android:supportsRtl="false">
+    <application
+				android:name=".A2IGA"
+				android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_launcher" 
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:label="@string/app_name" 
+        android:theme="@style/AppTheme"
+        android:allowBackup="true"
+        android:supportsRtl="true">
 
 				<activity
-						android:name=".activities.MainActivity"
-						android:label="@string/activity_main">
+						android:label="@string/app_name"
+						android:theme="@style/AppTheme.Splash"
+						android:fitsSystemWindows="true"
+						android:noHistory="true" 
+						android:excludeFromRecents="true" 
+						android:finishOnCloseSystemDialogs="true" 
+						android:launchMode="singleInstance" 
+						android:name=".activities.SplashActivity">
 
 						<intent-filter>
 
-								<action android:name="android.intent.action.MAIN" />
-								<category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN" />
+                <!--action android:name="android.service.quicksettings.action.QS_TILE_PREFERENCES" /-->
 
-						</intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+
+            </intent-filter>
 
 				</activity>
 
 				<activity
-						android:name=".activities.AboutActivity"
-						android:label="@string/activity_about"/>
+						android:theme="@style/AppTheme.NoActionBar"
+						android:name=".activities.MainActivity">
+
+						<intent-filter>
+
+								<action android:name="android.intent.action.APPLICATION_PREFERENCES"/>
+								<action android:name="android.intent.action.VIEW"/>
+
+								<category android:name="android.intent.category.PREFERENCE" />
+								<category android:name="com.cyanogenmod.category.LAUNCHER_PREFERENCES"/>
+								<category android:name="android.intent.category.DEFAULT"/>
+								<category android:name="android.intent.category.BROWSABLE"/>
+
+								<data
+										android:host="app.settings"
+										android:scheme="a2iga"/>
+
+						</intent-filter>
+
+						<intent-filter>
+
+                <action android:name="android.intent.action.SEND" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="text/plain" />
+
+            </intent-filter>
+
+				</activity>
 
 				<activity
-						android:name=".activities.SettingsActivity"
-						android:label="@string/activity_settings"/>
+						android:hardwareAccelerated="true"
+						android:label="@string/activity_appslist"
+						android:theme="@style/AppTheme.NoActionBar"
+						android:name=".activities.AppsListActivity"/>
 
-				<meta-data
-						android:name="android.max_aspect"
-						android:value="4.0"/>
+				<!-- Активность, которая запускает приложение -->
+        <activity
+						android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"
+            android:noHistory="true" 
+            android:excludeFromRecents="true" 
+            android:finishOnCloseSystemDialogs="true" 
+            android:launchMode="singleInstance" 
+            android:name=".LaunchAssistant">
 
-		</application>
+            <intent-filter>
+                <action android:name="android.intent.action.ASSIST"/>
+								<action android:name="android.intent.extra.ASSIST_CONTEXT"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+
+						<!--meta-data
+						android:name="com.android.systemui.action_assist_icon"
+						android:resource="@mipmap/test" /-->
+
+        </activity>
+
+				<service 
+						android:name=".services.OTAService">
+						<intent-filter>
+								<action android:name="OTAService"/>
+								<category android:name="android.intent.category.DEFAULT"/>
+						</intent-filter>
+				</service>
+
+        <meta-data
+            android:name="android.max_aspect"
+            android:value="4.0"/>
+
+    </application>
 
 </manifest>

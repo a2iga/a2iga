@@ -1,8 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    
-    <string name="activity_main">@string/app_name</string>
-    <string name="activity_settings">Настройки приложения</string>
-    <string name="activity_about">О приложении</string>
-    
+	
+	<string name="activity_main">Настройка A2IGA</string>
+	<string name="activity_appslist">Список приложений</string>
+	<string name="activity_splash">app#splash</string>
+	
+	<string name="a2iga_not_default_assist_message">A2IGA не установлен в качестве ассистента по умолчанию. Пожалуйста, нажмите на эту карточку и в настройках помощника поставьте галочку напротив A2IGA.</string>
+	
+	<string name="app_unsupported_api22">У Вас старая версия Android!</string>
+	<string name="app_unsupported_api22_desc">Для работы A2IGA необходимо иметь версию Android 6.0 и новее.</string>
+	<string name="app_selected_as_assistant">Выбранное приложение успешно установлено в качестве ассистента!</string>
+	<string name="app_not_found">Приложение не найдено! Поиск в магазине приложений...</string>
+	
+	<string name="appslist_loading_dialog">Загрузка списка</string>
+	<string name="appslist_loading_dialog_desc">Подождите, идет загрузка списка установленных приложений...</string>
+	<string name="appslist_app_select_dialog">Подтвердите действие</string>
+	<string name="appslist_app_select_dialog_desc">Вы действительно хотите установить в качестве ассистента данное приложение?</string>
+	<string name="appslist_apps_count">Количество приложений: %1$s</string>
+	<string name="appslist_apps_count_filtered">Найдено совпадений: %1$s</string>
+	<string name="appslist_apps_count_filtered_zero" formatted="false">Нет совпадений ¯\u005c_(ツ)_/¯</string>
+	<string name="appslist_search_hint">Поиск приложения...</string>
+	
+	<string name="beta_version_installed">Вы используете версию A2IGA для тестирования. Возможны какие-либо ошибки в работе приложения и прочие недочеты.</string>
+	<string name="beta_version_block">Недоступно в тестовой версии</string>
+	
+	<string name="debug">Отладка</string>
+	<string name="debug_delAppData">Удалить данные приложения</string>
+	<string name="debug_delApp">Удалить приложение</string>
+	<string name="debug_dataAssistAppPkgName">Данные из ASSIST_APP_PKGNAME</string>
+	<string name="debug_sendRequest">Отправить запрос на установку</string>
+	<string name="debug_checkChangelogLink">Проверить ссылку changelog</string>
+	<string name="debug_openAssistAppCheckWindow">Выбор помощника</string>
+	<string name="debug_killApp">«Убить» приложение</string>
+	
+	<string name="fingerprint_perm_dialog">@string/app_name</string>
+	<string name="fingerprint_perm_dialog_desc">Пожалуйста, приложите зарегистрированный в системе палец к сканеру отпечатка пальца для запуска приложения</string>
+	<string name="fingerprint_perm_denied">Отказано в доступе! Отпечаток пальца не распознан!</string>
+	
+	<string name="assistant_from_intent_dialog">Запрос на установку</string>
+	<string name="assistant_from_intent_dialog_desc" formatted="false">Вы действительно хотите установить «&lt;b&gt;%1$s&lt;/b&gt;» в качестве приложения-ассистента?</string>
+	
+	<string name="current_assistant">Текущ. ассистент</string>
+	<string name="current_assistant_null">¯\u005c_(ツ)_/¯</string>
+	<string name="current_assistant_open_appslist">Нажмите на эту карточку для того, чтобы открыть список установленных приложений</string>
+	<string name="current_assistant_pkgname_dialog_title">Ручной ввод package name</string>
+	<string name="current_assistant_pkgname_dialog_message">Помимо возможности выбора приложения из AppsList, в A2IGA сохранена возможность установки приложения, которое будет запускаться при вызове ассистента, старым образом — ручной ввод package name.\n\nПожалуйста, введите правильно package name нужного приложения в поле ввода ниже (package name приложения можно скопировать в AppsList, выполнив долгий тап на пункте приложения):</string>
+	<string name="current_assistant_pkgname_dialog_hint">Текущ.:</string>
+	
+	<string name="pkg_name_copied">Имя пакета приложения скопировано!</string>
+	<string name="pkg_name_notspecified">Пожалуйста, перейдите в A2IGA и выберите необходимое приложение в качестве ассистента.</string>
+	
 </resources>

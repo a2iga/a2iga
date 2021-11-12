@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	
+	<!-- General -->
+	<string name="pref_general_category">Основные настройки</string>
+	<string name="pref_general_doze_mode">Режим Doze</string>
+	<string name="pref_general_doze_mode_desc">Уберите ограничение режима Doze для A2IGA, если приложение не запускается при вызове ассистента</string>
+	<string name="pref_general_doze_mode_desc_enabled">A2IGA уже включен в «белый лист» режима Doze!</string>
+	<!--string name="pref_general_"></string>
+	<string name="pref_general_"></string-->
+	
+	<!-- AppsList -->
+	<string name="pref_appslist_category">Список приложений</string>
+	<string name="pref_appslist_old_ui">Старая версия UI</string>
+	<string name="pref_appslist_old_ui_desc">Хотите вернуть внешний вид списка AppsList из старых версий A2IGA?</string>
+	<string name="pref_appslist_icons">Иконки приложений</string>
+	<string name="pref_appslist_icons_desc">Отображать иконки приложений в списке?</string>
+	<string name="pref_appslist_pkgname">Имя пакета</string>
+	<string name="pref_appslist_pkgname_desc">Отображать имя пакета приложения в списке?</string>
+	<string name="pref_appslist_extended">Расширенный список</string>
+	<string name="pref_appslist_extended_desc">Отображать абсолютно все приложения, установленные на устройстве, даже если в манифесте приложения не указан Intent для запуска?</string>
+	
+	<!-- Security -->
+	<string name="pref_safety_category">Безопасность</string>
+	<string name="pref_safety_fingerprint_perm">Запуск по отпечатку пальца</string>
+	<string name="pref_safety_fingerprint_perm_desc">Запрашивать подтверждение по отпечатку пальца при запуске приложения?</string>
+	<string name="pref_safety_fingerprint_perm_vibro">Тактильный отклик</string>
+	<string name="pref_safety_fingerprint_perm_vibro_desc">Вибрировать при запросе отпечатка пальца пользователя при запуске приложения?</string>
+	
+	<!-- OTA -->
+	<string name="pref_ota_category">Обновление приложения</string>
+	<string name="pref_ota_check">Проверить сейчас</string>
+	<string name="pref_ota_check_desc">Дата посл. проверки: </string>
+	<string name="pref_ota_check_desc_null">Нажмите, чтобы проверить наличие новой версии приложения</string>
+	<!--string name="pref_ota_check_frequence">Частота проверки</string>
+	<string name="pref_ota_check_frequence_desc"></string-->
+	
+	<!-- About -->
+	<string name="pref_about_category">О приложении</string>
+	<string name="pref_about_app_version">Версия A2IGA</string>
+	<string name="pref_about_app_changelog">История изменений</string>
+	<string name="pref_about_app_changelog_desc">Будет выполнен переход по ссылке в браузер</string>
+	<string name="pref_about_app_developer">Разработчик</string>
+	<string name="pref_about_app_code">Исходный код</string>
+	<string name="pref_about_app_code_desc">A2IGA является проектом с открытым исходным кодом и распространяется совершенно бесплатно. Каждый из пользователей может принять участие в разработке и переводе приложения на другие языки!</string>
+	<string name="pref_about_app_website">Веб-сайт</string>
+	<string name="pref_about_app_website_desc">Посетите официальный сайт A2IGA, где также можно найти FAQ по приложению</string>
+	<string name="pref_about_app_playstore">Google Play Store</string>
+	<string name="pref_about_app_playstore_desc">Посетите страницу A2IGA в Play Store чтобы оценить приложение</string>
+	<string name="pref_about_app_telegram">Telegram</string>
+	<string name="pref_about_app_telegram_desc">Подпишитесь на официальный канал @rx1310_dev, чтобы быть в курсе всех нововведений</string>
+	
+	<!--string name="pref_"></string>
+	<string name="pref_"></string>
+	<string name="pref_"></string>
+	<string name="pref_"></string>
+	<string name="pref_"></string>
+	<string name="pref_"></string>
+	<string name="pref_"></string>
+	<string name="pref_"></string>
+	<string name="pref_"></string>
+	<string name="pref_"></string-->
+	
+</resources>

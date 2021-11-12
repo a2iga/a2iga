@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+	
 	<string name="app_name" translatable="false">A2IGA</string>
+	<string name="app_name_full" translatable="false">Any app instead Google Assistant</string>
+	<string name="app_desc">Маленькая утилита, которая поможет заменить Google Assistant, вызываемый зажатием кнопки Home / жестом нижних краёв экрана (Android Q), на любое приложение, нужное вам.</string>
 	<string name="app_author" translatable="false">rx1310</string>
-	<string name="app_author_url" translatable="false">https://github.com/rx1310</string>
+	<string name="app_author_url" translatable="false">https://rx1310.github.io</string>
+	
 </resources>

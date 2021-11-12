@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-
-    <string name="about_version">Версия A2IGA</string>
-    <string name="about_build">Сборка</string>
-    <string name="about_maintainer">@string/app_author</string>
-
-</resources>

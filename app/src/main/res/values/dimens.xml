@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	
+	<dimen name="abc_control_corner_material">8.0dip</dimen>
+	<dimen name="compat_control_corner_material">8.0dip</dimen>
+	
+	<dimen name="ui_indent_left">?android:attr/listPreferredItemPaddingStart</dimen>
+	<dimen name="ui_indent_right">?android:attr/listPreferredItemPaddingEnd</dimen>
+	
+</resources>

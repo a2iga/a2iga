@@ -1,11 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-	<color name="colorAppIconBackground">#ff1a73e8</color>
-	<color name="colorIcon">?android:attr/colorAccent</color>
+    <style name="AppTheme" parent="Theme.AppCompat">
 
-	<style
-		name="AppTheme"
-		parent="@style/Theme.AppCompat"/>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
 
+        <item name="colorButtonNormal">@color/colorAccent</item>
+        <item name="colorControlHighlight">@color/colorHover</item>
+		<item name="colorControlNormal">@color/colorIcon</item>
+        <!--item name="bottomSheetDialogTheme">@style/AppTheme.SheetDialog</item-->
+		<!--item name="colorControlActivated">@color/colorAccent</item-->
+		
+		<item name="android:navigationBarColor">@color/colorSurface</item>
+        <item name="android:windowBackground">@color/colorSurface</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:displayOptions">showCustom</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">false</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
+        <item name="android:buttonStyle">@style/Widget.AppCompat.Button.Borderless.Colored</item>
+        <item name="android:colorButtonNormal">@color/colorAccent</item>
+		<item name="android:dialogTheme">@style/AppTheme.Dialog.Alert</item>
+		<item name="android:alertDialogTheme">@style/AppTheme.Dialog.Alert</item>
+		<item name="android:alertDialogStyle">@style/AppTheme.Dialog.Alert</item>
+		
+    </style>
+
+    <style name="AppTheme.Dialog.Alert" parent="Theme.AppCompat.Dialog.Alert">
+        <item name="android:windowBackground">@drawable/background_dialog_alert</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:colorPrimary">?colorPrimary</item>
+        <item name="android:colorAccent">@color/colorAccent</item>
+		<item name="android:colorActivatedHighlight">@color/colorAccent</item>
+		<item name="android:colorControlActivated">@color/colorAccent</item>
+		<item name="colorControlNormal">@color/colorAccent</item>
+		<item name="colorControlActivated">@color/colorAccent</item>
+		<!--item name="android:textColor">@color/colorAccent</item-->
+        <!--item name="android:textColorPrimary">#FFDBE500</item-->
+    </style>
+	
+	<style name="AppTheme.CardView" parent="Theme.AppCompat">  
+		<item name="cardCornerRadius">8dp</item>
+		<item name="cardElevation">2dp</item>
+		<item name="cardMaxElevation">4dp</item>
+		<item name="contentPaddingBottom">?android:attr/listPreferredItemPaddingEnd</item>
+		<item name="contentPaddingTop">?android:attr/listPreferredItemPaddingStart</item>
+		<item name="contentPaddingLeft">?android:attr/listPreferredItemPaddingStart</item>
+		<item name="contentPaddingRight">?android:attr/listPreferredItemPaddingEnd</item>
+		<item name="cardBackgroundColor">@color/colorCard</item>
+	</style>  
+	
+	<style name="AppTheme.CardView.Clickable" parent="AppTheme.CardView">  
+		<item name="android:clickable">true</item>
+		<item name="android:foreground">?android:attr/selectableItemBackground</item>
+	</style>
+	
+    <style name="AppTheme.NoActionBar" parent="AppTheme">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.Splash" parent="AppTheme.NoActionBar">
+        <item name="android:windowBackground">@drawable/layer_background_splash</item>
+        <item name="android:navigationBarColor">@color/colorSurface</item>
+        <item name="colorPrimaryDark">@color/colorSurface</item>
+    </style>
+	
+    <style name="AppTheme.TextAppearanceBody2">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+	
+	<style name="AppTheme.TextAppearanceTitle">
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+        <!--item name="android:textStyle">bold</item-->
+        <item name="android:textColor">@color/colorFont</item>
+    </style>
+	
 </resources>

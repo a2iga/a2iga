@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
+	android:paddingStart="?android:attr/listPreferredItemPaddingStart"
+	android:orientation="vertical"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:gravity="top|left|center">
+
+	<android.support.v7.widget.CardView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		style="@style/AppTheme.CardView.Clickable"
+		app:cardBackgroundColor="@color/colorAccent"
+		android:id="@+id/cardNotDefaultAssist"
+		android:layout_marginTop="10dp"
+		android:layout_marginLeft="57dp">
+
+		<LinearLayout
+			android:orientation="vertical"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:gravity="left|center">
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/a2iga_not_default_assist_message"
+				android:textColor="#FFFFFFFF"/>
+
+		</LinearLayout>
+
+	</android.support.v7.widget.CardView>
+
+	<android.support.v7.widget.CardView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		style="@style/AppTheme.CardView"
+		app:cardBackgroundColor="@color/colorError"
+		android:layout_marginTop="10dp"
+		android:id="@+id/cardUnsupportedApi22"
+		android:layout_marginBottom="10dp"
+		android:layout_marginLeft="57dp">
+
+		<LinearLayout
+			android:orientation="vertical"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:gravity="left|center">
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/app_unsupported_api22"
+				style="@style/AppTheme.TextAppearanceTitle"
+				android:textStyle="bold"/>
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/app_unsupported_api22_desc"/>
+
+		</LinearLayout>
+
+	</android.support.v7.widget.CardView>
+
+</LinearLayout>
+
